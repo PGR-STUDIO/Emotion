@@ -1,0 +1,15 @@
+# Fichiers macOS
+.DS_Store
+
+# Secrets et configuration locale
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Sorties locales de développement
+build/
+DerivedData/
+dist/
+node_modules/
