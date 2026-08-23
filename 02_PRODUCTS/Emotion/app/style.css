@@ -237,3 +237,9 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-vi
 #wheelPanel .wheel-selection-overlay{stroke:#29435f!important;stroke-width:5.5}
 #wheelPanel .extra-emotion.selected{border:2px solid var(--accent);background:var(--accent-soft);font-weight:800;box-shadow:0 0 0 2px #d8eadb}
 #wheelPanel .wheel-selection{padding:10px 12px;border:2px solid var(--accent);border-radius:12px;background:var(--accent-soft);text-align:center;color:var(--ink);font-weight:800}
+
+/* Sensation corporelle sélectionnée : état volontairement très lisible. */
+#understand .body-field .choice-chip.selected,
+#sense .body-field .choice-chip.selected{display:flex;align-items:center;justify-content:space-between;gap:8px;background:#cfe8d3!important;border:3px solid #6f9f7a!important;color:#29435f!important;font-weight:800;box-shadow:0 0 0 3px #e6f3e7,0 3px 0 #a9caae}
+#understand .body-field .choice-chip.selected::after,
+#sense .body-field .choice-chip.selected::after{content:'✓';color:#38734b;font-size:18px;line-height:1;font-weight:900}
