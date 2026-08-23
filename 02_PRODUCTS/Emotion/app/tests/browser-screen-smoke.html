@@ -58,6 +58,7 @@
       await waitFor(() => Boolean(doc().querySelector('#wheelPanel .extra-emotion')));
       click('Panique');
       await visit('understand', () => click('Comprendre cette émotion →'));
+      await visit('sense', () => click('Que ressens-tu ? →'));
       await visit('exercise', () => click('Voir l’exercice →'));
       await visit('exerciseRun', () => doc().querySelector('#exerciseStart').click());
       const exerciseTimerVisible = Boolean(doc().querySelector('#exerciseAnimation.show'));
@@ -85,7 +86,7 @@
       click('← Retour au repère');
       await visit('start', () => click('Nouveau'));
       await visit('privacy', () => click('Voir mes données et les supprimer'));
-      const result = { status: errors.length || visited.length !== 19 || libraryCards !== 15 || professionalWarnings !== 1 || !noHorizontalOverflow || definitionScrollTop > 1 || !exerciseTimerVisible ? 'failed' : 'passed', visited, libraryCards, professionalWarnings, exerciseTimerVisible, noHorizontalOverflow, definitionScrollTop, iframeErrors: errors };
+      const result = { status: errors.length || visited.length !== 20 || libraryCards !== 15 || professionalWarnings !== 1 || !noHorizontalOverflow || definitionScrollTop > 1 || !exerciseTimerVisible ? 'failed' : 'passed', visited, libraryCards, professionalWarnings, exerciseTimerVisible, noHorizontalOverflow, definitionScrollTop, iframeErrors: errors };
       output.textContent = JSON.stringify(result, null, 2);
       status.textContent = result.status === 'passed' ? 'RÉUSSI — écrans, scroll pédagogique et bibliothèque vérifiés' : 'ÉCHEC — voir le détail';
       status.classList.toggle('fail', result.status !== 'passed');
