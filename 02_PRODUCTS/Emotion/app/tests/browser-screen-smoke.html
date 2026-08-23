@@ -63,7 +63,7 @@
       const exerciseTimerVisible = Boolean(doc().querySelector('#exerciseAnimation.show'));
       await visit('exerciseResult', () => doc().querySelector('#exerciseStop').click());
       await visit('after', () => click('Passer aux questions →'));
-      for (let index = 0; index < 6; index += 1) click('Continuer →');
+      for (let index = 0; index < 5; index += 1) click('Continuer →');
       await visit('saved', () => click('Garder cette observation ✓'));
       await visit('observe', () => click('Faire une nouvelle observation →'));
 

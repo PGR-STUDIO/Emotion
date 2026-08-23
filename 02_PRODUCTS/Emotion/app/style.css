@@ -179,5 +179,29 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-vi
 .wheel-arc-label-1{font-size:8.5px}
 .wheel-arc-label-2{font-size:7.5px}
 
-/* Comprendre : la carte contextuelle contient déjà la définition de l’émotion. */
+/* Comprendre : montrer l’émotion choisie, ses liens possibles puis les sensations corporelles. */
+#understand .emotion-context{display:none;border:1px solid #dbe8df;border-radius:18px;background:linear-gradient(145deg,#f8fbf5,#fffefa);padding:14px;margin:12px 0 14px;gap:12px}
+#understand .emotion-context.show{display:grid}
+#understand .emotion-summary-heading{display:flex;align-items:center;justify-content:space-between;gap:10px}
+#understand .emotion-summary-identity{display:flex;align-items:center;gap:10px;min-width:0}
+#understand .emotion-summary-identity img,#understand .emotion-summary-identity>span{width:42px;height:42px;flex:0 0 42px;border-radius:50%;display:grid;place-items:center;background:#f1b0a7;color:#fff;font-size:25px;font-weight:800}
+#understand .emotion-summary-identity img{object-fit:contain}
+#understand .emotion-summary-identity div{display:grid;gap:3px;min-width:0}
+#understand .emotion-summary-kicker{color:#6b9b78;font-size:9px;letter-spacing:1.2px;font-weight:800}
+#understand .emotion-summary-identity b{font-size:21px;line-height:1.1}
+#understand .emotion-summary-intensity{display:grid;justify-items:end;gap:2px;color:var(--accent);white-space:nowrap}
+#understand .emotion-summary-intensity small{font-size:10px;color:var(--muted)}
+#understand .emotion-summary-intensity strong{font-size:22px}
+#understand .emotion-summary-definition{font-size:12px!important;line-height:1.4!important;color:var(--muted);margin:0!important}
+#understand .emotion-related{display:grid;gap:7px;border-top:1px solid #dbe8df;padding-top:10px}
+#understand .emotion-related>b{font-size:13px}
+#understand .emotion-related>div{display:flex;flex-wrap:wrap;gap:6px}
+#understand .emotion-related span{border:1px solid #dbe8df;border-radius:999px;background:#fffefa;color:var(--ink);padding:6px 9px;font-size:11px;font-weight:700}
+#understand .emotion-summary-note{display:block;color:var(--muted);font-size:10px;line-height:1.35}
+#understand .body-field{margin:0 0 16px;padding:14px;border:1px solid #e1e9df;border-radius:16px;background:#f8fbf5}
+#understand .body-field>span{font-size:14px}
+#understand .body-field .field-hint{margin:5px 0 10px;font-size:11px}
+#understand .body-field .choice-chips{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+#understand .body-field .choice-chip{min-width:0;border-color:#e1e9df;background:#fffefa;text-align:left;line-height:1.2}
 #understand .emotion-insight{display:none!important}
+@media(max-width:360px){#understand .emotion-summary-identity b{font-size:18px}#understand .emotion-summary-intensity strong{font-size:19px}#understand .body-field .choice-chips{grid-template-columns:1fr}}

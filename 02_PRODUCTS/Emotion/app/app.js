@@ -145,11 +145,14 @@ function renderEmotionContext() {
   const name = guidance?.name || emotion.name;
   const phrase = emotionSentenceForm(name);
   const triggers = (guidance?.triggers || emotion?.common_triggers || []).slice(0, 3);
+  const body = (guidance?.body || emotion?.body_sensations || []).slice(0, 6);
   const thoughts = (emotion?.associated_thoughts || []).slice(0, 2);
   const needs = (emotion?.psychological_needs || []).slice(0, 3);
   const behaviors = (guidance?.impulse || emotion?.possible_behaviors || []).slice(0, 2);
   if (understand) {
-    understand.innerHTML = `<b>Pour ${escapeHtml(name)}</b><p>${escapeHtml(guidance?.definition || emotion?.definition || 'Cet état peut donner une information sur ce qui compte pour toi.')}</p>${triggers.length ? `<small><strong>Déclencheurs possibles :</strong> ${triggers.map(item => escapeHtml(item)).join(' · ')}</small>` : ''}${guidance?.body?.length ? `<small><strong>Dans le corps :</strong> ${guidance.body.slice(0, 4).map(item => escapeHtml(item)).join(' · ')}</small>` : ''}<small>Ce sont des pistes : garde seulement ce qui correspond à ton vécu.</small>`;
+    const selectedMain = emotions.find(([id]) => id === draft.emotion);
+    const mark = selectedMain ? `<img src="assets/${selectedMain[2]}" alt="">` : '<span aria-hidden="true">•</span>';
+    understand.innerHTML = `<div class="emotion-summary-heading"><div class="emotion-summary-identity">${mark}<div><span class="emotion-summary-kicker">VOUS AVEZ SÉLECTIONNÉ</span><b>${escapeHtml(name)}</b></div></div><div class="emotion-summary-intensity"><small>Intensité actuelle</small><strong>${draft.intensity}/10</strong></div></div>${guidance?.definition || emotion?.definition ? `<p class="emotion-summary-definition">${escapeHtml(guidance?.definition || emotion?.definition)}</p>` : ''}${triggers.length ? `<div class="emotion-related"><b>Cette émotion peut être liée à :</b><div>${triggers.map(item => `<span>${escapeHtml(item)}</span>`).join('')}</div></div>` : ''}<small class="emotion-summary-note">Ce sont des pistes : garde seulement ce qui correspond à ton vécu.</small>`;
     understand.classList.add('show');
   }
   if (after) {
@@ -519,8 +522,14 @@ function insertDynamicPanels() {
   $('#start').insertAdjacentHTML('beforeend', '<button id="privacyButton" class="text-link">Voir mes données et les supprimer</button>');
   const intensity = $('#observe .intensity-block');
   const context = $('#understandContext');
+  const bodyField = $('#understand .body-field');
   const insight = $('#emotionInsight');
   if (intensity && context) context.insertAdjacentElement('afterend', intensity);
+  if (context && bodyField) {
+    context.insertAdjacentElement('afterend', bodyField);
+    bodyField.querySelector('strong').textContent = 'Que ressens-tu dans ton corps ?';
+    bodyField.querySelector('.field-hint').textContent = 'Choisis les sensations qui correspondent à ton vécu.';
+  }
   if (insight && intensity) intensity.insertAdjacentElement('afterend', insight);
   const recommendation = $('#exerciseRecommendation');
   if (recommendation) {
@@ -539,7 +548,7 @@ function insertDynamicPanels() {
   questionFlow.id = 'questionFlow';
   questionFlow.className = 'question-flow';
   $('#afterContext').insertAdjacentElement('afterend', questionFlow);
-  ['situation', 'thoughts', 'bodySigns', 'need', 'reaction', 'consequence', 'question'].forEach((id, index) => {
+  ['situation', 'thoughts', 'need', 'reaction', 'consequence', 'question'].forEach((id, index) => {
     const field = id === 'bodySigns' ? $('#bodySigns')?.closest('.body-field') : $('#' + id)?.closest('.field');
     if (!field) return;
     field.classList.add('question-step');
