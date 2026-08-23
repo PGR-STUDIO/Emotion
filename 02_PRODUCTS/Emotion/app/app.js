@@ -327,12 +327,24 @@ function syncQuickLevels() { $('#level').value = draft.intensity; $('#levelValue
 function renderBodySigns() {
   const scientificOptions = scientificEmotion()?.body_sensations;
   const guidanceOptions = emotionGuidance()?.body;
-  const options = scientificOptions?.length ? scientificOptions : guidanceOptions?.length ? guidanceOptions : (bodySignsByEmotion[draft.emotion] || bodySignOptions);
-  $('#bodySigns').innerHTML = options.map(sign => `<button type="button" class="choice-chip ${draft.bodySigns.includes(sign) ? 'selected' : ''}" data-body-sign="${escapeHtml(sign)}" aria-pressed="${draft.bodySigns.includes(sign)}">${escapeHtml(sign)}</button>`).join('');
+  const options = [...new Set(scientificOptions?.length ? scientificOptions : guidanceOptions?.length ? guidanceOptions : (bodySignsByEmotion[draft.emotion] || bodySignOptions))];
+  const otherValue = draft.bodySigns.find(sign => sign === 'Autre' || sign.startsWith('Autre : ')) || '';
+  $('#bodySigns').innerHTML = `${options.map(sign => `<button type="button" class="choice-chip ${draft.bodySigns.includes(sign) ? 'selected' : ''}" data-body-sign="${escapeHtml(sign)}" aria-pressed="${draft.bodySigns.includes(sign)}">${escapeHtml(sign)}</button>`).join('')}<button type="button" class="choice-chip body-other-choice ${otherValue ? 'selected' : ''}" data-body-sign="__other__" aria-pressed="${Boolean(otherValue)}">Autre</button>${otherValue ? `<label class="body-other-field">Précise si tu le souhaites<input id="bodyOther" type="text" maxlength="80" value="${escapeHtml(otherValue.replace(/^Autre\s*:\s*/, ''))}" placeholder="Ex. gorge serrée, vertige…"></label>` : ''}`;
   document.querySelectorAll('[data-body-sign]').forEach(button => button.onclick = () => {
     const sign = button.dataset.bodySign;
-    draft.bodySigns = draft.bodySigns.includes(sign) ? draft.bodySigns.filter(item => item !== sign) : [...draft.bodySigns, sign];
+    if (sign === '__other__') {
+      const existing = draft.bodySigns.find(item => item === 'Autre' || item.startsWith('Autre : '));
+      draft.bodySigns = existing ? draft.bodySigns.filter(item => item !== existing) : [...draft.bodySigns, 'Autre'];
+    } else {
+      draft.bodySigns = draft.bodySigns.includes(sign) ? draft.bodySigns.filter(item => item !== sign) : [...draft.bodySigns, sign];
+    }
     saveDraft(); renderBodySigns();
+  });
+  $('#bodyOther')?.addEventListener('input', event => {
+    const value = event.target.value.trim();
+    draft.bodySigns = draft.bodySigns.filter(item => item !== 'Autre' && !item.startsWith('Autre : '));
+    draft.bodySigns.push(value ? `Autre : ${value}` : 'Autre');
+    saveDraft();
   });
 }
 function renderWheel() {

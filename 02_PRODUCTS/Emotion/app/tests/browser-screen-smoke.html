@@ -59,6 +59,12 @@
       click('Panique');
       await visit('understand', () => click('Comprendre cette émotion →'));
       await visit('sense', () => click('Que ressens-tu ? →'));
+      await waitFor(() => Boolean(button('Autre')));
+      click('Autre');
+      const otherBody = doc().querySelector('#bodyOther');
+      if (!otherBody) throw new Error('Champ Autre absent dans les sensations corporelles');
+      otherBody.value = 'vertige';
+      otherBody.dispatchEvent(new Event('input', { bubbles: true }));
       await visit('exercise', () => click('Voir l’exercice →'));
       await visit('exerciseRun', () => doc().querySelector('#exerciseStart').click());
       const exerciseTimerVisible = Boolean(doc().querySelector('#exerciseAnimation.show'));

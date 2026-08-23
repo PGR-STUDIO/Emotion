@@ -211,6 +211,9 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-vi
 #sense .body-field .field-hint{margin:5px 0 10px;font-size:11px}
 #sense .body-field .choice-chips{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
 #sense .body-field .choice-chip{min-width:0;border-color:#e1e9df;background:#fffefa;text-align:left;line-height:1.2}
+#sense .body-field .body-other-choice{border-style:dashed;color:var(--muted)}
+#sense .body-field .body-other-field{grid-column:1 / -1;display:grid;gap:6px;margin-top:2px;color:var(--muted);font-size:11px;font-weight:700}
+#sense .body-field .body-other-field input{width:100%;border:1px solid #dbe8df;border-radius:12px;background:#fffefa;color:var(--ink);padding:10px 11px;font-size:13px}
 #sense .intensity-block{margin-top:20px}
 #sense .main-action{margin-top:20px}
 #sense .emotion-insight{display:none!important}
