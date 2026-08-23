@@ -274,22 +274,22 @@ function emotionIcon(name) {
   let family = 'relational';
   if (/joie|serenite|extase|acceptation|confiance|admiration|espoir|soulagement|gratitude|fierte|amour|affection|plaisir/.test(key)) family = 'joy';
   else if (/trist|melancolie|chagrin|solitude|decouragement|regret|deception|abandon/.test(key)) family = 'sad';
-  else if (/colere|rage|agacement|contrariete|frustration|irrit|injustice/.test(key)) family = 'anger';
+  else if (/colere|rage|agac|contrariete|frustration|irrit|injustice/.test(key)) family = 'anger';
   else if (/peur|apprehension|terreur|anxiete|panique|vigilance|alerte/.test(key)) family = 'fear';
   else if (/surprise|sideration|stupefaction|distraction/.test(key)) family = 'surprise';
   else if (/degout|aversion|mepris|rejet/.test(key)) family = 'disgust';
   else if (/interet|anticipation|curiosite|enthousiasme/.test(key)) family = 'anticipation';
-  else if (/stress|confusion|impuissance|surcharge|epuisement|vide|ennui/.test(key)) family = 'blocked';
+  else if (/stress|stresse|confusion|impuissance|surcharge|epuisement|vide|ennui/.test(key)) family = 'blocked';
   const specs = {
-    joy: { bg: '#fff1c9', eyes: '<path d="M40 50c4 5 9 5 13 0M67 50c4 5 9 5 13 0"/>', mouth: '<path d="M39 64c11 16 31 16 42 0"/>' },
-    sad: { bg: '#e2e8fc', eyes: '<path d="M40 50c4-5 9-5 13 0M67 50c4-5 9-5 13 0"/>', mouth: '<path d="M42 77c11-14 25-14 36 0"/>' },
-    anger: { bg: '#ffe1dd', eyes: '<path d="M39 43l16 9M81 43L65 52"/>', mouth: '<path d="M42 77c11-14 25-14 36 0"/>' },
-    fear: { bg: '#e0f6f7', eyes: '<circle cx="45" cy="49" r="7"/><circle cx="75" cy="49" r="7"/>', mouth: '<ellipse cx="60" cy="73" rx="8" ry="11"/>' },
-    surprise: { bg: '#f1e4ff', eyes: '<circle cx="45" cy="49" r="5"/><circle cx="75" cy="49" r="5"/>', mouth: '<ellipse cx="60" cy="73" rx="9" ry="12"/>' },
-    disgust: { bg: '#edf0cc', eyes: '<path d="M39 51c5-6 10-6 15 0M66 51c5-6 10-6 15 0"/>', mouth: '<path d="M42 70c8-9 14 9 36 0"/>' },
-    anticipation: { bg: '#fff0cf', eyes: '<path d="M40 49h14M66 49h14"/>', mouth: '<path d="M43 68c10 7 24 7 34 0"/>' },
-    relational: { bg: '#f7e5e7', eyes: '<path d="M40 51h14M66 51h14"/>', mouth: '<path d="M44 75c9-6 23-6 32 0"/>' },
-    blocked: { bg: '#eee5fb', eyes: '<path d="M40 50h14M66 50h14"/>', mouth: '<path d="M50 72h20"/>' }
+    joy: { bg: '#fff1c9', accent: '#8bbf78', eyes: '<path d="M40 50c4 5 9 5 13 0M67 50c4 5 9 5 13 0"/>', mouth: '<path d="M39 64c11 16 31 16 42 0"/>' },
+    sad: { bg: '#e2e8fc', accent: '#6d91d7', eyes: '<path d="M40 50c4-5 9-5 13 0M67 50c4-5 9-5 13 0"/>', mouth: '<path d="M42 77c11-14 25-14 36 0"/>' },
+    anger: { bg: '#ffe1dd', accent: '#ef5751', eyes: '<path d="M39 43l16 9M81 43L65 52"/>', mouth: '<path d="M42 77c11-14 25-14 36 0"/>' },
+    fear: { bg: '#e0f6f7', accent: '#55b9c6', eyes: '<circle cx="45" cy="49" r="7"/><circle cx="75" cy="49" r="7"/>', mouth: '<ellipse cx="60" cy="73" rx="8" ry="11"/>' },
+    surprise: { bg: '#f1e4ff', accent: '#a779df', eyes: '<circle cx="45" cy="49" r="5"/><circle cx="75" cy="49" r="5"/>', mouth: '<ellipse cx="60" cy="73" rx="9" ry="12"/>' },
+    disgust: { bg: '#edf0cc', accent: '#a9b957', eyes: '<path d="M39 51c5-6 10-6 15 0M66 51c5-6 10-6 15 0"/>', mouth: '<path d="M42 70c8-9 14 9 36 0"/>' },
+    anticipation: { bg: '#fff0cf', accent: '#e9a235', eyes: '<path d="M40 49h14M66 49h14"/>', mouth: '<path d="M43 68c10 7 24 7 34 0"/>' },
+    relational: { bg: '#f7e5e7', accent: '#df8da0', eyes: '<path d="M40 51h14M66 51h14"/>', mouth: '<path d="M44 75c9-6 23-6 32 0"/>' },
+    blocked: { bg: '#eee5fb', accent: '#9e76df', eyes: '<path d="M40 50h14M66 50h14"/>', mouth: '<path d="M50 72h20"/>' }
   };
   const spec = specs[family];
   const decorations = {
@@ -343,7 +343,7 @@ function emotionIcon(name) {
     blocked: '<path d="M25 30h70M25 90h70"/>'
   };
   const decoration = decorations[key] || familyDecorations[family];
-  return `<svg class="emotion-logo" viewBox="0 0 120 120" role="img" aria-label="Icône ${escapeHtml(name)}"><circle cx="60" cy="60" r="47" fill="${spec.bg}"/><g fill="none" stroke="#29435f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">${spec.eyes}${spec.mouth}${decoration}</g></svg>`;
+  return `<svg class="emotion-logo" viewBox="0 0 120 120" role="img" aria-label="Icône ${escapeHtml(name)}"><circle cx="60" cy="60" r="47" fill="${spec.bg}"/><circle cx="60" cy="60" r="31" fill="#fffefa" stroke="#0b2f6b" stroke-width="6"/><g fill="none" stroke="#0b2f6b" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round">${spec.eyes}${spec.mouth}</g><g fill="none" stroke="${spec.accent}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">${decoration}</g></svg>`;
 }
 let state = { entries: [] };
 let secureMode = !BROWSER_TEST_MODE && Boolean(localStorage.getItem(SECURE_KEY));

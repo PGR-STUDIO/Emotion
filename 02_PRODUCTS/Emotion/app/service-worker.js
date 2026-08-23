@@ -1,4 +1,4 @@
-const CACHE = 'mon-repere-emotions-v0.9.12';
+const CACHE = 'mon-repere-emotions-v0.9.13';
 const CORE = [
   './', './index.html', './app.js', './style.css', './manifest.json',
   './scientific_knowledge_base/data/emotions.json',
