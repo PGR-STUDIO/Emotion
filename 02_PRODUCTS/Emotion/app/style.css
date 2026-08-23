@@ -222,3 +222,5 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-vi
 #understand .emotion-summary-identity .emotion-logo{width:42px;height:42px}
 .extra-emotion{display:inline-flex;align-items:center;gap:6px}
 .extra-emotion .emotion-logo{width:24px;height:24px;flex-basis:24px}
+.wheel-legend>span{display:flex;align-items:center;gap:7px}
+.wheel-legend .emotion-logo{width:24px;height:24px;flex-basis:24px}

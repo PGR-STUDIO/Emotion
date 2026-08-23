@@ -30,7 +30,7 @@
       while (Date.now() < end) { if (predicate()) return; await wait(80); }
       throw new Error('Délai dépassé pendant le smoke test');
     }
-    function button(label) { return [...doc().querySelectorAll('button')].find(item => item.textContent.trim() === label && item.offsetParent !== null && !item.disabled); }
+    function button(label) { return [...doc().querySelectorAll('button')].find(item => (item.dataset.nuance || item.textContent.trim()) === label && item.offsetParent !== null && !item.disabled); }
     function click(label) { const item = button(label); if (!item) throw new Error(`Bouton absent : ${label}`); item.click(); }
     function active(id) { return doc().querySelector('.screen.active')?.id === id; }
     async function expectScreen(id) { await waitFor(() => active(id)); }

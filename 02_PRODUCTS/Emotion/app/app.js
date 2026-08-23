@@ -271,6 +271,15 @@ const wheelData = [
 const wheelDisplayLabel = word => word === 'Stupéfaction' ? 'Sidération' : word;
 function emotionIcon(name) {
   const key = normalizeText(name);
+  const glyphs = {
+    'serenite': '🌤️', 'joie': '🙂', 'extase': '⭐', 'acceptation': '🤝', 'confiance': '🤝', 'admiration': '⭐',
+    'apprehension': '😟', 'peur': '😨', 'terreur': '😱', 'distraction': '👀', 'surprise': '😲', 'stupefaction': '🤯',
+    'melancolie': '🌧️', 'tristesse': '😢', 'chagrin': '💔', 'ennui': '😒', 'degout': '🤢', 'aversion': '↩️',
+    'contrariete': '😤', 'colere': '😠', 'rage': '🔥', 'interet': '🔎', 'anticipation': '👁️', 'vigilance': '🛡️',
+    'anxiete': '😰', 'honte': '😳', 'culpabilite': '😔', 'solitude': '🧍', 'frustration': '😤', 'amour / affection': '❤️',
+    'espoir': '🌱', 'soulagement': '😌', 'gratitude': '🙏', 'fierte': '🏆', 'curiosite': '🔎', 'panique': '😱',
+    'impuissance': '🫥', 'confusion': '❓', 'surcharge': '🔋', 'decouragement': '📉', 'rejet': '🚫'
+  };
   let family = 'relational';
   if (/joie|serenite|extase|acceptation|confiance|admiration|espoir|soulagement|gratitude|fierte|amour|affection|plaisir/.test(key)) family = 'joy';
   else if (/trist|melancolie|chagrin|solitude|decouragement|regret|deception|abandon/.test(key)) family = 'sad';
@@ -292,7 +301,8 @@ function emotionIcon(name) {
     blocked: { bg: '#eee5fb', eyes: '<path d="M41 49h10M69 49h10"/>', mouth: '<path d="M51 70h18"/>' }
   };
   const spec = specs[family];
-  return `<svg class="emotion-logo" viewBox="0 0 120 120" role="img" aria-label="Icône ${escapeHtml(name)}"><circle cx="60" cy="60" r="43" fill="${spec.bg}"/><g fill="none" stroke="#29435f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">${spec.eyes}${spec.mouth}</g></svg>`;
+  const glyph = glyphs[key] || '•';
+  return `<svg class="emotion-logo" viewBox="0 0 120 120" role="img" aria-label="Icône ${escapeHtml(name)}"><circle cx="60" cy="60" r="43" fill="${spec.bg}"/><g fill="none" stroke="#29435f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">${spec.eyes}${spec.mouth}</g><text x="91" y="30" font-size="20" text-anchor="middle">${glyph}</text></svg>`;
 }
 let state = { entries: [] };
 let secureMode = !BROWSER_TEST_MODE && Boolean(localStorage.getItem(SECURE_KEY));
@@ -384,7 +394,7 @@ function renderWheel() {
   wheelData.forEach((family, familyIndex) => family.levels.forEach((word, levelIndex) => { if (draft.nuance !== word) return; const start = familyIndex * 45 - 21.7; const end = start + 43.4; const selectedShape = sector(rings[levelIndex][0], rings[levelIndex][1], start, end); selectedOverlay = `<path class="wheel-selection-halo" d="${selectedShape}"></path><path class="wheel-selection-overlay" d="${selectedShape}" stroke="${family.colors[1]}"></path>`; }));
   const labelPaths = wheelData.map((family, familyIndex) => family.levels.map((word, levelIndex) => { const radius = [139, 102, 66][levelIndex]; const start = familyIndex * 45 - 17; const end = start + 34; const defaultForward = familyIndex < 4; const forward = [3, 6, 7].includes(familyIndex) ? !defaultForward : defaultForward; const [x1, y1] = point(radius, forward ? start : end); const [x2, y2] = point(radius, forward ? end : start); return `<path id="wheel-label-path-${familyIndex}-${levelIndex}" class="wheel-label-path" d="M ${x1} ${y1} A ${radius} ${radius} 0 0 ${forward ? 1 : 0} ${x2} ${y2}"/>`; }).join('')).join('');
   const labelsInWheel = wheelData.map((family, familyIndex) => family.levels.map((word, levelIndex) => `<text class="wheel-arc-label wheel-arc-label-${levelIndex}"><textPath href="#wheel-label-path-${familyIndex}-${levelIndex}" startOffset="50%">${wheelDisplayLabel(word)}</textPath></text>`).join('')).join('');
-  const legend = wheelData.map((family, index) => `<span><i style="background:${family.colors[1]}"></i>${wheelItems[index]}</span>`).join('');
+  const legend = wheelData.map((family, index) => `<span>${emotionIcon(wheelItems[index])}<i style="background:${family.colors[1]}"></i>${wheelItems[index]}</span>`).join('');
   $('#wheelPanel').innerHTML = `<p>Touche directement une zone. Plus elle est proche du centre, plus l’intensité est forte.</p><div class="interactive-wheel-wrap"><svg class="interactive-wheel" viewBox="20 20 320 320" role="group" aria-label="Roue interactive des émotions de Plutchik"><defs>${labelPaths}</defs>${svg}${selectedOverlay}<circle cx="180" cy="180" r="43" class="wheel-center"></circle>${labelsInWheel}</svg></div><div class="wheel-legend">${legend}</div><div class="wheel-extra-emotions"><b>Autres émotions disponibles · 17 nuances</b><div>${extraEmotionOptions.map(word => `<button type="button" class="extra-emotion ${draft.nuance === word ? 'selected' : ''}" data-nuance="${escapeHtml(word)}" aria-pressed="${draft.nuance === word}">${emotionIcon(word)}<span>${escapeHtml(word)}</span></button>`).join('')}</div></div><div class="wheel-selection">${draft.nuance ? `Émotion choisie : ${escapeHtml(wheelDisplayLabel(draft.nuance))}` : 'Aucune émotion choisie pour le moment.'}</div><p class="wheel-credit">Roue interactive inspirée du modèle de Robert Plutchik. 41 émotions disposent d’un exercice adapté.</p>`;
 }
 document.addEventListener('click', event => {
