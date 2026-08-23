@@ -1,0 +1,23 @@
+{
+  "date": "2026-08-22",
+  "origin": "http://127.0.0.1:8086/",
+  "browser_runtime": "Codex in-app browser",
+  "checks": {
+    "scientific_base_loaded": {
+      "status": "passed",
+      "evidence": "33 études, 24 émotions, 11 exercices, 12 textes PMC vérifiés et 21 accès intégraux à compléter affichés."
+    },
+    "safety_triage": {
+      "status": "passed",
+      "evidence": "Le texte de test de danger affiche l'alerte, désactive la poursuite et masque l'exercice."
+    },
+    "mobile_390x844": {
+      "status": "passed",
+      "evidence": "clientWidth=390, scrollWidth=390, aucune erreur JavaScript."
+    },
+    "offline_reload": {
+      "status": "passed",
+      "evidence": "Après mise en cache puis émulation réseau hors ligne, l'application recharge l'écran scientifique et le bouton de démarrage sans erreur."
+    }
+  }
+}

@@ -1,0 +1,680 @@
+const KEY = 'pgr-simple-final';
+const DRAFT_KEY = 'pgr-simple-final-draft';
+const SECURE_KEY = 'pgr-simple-final-secure';
+const SECURE_DRAFT_KEY = 'pgr-simple-final-draft-secure';
+const BROWSER_TEST_MODE = new URLSearchParams(location.search).get('browser-test') === '1';
+const $ = selector => document.querySelector(selector);
+if (location.protocol !== 'file:' && 'serviceWorker' in navigator) navigator.serviceWorker.register('service-worker.js').catch(error => console.warn('Mode hors ligne indisponible.', error));
+if (!document.querySelector('link[rel="manifest"]')) { const manifest = document.createElement('link'); manifest.rel = 'manifest'; manifest.href = 'manifest.json'; document.head.appendChild(manifest); }
+
+const emotions = [
+  ['calm', 'Calme', 'icon-calm.png'],
+  ['anger', 'Agacé', 'icon-irritated.png'],
+  ['sad', 'Triste', 'icon-sad.png'],
+  ['stress', 'Stressé', 'icon-stressed.png'],
+  ['rage', 'En colère', 'icon-angry.png']
+];
+const labels = Object.fromEntries(emotions.map(([id, label]) => [id, label]));
+labels.unknown = 'Je ne sais pas encore';
+
+const exercises = {
+  calm: { name: 'Repérer ce qui t’aide', duration: 60, kind: 'timer', text: 'Pendant une minute, remarque ce qui soutient ton calme : une personne, un lieu, une action ou une sensation.' },
+  anger: { name: 'Créer un délai', duration: 60, kind: 'timer', text: 'Éloigne-toi si possible. Pose les pieds au sol et attends une minute avant de répondre ou d’agir.' },
+  sad: { name: 'Nommer le besoin', duration: 45, kind: 'timer', text: 'Complète doucement : « Là, j’aurais peut-être besoin de… » Il n’y a pas besoin de trouver une solution.' },
+  stress: { name: 'Revenir à l’extérieur', duration: 60, kind: 'breath', text: 'Regarde autour de toi et nomme trois choses que tu vois. Laisse ta respiration rester naturelle.' },
+  rage: { name: 'Prendre de la distance', duration: 60, kind: 'timer', text: 'Mets de l’espace entre toi et la situation si possible. Ne règle pas le problème pendant le pic de colère.' }
+};
+const nuanceExercises = {
+  'Sérénité': { name: 'Ancrer le calme', duration: 45, kind: 'timer', text: 'Repère trois sensations agréables ou neutres et reste quelques secondes avec chacune.' },
+  'Joie': { name: 'Savourer un instant', duration: 45, kind: 'timer', text: 'Rappelle-toi ce qui nourrit cette joie et observe comment elle se manifeste dans ton corps.' },
+  'Extase': { name: 'Ralentir même quand c’est fort', duration: 60, kind: 'breath', text: 'Laisse l’émotion être présente sans agir tout de suite. Respire doucement et garde les pieds au sol.' },
+  'Acceptation': { name: 'Cesser de lutter un instant', duration: 60, kind: 'timer', text: 'Dis-toi : « C’est ce qui est là maintenant. » Observe sans chercher à le faire disparaître.' },
+  'Confiance': { name: 'Retrouver un appui', duration: 45, kind: 'timer', text: 'Nomme une personne, une compétence ou une expérience sur laquelle tu peux t’appuyer.' },
+  'Admiration': { name: 'Identifier ce qui inspire', duration: 45, kind: 'timer', text: 'Note ce que tu apprécies précisément et une petite chose que tu pourrais en apprendre.' },
+  'Appréhension': { name: 'Distinguer risque et pensée', duration: 60, kind: 'breath', text: 'Respire naturellement puis sépare ce que tu sais, ce que tu imagines et ce que tu peux vérifier.' },
+  'Peur': { name: 'Revenir au présent', duration: 60, kind: 'breath', text: 'Regarde cinq éléments autour de toi et rappelle-toi : « Maintenant, je suis ici. »' },
+  'Terreur': { name: 'Chercher la sécurité', duration: 60, kind: 'timer', text: 'Éloigne-toi du danger si nécessaire et contacte une personne de confiance ou les secours si tu n’es pas en sécurité.' },
+  'Distraction': { name: 'Une chose à la fois', duration: 45, kind: 'timer', text: 'Choisis une seule chose visible et décris-la lentement avec tes cinq sens.' },
+  'Surprise': { name: 'Faire une pause', duration: 30, kind: 'breath', text: 'Ne réponds pas tout de suite. Respire une fois et nomme simplement ce qui vient de se passer.' },
+  'Stupéfaction': { name: 'Reprendre ses repères', duration: 60, kind: 'timer', text: 'Pose les pieds au sol, regarde autour de toi et demande-toi quelle est la prochaine petite étape.' },
+  'Mélancolie': { name: 'Accueillir la baisse', duration: 45, kind: 'timer', text: 'Mets des mots simples sur ce qui pèse et choisis un geste doux pour prendre soin de toi.' },
+  'Tristesse': { name: 'Nommer le besoin', duration: 45, kind: 'timer', text: 'Complète doucement : « Là, j’aurais peut-être besoin de… » sans chercher à résoudre immédiatement.' },
+  'Chagrin': { name: 'Ne pas rester seul', duration: 60, kind: 'timer', text: 'Pense à une personne à prévenir et écris une phrase simple pour demander une présence ou une écoute.' },
+  'Ennui': { name: 'Réactiver doucement', duration: 60, kind: 'timer', text: 'Choisis une action courte, faisable en cinq minutes, qui donne un peu de mouvement à ton moment.' },
+  'Dégoût': { name: 'Créer une distance', duration: 45, kind: 'timer', text: 'Éloigne-toi de ce qui te dérange si possible, puis décris précisément ce qui a déclenché la réaction.' },
+  'Aversion': { name: 'Clarifier sa limite', duration: 60, kind: 'timer', text: 'Complète : « Je ne veux pas… » puis « Ce dont j’ai besoin pour me sentir respecté est… »' },
+  'Contrariété': { name: 'Repérer le grain de sable', duration: 45, kind: 'timer', text: 'Nomme le détail précis qui t’a contrarié avant de décider s’il mérite une action.' },
+  'Colère': { name: 'Créer un délai', duration: 60, kind: 'timer', text: 'Pose les pieds au sol, éloigne-toi si possible et attends avant de répondre ou d’agir.' },
+  'Rage': { name: 'Prendre de la distance', duration: 60, kind: 'timer', text: 'Mets de l’espace entre toi et la situation. Ne règle pas le problème pendant le pic de colère.' },
+  'Intérêt': { name: 'Suivre la curiosité', duration: 45, kind: 'timer', text: 'Note une question que cette situation fait naître et une façon calme d’y répondre.' },
+  'Anticipation': { name: 'Préparer la prochaine étape', duration: 60, kind: 'timer', text: 'Écris ce que tu peux réellement préparer maintenant, puis ce qui devra attendre.' },
+  'Vigilance': { name: 'Observer sans se tendre', duration: 60, kind: 'breath', text: 'Balaye doucement ton environnement et distingue les signes utiles des alertes imaginées.' }
+};
+const scientific = { emotions: [], guidance: [], exercises: [], studies: [], rules: null, safety: null, evidence: null, sources: null, emotionExerciseMap: [], ready: false };
+const scientificEmotionNames = { calm: 'Sérénité', anger: 'Colère', sad: 'Tristesse', stress: 'Stress', rage: 'Colère', unknown: '' };
+const emotionSentenceForms = {
+  'Sérénité': 'la sérénité', 'Joie': 'la joie', 'Extase': 'l’extase', 'Acceptation': 'l’acceptation', 'Confiance': 'la confiance', 'Admiration': 'l’admiration', 'Appréhension': 'l’appréhension', 'Peur': 'la peur', 'Terreur': 'la terreur', 'Distraction': 'la distraction', 'Surprise': 'la surprise', 'Stupéfaction': 'la stupéfaction', 'Mélancolie': 'la mélancolie', 'Tristesse': 'la tristesse', 'Chagrin': 'le chagrin', 'Ennui': 'l’ennui', 'Dégoût': 'le dégoût', 'Aversion': 'l’aversion', 'Contrariété': 'la contrariété', 'Colère': 'la colère', 'Rage': 'la rage', 'Intérêt': 'l’intérêt', 'Anticipation': 'l’anticipation', 'Vigilance': 'la vigilance', 'Anxiété': 'l’anxiété', 'Honte': 'la honte', 'Culpabilité': 'la culpabilité', 'Solitude': 'la solitude', 'Frustration': 'la frustration', 'Stress': 'le stress'
+};
+function emotionSentenceForm(name) { return emotionSentenceForms[name] || `l’émotion « ${String(name).toLowerCase()} »`; }
+const scientificExerciseIds = {
+  grounding: 'EX-GROUNDING-321', breathing: 'EX-MINDFUL-BREATHING', journal: 'EX-EMOTION-JOURNAL', needs: 'EX-NEEDS-IDENTIFICATION', compassion: 'EX-COMPASSION', defusion: 'EX-ACT-DEFUSION', gratitude: 'EX-GRATITUDE'
+};
+function parseDuration(value) {
+  const raw = String(value || '').toLowerCase();
+  const unit = raw.includes('minute') ? 'minute' : 'seconde';
+  const factor = unit === 'minute' ? 60 : 1;
+  const range = raw.match(/(\d+)\s*[-–]\s*(\d+)/);
+  const single = raw.match(/(\d+)/);
+  const min = Number(range?.[1] || single?.[1] || 1) * factor;
+  const max = Number(range?.[2] || single?.[1] || 1) * factor;
+  const labelUnit = unit === 'minute' ? 'minute' : 'seconde';
+  const label = range ? `${range[1]} à ${range[2]} ${labelUnit}${Number(range[2]) > 1 ? 's' : ''}` : `${single?.[1] || 1} ${labelUnit}${Number(single?.[1] || 1) > 1 ? 's' : ''}`;
+  return { seconds: Math.max(30, min), maxSeconds: Math.max(30, max), label };
+}
+function loadJson(path) { return fetch(path).then(response => { if (!response.ok) throw new Error(`${response.status} ${path}`); return response.json(); }); }
+async function loadScientificBase() {
+  try {
+    const [emotionsData, guidanceData, exercisesData, rulesData, studiesData, safetyData, evidenceData, sourcesData, emotionExerciseMapData] = await Promise.all([
+      loadJson('scientific_knowledge_base/data/emotions.json'),
+      loadJson('scientific_knowledge_base/data/emotion_guidance.json'),
+      loadJson('scientific_knowledge_base/data/exercises.json'),
+      loadJson('scientific_knowledge_base/data/recommendation_rules.json'),
+      loadJson('scientific_knowledge_base/data/studies.json'),
+      loadJson('scientific_knowledge_base/data/safety_protocol.json'),
+      loadJson('scientific_knowledge_base/data/evidence_grading.json'),
+      loadJson('scientific_knowledge_base/source_config.json'),
+      loadJson('scientific_knowledge_base/data/emotion_exercise_map.json')
+    ]);
+    scientific.emotions = emotionsData; scientific.guidance = guidanceData.emotions || []; scientific.exercises = exercisesData; scientific.rules = rulesData; scientific.studies = studiesData; scientific.safety = safetyData; scientific.evidence = evidenceData; scientific.sources = sourcesData; scientific.emotionExerciseMap = emotionExerciseMapData.mappings || []; scientific.ready = true;
+  } catch (error) { console.warn('Base scientifique locale indisponible, mode de secours utilisé.', error); }
+}
+function normalizeText(value = '') { return String(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(); }
+function safetyInput() { const fields = ['situation', 'thoughts', 'need', 'reaction', 'consequence'].map(id => document.getElementById(id)?.value || ''); return normalizeText(fields.join(' ')); }
+function detectSafety() {
+  if (!scientific.ready || !scientific.safety) return { critical: false, matches: [] };
+  const text = safetyInput();
+  const matches = scientific.safety.red_flags.filter(flag => (flag.patterns || []).some(pattern => text.includes(normalizeText(pattern))));
+  return { critical: matches.length > 0, matches };
+}
+function currentEmotionName() { return scientificEmotionNames[draft.emotion] || draft.nuance || ''; }
+function ruleMatches(rule, risk) {
+  const condition = rule.when || {};
+  if (condition.requires_safe && risk.critical) return true;
+  if (condition.requires_safe && !risk.critical) return false;
+  if (condition.min_intensity != null && draft.intensity < condition.min_intensity) return false;
+  if (condition.max_intensity != null && draft.intensity > condition.max_intensity) return false;
+  if (condition.emotions?.length && !condition.emotions.some(item => normalizeText(item) === normalizeText(currentEmotionName()))) return false;
+  return true;
+}
+function evaluateRecommendation() {
+  const risk = detectSafety();
+  if (risk.critical) return { risk, rule: { id: 'SAFETY-FIRST', action: 'safety_first', recommend: [] }, exercises: [] };
+  const rules = (scientific.rules?.machine_rules || []).slice().sort((a, b) => (b.priority || 0) - (a.priority || 0));
+  const rule = rules.find(candidate => ruleMatches(candidate, risk));
+  return { risk, rule: rule || { id: 'FALLBACK-JOURNAL', recommend: ['EX-EMOTION-JOURNAL'] }, exercises: rule?.recommend || ['EX-EMOTION-JOURNAL'] };
+}
+function evidenceLabel(grade) { return scientific.evidence?.grades?.[grade] ? `Grade ${grade} · ${scientific.evidence.grades[grade]}` : `Grade ${grade || '—'}`; }
+function renderSafetyTriage() {
+  const result = evaluateRecommendation();
+  const panels = [$('#safetyTriage'), $('#safetyTriageUnderstand')].filter(Boolean);
+  panels.forEach(panel => {
+    if (!result.risk.critical) { panel.classList.remove('show'); panel.innerHTML = ''; return; }
+    const actions = result.risk.matches.map(match => match.action).filter(Boolean);
+    panel.innerHTML = `<div class="triage-icon">!</div><div><b>Priorité à ta sécurité</b><p>Ce que tu as écrit peut signaler une situation urgente. L’application ne peut pas l’évaluer ni te protéger seule.</p><p>${escapeHtml([...new Set(actions)].join(' '))}</p><strong>Éloigne-toi du danger si possible et contacte immédiatement les secours locaux, un professionnel ou une personne de confiance.</strong></div>`;
+    panel.classList.add('show');
+  });
+  const continueButton = $('#toAfter');
+  if (continueButton) { continueButton.disabled = result.risk.critical; continueButton.firstChild.textContent = result.risk.critical ? 'Priorité à la sécurité ' : 'Voir l’exercice '; }
+  const questionNext = $('#questionNext');
+  if (questionNext) questionNext.disabled = result.risk.critical;
+  const saveButton = $('#saveButton');
+  if (saveButton) saveButton.disabled = result.risk.critical;
+}
+function scientificEmotion() { const name = scientificEmotionNames[draft.emotion] || draft.nuance; return scientific.emotions.find(item => item.name.toLowerCase() === String(name).toLowerCase()) || scientific.emotions.find(item => item.plutchik_family === name); }
+function emotionGuidance() { const name = currentEmotionName(); return scientific.guidance.find(item => normalizeText(item.name) === normalizeText(name)) || null; }
+function renderEmotionContext() {
+  const understand = $('#understandContext');
+  const after = $('#afterContext');
+  const emotion = scientificEmotion();
+  const guidance = emotionGuidance();
+  if ((!emotion && !guidance) || (!draft.emotion && !draft.nuance)) {
+    if (understand) { understand.classList.remove('show'); understand.innerHTML = ''; }
+    if (after) { after.classList.remove('show'); after.innerHTML = ''; }
+    return;
+  }
+  const name = guidance?.name || emotion.name;
+  const phrase = emotionSentenceForm(name);
+  const triggers = (guidance?.triggers || emotion?.common_triggers || []).slice(0, 3);
+  const thoughts = (emotion?.associated_thoughts || []).slice(0, 2);
+  const needs = (emotion?.psychological_needs || []).slice(0, 3);
+  const behaviors = (guidance?.impulse || emotion?.possible_behaviors || []).slice(0, 2);
+  if (understand) {
+    understand.innerHTML = `<b>Pour ${escapeHtml(name)}</b><p>${escapeHtml(guidance?.definition || emotion?.definition || 'Cet état peut donner une information sur ce qui compte pour toi.')}</p>${triggers.length ? `<small><strong>Déclencheurs possibles :</strong> ${triggers.map(item => escapeHtml(item)).join(' · ')}</small>` : ''}${guidance?.body?.length ? `<small><strong>Dans le corps :</strong> ${guidance.body.slice(0, 4).map(item => escapeHtml(item)).join(' · ')}</small>` : ''}<small>Ce sont des pistes : garde seulement ce qui correspond à ton vécu.</small>`;
+    understand.classList.add('show');
+  }
+  if (after) {
+    after.innerHTML = `<b>Pour en parler en séance sur ${escapeHtml(phrase)}</b><p>Ces questions aident à relier la situation, l’émotion, le corps et le besoin.</p><small>Tu peux laisser une réponse vide. Il n’y a pas de bonne ou de mauvaise réponse.</small>`;
+    after.classList.add('show');
+  }
+  const placeholders = {
+    situation: `Qu’est-ce qui a déclenché ${phrase} ?`,
+    thoughts: `Quelles pensées ou images sont venues avec ${phrase} ?`,
+    need: `De quoi aurais-tu besoin maintenant : ${needs.slice(0, 2).join(' ou ') || 'sécurité, écoute, repos'} ?`,
+    reaction: `Quelle impulsion peut accompagner ${phrase} ?`,
+    consequence: 'Après ta réaction, qu’est-ce qui a changé ?',
+    question: `Qu’aimerais-tu comprendre sur ${phrase} ?`
+  };
+  Object.entries(placeholders).forEach(([id, placeholder]) => { const field = $('#' + id); if (field) field.placeholder = placeholder; });
+}
+function renderEmotionInsight() {
+  const panel = $('#emotionInsight');
+  if (!panel) return;
+  const emotion = scientificEmotion();
+  const guidance = emotionGuidance();
+  if ((!emotion && !guidance) || (!draft.emotion && !draft.nuance)) { panel.classList.remove('show'); panel.innerHTML = ''; renderEmotionContext(); return; }
+  const needs = (emotion?.psychological_needs || []).slice(0, 4);
+  const name = guidance?.name || emotion?.name || currentEmotionName();
+  panel.innerHTML = `<div class="insight-heading"><span class="insight-kicker">POUR COMPRENDRE</span><span class="insight-intensity">${draft.intensity}/10</span></div><h3>${escapeHtml(name)} peut être un signal</h3><p>${escapeHtml(guidance?.definition || emotion?.definition || 'Un état à observer avec curiosité, sans chercher à lui donner une seule interprétation.')}</p>${needs.length ? `<div class="insight-needs"><b>Besoin possible</b><div>${needs.map(need => `<span>${escapeHtml(need)}</span>`).join('')}</div></div>` : ''}<small>Ce sont des pistes, pas une conclusion : ton vécu peut être différent.</small>`;
+  panel.classList.add('show');
+  renderEmotionContext();
+}
+function intensityBand() { return draft.intensity >= 8 ? 'high' : draft.intensity <= 3 ? 'low' : 'medium'; }
+function selectedEmotionExercisePlan() {
+  const name = currentEmotionName();
+  return scientific.emotionExerciseMap.find(item => normalizeText(item.emotion) === normalizeText(name)) || null;
+}
+function pickScientificExerciseId() {
+  const plan = selectedEmotionExercisePlan();
+  if (plan) return intensityBand() === 'high' ? (plan.high_intensity_exercise_id || plan.exercise_id) : plan.exercise_id;
+  return evaluateRecommendation().exercises[0] || null;
+}
+function scientificExercise() {
+  if (!scientific.ready || (!draft.emotion && !draft.nuance)) return null;
+  if (detectSafety().critical) return null;
+  const source = scientific.exercises.find(item => item.id === pickScientificExerciseId());
+  if (!source) return null;
+  const studies = (source.associated_studies || []).map(id => scientific.studies.find(study => study.id === id)).filter(Boolean);
+  const duration = parseDuration(source.duration);
+  const band = intensityBand();
+  const durationSeconds = band === 'high' ? Math.min(duration.maxSeconds, Math.max(duration.seconds, 90)) : band === 'medium' ? Math.round((duration.seconds + duration.maxSeconds) / 2) : duration.seconds;
+  const plan = selectedEmotionExercisePlan();
+  const intensityNote = band === 'high' ? 'Intensité forte : commence par stabiliser et ne force pas.' : band === 'low' ? 'Intensité basse : avance doucement et observe ce qui t’aide.' : 'Intensité moyenne : essaie cette étape puis réévalue.';
+  return { name: source.name, duration: durationSeconds, durationLabel: `${durationSeconds} secondes`, kind: source.name.toLowerCase().includes('respiration') ? 'breath' : 'timer', text: (source.protocol_steps || []).slice(0, 2).join(' '), objective: source.objective || '', mechanism: source.mechanism || '', steps: source.protocol_steps || [], evidenceGrade: source.evidence_grade || 'Non classé', contraindications: source.contraindications || '', studies, sourceId: source.id, emotionPlanReason: plan?.reason || '', intensityNote };
+}
+function familyExerciseFallback() {
+  const blend = wheelBlends.find(item => item.name === draft.nuance);
+  if (blend) return { name: `Observer ${draft.nuance}`, duration: 60, kind: 'timer', text: `Observe le mélange décrit par ${blend.pair}.`, objective: 'Distinguer les deux composantes de ce ressenti pour retrouver une marge de choix.', steps: ['Nomme les deux émotions qui se mélangent.', 'Repère ce qui est le plus présent maintenant.', 'Choisis une petite action adaptée à ce besoin.'], contraindications: 'Arrête si le malaise augmente et cherche un soutien humain si tu ne te sens pas en sécurité.' };
+  const family = wheelFamilies.find(item => item.emotions.includes(draft.nuance));
+  if (!family) return null;
+  const protocols = {
+    pleasant: ['Repère ce qui est agréable ou soutenant maintenant.', 'Observe où cela se manifeste dans ton corps.', 'Note une petite façon de préserver cette ressource.'],
+    sadness: ['Nomme doucement ce qui pèse.', 'Repère le besoin présent sans chercher à tout résoudre.', 'Choisis un geste de soutien faisable aujourd’hui.'],
+    fear: ['Pose les pieds au sol et regarde autour de toi.', 'Distingue ce qui est certain de ce que tu imagines.', 'Identifie la prochaine action qui augmente ta sécurité.'],
+    anger: ['Mets de la distance si possible.', 'Laisse retomber l’impulsion avant de répondre.', 'Formule la limite ou le besoin qui mérite ton attention.'],
+    blocked: ['Reviens à un repère sensoriel concret.', 'Nomme simplement ce qui se passe, sans te juger.', 'Choisis une seule prochaine étape très petite.'],
+    relational: ['Observe ce que cette situation touche dans le lien.', 'Nomme le besoin de respect, de sécurité ou de soutien.', 'Choisis une personne fiable ou une limite aidante.']
+  };
+  return { name: `Observer ${draft.nuance}`, duration: 60, kind: 'timer', text: protocols[family.id][0], objective: 'Mettre des mots et retrouver une marge de choix.', steps: protocols[family.id], contraindications: 'Arrête si le malaise augmente et cherche un soutien humain si tu ne te sens pas en sécurité.' };
+}
+function currentExercise() { if (!draft.emotion && !draft.nuance) return null; if (scientific.ready && detectSafety().critical) return null; return scientificExercise() || nuanceExercises[draft.nuance] || exercises[draft.emotion] || familyExerciseFallback(); }
+function exerciseEmotionTheme() {
+  const key = normalizeText(draft.nuance || labels[draft.emotion] || draft.emotion);
+  if (/colere|agace|rage|frustration|contrariete|injustice/.test(key)) return { dark: '#d96f62', light: '#f6c3bb' };
+  if (/triste|melancolie|chagrin|decouragement|desespoir/.test(key)) return { dark: '#6f91c9', light: '#cbdcf5' };
+  if (/stress|anxiete|peur|panique|apprehension|vigilance/.test(key)) return { dark: '#956ac3', light: '#decaf1' };
+  if (/calme|serenite|joie|soulagement|confiance|espoir|gratitude/.test(key)) return { dark: '#70a984', light: '#c8e3cc' };
+  return { dark: '#6d99a2', light: '#c5e0e2' };
+}
+
+const bodySignOptions = ['Mâchoire ou muscles tendus', 'Respiration courte', 'Pensées rapides', 'Chaleur ou agitation', 'Envie de fuir ou d’agir', 'Poids ou fatigue'];
+const bodySignsByEmotion = {
+  calm: ['Respiration régulière', 'Corps relâché', 'Sensation de stabilité', 'Chaleur agréable', 'Envie de rester comme ça'],
+  anger: ['Mâchoire serrée', 'Poings ou muscles tendus', 'Chaleur', 'Cœur qui accélère', 'Envie de répondre'],
+  sad: ['Gorge serrée', 'Lourdeur ou fatigue', 'Larmes', 'Poitrine serrée', 'Envie de rester seul'],
+  stress: ['Respiration courte', 'Ventre noué', 'Pensées rapides', 'Agitation', 'Difficulté à rester immobile'],
+  rage: ['Très forte chaleur', 'Tension dans tout le corps', 'Tremblements', 'Respiration forte', 'Envie d’exploser'],
+  unknown: bodySignOptions
+};
+const wheelItems = ['Joie', 'Confiance', 'Peur', 'Surprise', 'Tristesse', 'Dégoût', 'Colère', 'Anticipation'];
+const wheelBlends = [
+  { name: 'Amour', angle: 22.5, pair: 'Joie + confiance' },
+  { name: 'Soumission', angle: 67.5, pair: 'Confiance + peur' },
+  { name: 'Émerveillement', angle: 112.5, pair: 'Peur + surprise' },
+  { name: 'Désapprobation', angle: 157.5, pair: 'Surprise + tristesse' },
+  { name: 'Remords', angle: 202.5, pair: 'Tristesse + dégoût' },
+  { name: 'Mépris', angle: 247.5, pair: 'Dégoût + colère' },
+  { name: 'Agressivité', angle: 292.5, pair: 'Colère + anticipation' },
+  { name: 'Optimisme', angle: 337.5, pair: 'Anticipation + joie' }
+];
+const extraEmotionOptions = ['Anxiété', 'Honte', 'Culpabilité', 'Solitude', 'Frustration', 'Amour / affection', 'Espoir', 'Soulagement', 'Gratitude', 'Fierté', 'Curiosité', 'Panique', 'Impuissance', 'Confusion', 'Surcharge', 'Découragement', 'Rejet'];
+const wheelFamilies = [
+  { id: 'pleasant', label: 'Agréables', color: '#dff2d5', emotions: ['Sérénité', 'Joie', 'Plaisir', 'Soulagement', 'Confiance', 'Espoir', 'Gratitude', 'Affection', 'Fierté', 'Curiosité', 'Enthousiasme', 'Émerveillement'] },
+  { id: 'sadness', label: 'Tristesse et perte', color: '#e2e8fc', emotions: ['Mélancolie', 'Tristesse', 'Chagrin', 'Nostalgie', 'Déception', 'Regret', 'Découragement', 'Désespoir'] },
+  { id: 'fear', label: 'Peur et alerte', color: '#e0f6f7', emotions: ['Appréhension', 'Peur', 'Terreur', 'Anxiété', 'Panique', 'Vigilance', 'Insécurité', 'Méfiance'] },
+  { id: 'anger', label: 'Colère et rejet', color: '#ffe1dd', emotions: ['Contrariété', 'Agacement', 'Colère', 'Rage', 'Frustration', 'Dégoût', 'Aversion', 'Jalousie', 'Envie', 'Injustice'] },
+  { id: 'blocked', label: 'Blocage et débordement', color: '#f1e4ff', emotions: ['Sidération', 'Stupéfaction', 'Confusion', 'Impuissance', 'Surcharge', 'Épuisement', 'Vide intérieur', 'Inhibition', 'Détachement'] },
+  { id: 'relational', label: 'Relationnel', color: '#fff1c9', emotions: ['Solitude', 'Honte', 'Culpabilité', 'Rejet', 'Abandon', 'Embarras', 'Humiliation', 'Exclusion', 'Attachement', 'Besoin de reconnaissance'] }
+];
+let selectedWheelFamily = 'pleasant';
+const wheelData = [
+  { levels: ['Sérénité', 'Joie', 'Extase'], colors: ['#fff5cd', '#ffdf75', '#f6bf35'] },
+  { levels: ['Acceptation', 'Confiance', 'Admiration'], colors: ['#e4f5da', '#9cd792', '#50a55e'] },
+  { levels: ['Appréhension', 'Peur', 'Terreur'], colors: ['#e0f6f7', '#7ed1db', '#329aa9'] },
+  { levels: ['Distraction', 'Surprise', 'Stupéfaction'], colors: ['#f1e4ff', '#c69aef', '#8d61c9'] },
+  { levels: ['Mélancolie', 'Tristesse', 'Chagrin'], colors: ['#e2e8fc', '#9db2e6', '#627fc3'] },
+  { levels: ['Ennui', 'Dégoût', 'Aversion'], colors: ['#edf0cc', '#b9c36d', '#79862e'] },
+  { levels: ['Contrariété', 'Colère', 'Rage'], colors: ['#ffe1dd', '#f39b93', '#d9534f'] },
+  { levels: ['Intérêt', 'Anticipation', 'Vigilance'], colors: ['#fff0cf', '#ffca65', '#e89028'] }
+];
+const wheelDisplayLabel = word => word === 'Stupéfaction' ? 'Sidération' : word;
+let state = { entries: [] };
+let secureMode = !BROWSER_TEST_MODE && Boolean(localStorage.getItem(SECURE_KEY));
+let stateLocked = secureMode;
+if (!BROWSER_TEST_MODE && !secureMode) { try { state = JSON.parse(localStorage.getItem(KEY) || '{"entries":[]}'); } catch { state = { entries: [] }; } }
+state.entries = Array.isArray(state.entries) ? state.entries : [];
+state.entries.forEach(entry => { if (!entry.id) entry.id = crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random()}`; });
+let draft = freshDraft();
+let exerciseInterval = null;
+let sessionPassphrase = null;
+let questionStepIndex = 0;
+
+function freshDraft() { return { emotion: null, nuance: '', intensity: 5, bodySigns: [], exercise: '', exerciseDuration: null, exerciseStatus: '', exerciseAfterIntensity: null, exerciseResult: '' }; }
+function escapeHtml(value = '') { return String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[c])); }
+function base64(bytes) { return btoa(String.fromCharCode(...new Uint8Array(bytes))); }
+function fromBase64(value) { return Uint8Array.from(atob(value), char => char.charCodeAt(0)); }
+async function deriveStorageKey(passphrase, salt) { const material = await crypto.subtle.importKey('raw', new TextEncoder().encode(passphrase), 'PBKDF2', false, ['deriveKey']); return crypto.subtle.deriveKey({ name: 'PBKDF2', salt, iterations: 150000, hash: 'SHA-256' }, material, { name: 'AES-GCM', length: 256 }, false, ['encrypt', 'decrypt']); }
+async function encryptPayload(value, passphrase) { const salt = crypto.getRandomValues(new Uint8Array(16)); const iv = crypto.getRandomValues(new Uint8Array(12)); const key = await deriveStorageKey(passphrase, salt); const data = await crypto.subtle.encrypt({ name: 'AES-GCM', iv }, key, new TextEncoder().encode(JSON.stringify(value))); return JSON.stringify({ version: 1, salt: base64(salt), iv: base64(iv), data: base64(data) }); }
+async function decryptPayload(payload, passphrase) { const parsed = JSON.parse(payload); const key = await deriveStorageKey(passphrase, fromBase64(parsed.salt)); const data = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: fromBase64(parsed.iv) }, key, fromBase64(parsed.data)); return JSON.parse(new TextDecoder().decode(data)); }
+async function saveState() { if (BROWSER_TEST_MODE || stateLocked) return; try { if (secureMode && sessionPassphrase && crypto.subtle) localStorage.setItem(SECURE_KEY, await encryptPayload(state, sessionPassphrase)); else if (!secureMode) localStorage.setItem(KEY, JSON.stringify(state)); } catch (error) { console.warn('Enregistrement local indisponible.', error); } }
+function stopExercise(markStopped = false) { if (exerciseInterval) clearInterval(exerciseInterval); exerciseInterval = null; if (markStopped && draft.exerciseStatus === 'en cours') draft.exerciseStatus = 'arrêté'; }
+function show(id) {
+  if (exerciseInterval) { stopExercise(true); saveDraft(); }
+  document.querySelectorAll('.screen').forEach(screen => screen.classList.toggle('active', screen.id === id));
+  document.querySelectorAll('[data-nav]').forEach(button => button.toggleAttribute('aria-current', button.dataset.nav === id));
+  const heading = document.querySelector(`#${id} h2`);
+  if (heading) { heading.setAttribute('tabindex', '-1'); heading.focus({ preventScroll: true }); }
+  window.scrollTo(0, 0);
+  if (id === 'after') renderQuestionStep();
+  if (id === 'exercise') renderExercise();
+}
+function saveDraft() {
+  if (BROWSER_TEST_MODE) return;
+  const fields = Object.fromEntries(['situation', 'thoughts', 'need', 'reaction', 'consequence', 'question'].map(id => [id, $('#' + id).value]));
+  const value = { ...draft, ...fields };
+  if (stateLocked) return;
+  if (secureMode && sessionPassphrase && crypto.subtle) encryptPayload(value, sessionPassphrase).then(payload => localStorage.setItem(SECURE_DRAFT_KEY, payload)).catch(error => console.warn('Brouillon local indisponible.', error));
+  else if (!secureMode) localStorage.setItem(DRAFT_KEY, JSON.stringify(value));
+}
+function clearDraft() { localStorage.removeItem(DRAFT_KEY); localStorage.removeItem(SECURE_DRAFT_KEY); }
+function openPassphraseDialog(mode) { const dialog = $('#passphraseDialog'); if (!dialog) return; dialog.dataset.mode = mode; dialog.hidden = false; $('#passphraseTitle').textContent = mode === 'protect' ? 'Protéger mes observations' : 'Déverrouiller mes observations'; $('#passphraseHelp').textContent = mode === 'protect' ? 'Choisis une phrase de 8 caractères minimum. Elle ne sera jamais enregistrée.' : 'Entre ta phrase secrète. Elle n’est jamais envoyée ni conservée.'; $('#passphraseConfirmField').hidden = mode !== 'protect'; $('#passphrase').value = ''; $('#passphraseConfirm').value = ''; $('#passphrase').focus(); }
+function closePassphraseDialog() { const dialog = $('#passphraseDialog'); if (dialog) dialog.hidden = true; }
+async function submitPassphrase() { const mode = $('#passphraseDialog').dataset.mode; const passphrase = $('#passphrase').value; if (!crypto.subtle) { alert('Le chiffrement n’est pas disponible dans ce navigateur.'); return; } if (passphrase.length < 8) { $('#passphraseError').textContent = 'La phrase secrète doit contenir au moins 8 caractères.'; return; } if (mode === 'protect' && passphrase !== $('#passphraseConfirm').value) { $('#passphraseError').textContent = 'Les deux phrases secrètes sont différentes.'; return; } $('#passphraseError').textContent = ''; if (mode === 'protect') { sessionPassphrase = passphrase; secureMode = true; stateLocked = false; await saveState(); const draftPayload = localStorage.getItem(DRAFT_KEY); if (draftPayload) localStorage.setItem(SECURE_DRAFT_KEY, await encryptPayload(JSON.parse(draftPayload), sessionPassphrase)); localStorage.removeItem(KEY); localStorage.removeItem(DRAFT_KEY); } else { try { const unlocked = await decryptPayload(localStorage.getItem(SECURE_KEY), passphrase); state = { entries: Array.isArray(unlocked.entries) ? unlocked.entries : [] }; sessionPassphrase = passphrase; secureMode = true; stateLocked = false; await restoreDraft(); renderHistory(); renderEmotions(); renderBodySigns(); renderEmotionInsight(); renderSafetyTriage(); renderExercise(); } catch { $('#passphraseError').textContent = 'Phrase secrète incorrecte ou données illisibles.'; return; } } closePassphraseDialog(); renderPrivacyStatus(); }
+
+function renderEmotions() {
+  $('#emotionChoices').innerHTML = emotions.map(([id, label, image]) => `<button type="button" class="emotion ${draft.emotion === id ? 'selected' : ''}" data-emotion="${id}" aria-pressed="${draft.emotion === id}"><img class="emotion-image" src="assets/${image}" alt="">${label}</button>`).join('');
+  document.querySelectorAll('[data-emotion]').forEach(button => button.onclick = () => {
+    draft.emotion = button.dataset.emotion;
+    draft.exercise = ''; draft.exerciseStatus = ''; draft.exerciseAfterIntensity = null; draft.nuance = ''; draft.bodySigns = [];
+    $('#observe').classList.remove('wheel-mode'); $('#wheelPanel').classList.remove('open'); $('#wheelToggle').textContent = 'Préciser avec la roue des émotions';
+    saveDraft(); renderEmotions(); renderBodySigns(); renderEmotionInsight(); renderWheel(); renderExercise(); syncContinueButton();
+  });
+}
+function syncContinueButton() { const button = $('#toUnderstand'); const hasChoice = Boolean(draft.emotion || draft.nuance); button.disabled = !hasChoice; button.firstChild.textContent = hasChoice ? 'Comprendre cette émotion ' : 'Choisis une émotion '; }
+function syncQuickLevels() { $('#level').value = draft.intensity; $('#levelValue').textContent = draft.intensity; document.querySelectorAll('[data-level]').forEach(button => button.classList.toggle('active', Number(button.dataset.level) === draft.intensity)); }
+function renderBodySigns() {
+  const scientificOptions = scientificEmotion()?.body_sensations;
+  const guidanceOptions = emotionGuidance()?.body;
+  const options = scientificOptions?.length ? scientificOptions : guidanceOptions?.length ? guidanceOptions : (bodySignsByEmotion[draft.emotion] || bodySignOptions);
+  $('#bodySigns').innerHTML = options.map(sign => `<button type="button" class="choice-chip ${draft.bodySigns.includes(sign) ? 'selected' : ''}" data-body-sign="${escapeHtml(sign)}" aria-pressed="${draft.bodySigns.includes(sign)}">${escapeHtml(sign)}</button>`).join('');
+  document.querySelectorAll('[data-body-sign]').forEach(button => button.onclick = () => {
+    const sign = button.dataset.bodySign;
+    draft.bodySigns = draft.bodySigns.includes(sign) ? draft.bodySigns.filter(item => item !== sign) : [...draft.bodySigns, sign];
+    saveDraft(); renderBodySigns();
+  });
+}
+function renderWheel() {
+  const point = (radius, angle) => [180 + radius * Math.sin(angle * Math.PI / 180), 180 - radius * Math.cos(angle * Math.PI / 180)];
+  const sector = (inner, outer, start, end) => { const [x1, y1] = point(outer, start); const [x2, y2] = point(outer, end); const [x3, y3] = point(inner, end); const [x4, y4] = point(inner, start); return `M ${x1} ${y1} A ${outer} ${outer} 0 0 1 ${x2} ${y2} L ${x3} ${y3} A ${inner} ${inner} 0 0 0 ${x4} ${y4} Z`; };
+  const rings = [[122, 156], [86, 118], [50, 82]];
+  const svg = wheelData.map((family, familyIndex) => family.levels.map((word, levelIndex) => {
+    const start = familyIndex * 45 - 21.7; const end = start + 43.4;
+    const displayLabel = wheelDisplayLabel(word);
+    return `<path class="interactive-sector" data-nuance="${escapeHtml(word)}" role="button" tabindex="0" aria-label="Choisir ${escapeHtml(displayLabel)}" aria-pressed="${draft.nuance === word}" d="${sector(rings[levelIndex][0], rings[levelIndex][1], start, end)}" fill="${family.colors[levelIndex]}"><title>${escapeHtml(displayLabel)}</title></path>`;
+  }).join('')).join('');
+  let selectedOverlay = '';
+  wheelData.forEach((family, familyIndex) => family.levels.forEach((word, levelIndex) => { if (draft.nuance !== word) return; const start = familyIndex * 45 - 21.7; const end = start + 43.4; const selectedShape = sector(rings[levelIndex][0], rings[levelIndex][1], start, end); selectedOverlay = `<path class="wheel-selection-halo" d="${selectedShape}"></path><path class="wheel-selection-overlay" d="${selectedShape}" stroke="${family.colors[1]}"></path>`; }));
+  const labelPaths = wheelData.map((family, familyIndex) => family.levels.map((word, levelIndex) => { const radius = [139, 102, 66][levelIndex]; const start = familyIndex * 45 - 17; const end = start + 34; const defaultForward = familyIndex < 4; const forward = [3, 6, 7].includes(familyIndex) ? !defaultForward : defaultForward; const [x1, y1] = point(radius, forward ? start : end); const [x2, y2] = point(radius, forward ? end : start); return `<path id="wheel-label-path-${familyIndex}-${levelIndex}" class="wheel-label-path" d="M ${x1} ${y1} A ${radius} ${radius} 0 0 ${forward ? 1 : 0} ${x2} ${y2}"/>`; }).join('')).join('');
+  const labelsInWheel = wheelData.map((family, familyIndex) => family.levels.map((word, levelIndex) => `<text class="wheel-arc-label wheel-arc-label-${levelIndex}"><textPath href="#wheel-label-path-${familyIndex}-${levelIndex}" startOffset="50%">${wheelDisplayLabel(word)}</textPath></text>`).join('')).join('');
+  const legend = wheelData.map((family, index) => `<span><i style="background:${family.colors[1]}"></i>${wheelItems[index]}</span>`).join('');
+  $('#wheelPanel').innerHTML = `<p>Touche directement une zone. Plus elle est proche du centre, plus l’intensité est forte.</p><div class="interactive-wheel-wrap"><svg class="interactive-wheel" viewBox="20 20 320 320" role="group" aria-label="Roue interactive des émotions de Plutchik"><defs>${labelPaths}</defs>${svg}${selectedOverlay}<circle cx="180" cy="180" r="43" class="wheel-center"></circle>${labelsInWheel}</svg></div><div class="wheel-legend">${legend}</div><div class="wheel-extra-emotions"><b>Autres émotions disponibles · 17 nuances</b><div>${extraEmotionOptions.map(word => `<button type="button" class="extra-emotion ${draft.nuance === word ? 'selected' : ''}" data-nuance="${escapeHtml(word)}" aria-pressed="${draft.nuance === word}">${escapeHtml(word)}</button>`).join('')}</div></div><div class="wheel-selection">${draft.nuance ? `Émotion choisie : ${escapeHtml(wheelDisplayLabel(draft.nuance))}` : 'Aucune émotion choisie pour le moment.'}</div><p class="wheel-credit">Roue interactive inspirée du modèle de Robert Plutchik. 41 émotions disposent d’un exercice adapté.</p>`;
+}
+document.addEventListener('click', event => {
+  const part = event.target.closest('#wheelPanel .interactive-sector, #wheelPanel .extra-emotion');
+  if (!part) return;
+  draft.emotion = null;
+  draft.nuance = part.dataset.nuance;
+  saveDraft();
+  renderEmotions();
+  renderWheel();
+  syncContinueButton();
+  renderEmotionInsight();
+  renderExercise();
+});
+document.addEventListener('keydown', event => {
+  const part = event.target.closest?.('#wheelPanel .interactive-sector, #wheelPanel .extra-emotion');
+  if (!part || (event.key !== 'Enter' && event.key !== ' ')) return;
+  event.preventDefault();
+  part.click();
+});
+function renderExercise() {
+  stopExercise(false);
+  renderSafetyTriage();
+  const exercise = currentExercise();
+  const card = $('#exerciseRecommendation');
+  if (!exercise) { card.classList.remove('show'); return; }
+  $('#exerciseName').textContent = exercise.name;
+  $('#exerciseText').textContent = exercise.text;
+  $('#exerciseRunName').textContent = exercise.name;
+  $('#exerciseRunText').textContent = exercise.text;
+  const detail = $('#exerciseDetail');
+  if (detail) detail.innerHTML = exercise.objective ? `<b>Pourquoi cette proposition</b><span>${escapeHtml(exercise.emotionPlanReason || exercise.objective)}</span>${exercise.emotionPlanReason && exercise.emotionPlanReason !== exercise.objective ? `<small>${escapeHtml(exercise.objective)}</small>` : ''}${exercise.intensityNote ? `<span class="intensity-note">${escapeHtml(exercise.intensityNote)}</span>` : ''}<b>Comment faire</b><ol>${(exercise.steps || []).slice(0, 3).map(step => `<li>${escapeHtml(step)}</li>`).join('')}</ol><b>Quand arrêter</b><span>${escapeHtml(exercise.contraindications || 'Arrête si le malaise augmente ou si tu ne te sens pas en sécurité.')}</span>` : '';
+  const evidence = $('#exerciseEvidence');
+  if (evidence) {
+    const studies = (exercise.studies || []).slice(0, 2);
+    const sourceLinks = studies.map(study => `<a href="${escapeHtml(study.pubmed_url || study.source_url || '#')}" target="_blank" rel="noreferrer">${escapeHtml(study.title || study.authors?.slice?.(0, 2)?.join(', ') || 'Référence scientifique')}</a>`).join(' · ');
+    evidence.innerHTML = scientific.ready && exercise.evidenceGrade ? `<span class="evidence-badge">${escapeHtml(evidenceLabel(exercise.evidenceGrade))}</span>${studies.length ? `<span>Sources : ${sourceLinks}</span>` : '<span>Référence détaillée à compléter.</span>'}${draft.intensity >= 8 ? '<span class="safety-inline">Intensité forte : crée d’abord de la distance et vérifie que tu es en sécurité. En cas de danger, contacte une personne de confiance ou les secours.</span>' : ''}<small>Ces références éclairent la proposition ; elles ne permettent pas de poser un diagnostic.</small>` : '';
+  }
+  const breathWarning = $('#exerciseBreathWarning');
+  if (breathWarning) { breathWarning.hidden = exercise.kind !== 'breath'; breathWarning.textContent = exercise.kind === 'breath' ? 'Respire naturellement, sans forcer. Arrête immédiatement en cas de vertige, de panique ou d’inconfort, puis reviens à un repère externe ou demande de l’aide.' : ''; }
+  $('#exerciseStart').disabled = false;
+  $('#exerciseStart').textContent = `Essayer pendant ${exercise.durationLabel || `${exercise.duration} secondes`}`;
+  $('#exerciseRunRestart').hidden = true;
+  $('#exerciseAnimation').classList.remove('show');
+  $('#exerciseAfter').classList.remove('show');
+  card.classList.add('show');
+}
+function renderExerciseResult() {
+  const output = $('#exerciseResultMeaning');
+  if (!output) return;
+  const after = draft.exerciseAfterIntensity;
+  document.querySelectorAll('[data-exercise-result]').forEach(button => button.classList.toggle('selected', button.dataset.exerciseResult === draft.exerciseResult));
+  if (after == null) { output.textContent = 'Après l’exercice, observe simplement ce qui a changé — ou pas changé.'; return; }
+  const delta = after - Number(draft.intensity);
+  output.textContent = delta < 0 ? `Ton intensité est passée de ${draft.intensity}/10 à ${after}/10. Une baisse peut être utile, sans garantir que l’exercice conviendra toujours.` : delta > 0 ? `Ton intensité est passée de ${draft.intensity}/10 à ${after}/10. Si le malaise augmente, arrête l’exercice et choisis un repère plus simple ou demande de l’aide.` : `Ton intensité reste à ${after}/10. Cela donne une information utile : l’exercice n’a pas forcément changé l’état cette fois-ci.`;
+}
+function finishExercise(status) {
+  stopExercise(false);
+  draft.exerciseStatus = status;
+  $('#exerciseStop').hidden = true;
+  $('#exerciseRunRestart').hidden = false;
+  $('#exerciseRunRestart').textContent = 'Recommencer';
+  $('#exercisePhase').innerHTML = `<span class="exercise-finished">${status === 'arrêté' ? 'Exercice arrêté. Tu peux noter ce que tu ressens.' : 'C’est terminé. Observe simplement ce qui a changé.'}</span>`;
+  $('#exerciseAfter').classList.add('show');
+  $('#exerciseLevel').value = draft.intensity;
+  $('#exerciseLevelValue').textContent = draft.intensity;
+  draft.exerciseAfterIntensity = null; draft.exerciseResult = ''; renderExerciseResult();
+  saveDraft();
+  show('exerciseResult');
+}
+function renderQuestionStep() {
+  const steps = [...document.querySelectorAll('#questionFlow .question-step')];
+  if (!steps.length) return;
+  questionStepIndex = Math.max(0, Math.min(questionStepIndex, steps.length - 1));
+  steps.forEach((step, index) => step.classList.toggle('active', index === questionStepIndex));
+  const progress = $('#questionProgress');
+  if (progress) progress.textContent = `QUESTION ${questionStepIndex + 1} SUR ${steps.length}`;
+  const next = $('#questionNext');
+  const save = $('#saveButton');
+  const last = questionStepIndex === steps.length - 1;
+  if (next) { next.hidden = last; next.disabled = detectSafety().critical; next.textContent = 'Continuer →'; }
+  if (save) { save.hidden = !last; save.disabled = detectSafety().critical; }
+}
+function advanceQuestion() {
+  const steps = [...document.querySelectorAll('#questionFlow .question-step')];
+  if (!steps.length || detectSafety().critical) return;
+  if (questionStepIndex < steps.length - 1) { questionStepIndex += 1; renderQuestionStep(); }
+  else $('#saveButton')?.focus();
+}
+function runExercise() {
+  const exercise = currentExercise();
+  if (!exercise) return;
+  stopExercise(false);
+  draft.exercise = exercise.name; draft.exerciseDuration = exercise.duration; draft.exerciseStatus = 'en cours'; draft.exerciseAfterIntensity = null; draft.exerciseResult = ''; saveDraft();
+  $('#exerciseAfter').classList.remove('show');
+  const theme = exerciseEmotionTheme();
+  const runScreen = $('#exerciseRun');
+  runScreen.style.setProperty('--exercise-dark', theme.dark);
+  runScreen.style.setProperty('--exercise-light', theme.light);
+  runScreen.classList.remove('exercise-theme-active');
+  void runScreen.offsetWidth;
+  runScreen.classList.add('exercise-theme-active');
+  show('exerciseRun');
+  let remaining = exercise.duration;
+  const isBreathing = exercise.kind === 'breath';
+  $('#exerciseAnimation').classList.add('show');
+  $('#exerciseOrb').className = isBreathing ? 'breath-orb' : 'timer-orb';
+  $('#exerciseOrb').setAttribute('aria-label', isBreathing ? 'Animation de respiration lente' : 'Compte à rebours de l’exercice');
+  $('#exerciseOrb').style.setProperty('--breath-duration', isBreathing ? '10s' : '8s');
+  $('#exerciseSeconds').textContent = remaining;
+  $('#exercisePhase').textContent = isBreathing ? 'Inspire doucement…' : 'Tu peux simplement rester avec ce qui est présent.';
+  if ($('#exerciseBreathWarning')) $('#exerciseBreathWarning').hidden = !isBreathing;
+  $('#exerciseStart').disabled = true; $('#exerciseStart').textContent = 'Exercice en cours…'; $('#exerciseRunRestart').hidden = true; $('#exerciseStop').hidden = false;
+  let elapsed = 0;
+  exerciseInterval = setInterval(() => {
+    remaining -= 1;
+    elapsed += 1;
+    $('#exerciseSeconds').textContent = remaining;
+    if (isBreathing) $('#exercisePhase').textContent = elapsed % 10 < 4 ? 'Inspire doucement…' : 'Expire naturellement…';
+    if (remaining <= 0) finishExercise('terminé');
+  }, 1000);
+}
+function clearFields() {
+  stopExercise(false); draft = freshDraft();
+  questionStepIndex = 0;
+  ['situation', 'thoughts', 'need', 'reaction', 'consequence', 'question'].forEach(id => $('#' + id).value = '');
+  clearDraft(); renderEmotions(); renderBodySigns(); renderEmotionInsight(); renderSafetyTriage(); renderWheel(); renderExercise(); syncQuickLevels(); syncContinueButton();
+}
+function renderHistory() {
+  const list = $('#historyList');
+  if (stateLocked) { list.innerHTML = '<p class="empty">Tes observations sont verrouillées. Ouvre la page Confidentialité pour les déverrouiller.</p>'; return; }
+  if (!state.entries.length) { list.innerHTML = '<p class="empty">Aucune observation pour le moment.<br>Quand quelque chose déborde, commence une observation.</p>'; return; }
+  list.innerHTML = state.entries.slice().reverse().map(entry => `<article class="record"><time>${new Date(entry.date).toLocaleString('fr-FR')}</time><h3>${escapeHtml(labels[entry.emotion] || entry.emotion)} · ${entry.intensity}/10</h3>${entry.nuance ? `<p><b>Nuance :</b> ${escapeHtml(entry.nuance)}</p>` : ''}<p>${escapeHtml(entry.situation || 'Situation non renseignée')}</p>${entry.bodySigns?.length ? `<p><b>Dans le corps :</b> ${escapeHtml(entry.bodySigns.join(', '))}</p>` : ''}${entry.exercise ? `<p><b>Exercice :</b> ${escapeHtml(entry.exercise)}${entry.exerciseAfterIntensity != null ? ` · après : ${entry.exerciseAfterIntensity}/10` : ''}${entry.exerciseResult ? ` · ressenti : ${entry.exerciseResult === 'helpful' ? 'un peu aidant' : entry.exerciseResult === 'harder' ? 'plus difficile' : 'plutôt pareil'}` : ''}</p>` : ''}${entry.question ? `<p><b>Question :</b> ${escapeHtml(entry.question)}</p>` : ''}<button type="button" class="record-delete" data-delete-entry="${entry.id}">Supprimer cette observation</button></article>`).join('');
+  document.querySelectorAll('[data-delete-entry]').forEach(button => button.onclick = () => { if (!confirm('Supprimer cette observation de cet appareil ?')) return; state.entries = state.entries.filter(entry => entry.id !== button.dataset.deleteEntry); saveState(); renderHistory(); });
+}
+function report() {
+  if (stateLocked) { alert('Déverrouille d’abord tes observations dans la page Confidentialité.'); return; }
+  const lines = ['ÉMOTIONS — SUPPORT DE SÉANCE', '', `Nombre d’observations : ${state.entries.length}`, ''];
+  state.entries.forEach((entry, index) => lines.push(`OBSERVATION ${index + 1} — ${new Date(entry.date).toLocaleString('fr-FR')}`, `Émotion : ${labels[entry.emotion] || entry.emotion} — intensité ${entry.intensity}/10`, `Nuance : ${entry.nuance || 'Non précisée'}`, `Situation : ${entry.situation || 'Non renseignée'}`, `Pensées : ${entry.thoughts || 'Non renseignées'}`, `Signes corporels : ${(entry.bodySigns || []).join(', ') || 'Non renseignés'}`, `Exercice essayé : ${entry.exercise || 'Aucun'}`, `Durée prévue : ${entry.exerciseDuration ? entry.exerciseDuration + ' secondes' : 'Non renseignée'}`, `Statut de l’exercice : ${entry.exerciseStatus || 'Non renseigné'}`, `Intensité après l’exercice : ${entry.exerciseAfterIntensity == null ? 'Non renseignée' : entry.exerciseAfterIntensity + '/10'}`, `Ressenti après exercice : ${entry.exerciseResult === 'helpful' ? 'Un peu aidant' : entry.exerciseResult === 'harder' ? 'Plus difficile' : entry.exerciseResult === 'same' ? 'Plutôt pareil' : 'Non renseigné'}`, `Besoin possible : ${entry.need || 'Non renseigné'}`, `Réaction : ${entry.reaction || 'Non renseignée'}`, `Après : ${entry.consequence || 'Non renseigné'}`, `Question pour la séance : ${entry.question || 'Aucune'}`, ''));
+  const link = document.createElement('a'); link.href = URL.createObjectURL(new Blob([lines.join('\n')], { type: 'text/plain;charset=utf-8' })); link.download = 'support-seance-emotions.txt'; link.click(); URL.revokeObjectURL(link.href);
+}
+async function restoreDraft() {
+  if (BROWSER_TEST_MODE) return;
+  try {
+    let saved = null;
+    if (secureMode && !stateLocked && localStorage.getItem(SECURE_DRAFT_KEY) && sessionPassphrase) saved = await decryptPayload(localStorage.getItem(SECURE_DRAFT_KEY), sessionPassphrase);
+    else if (!secureMode) saved = JSON.parse(localStorage.getItem(DRAFT_KEY) || 'null');
+    if (!saved) return;
+    draft = { ...freshDraft(), ...saved, bodySigns: Array.isArray(saved.bodySigns) ? saved.bodySigns : [] };
+    ['situation', 'thoughts', 'need', 'reaction', 'consequence', 'question'].forEach(id => $('#' + id).value = saved[id] || '');
+  } catch { if (!stateLocked) clearDraft(); }
+}
+function insertDynamicPanels() {
+  $('#understand .hint').insertAdjacentHTML('afterend', '<div id="understandContext" class="emotion-context" aria-live="polite"></div>');
+  $('#after .hint').insertAdjacentHTML('afterend', '<div id="afterContext" class="emotion-context" aria-live="polite"></div>');
+  $('#saved').insertAdjacentHTML('beforebegin', '<section id="exercise" class="screen"><button id="exerciseBack" class="back-inline">← Comprendre</button><div class="progress"><span class="active"></span><span class="active"></span><span class="active"></span><span></span></div><p class="step">ÉTAPE 3 SUR 4</p><h2>Exercice maintenant</h2><p class="hint">Tu peux essayer seulement si cela semble possible. Tu peux aussi passer directement aux questions.</p><div id="exercisePageContent"></div><button id="toQuestions" class="main-action">Passer aux questions <span>→</span></button></section>');
+  $('#saved').insertAdjacentHTML('beforebegin', '<section id="exerciseRun" class="screen"><button id="exerciseRunBack" class="back-inline">← Voir l’exercice</button><div class="progress"><span class="active"></span><span class="active"></span><span class="active"></span><span></span></div><p class="step">EXERCICE GUIDÉ</p><h2 id="exerciseRunName">Ton exercice</h2><p id="exerciseRunText" class="hint"></p><p class="exercise-run-note">Reste avec ce qui est possible pour toi. Tu peux arrêter à tout moment.</p><div id="exerciseAnimation" class="exercise-animation show" aria-live="polite"><div id="exerciseOrb" class="timer-orb" role="img" aria-label="Animation de l’exercice"><span id="exerciseSeconds"></span></div><div id="exercisePhase" class="exercise-phase" aria-live="polite"></div></div><div class="exercise-action-row"><button type="button" id="exerciseStop" class="exercise-stop" hidden>Arrêter l’exercice</button><button type="button" id="exerciseRunRestart" class="secondary-action" hidden>Recommencer</button></div></section>');
+  $('#saved').insertAdjacentHTML('beforebegin', '<section id="exerciseResult" class="screen"><button id="exerciseResultBack" class="back-inline">← Exercice</button><div class="progress"><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span></div><p class="step">APRÈS L’EXERCICE</p><h2>Après l’exercice</h2><div id="exerciseAfter" class="exercise-after"><label>Après, quelle est ton intensité ? <strong><span id="exerciseLevelValue">5</span>/10</strong><input id="exerciseLevel" type="range" min="0" max="10" value="5" aria-label="Intensité après l’exercice"></label><div class="exercise-result-choice"><b>Comment c’était pour toi ?</b><div><button type="button" data-exercise-result="helpful">Un peu aidant</button><button type="button" data-exercise-result="same">Plutôt pareil</button><button type="button" data-exercise-result="harder">Plus difficile</button></div></div><p id="exerciseResultMeaning" class="exercise-result-meaning" aria-live="polite"></p></div><button id="exerciseResultQuestions" class="main-action">Passer aux questions <span>→</span></button></section>');
+  $('#tools').insertAdjacentHTML('beforeend', '<button id="definitionButton" class="text-link">Comprendre ce qu’est une émotion</button><section id="definitionPanel" class="definition-panel"><button id="definitionBack" class="back">← Retour au repère</button><p class="overline">UN REPÈRE POUR COMPRENDRE</p><h2>Une émotion, c’est un signal.</h2><p class="definition-lead">Une émotion donne une information. Elle ne commande pas forcément l’action.</p><p class="definition-lead">Touche une étape pour voir ce qu’elle peut vouloir dire.</p><div class="definition-flow"><button type="button" class="definition-step" data-definition="trigger"><b>1 · Déclencheur</b><span>Situation, pensée, souvenir ou sensation.</span></button><button type="button" class="definition-step" data-definition="feeling"><b>2 · Ressenti</b><span>Ce que tu éprouves à l’intérieur.</span></button><button type="button" class="definition-step" data-definition="body"><b>3 · Corps</b><span>Les changements physiques que tu peux remarquer.</span></button><button type="button" class="definition-step" data-definition="urge"><b>4 · Envie d’agir</b><span>L’impulsion de fuir, parler, se fermer ou se protéger.</span></button><button type="button" class="definition-step" data-definition="choice"><b>5 · Choix possible</b><span>Le petit délai pour choisir la prochaine action.</span></button></div><div id="definitionDetail" class="definition-detail" aria-live="polite">Choisis une étape ci-dessus.</div><div class="definition-evidence"><p class="overline">CE QUE CELA PEUT AIDER À FAIRE</p><div><b>Observer tôt</b><span>Repérer un signe peut aider à choisir une action de soutien avant que l’intensité augmente.</span></div><div><b>Mettre des mots</b><span>Nommer ce qui est vécu peut aider à l’observer, sans garantir une baisse immédiate.</span></div><div><b>Respecter les différences</b><span>Une sensation corporelle ne prouve pas une émotion : chacun peut la ressentir différemment.</span></div><div><b>Tester avec prudence</b><span>Un exercice peut aider certaines personnes. On arrête s’il augmente le malaise.</span></div><small>Ce contenu s’appuie sur les références affichées dans la base scientifique du projet.</small></div><p class="definition-footer">Le but n’est pas de ne plus avoir d’émotions : c’est de les repérer plus tôt pour retrouver une marge de choix.</p></section>');
+  $('#emotionChoices').insertAdjacentHTML('afterend', '<div class="emotion-options"><button type="button" id="unknownButton" class="unknown-button">Je ne sais pas encore</button><button type="button" id="wheelToggle" class="wheel-toggle">Préciser avec la roue des émotions</button></div><div id="wheelPanel" class="wheel-panel"></div>');
+  $('#wheelPanel').insertAdjacentHTML('afterend', '<section id="emotionInsight" class="emotion-insight" aria-live="polite"></section>');
+  $('#emotionInsight').insertAdjacentHTML('afterend', '<section id="safetyTriage" class="safety-triage" role="alert" aria-live="assertive"></section>');
+  $('#toAfter').insertAdjacentHTML('beforebegin', '<section id="safetyTriageUnderstand" class="safety-triage" role="alert" aria-live="assertive"></section>');
+  $('#toUnderstand').insertAdjacentHTML('beforebegin', '<section id="exerciseRecommendation" class="exercise-recommendation" role="region" aria-labelledby="exerciseName"><p class="overline">UN REPÈRE POUR MAINTENANT</p><h3 id="exerciseName" tabindex="-1"></h3><p id="exerciseText"></p><div id="exerciseDetail" class="exercise-detail"></div><button type="button" id="exerciseStart" class="exercise-start"></button><div id="exerciseEvidence" class="exercise-evidence"></div><div id="exerciseBreathWarning" class="breath-warning" role="alert" hidden></div></section>');
+  $('#science').querySelector('.science-grid').insertAdjacentHTML('beforebegin', '<div id="scienceLivePanel" class="science-live-panel"></div>');
+  document.querySelector('nav').insertAdjacentHTML('beforebegin', '<section id="library" class="screen"><button id="libraryBack" class="back">← Retour</button><p class="overline">OUTILS GUIDÉS</p><h2>Les exercices<br>de la base</h2><p class="hint">Chaque exercice a un objectif, des limites et un niveau de preuve. Choisis seulement ce qui te semble possible maintenant.</p><div id="exerciseLibrary" class="exercise-library"></div></section>');
+  $('#saved').querySelector('.hint').insertAdjacentHTML('afterend', '<div id="savedSummary" class="saved-summary" aria-live="polite"></div>');
+  document.querySelector('nav').insertAdjacentHTML('beforebegin', '<section id="privacy" class="screen"><button id="privacyBack" class="back">← Retour</button><p class="overline">MES DONNÉES</p><h2>Confidentialité<br>et suppression</h2><div class="privacy-card"><b>Ce qui reste sur cet appareil</b><p>Les observations et le brouillon sont enregistrés dans le stockage local de ce navigateur. Ils ne sont pas envoyés à un serveur par cette application.</p><p>Les liens PubMed et les recherches documentaires externes sont des actions séparées. Ne saisis jamais de données personnelles dans une recherche scientifique.</p></div><div id="privacyStatus" class="privacy-status"></div><button id="privacyExport" class="secondary-action">Préparer une copie de mes observations</button><button id="privacyDelete" class="danger-action">Supprimer toutes mes observations</button><p class="small-note">La suppression efface les observations et le brouillon de cet appareil. Elle ne peut pas être annulée.</p></section>');
+  $('#privacy').insertAdjacentHTML('beforeend', '<form id="passphraseDialog" class="passphrase-dialog" hidden><h3 id="passphraseTitle"></h3><p id="passphraseHelp"></p><label>Phrase secrète<input id="passphrase" type="password" autocomplete="new-password" minlength="8" required></label><label id="passphraseConfirmField">Confirmation<input id="passphraseConfirm" type="password" autocomplete="new-password" minlength="8"></label><p id="passphraseError" class="passphrase-error" aria-live="polite"></p><div><button type="submit" class="main-action">Valider</button><button type="button" id="passphraseCancel" class="secondary-action">Annuler</button></div></form>');
+  $('#tools').insertAdjacentHTML('beforeend', '<button id="libraryButton" class="text-link">Découvrir les exercices</button>');
+  $('#start').insertAdjacentHTML('beforeend', '<button id="privacyButton" class="text-link">Voir mes données et les supprimer</button>');
+  const intensity = $('#observe .intensity-block');
+  const context = $('#understandContext');
+  const insight = $('#emotionInsight');
+  if (intensity && context) context.insertAdjacentElement('afterend', intensity);
+  if (insight && intensity) intensity.insertAdjacentElement('afterend', insight);
+  const recommendation = $('#exerciseRecommendation');
+  if (recommendation) {
+    $('#exercisePageContent').append(recommendation);
+    const detail = $('#exerciseDetail');
+    const evidence = $('#exerciseEvidence');
+    if (detail && evidence) {
+      detail.insertAdjacentHTML('beforebegin', '<details id="exerciseMore" class="exercise-more"><summary>Voir les étapes, les précautions et les sources</summary></details>');
+      $('#exerciseMore').append(detail, evidence);
+    }
+  }
+  $('#toUnderstand').firstChild.textContent = 'Comprendre cette émotion ';
+  $('#toAfter').firstChild.textContent = 'Voir l’exercice ';
+  const after = $('#after');
+  const questionFlow = document.createElement('div');
+  questionFlow.id = 'questionFlow';
+  questionFlow.className = 'question-flow';
+  $('#afterContext').insertAdjacentElement('afterend', questionFlow);
+  ['situation', 'thoughts', 'bodySigns', 'need', 'reaction', 'consequence', 'question'].forEach((id, index) => {
+    const field = id === 'bodySigns' ? $('#bodySigns')?.closest('.body-field') : $('#' + id)?.closest('.field');
+    if (!field) return;
+    field.classList.add('question-step');
+    field.dataset.questionIndex = String(index);
+    questionFlow.append(field);
+  });
+  questionFlow.insertAdjacentHTML('afterend', '<p id="questionProgress" class="question-progress"></p><button id="questionNext" class="main-action">Continuer →</button>');
+  $('#saveButton').hidden = true;
+  $('#observe .step').textContent = 'ÉTAPE 1 SUR 4';
+  $('#observe h2').textContent = 'Que ressens-tu ?';
+  $('#observe .hint').textContent = 'Choisis l’état le plus proche.';
+  $('#understand .step').textContent = 'ÉTAPE 2 SUR 4';
+  $('#understand h2').textContent = 'Comprendre';
+  $('#understand .hint').textContent = 'Lis puis situe l’intensité.';
+  $('#after .step').textContent = 'ÉTAPE 4 SUR 4';
+  $('#after h2').innerHTML = 'Qu’est-ce que<br>cela raconte ?';
+  $('#after .hint').textContent = 'Une question à la fois. Tu peux laisser vide ce qui ne te vient pas maintenant.';
+  $('#afterBack').textContent = '← Exercice';
+  document.querySelectorAll('.progress').forEach(progress => { while (progress.children.length < 4) progress.insertAdjacentHTML('beforeend', '<span></span>'); });
+  $('#safetyTriageUnderstand').remove();
+  $('#afterContext').insertAdjacentHTML('afterend', '<div id="safetyTriageUnderstand" class="safety-triage" role="alert" aria-live="assertive"></div>');
+  renderQuestionStep();
+}
+
+function renderScienceLivePanel() {
+  const panel = $('#scienceLivePanel');
+  if (!panel) return;
+  const liveDate = scientific.sources?.data_snapshot_date || '2026-08-23';
+  if (!scientific.ready) { panel.innerHTML = '<div><b>Base scientifique de secours</b></div><p>Les données locales n’ont pas pu être chargées ; l’application continue sans recommandation scientifique dynamique.</p>'; return; }
+  const sourceLabels = { pubmed: 'PubMed / PMC', apa_psycnet: 'APA PsycInfo', cochrane: 'Cochrane', sciencedirect: 'ScienceDirect' };
+  const sourceStatus = Object.entries(scientific.sources?.sources || {}).map(([id, source]) => {
+    const isBase = id === 'pubmed';
+    const state = source.enabled ? (isBase ? 'base locale disponible' : 'connecteur optionnel configuré') : (isBase ? 'base locale indisponible' : 'optionnel · accès à configurer');
+    return `<span class="source-status ${source.enabled ? 'enabled' : 'limited'}"><b>${sourceLabels[id] || id}</b> : ${state} · <a href="${escapeHtml(source.official_url || '#')}" target="_blank" rel="noreferrer">site officiel</a></span>`;
+  }).join('');
+  const fullTextVerified = scientific.studies.filter(study => study.full_text_extraction_status === 'pmc_full_text_xml_verified').length;
+  const fullTextPending = scientific.studies.filter(study => study.full_text_extraction_status !== 'pmc_full_text_xml_verified').length;
+  panel.innerHTML = `<div><span class="science-live-dot"></span><b>Base scientifique locale disponible</b></div><p>${scientific.studies.length} études structurées · ${scientific.emotionExerciseMap.length} parcours émotion-exercice · ${scientific.exercises.length} exercices.</p><p><b>${fullTextVerified}</b> textes PMC vérifiés · <b>${fullTextPending}</b> accès intégraux à compléter.</p><div class="source-status-list">${sourceStatus}</div><p class="science-fallback-note"><b>Fonctionnement garanti :</b> les références locales et le socle PubMed enregistré restent utilisables sans les connecteurs optionnels.</p><small>Dernière recherche PubMed enregistrée : ${liveDate}. Les nouvelles références doivent être relues avant intégration. Aucun accès protégé n’est contourné et aucune clé n’est stockée dans l’application.</small>`;
+}
+function renderExerciseLibrary() {
+  const list = $('#exerciseLibrary');
+  if (!list) return;
+  if (!scientific.ready) { list.innerHTML = '<p class="empty">La base scientifique est encore en chargement.</p>'; return; }
+  list.innerHTML = scientific.exercises.map(exercise => {
+    const studies = (exercise.associated_studies || []).map(id => scientific.studies.find(study => study.id === id)).filter(Boolean).slice(0, 2);
+    const professionalOnly = exercise.id === 'EX-GRADED-EXPOSURE';
+    const badge = professionalOnly ? 'Avec un professionnel' : evidenceLabel(exercise.evidence_grade);
+    const warning = professionalOnly ? '<p class="professional-warning"><b>À ne pas pratiquer seul :</b> cet exercice doit être planifié avec un professionnel qualifié, surtout en cas de trauma, dissociation, crise ou danger réel.</p>' : '';
+    return `<details class="library-card${professionalOnly ? ' professional-only' : ''}"><summary><span><b>${escapeHtml(exercise.name)}</b><small>${escapeHtml(exercise.objective || '')} · ${escapeHtml(exercise.duration || 'Durée à préciser')}</small></span><em>${escapeHtml(badge)}</em></summary><div class="library-body">${warning}<p><b>Comment cela peut aider :</b> ${escapeHtml(exercise.mechanism || 'Mécanisme à préciser.')}</p><ol>${(exercise.protocol_steps || []).map(step => `<li>${escapeHtml(step)}</li>`).join('')}</ol><p class="library-caution"><b>Quand arrêter / prudence :</b> ${escapeHtml(exercise.contraindications || 'Arrêter si le malaise augmente.')}</p><small>${exercise.evidence_status ? escapeHtml(exercise.evidence_status) : ''}${studies.length ? ` · Sources : ${studies.map(study => `<a href="${escapeHtml(study.pubmed_url || study.source_url || '#')}" target="_blank" rel="noreferrer">${escapeHtml(study.title || study.authors?.slice?.(0, 2)?.join(', ') || 'Référence scientifique')}</a>`).join(' · ')}` : ' · Référence à compléter'}</small></div></details>`;
+  }).join('');
+}
+function renderToolsExercises() {
+  const list = $('#toolsExerciseList');
+  if (!list) return;
+  if (!scientific.ready) { list.innerHTML = '<p class="empty">Les exercices scientifiques sont encore en chargement.</p>'; return; }
+  const featured = ['EX-MINDFUL-BREATHING', 'EX-DELAY-URGE', 'EX-NEEDS-IDENTIFICATION', 'EX-COMPASSION'];
+  const exercises = featured.map(id => scientific.exercises.find(exercise => exercise.id === id)).filter(Boolean);
+  list.innerHTML = `<p class="overline tools-section-label">EXERCICES COURTS VÉRIFIÉS</p>${exercises.map(exercise => `<details class="tool-card tool-exercise-card"><summary><span><b>${escapeHtml(exercise.name)}</b><small>${escapeHtml(exercise.duration || 'Durée à préciser')} · ${escapeHtml(evidenceLabel(exercise.evidence_grade))}</small></span></summary><p>${escapeHtml(exercise.objective || '')}</p><ol>${(exercise.protocol_steps || []).slice(0, 4).map(step => `<li>${escapeHtml(step)}</li>`).join('')}</ol><p class="tool-caution"><b>Prudence :</b> ${escapeHtml(exercise.contraindications || 'Arrête si le malaise augmente.')}</p></details>`).join('')}`;
+}
+function renderSavedSummary(entry) {
+  const summary = $('#savedSummary');
+  if (!summary) return;
+  const after = entry.exerciseAfterIntensity;
+  const resultText = entry.exerciseResult === 'helpful' ? 'Tu as indiqué que c’était un peu aidant.' : entry.exerciseResult === 'harder' ? 'Tu as indiqué que c’était plus difficile ; c’est une information importante à partager.' : entry.exerciseResult === 'same' ? 'Tu as indiqué que c’était plutôt pareil ; cela reste une observation utile.' : 'Tu n’as pas renseigné le ressenti après l’exercice.';
+  summary.innerHTML = entry.exercise ? `<b>${escapeHtml(entry.exercise)}</b><p>${after == null ? 'Tu pourras noter plus tard ce qui a changé.' : `Intensité : ${entry.intensity}/10 → ${after}/10.`} ${resultText}</p><small>Ce résultat décrit ce moment précis. Il ne permet pas de conclure si un exercice est bon ou mauvais pour toi en général.</small>` : '<p>Aucune technique n’a été enregistrée : ton observation reste complète et peut être reprise en séance.</p>';
+}
+function renderPrivacyStatus() {
+  const status = $('#privacyStatus');
+  if (!status) return;
+  if (stateLocked) status.innerHTML = `<b>Observations protégées</b><p>Les données sont chiffrées et verrouillées. Déverrouille-les avec ta phrase secrète pour les relire.</p><button id="privacyUnlock" class="secondary-action">Déverrouiller mes observations</button>`;
+  else if (secureMode) status.innerHTML = `<b>Observations protégées pour cette session</b><p>Les données sont chiffrées sur cet appareil. La phrase secrète n’est pas enregistrée.</p><button id="privacyLock" class="secondary-action">Verrouiller maintenant</button>`;
+  else status.innerHTML = `<b>Protection actuelle</b><p>${state.entries.length} observation${state.entries.length > 1 ? 's' : ''} enregistrée${state.entries.length > 1 ? 's' : ''} sur cet appareil.</p><small>${secureMode ? 'Les observations sont chiffrées avec une phrase secrète qui n’est pas enregistrée.' : 'Les observations restent locales, mais le stockage actuel n’est pas chiffré.'}</small><button id="privacyProtect" class="secondary-action">Protéger avec une phrase secrète</button>`;
+  if ($('#privacyUnlock')) $('#privacyUnlock').onclick = () => openPassphraseDialog('unlock');
+  if ($('#privacyLock')) $('#privacyLock').onclick = () => { stateLocked = true; sessionPassphrase = null; renderPrivacyStatus(); renderHistory(); };
+  if ($('#privacyProtect')) $('#privacyProtect').onclick = () => openPassphraseDialog('protect');
+}
+
+insertDynamicPanels(); restoreDraft(); draft.nuance = ''; saveDraft();
+loadScientificBase().finally(() => { renderEmotions(); renderBodySigns(); renderEmotionInsight(); renderSafetyTriage(); renderWheel(); renderExercise(); renderScienceLivePanel(); renderExerciseLibrary(); renderToolsExercises(); syncQuickLevels(); syncContinueButton(); });
+
+$('#startButton').onclick = () => show('observe');
+$('#observeBack').onclick = () => show('start');
+$('#understandBack').onclick = () => show('observe');
+$('#afterBack').onclick = () => show('exercise');
+$('#exerciseBack').onclick = () => show('understand');
+$('#exerciseRunBack').onclick = () => show('exercise');
+$('#exerciseResultBack').onclick = () => show('exerciseRun');
+$('#historyButton').onclick = () => { renderHistory(); show('history'); };
+$('#backButton').onclick = () => show('start');
+$('#newButton').onclick = () => { clearFields(); show('observe'); };
+$('#toolsBack').onclick = () => show('start');
+$('#scienceButton').onclick = () => show('science');
+$('#libraryButton').onclick = () => { renderExerciseLibrary(); show('library'); };
+$('#libraryBack').onclick = () => show('start');
+$('#privacyButton').onclick = () => { renderPrivacyStatus(); show('privacy'); };
+$('#privacyBack').onclick = () => show('start');
+$('#privacyExport').onclick = report;
+$('#privacyDelete').onclick = () => { if (!confirm('Supprimer les observations et le brouillon de cet appareil ?')) return; state.entries = []; localStorage.removeItem(KEY); localStorage.removeItem(SECURE_KEY); localStorage.removeItem(DRAFT_KEY); localStorage.removeItem(SECURE_DRAFT_KEY); secureMode = false; stateLocked = false; sessionPassphrase = null; clearDraft(); renderPrivacyStatus(); renderHistory(); };
+$('#passphraseDialog').onsubmit = event => { event.preventDefault(); submitPassphrase(); };
+$('#passphraseCancel').onclick = closePassphraseDialog;
+$('#scienceBack').onclick = () => show('start');
+const toolStep = document.querySelector('.tool-step');
+const toolSteps = ['Regarde 3 choses autour de toi.', 'Écoute 2 sons.', 'Repère 1 sensation dans ton corps.', 'C’est fait. Observe si quelque chose a changé.'];
+let stepIndex = 0;
+if (toolStep) { toolStep.onclick = () => { toolStep.textContent = toolSteps[stepIndex]; stepIndex = (stepIndex + 1) % toolSteps.length; }; }
+document.querySelectorAll('[data-nav]').forEach(button => button.onclick = () => { if (button.dataset.nav === 'history') renderHistory(); show(button.dataset.nav); });
+$('#definitionButton').onclick = () => { $('#definitionPanel').classList.add('open'); $('#tools').classList.add('show-definition'); window.scrollTo(0, 0); $('#definitionPanel h2')?.focus({ preventScroll: true }); };
+$('#definitionBack').onclick = () => { $('#definitionPanel').classList.remove('open'); $('#tools').classList.remove('show-definition'); };
+const definitionDetails = { trigger: 'Exemple : un message, une remarque, une pensée ou un souvenir peut lancer la réaction.', feeling: 'Exemple : tu peux ressentir de la peur, de la tristesse, de la colère ou plusieurs émotions à la fois.', body: 'Exemple : mâchoire serrée, gorge nouée, chaleur, fatigue ou respiration plus courte.', urge: 'Exemple : répondre vite, partir, se fermer, pleurer ou demander de l’aide.', choice: 'Le délai permet de choisir une action plus utile : respirer, s’éloigner, parler ou attendre.' };
+document.querySelectorAll('[data-definition]').forEach(button => button.onclick = () => { document.querySelectorAll('[data-definition]').forEach(item => item.classList.remove('selected')); button.classList.add('selected'); $('#definitionDetail').textContent = definitionDetails[button.dataset.definition]; });
+$('#unknownButton').onclick = () => { draft.emotion = 'unknown'; draft.nuance = ''; draft.exercise = ''; saveDraft(); renderEmotions(); renderBodySigns(); renderEmotionInsight(); renderExercise(); syncContinueButton(); };
+$('#wheelToggle').onclick = () => { const open = !$('#wheelPanel').classList.contains('open'); $('#wheelPanel').classList.toggle('open', open); $('#observe').classList.toggle('wheel-mode', open); $('#wheelToggle').textContent = open ? 'Revenir aux émotions principales' : 'Préciser avec la roue des émotions'; draft.emotion = null; draft.nuance = ''; draft.exercise = ''; draft.exerciseStatus = ''; draft.exerciseAfterIntensity = null; saveDraft(); renderEmotions(); renderEmotionInsight(); renderExercise(); renderWheel(); syncContinueButton(); };
+document.querySelectorAll('[data-level]').forEach(button => button.onclick = () => { draft.intensity = Number(button.dataset.level); syncQuickLevels(); renderEmotionInsight(); renderExercise(); saveDraft(); });
+$('#level').oninput = event => { draft.intensity = Number(event.target.value); syncQuickLevels(); renderEmotionInsight(); renderExercise(); saveDraft(); };
+$('#exerciseStart').onclick = runExercise;
+$('#exerciseStop').onclick = () => finishExercise('arrêté');
+$('#exerciseRunRestart').onclick = runExercise;
+$('#exerciseLevel').oninput = event => { draft.exerciseAfterIntensity = Number(event.target.value); $('#exerciseLevelValue').textContent = event.target.value; saveDraft(); };
+document.querySelectorAll('[data-exercise-result]').forEach(button => button.onclick = () => { draft.exerciseResult = button.dataset.exerciseResult; renderExerciseResult(); saveDraft(); });
+['situation', 'thoughts', 'need', 'reaction', 'consequence', 'question'].forEach(id => $('#' + id).addEventListener('input', () => { saveDraft(); renderSafetyTriage(); }));
+document.querySelectorAll('[data-fill]').forEach(button => button.onclick = () => { const field = $('#' + button.dataset.fill); const text = button.dataset.text; field.value = field.value.trim() ? `${field.value.trim()} ${text}` : text; field.focus(); saveDraft(); });
+$('#toUnderstand').onclick = () => show('understand');
+$('#toAfter').onclick = () => show('exercise');
+$('#toQuestions').onclick = () => show('after');
+$('#exerciseResultQuestions').onclick = () => show('after');
+$('#questionNext').onclick = advanceQuestion;
+$('#saveButton').onclick = () => {
+  const fields = Object.fromEntries(['situation', 'thoughts', 'need', 'reaction', 'consequence', 'question'].map(id => [id, $('#' + id).value.trim()]));
+  const entry = { id: crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random()}`, date: new Date().toISOString(), ...draft, ...fields };
+  state.entries.push(entry);
+  renderSavedSummary(entry);
+  saveState(); clearDraft(); stopExercise(false); show('saved');
+};
+$('#reportButton').onclick = () => { renderHistory(); show('history'); setTimeout(report, 0); };
+$('#downloadButton').onclick = report;
+$('#clearButton').onclick = () => { if (!confirm('Effacer toutes les observations de cet appareil ?')) return; state.entries = []; saveState(); renderHistory(); renderPrivacyStatus(); };
+const toolAdvice = { calm: 'Tu peux prendre un instant pour repérer ce qui t’aide à rester dans cet état.', anger: 'Si possible, crée un délai avant de répondre : éloigne-toi quelques instants et reviens quand tu seras prêt.', sad: 'Commence doucement : nomme ce dont tu aurais besoin maintenant, même si tu n’as pas encore de solution.', stress: 'Choisis un repère externe : regarde autour de toi et laisse ta respiration revenir naturellement.', rage: 'La priorité est de créer de la distance et de la sécurité avant toute discussion.' };
+$('#toolsButton').onclick = () => { $('#tools').classList.remove('show-definition'); $('#definitionPanel').classList.remove('open'); $('#toolRecommendation').textContent = (draft.nuance && nuanceExercises[draft.nuance] ? `Pour « ${draft.nuance} » : ${nuanceExercises[draft.nuance].text}` : toolAdvice[draft.emotion]) || 'Choisis une petite pause qui te semble possible maintenant.'; $('#toolRecommendation').classList.add('show'); if (toolStep) { stepIndex = 0; toolStep.textContent = 'Commencer par 3–2–1'; } renderToolsExercises(); show('tools'); };

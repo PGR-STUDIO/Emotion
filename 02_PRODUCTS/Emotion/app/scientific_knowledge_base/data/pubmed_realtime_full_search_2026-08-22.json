@@ -1,0 +1,1750 @@
+{
+  "queries": {
+    "self_compassion": "(self-compassion[Title/Abstract]) AND (meta-analysis[Title/Abstract] OR systematic review[Title/Abstract])",
+    "compassion_therapy": "(compassion focused therapy[Title/Abstract] OR compassion-focused therapy[Title/Abstract]) AND (meta-analysis[Title/Abstract] OR systematic review[Title/Abstract])",
+    "pmr": "(\"progressive muscle relaxation\"[Title/Abstract]) AND (meta-analysis[Title/Abstract] OR systematic review[Title/Abstract])",
+    "hrv": "(\"heart rate variability biofeedback\"[Title/Abstract]) AND (meta-analysis[Title/Abstract] OR systematic review[Title/Abstract])",
+    "gratitude": "(gratitude[Title/Abstract]) AND (intervention[Title/Abstract] OR exercise[Title/Abstract]) AND (meta-analysis[Title/Abstract] OR systematic review[Title/Abstract])",
+    "mbct_relapse": "(\"mindfulness-based cognitive therapy\"[Title/Abstract]) AND (relapse[Title/Abstract] OR depression[Title/Abstract]) AND (meta-analysis[Title/Abstract] OR systematic review[Title/Abstract])",
+    "exposure": "(\"exposure therapy\"[Title/Abstract]) AND (anxiety[Title/Abstract] OR phobia[Title/Abstract]) AND (meta-analysis[Title/Abstract] OR systematic review[Title/Abstract])",
+    "act_recent": "(\"acceptance and commitment therapy\"[Title/Abstract]) AND (meta-analysis[Title/Abstract] OR systematic review[Title/Abstract])",
+    "dbt_recent": "(\"dialectical behavior therapy\"[Title/Abstract]) AND (meta-analysis[Title/Abstract] OR systematic review[Title/Abstract])",
+    "emotion_regulation": "(\"emotion regulation\"[Title/Abstract]) AND (meta-analysis[Title/Abstract] OR systematic review[Title/Abstract])"
+  },
+  "result_count": 77,
+  "selected_count": 10,
+  "results": [
+    {
+      "pmid": "26311196",
+      "title": "The Relationship Between Self-Compassion and Well-Being: A Meta-Analysis.",
+      "authors": [
+        "Zessin Ulli",
+        "Dickhäuser Oliver",
+        "Garbade Sven"
+      ],
+      "year": "2015",
+      "journal": "Applied psychology. Health and well-being",
+      "doi": "10.1111/aphw.12051",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Review"
+      ],
+      "abstract": "BACKGROUND: Self-compassion describes a positive and caring attitude of a person toward her- or himself in the face of failures and individual shortcomings. As a result of this caring attitude, individuals high in self-compassion are assumed to experience higher individual well-being. The present meta-analysis examines the relationship between self-compassion and different forms of well-being. METHOD: The authors combined k = 79 samples, with an overall sample size of N = 16,416, and analyzed the central tendencies of effect sizes (Pearson correlation coefficients) with a random-effect model. RESULTS: We found an overall magnitude of the relationship between self-compassion and well-being of r = .47. The relationship was stronger for cognitive and psychological well-being compared to affective well-being. Sample characteristics and self-esteem were tested as potential moderators. In addition, a subsample of studies indicated a causal effect of self-compassion on well-being. CONCLUSIONS: The results clearly highlight the importance of self-compassion for individuals' well-being. Future research should further investigate the relationship between self-compassion and the different forms of well-being, and focus on the examination of possible additional moderators.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/26311196/",
+      "search_domain": "self_compassion"
+    },
+    {
+      "pmid": "22796446",
+      "title": "Exploring compassion: a meta-analysis of the association between self-compassion and psychopathology.",
+      "authors": [
+        "MacBeth Angus",
+        "Gumley Andrew"
+      ],
+      "year": "2012",
+      "journal": "Clinical psychology review",
+      "doi": "10.1016/j.cpr.2012.06.003",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
+      ],
+      "abstract": "Compassion has emerged as an important construct in studies of mental health and psychological therapy. Although an increasing number of studies have explored relationships between compassion and different facets of psychopathology there has as yet been no systematic review or synthesis of the empirical literature. We conducted a systematic search of the literature on compassion and mental health. We identified 20 samples from 14 eligible studies. All studies used the Neff Self Compassion Scale (Neff, 2003b). We employed meta-analysis to explore associations between self-compassion and psychopathology using random effects analyses of Fisher's Z correcting for attenuation arising from scale reliability. We found a large effect size for the relationship between compassion and psychopathology of r=-0.54 (95% CI=-0.57 to -0.51; Z=-34.02; p<.0001). Heterogeneity was significant in the analysis. There was no evidence of significant publication bias. Compassion is an important explanatory variable in understanding mental health and resilience. Future work is needed to develop the evidence base for compassion in psychopathology, and explore correlates of compassion and psychopathology.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/22796446/",
+      "search_domain": "self_compassion"
+    },
+    {
+      "pmid": "36649790",
+      "title": "The effectiveness of compassion focused therapy with clinical populations: A systematic review and meta-analysis.",
+      "authors": [
+        "Millard L A",
+        "Wan M W",
+        "Smith D M",
+        "Wittkowski A"
+      ],
+      "year": "2023",
+      "journal": "Journal of affective disorders",
+      "doi": "10.1016/j.jad.2023.01.010",
+      "publication_types": [
+        "Meta-Analysis",
+        "Systematic Review",
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "abstract": "BACKGROUND: Over the last 20 years, compassion focused therapy (CFT) has gained popularity as an emerging 'third wave' intervention. Although previous reviews indicated its potential benefits, a systematic review and meta-analysis of CFT in those with mental health difficulties has yet to be conducted. METHODS: A systematic search of five databases was undertaken, focusing on randomised controlled trials and randomised pilot/feasibility studies of CFT only. No language restrictions were implemented. A narrative synthesis was conducted. Random effects meta-analyses were measured on levels of self-compassion, self-criticism/self-reassurance, fears of compassion and clinical symptomology. RESULTS: Fifteen studies from 2013 to 2022 were included. Findings suggested that CFT was effective in improving compassion-based outcomes and clinical symptomology from baseline to post-intervention and compared to waitlist control. A range of small to large effect sizes were reported for improvements in self-compassion (0.19-0.90), self-criticism (0.15-0.72), self-reassurance (0.43-0.81), fear of self-compassion (0.18), depression (0.24-0.25) and eating disorders (0.18-0.79). Meta-analyses favoured CFT in improving levels of self-compassion and self-reassurance than control groups. LIMITATIONS: The methodological quality of many of the included studies (7/15) was rated as 'unclear' due to a lack of information. There was a distinct gender gap, with 74.88% identifying as female participants. CONCLUSIONS: This review was the first to examine the effectiveness of CFT in clinical populations. The results indicate that CFT has promising clinical implications, suggesting that the intervention increases compassion-based outcomes and reduces clinical symptomology in those with mental health difficulties. However, future research is required into the long-term effects of CFT.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/36649790/",
+      "search_domain": "self_compassion"
+    },
+    {
+      "pmid": "33895444",
+      "title": "Mindfulness-based interventions for social anxiety disorder: A systematic review and meta-analysis.",
+      "authors": [
+        "Liu Xiaoyu",
+        "Yi Pengcheng",
+        "Ma Lijun",
+        "Liu Wen",
+        "Deng Wenrui",
+        "Yang Xinxin",
+        "Liang Meng",
+        "Luo Jingyi",
+        "Li Ni",
+        "Li Xiaoming"
+      ],
+      "year": "2021",
+      "journal": "Psychiatry research",
+      "doi": "10.1016/j.psychres.2021.113935",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Research Support, Non-U.S. Gov't",
+        "Systematic Review"
+      ],
+      "abstract": "Various psychiatric disorders are treated with mindfulness-based interventions (MBIs), although the efficacy of MBIs in patients with social anxiety disorder (SAD) is unclear. In this meta-analysis, we investigated the efficacy of MBIs on SAD symptoms. Systematic searches were performed in various databases, and 11 eligible randomized controlled trials (RCTs) and 5 single-arm trials were identified. The between-groups analysis of the 11 RCTs showed that Hedges' g = 0.00, while the within-group analysis showed a large pre-post effect size (g = 1.20).MBIs were superior to the no-treatment comparator (g = 0.89), equivalent to specific active treatment (g = -0.19), and less effective than evidence-based treatment (i.e., cognitive behavioral therapies) (g = -0.29).MBIs significantly alleviated depressive symptoms and improved mindfulness, quality of life, and self-compassion. Meta-regression analysis showed a dose-response relationship between the alleviation of SAD symptoms and the duration of the MBIs (β = 0.659). Follow-up analysis showed that the effects of MBIs on SAD persisted for 12 months (g = 0.231). An analysis of the 5 single-arm trials found that MBIs had a medium effect in alleviating SAD symptoms (g = 0.48). Future research is needed regarding the design of large RCTs of MBIs on SAD patients.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/33895444/",
+      "search_domain": "self_compassion"
+    },
+    {
+      "pmid": "35878528",
+      "title": "Body appreciation and its psychological correlates: A systematic review and meta-analysis.",
+      "authors": [
+        "Linardon Jake",
+        "McClure Zoe",
+        "Tylka Tracy L",
+        "Fuller-Tyszkiewicz Matthew"
+      ],
+      "year": "2022",
+      "journal": "Body image",
+      "doi": "10.1016/j.bodyim.2022.07.003",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
+      ],
+      "abstract": "Body appreciation, defined as accepting, holding favourable attitudes towards, and respecting the body, is the most widely studied facet of positive body image. Despite more than 15 years of research investigating associations between body appreciation and psychological wellbeing constructs, a synthesis of this literature has yet to be performed. We conducted the first systematic review and meta-analysis of research on body appreciation and its psychological correlates. Two-hundred-forty papers were included, of which only eight investigated prospective associations. Random effects meta-analyses were performed on 35 cross-sectional correlates of body appreciation. Prospective associations were reviewed qualitatively. Meta-analyses showed that body appreciation was inversely associated with numerous indices of eating (eating pathology, restraint) and body image disturbances (appearance-ideal internalization, body surveillance, sociocultural pressures), and general psychopathology (depression, anxiety). Body appreciation was positively associated with several adaptive wellbeing constructs (self-esteem, self-compassion, sexual satisfaction). Crucially, pooled associations were still evident after controlling for the influence of negative body image. Qualitative synthesis showed that body appreciation may also promote better wellbeing over time. Findings confirm that body appreciation is consistently associated with better psychological wellbeing. Body appreciation shows promise as a viable intervention target in mental health promotion initiatives and eating disorder prevention programs.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/35878528/",
+      "search_domain": "self_compassion"
+    },
+    {
+      "pmid": "37942696",
+      "title": "Mindfulness-based Interventions for Chronic Low Back Pain: A Systematic Review and Meta-analysis.",
+      "authors": [
+        "Paschali Myrella",
+        "Lazaridou Asimina",
+        "Sadora Jason",
+        "Papianou Lauren",
+        "Garland Eric L",
+        "Zgierska Aleksandra E",
+        "Edwards Robert R"
+      ],
+      "year": "2024",
+      "journal": "The Clinical journal of pain",
+      "doi": "10.1097/AJP.0000000000001173",
+      "publication_types": [
+        "Meta-Analysis",
+        "Systematic Review",
+        "Journal Article"
+      ],
+      "abstract": "OBJECTIVE: This systematic review aimed to compile existing evidence examining the effects of mindfulness-based interventions (MBIs) for chronic low back pain (CLBP). CLBP leads to millions of disabled individuals in the United States each year. Current pharmacologic treatments are only modestly effective and may present long-term safety issues. MBIs, which have an excellent safety profile, have been shown in prior studies to be effective in treating CLBP yet remained underutilized. DESIGN: Ovid/Medline, PubMed, Embase, and the Cochrane Library were searched for randomized controlled trials (RCTs), pilot RCTs, and single-arm studies that explored the effectiveness of MBIs in CLBP. METHODS: Separate searches were conducted to identify trials that evaluated MBIs in reducing pain intensity in individuals with CLBP. A meta-analysis was then performed using R v3.2.2, Metafor package v 1.9-7. RESULTS: Eighteen studies used validated patient-reported pain outcome measures and were therefore included in the meta-analysis. The MBIs included mindfulness meditation, mindfulness-based stress reduction, mindfulness-based cognitive therapy, mindfulness-oriented recovery enhancement, acceptance and commitment therapy, dialectical behavioral therapy, meditation-cognitive behavioral therapy, mindfulness-based care for chronic pain, self-compassion course, and loving-kindness course. Pain intensity scores were reported using a numerical rating scale (0 to 10) or an equivalent scale. The meta-analysis revealed that MBIs have a beneficial effect on pain intensity with a large-sized effect in adults with CLBP. CONCLUSIONS: MBIs seem to be beneficial in reducing pain intensity. Although these results were informative, findings should be carefully interpreted due to the limited data the high variability in study methodologies, small sample sizes, inclusion of studies with high risk of bias, and reliance on pre-post treatment differences with no attention to maintenance of effects. More large-scale RCTs are needed to provide reliable effect size estimates for MBIs in persons with CLBP.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/37942696/",
+      "search_domain": "self_compassion"
+    },
+    {
+      "pmid": "31743957",
+      "title": "Mindfulness-Based Interventions for University Students: A Systematic Review and Meta-Analysis of Randomised Controlled Trials.",
+      "authors": [
+        "Dawson Anna F",
+        "Brown William W",
+        "Anderson Joanna",
+        "Datta Bella",
+        "Donald James N",
+        "Hong Karen",
+        "Allan Sophie",
+        "Mole Tom B",
+        "Jones Peter B",
+        "Galante Julieta"
+      ],
+      "year": "2020",
+      "journal": "Applied psychology. Health and well-being",
+      "doi": "10.1111/aphw.12188",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
+      ],
+      "abstract": "BACKGROUND: University students are expressing an increased need for mental health support. Mindfulness-based interventions (MBIs) are being integrated into university stress-reduction programmes globally. We conducted a comprehensive systematic review and meta-analysis of randomised controlled trials (RCTs) assessing MBI effects on university students' mental and physical health. METHODS: We searched nine databases, including grey literature and trial registries. Two independent reviewers extracted data following a prospective public protocol. RESULTS: Fifty-one RCTs were included. In comparison with passive controls, and when measured shortly after intervention completion, MBIs improve distress, anxiety, depression, well-being, rumination, and mindfulness with small to moderate effect sizes, with no benefit found for blood pressure, sleep, life satisfaction, resilience, worry, and thought suppression. Evidence for self-compassion is inconclusive. Effects last beyond three months for distress and mindfulness, with no data on other outcomes. Compared with active control groups, MBIs significantly improve distress and state anxiety, but not mindfulness, depression, well-being, affect, trait anxiety, or emotion regulation. Results were robust to adjustment for multiple testing, but RCTs' risk of bias is generally high. Moderator analyses did not find differential intervention effects according to intervention duration, delivery mode, or sub-populations. CONCLUSIONS: MBIs may be helpful to students but higher-quality research is needed.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/31743957/",
+      "search_domain": "self_compassion"
+    },
+    {
+      "pmid": "40830328",
+      "title": "Body image, self-esteem, emotion regulation, and eating disorders in adults: a systematic review.",
+      "authors": [
+        "Abdoli Marzieh",
+        "Schiechtl Elisabeth",
+        "Rosato Marco Scotto",
+        "Mangweth-Matzek Barbara",
+        "Cotrufo Paolo",
+        "Hüfner Katharina"
+      ],
+      "year": "2025",
+      "journal": "Neuropsychiatrie : Klinik, Diagnostik, Therapie und Rehabilitation : Organ der Gesellschaft Osterreichischer Nervenarzte und Psychiater",
+      "doi": "10.1007/s40211-025-00544-4",
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
+      ],
+      "abstract": "This systematic review examines the connections between eating disorders, body image disturbance, self-esteem, and emotion regulation in adults. Following the PRISMA guidelines, a systematic search of PubMed, Scopus, and Web of Science databases was conducted for articles published between 2010 and June 2024. Studies were included if they involved participants aged 18 years and older, employed validated tools for measuring the variables, and presented original research that specifically addressed these psychological factors. Out of 1117 records, six studies met the inclusion criteria, with mostly female samples and a focus on body image, self-esteem, and emotion regulation in relation to eating disorders. The results indicate that body dissatisfaction is closely related to disordered eating behaviors, with a significant link to lower self-esteem and difficulties in emotion regulation. Obese individuals with binge eating disorder (BED) were found to have more negative attitudes toward obesity and greater levels of depression than their non-BED counterparts. Women with bulimia nervosa showed higher emotion-focused coping, which is associated with low self-worth. Differences in gender were evident, with women exhibiting greater vulnerability to body image dissatisfaction and emotion dysregulation. The results show that treatment for adults with eating disorders should focus on the enhancement of self-esteem, the improvement of body image perception, and the development of adaptive emotion regulation strategies. Lastly, practicing self-compassion techniques in psychotherapy could improve the treatment process for patients suffering from eating disorders, low self-esteem, emotion dysregulation, and body image disturbance. Future studies should investigate these variables in various non-Western cultural contexts for better understanding and clinical intervention for the adult population.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/40830328/",
+      "search_domain": "self_compassion"
+    },
+    {
+      "pmid": "32196399",
+      "title": "Compassion focused therapy: a systematic review of its effectiveness and acceptability in clinical populations.",
+      "authors": [
+        "Craig Catriona",
+        "Hiskey Syd",
+        "Spector Aimee"
+      ],
+      "year": "2020",
+      "journal": "Expert review of neurotherapeutics",
+      "doi": "10.1080/14737175.2020.1746184",
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
+      ],
+      "abstract": "Introduction: Compassion focused therapy (CFT) is an increasingly popular therapeutic modality. Its holistic and integrative approach to universal human suffering means that it is well placed as a transdiagnostic therapy. Research into its effectiveness and acceptability has increased over the previous 10 years as the therapy has evolved, and to help consider its status as an evidence-based therapy research concerning its treatment outcomes needs evaluating.Areas covered: This paper reviews research investigating the effectiveness of CFT in clinical populations.Expert opinion: CFT shows promise for a range of mental health problems, especially when delivered in a group format over at least 12 hours. This is important for funding bodies and commissioning groups to consider as they allocate healthcare resources in light of current evidence-based practice. CFT is demonstrably well accepted by clients and clinicians and there is now a clear need for an updated, universally deployed, standard manual to direct future research. This will be critical in enabling widespread implementation and further adoption into mainstream clinical practice, will address the lack of standardization in the current research, and pave the way for further randomized control trials aimed at reducing existing methodological limitations.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/32196399/",
+      "search_domain": "compassion_therapy"
+    },
+    {
+      "pmid": "33215861",
+      "title": "Compassion-focused therapies for self-esteem: A systematic review and meta-analysis.",
+      "authors": [
+        "Thomason Sarah",
+        "Moghaddam Nima"
+      ],
+      "year": "2021",
+      "journal": "Psychology and psychotherapy",
+      "doi": "10.1111/papt.12319",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
+      ],
+      "abstract": "PURPOSE: To identify whether compassion-focused therapy (CFT) or compassion-based interventions are effective in improving self-esteem. METHODS: Databases (CINAHL, MEDLINE, and PsycINFO) were searched, along with OpenGrey literature. Experts were also contacted and handsearching of reference lists and citing articles undertaken. To be eligible, papers had to include an intervention identified as being compassion-based and mention 'self-esteem' as a variable or outcome. Papers were quality appraised using the Mixed Methods Appraisal Tool. Data were analysed using a random-effects meta-analysis model, with sensitivity analysis conducted in relation to the quality of studies. RESULTS: Ten eligible papers were identified. Within-group analysis of data from eight studies demonstrated a medium, significant overall effect size (g = 0.56, 95% CI [0.19-0.93], z = 3.54, p < .001), which increased slightly and remained significant (g = 0.61, 95% CI [0.05-1.17], z = 2.82, p = .005) when the lowest quality studies were removed. CONCLUSIONS: Compassion-focused therapy or compassion-based interventions may be effective in improving self-esteem. However, there is large clinical and methodological heterogeneity amongst studies making further conclusions difficult. PRACTITIONER POINTS: CFT/compassion-based interventions appear to be effective in improving self-esteem. Transdiagnostic concepts (such as low self-esteem and compassion-focused therapy) should be considered in supporting people with their mental health.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/33215861/",
+      "search_domain": "compassion_therapy"
+    },
+    {
+      "pmid": "36172899",
+      "title": "Effect of compassion-focused therapy on self-criticism and self-soothing: A meta-analysis.",
+      "authors": [
+        "Vidal Joana",
+        "Soldevilla Joan Miquel"
+      ],
+      "year": "2023",
+      "journal": "The British journal of clinical psychology",
+      "doi": "10.1111/bjc.12394",
+      "publication_types": [
+        "Meta-Analysis",
+        "Journal Article"
+      ],
+      "abstract": "OBJECTIVE: Compassion is oriented towards perceiving and relieving suffering. Hence, its development is beneficial for mental health. Many interventions aimed at cultivating compassion in patients have been empirically supported. This meta-analysis analyses the effectiveness of compassion-focused therapy (CFT) in decreasing self-criticism, a vulnerability factor that has been related to several mental health problems, and in increasing self-soothing. METHODS: A literature search was conducted in the PsycInfo, Web of Science, Medline and Scopus databases, through which 7 controlled trials (N = 640) and 7 observational studies (N = 207) were retrieved. RESULTS: The results of the meta-analysis determine that CFT decreases the level of self-criticism and increases the ability to experience soothing. The size of the effect varies depending on the design of the study and the subscale of the test used to measure self-criticism (Forms of Self-Criticizing/Attacking and Self-Reassuring Scale). CONCLUSIONS: CFT has proven to be an effective intervention for reducing self-criticism. However, given that the number of studies is small and that only half of them are controlled trials, the results must be interpreted cautiously. More randomized controlled trials comparing CFT with other therapies are needed to determine the effect of this intervention on self-criticism with more scientific evidence.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/36172899/",
+      "search_domain": "compassion_therapy"
+    },
+    {
+      "pmid": "25215860",
+      "title": "Psychotherapeutic benefits of compassion-focused therapy: an early systematic review.",
+      "authors": [
+        "Leaviss J",
+        "Uttley L"
+      ],
+      "year": "2015",
+      "journal": "Psychological medicine",
+      "doi": "10.1017/S0033291714002141",
+      "publication_types": [
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't",
+        "Systematic Review"
+      ],
+      "abstract": "BACKGROUND: Compassion-focused therapy (CFT) is a relatively novel form of psychotherapy that was developed for people who have mental health problems primarily linked to high shame and self-criticism. The aim of this early systematic review was to draw together the current research evidence of the effectiveness of CFT as a psychotherapeutic intervention, and to provide recommendations that may inform the development of further trials. METHOD: A comprehensive search of electronic databases was undertaken to systematically identify literature relating to the effectiveness of CFT as a psychotherapeutic intervention. Reference lists of key journals were hand searched and contact with experts in the field was made to identify unpublished data. RESULTS: Fourteen studies were included in the review, including three randomized controlled studies. The findings from the included studies were, in the most part, favourable to CFT, and in particular seemed to be effective for people who were high in self-criticism. CONCLUSIONS: CFT shows promise as an intervention for mood disorders, particularly those high in self-criticism. However, more large-scale, high-quality trials are needed before it can be considered evidence-based practice. The review highlights issues from the current evidence that may be used to inform such trials.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/25215860/",
+      "search_domain": "compassion_therapy"
+    },
+    {
+      "pmid": "40183405",
+      "title": "A meta-analysis of self-compassion and attachment in adults.",
+      "authors": [
+        "Hill Charlotte",
+        "Vasiliou Vasilis S",
+        "Sirois Fuschia M",
+        "Hughes Olivia",
+        "Thompson Andrew R"
+      ],
+      "year": "2025",
+      "journal": "Psychology and psychotherapy",
+      "doi": "10.1111/papt.12590",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "abstract": "OBJECTIVE: Attachment might shape the extent to which a person is self-compassionate. Despite the plethora of research examining attachment and self-compassion, no previous systematic review has quantified the magnitude of the associations between self-compassion and different attachment dimensions. DESIGN: Random-effects meta-analyses examined the magnitude of the associations of self-compassion with anxious, avoidant, and secure attachment, using correlational effects (r-value). Moderator analyses tested whether the effects varied as a function of participant age, sex, population type (students vs. community sample) and attachment measure used within studies. METHODS: A systematic search of the literature using SCOPUS, Web of Science, and CINAHL databases retrieved 37 eligible studies. RESULTS: The meta-analyses revealed a medium effect size for the positive association between self-compassion with secure attachment, ravg = .395, 95% CI [0.248, 0.524], and medium and small effect sizes for the negative associations with anxious attachment, ravg = -.282, 95% CI [-0.329, -0.233], and avoidant attachment, ravg = -.280, 95% CI [-0.320, -0.240]. Moderator analyses indicate that the magnitude of associations with avoidant attachment varied as a function of participant age and population type (students vs. community samples). CONCLUSIONS: The findings suggest differential associations between self-compassion and attachment dimensions. Self-compassion was positively associated with secure attachment, while the reverse was found for insecure attachment. Negative associations between self-compassion and avoidant attachment were larger for older individuals. Ageing populations may be vulnerable to lower self-compassion when already more prone to experiencing avoidant attachment. Compassion-focused therapy may be an effective therapeutic option when working with individuals reliant on anxious or avoidant attachment dimensions.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/40183405/",
+      "search_domain": "compassion_therapy"
+    },
+    {
+      "pmid": "39767314",
+      "title": "Psychological Treatments for Alexithymia: A Systematic Review.",
+      "authors": [
+        "Tsubaki Kanako",
+        "Shimizu Eiji"
+      ],
+      "year": "2024",
+      "journal": "Behavioral sciences (Basel, Switzerland)",
+      "doi": "10.3390/bs14121173",
+      "publication_types": [
+        "Journal Article",
+        "Review"
+      ],
+      "abstract": "Alexithymia, a psychological condition characterized by emotional suppression, is positively correlated with depression and anxiety and can develop into various mental disorders. Although alexithymia affects 10% of the symptomatic population and 25% of psychiatric patients, there has been a paucity of intervention studies. Even though several effective psychological treatments, including cognitive behavioral therapy (CBT), have been tested in recent years, there is a lack of comprehensive reviews on their efficacy. The objectives of this systematic review were to explore and synthesize findings from recent randomized controlled trials (RCTs) about psychological treatments, with the following inclusion criteria: (1) published from 2010 to 2024; (2) full text being available in English; (3) peer-reviewed journals; and (4) baselines and outcomes measured by TAS-20 and raw data were provided. We excluded non-psychological studies and studies involving mindfulness and DBT. We searched electronic databases (PubMed, PsycInfo, and Google Scholar) and found 18 RCTs and 21 arms for alexithymia, with a combined total of 1251 participants. Fourteen arms (67%) investigated the effect of CBT on alexithymia, including acceptance and commitment therapy (seven arms), behavioral activation therapy (two arms), schema therapy, and compassion-focused therapy. The results indicated that most psychological interventions significantly decreased TAS-20, illustrating a showcase of treatments from each trial with different effect sizes (within-intervention group, ranging from 0.41 to 13.25). However, due to the heterogeneity between the studies, this review study may not be conclusive enough to make each intervention standardized. Further high-quality RCTs with larger sample sizes and more consistent methodologies are needed, and corrective findings from such studies should be applied to produce more robust evidence-based psychological interventions for treating alexithymia.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/39767314/",
+      "search_domain": "compassion_therapy"
+    },
+    {
+      "pmid": "31094063",
+      "title": "Third-wave therapies and adults with intellectual disabilities: A systematic review.",
+      "authors": [
+        "Patterson Christopher Wynne",
+        "Williams Jonathan",
+        "Jones Robert"
+      ],
+      "year": "2019",
+      "journal": "Journal of applied research in intellectual disabilities : JARID",
+      "doi": "10.1111/jar.12619",
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
+      ],
+      "abstract": "BACKGROUND: Third-wave therapies appear to produce positive outcomes for people without intellectual disabilities. This systematic review aimed to establish which third-wave therapies have been adapted for adults with intellectual disabilities and whether they produced positive outcomes. METHOD: Four databases were searched systematically (PsycINFO, Web of Science, MEDLINE and PubMed), yielding 1,395 results. Twenty studies (N = 109) met the present review's inclusion/exclusion criteria. RESULTS: Included studies used mindfulness-based approaches, dialectical behaviour therapy, compassion focused therapy and acceptance and commitment therapy. Due to considerable heterogeneity in the designs and outcome measures used, a meta-analysis was not possible. CONCLUSIONS: Evidence indicated that third-wave therapies improved mental health symptoms for some and improved challenging/offending behaviour, smoking and mindfulness/acceptance skills for most. These findings must be interpreted with caution due to the low methodological quality of included studies. Future research should build on the current evidence base, using scientifically rigorous designs and standardized measures.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/31094063/",
+      "search_domain": "compassion_therapy"
+    },
+    {
+      "pmid": "38322293",
+      "title": "Efficacy of Progressive Muscle Relaxation in Adults for Stress, Anxiety, and Depression: A Systematic Review.",
+      "authors": [
+        "Muhammad Khir Syazwina",
+        "Wan Mohd Yunus Wan Mohd Azam",
+        "Mahmud Norashikin",
+        "Wang Rui",
+        "Panatik Siti Aisyah",
+        "Mohd Sukor Mohammad Saipol",
+        "Nordin Nor Akmar"
+      ],
+      "year": "2024",
+      "journal": "Psychology research and behavior management",
+      "doi": "10.2147/PRBM.S437277",
+      "publication_types": [
+        "Journal Article",
+        "Review"
+      ],
+      "abstract": "BACKGROUND: The rise in the prevalence of mental health problems among adults worldwide has raised concerns, highlighting the critical need for evidence-based mental health interventions that are accessible, comprehensive, and effective. Previous research suggests that Progressive Muscle Relaxation (PMR) is a promising intervention widely used to reduce mental health problems. Nevertheless, the current literature on the efficacy of PMR among adults globally is fragmented, indicating a potential gap in this research area. Hence, this paper aims to systematically compile the research evidence on the efficacy of PMR in adults for stress, anxiety, and depression. METHODS: The Scopus, Web of Sciences, PubMed, PsycINFO, and Cochrane Central Register of Controlled Trials were searched from the earliest available evidence to 28th March 2023. The PRISMA (Preferred Reporting Items of Systematic Reviews and Meta-analyses) guidelines were followed, and the protocol was registered on the Open Science Framework. Joanna Briggs Institute (JBI) Critical Appraisal Tools were used to assess the quality of the included studies. RESULTS: A total of forty-six (46) publications from sixteen (16) countries covering more than 3402 adults were included in the review. The results show that PMR are effective in reducing stress, anxiety, and depression in adults. When PMR is combined with other interventions, the combined techniques have also consistently exhibited enhanced efficacy. Moreover, findings also indicate that the efficacy of PMR is heightened when implemented in conjunction with other interventions, surpassing its standalone efficacy. FUNDING AND REGISTRATION: This research was supported/funded by the Ministry of Higher Education (MoHE) under the Fundamental Research Grant Scheme (FRGS) (FRGS/1/2020/SS0/UTM/02/23). The review was registered on Open Science Framework (OSF) on the 7th of March 2023; DOI: https://doi.org/10.17605/OSF.IO/U2HZP.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/38322293/",
+      "search_domain": "pmr"
+    },
+    {
+      "pmid": "34952171",
+      "title": "Psychological and Non-Pharmacologic Treatments for Pain in Cancer Patients: A Systematic Review and Meta-Analysis.",
+      "authors": [
+        "Ruano Alejandra",
+        "García-Torres Francisco",
+        "Gálvez-Lara Mario",
+        "Moriana Juan A"
+      ],
+      "year": "2022",
+      "journal": "Journal of pain and symptom management",
+      "doi": "10.1016/j.jpainsymman.2021.12.021",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "abstract": "CONTEXT: Pain is the most fearful symptom in cancer. Although there is a relationship between psychosocial variables and oncologic pain, psychological and non-pharmacological treatments for pain management in cancer patients are not very widespread. OBJECTIVES: To analyze the efficacy of psychological and non-pharmacological treatments for reducing pain in cancer patients. METHODS: We performed a systematic review following the PRISMA protocol. In January 2021, data were extracted from PubMed, Web of Science and Scopus, including randomised controlled trials (RCT) published in the last five years (from 28 January, 2015 to December 15, 2020), in the English language and whose sample was patients with cancer pain. The database search used the following keywords: cancer, cancer-related pain, psychological intervention, non-pharmacologic intervention. The Cochrane risk of bias assess ment for randomised trials (RoB 2) was used for quality appraisal. RESULTS: After the inclusion and exclusion criteria were applied, ten papers were fully screened. The evidence suggested that the most effective interventions to reduce cancer pain were mindfulness-based cognitive therapy, guided imagery and progressive muscle relaxation and emotional and symptom focused engagement (EASE). Music therapy and brief cognitive behavioral strategies (CBS) require more research, while coping skills training and yoga did not show positive effects. Overall, we obtained a moderate size effect (d = 0.642, 95% CI: 0.125-1.158) favourable to psychological and non-pharmacologic treatments at post-treatment, which increased at follow-up (k = 5, d = 0.826, 95% CI: 0.141-1.511). CONCLUSION: This study provides insight into psychological interventions which might be applied and contribute to cancer-related pain reduction in adults. Although the results are not completely consistent, they may shed light on psychology applications in the oncology environment.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/34952171/",
+      "search_domain": "pmr"
+    },
+    {
+      "pmid": "37345574",
+      "title": "Endometriosis and physical activity: A narrative review.",
+      "authors": [
+        "Tourny Claire",
+        "Zouita Amira",
+        "El Kababi Samira",
+        "Feuillet Léa",
+        "Saeidi Ayoub",
+        "Laher Ismail",
+        "Weiss Katja",
+        "Knechtle Beat",
+        "Zouhal Hassane"
+      ],
+      "year": "2023",
+      "journal": "International journal of gynaecology and obstetrics: the official organ of the International Federation of Gynaecology and Obstetrics",
+      "doi": "10.1002/ijgo.14898",
+      "publication_types": [
+        "Journal Article",
+        "Review"
+      ],
+      "abstract": "Endometriosis is a painful gynecological disorder that affects many women. Constant treatments and contraception changes affect women looking for solutions to treat and limit the problems caused by endometriosis. The current narrative review discusses the effects of physical activity on the management, pain, and quality of life in patients with endometriosis. Findings suggest that body awareness practices such as Hatha yoga, the Jacobson method, and progressive muscle relaxation reduce pain and stress and improve the quality of life associated with endometriosis. It also highlights the current knowledge gap on available evidence and future research. Moreover, care must be taken when considering patients' physical abilities and goals and avoiding intense physical activities. The forms of endometriosis and its symptoms vary from one woman to another, so it is important to perform studies with various nonmedicinal or surgical techniques. It is important to continue randomized controlled trials to obtain more data on the benefits of physical activity in women with endometriosis and also to identify what types of activities could be beneficial to combat pain symptoms and improve the daily lives of women with endometriosis.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/37345574/",
+      "search_domain": "pmr"
+    },
+    {
+      "pmid": "38271440",
+      "title": "Effects of relaxation interventions during pregnancy on maternal mental health, and pregnancy and newborn outcomes: A systematic review and meta-analysis.",
+      "authors": [
+        "Abera Mubarek",
+        "Hanlon Charlotte",
+        "Daniel Beniam",
+        "Tesfaye Markos",
+        "Workicho Abdulhalik",
+        "Girma Tsinuel",
+        "Wibaek Rasmus",
+        "Andersen Gregers S",
+        "Fewtrell Mary",
+        "Filteau Suzanne",
+        "Wells Jonathan C K"
+      ],
+      "year": "2024",
+      "journal": "PloS one",
+      "doi": "10.1371/journal.pone.0278432",
+      "publication_types": [
+        "Meta-Analysis",
+        "Systematic Review",
+        "Journal Article"
+      ],
+      "abstract": "BACKGROUND: Stress during pregnancy is detrimental to maternal health, pregnancy and birth outcomes and various preventive relaxation interventions have been developed. This systematic review and meta-analysis aimed to evaluate their effectiveness in terms of maternal mental health, pregnancy and birth outcomes. METHOD: The protocol for this review is published on PROSPERO with registration number CRD42020187443. A systematic search of major databases was conducted. Primary outcomes were maternal mental health problems (stress, anxiety, depression), and pregnancy (gestational age, labour duration, delivery mode) and birth outcomes (birth weight, Apgar score, preterm birth). Randomized controlled trials or quasi-experimental studies were eligible. Meta-analyses using a random-effects model was conducted for outcomes with sufficient data. For other outcomes a narrative review was undertaken. RESULT: We reviewed 32 studies comprising 3,979 pregnant women aged 18 to 40 years. Relaxation interventions included yoga, music, Benson relaxation, progressive muscle relaxation (PMR), deep breathing relaxation (BR), guided imagery, mindfulness and hypnosis. Intervention duration ranged from brief experiment (~10 minutes) to 6 months of daily relaxation. Meta-analyses showed relaxation therapy reduced maternal stress (-4.1 points; 95% Confidence Interval (CI): -7.4, -0.9; 9 trials; 1113 participants), anxiety (-5.04 points; 95% CI: -8.2, -1.9; 10 trials; 1965 participants) and depressive symptoms (-2.3 points; 95% CI: -3.4, -1.3; 7 trials; 733 participants). Relaxation has also increased offspring birth weight (80 g, 95% CI: 1, 157; 8 trials; 1239 participants), explained by PMR (165g, 95% CI: 100, 231; 4 trials; 587 participants) in sub-group analysis. In five trials evaluating maternal physiological responses, relaxation therapy optimized blood pressure, heart rate and respiratory rate. Four trials showed relaxation therapy reduced duration of labour. Apgar score only improved significantly in two of six trials. One of three trials showed a significant increase in birth length, and one of three trials showed a significant increase in gestational age. Two of six trials examining delivery mode showed significantly increased spontaneous vaginal delivery and decreased instrumental delivery or cesarean section following a relaxation intervention. DISCUSSION: We found consistent evidence for beneficial effects of relaxation interventions in reducing maternal stress, improving mental health, and some evidence for improved maternal physiological outcomes. In addition, we found a positive effect of relaxation interventions on birth weight and inconsistent effects on other pregnancy or birth outcomes. High quality adequately powered trials are needed to examine impacts of relaxation interventions on newborns and offspring health outcomes. CONCLUSION: In addition to benefits for mothers, relaxation interventions provided during pregnancy improved birth weight and hold some promise for improving newborn outcomes; therefore, this approach strongly merits further research.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/38271440/",
+      "search_domain": "pmr"
+    },
+    {
+      "pmid": "38281450",
+      "title": "The efficacy of progressive muscle relaxation training on cancer-related fatigue and quality of life in patients with cancer: A systematic review and meta-analysis of randomized controlled studies.",
+      "authors": [
+        "Wang Yajiao",
+        "Yang Liu",
+        "Lin Guijiao",
+        "Huang Bichun",
+        "Sheng Xia",
+        "Wang Ligang",
+        "Chen Liuyin",
+        "Qiu Xiahua",
+        "Wu Xinlei",
+        "Lin Rujia"
+      ],
+      "year": "2024",
+      "journal": "International journal of nursing studies",
+      "doi": "10.1016/j.ijnurstu.2024.104694",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
+      ],
+      "abstract": "BACKGROUND: Cancer-related fatigue is one of the most common symptoms in cancer patients, usually accompanied by anxiety, depression and insomnia, which seriously affect patients' quality of life. Progressive muscle relaxation training is widely used for cancer-related fatigue, but the overall effect is unclear. OBJECTIVES: The aim of this study was to summarize the evidence on the effects of progressive muscle relaxation training on cancer-related fatigue and quality of life in cancer patients. DESIGN: Systematic review and meta-analysis. METHODS: Nine electronic databases (PubMed, Excerpta Medica Database (Embase), The Cochrane Library (Cochrane Central Register of Controlled Trials, CENTRAL), Web of Science, Cumulative Index to Nursing and Allied Health Literature (CINAHL), Chinese Biomedical Literature Database (CBM), Chinese National Knowledge Infrastructure (CNKI), China Science and Technology Journal Database (VIP) and Wanfang Database) were explored for randomized controlled trials (RCTs) published before February 2023. This study was reported based on the PRISMA 2020 statement. The Cochrane Collaboration's risk of bias assessment tool was used for methodological assessment, and the GRADE pro online assessment tool was used for evidence evaluation. The data were analyzed with the Review Manager 5.4 software. RESULTS: Twelve studies involving 1047 patients were included. Meta-analysis showed that progressive muscle relaxation training plus routine nursing produced more positive effects than routine nursing in improving cancer-related fatigue [SMD = -1.06, 95 % CI -1.49, -0.62, P < 0.00001], anxiety [SMD = -1.09, 95 % CI -1.40, -0.77, P < 0.00001], depression [SMD = -1.43, 95 % CI -1.76, -1.10, P < 0.00001], and quality of sleep [MD = -1.41, 95 % CI -1.74, -1.08, P < 0.00001]. However, there was no significant difference in improving quality of life [SMD = 0.27, 95 % CI -0.62, 1.15, P = 0.55]. Progressive resistance exercise plus routine nursing improved cancer-related fatigue more than progressive muscle relaxation training plus routine nursing [SMD = 1.11, 95 % CI 0.43, 1.78, P = 0.001]. There was low certainty of evidence that progressive muscle relaxation training improved cancer-related fatigue and quality of sleep, and the evidence that improved quality of life, anxiety and depression was very low. CONCLUSION: Current evidence suggested that progressive muscle relaxation training has the potential to improve cancer-related fatigue, anxiety, depression and quality of sleep in patients with cancer and is a low-load, simple exercise worthy of recommendation for cancer patients in fatigue state. Future research should focus on improving the methodological quality of randomized controlled trials to enhance the persuasive evidence of progressive muscle relaxation training efficacy.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/38281450/",
+      "search_domain": "pmr"
+    },
+    {
+      "pmid": "38223744",
+      "title": "Non-pharmacological interventions feasible in the nursing scope of practice for pain relief in palliative care patients: a systematic review.",
+      "authors": [
+        "van Veen Suzan",
+        "Drenth Hans",
+        "Hobbelen Hans",
+        "Finnema Evelyn",
+        "Teunissen Saskia",
+        "de Graaf Everlien"
+      ],
+      "year": "2024",
+      "journal": "Palliative care and social practice",
+      "doi": "10.1177/26323524231222496",
+      "publication_types": [
+        "Journal Article",
+        "Review"
+      ],
+      "abstract": "BACKGROUND: Palliative care patients desire more symptom management interventions that are complementary to their medical treatment. Within the multi-professional team, nurses could help support pain management with non-pharmacological interventions feasible for their practice and adaptable to palliative care patients' needs. OBJECTIVES: The objective was to identify non-pharmacological interventions feasible in the nursing scope of practice affecting pain in palliative care patients. DESIGN: A systematic review. DATA SOURCES AND METHODS: A defined search strategy was used in PubMed, CINAHL, PsycINFO, and Embase. Search results were screened double-blinded. Methodological quality was double-appraised with the Joanna Briggs Institute Critical Appraisal Tools. Data were extracted from selected studies and the findings were summarized. The methodological quality, quantity of studies evaluating the same intervention, and consistency in the findings were synthesized in a best-evidence synthesis to rank evidence as strong, moderate, limited, mixed, or insufficient. RESULTS: Out of 2385 articles, 22 studies highlighted non-pharmacological interventions in the nursing scope of practice. Interventions using massage therapy and virtual reality demonstrated most evidentiary support for pain management, while art therapy lacked sufficient evidence. Mindful breathing intervention showed no significant reduction in pain. Hypnosis, progressive muscle-relaxation-interactive-guided imagery, cognitive-behavioral audiotapes, wrapped warm footbath, reflexology, and music therapy exhibited promising results in pain reduction, whereas mindfulness-based stress reduction program, aromatherapy, and aroma-massage therapy did not. CONCLUSION: Despite not all studies reaching significant changes in pain scores, non-pharmacological interventions can be clinically relevant to palliative care patients. Its use should be discussed for its potential value and nurses to be trained for safe practice. Methodologically rigorous research for non-pharmacological interventions in nursing scope of practice for pain relief in palliative care patients is necessary. TRIAL REGISTRATION: The protocol for this study is registered in the International Prospective Register of Systematic Review (PROSPERO registration number: CRD42020196781).",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/38223744/",
+      "search_domain": "pmr"
+    },
+    {
+      "pmid": "34235817",
+      "title": "Physical relaxation for occupational stress in healthcare workers: A systematic review and network meta-analysis of randomized controlled trials.",
+      "authors": [
+        "Zhang Michael",
+        "Murphy Brittany",
+        "Cabanilla Abegail",
+        "Yidi Christina"
+      ],
+      "year": "2021",
+      "journal": "Journal of occupational health",
+      "doi": "10.1002/1348-9585.12243",
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review",
+        "Network Meta-Analysis"
+      ],
+      "abstract": "OBJECTIVES: Work related stress is a major occupational health problem that is associated with adverse effects on physical and mental health. Healthcare workers are particularly vulnerable in the era of COVID-19. Physical methods of stress relief such as yoga and massage therapy may reduce occupational stress. The objective of this systematic review and network meta-analysis is to determine the effects of yoga, massage therapy, progressive muscle relaxation, and stretching on alleviating stress and improving physical and mental health in healthcare workers. METHODS: Databases were searched for randomized controlled trials on the use of physical relaxation methods for occupational stress in healthcare workers with any duration of follow-up. Meta-analysis was performed for standard mean differences in stress measures from baseline between subjects undergoing relaxation vs non-intervention controls. Network meta-analysis was conducted to determine the best relaxation method. RESULTS: Fifteen trials representing 688 healthcare workers were identified. Random-effects meta-analysis shows that physical relaxation methods overall reduced measures of occupational stress at the longest duration of follow-up vs baseline compared to non-intervention controls (SMD -0.53; 95% CI [-0.74 to -0.33]; p < .00001). On network meta-analysis, only yoga alone (SMD -0.71; 95% CI [-1.01 to -0.41]) and massage therapy alone (SMD -0.43; 95% CI [-0.72 to -0.14]) were more effective than control, with yoga identified as the best method (p-score = .89). CONCLUSION: Physical relaxation may help reduce occupational stress in healthcare workers. Yoga is particularly effective and offers the convenience of online delivery. Employers should consider implementing these methods into workplace wellness programs.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/34235817/",
+      "search_domain": "pmr"
+    },
+    {
+      "pmid": "26018758",
+      "title": "Treatments for pregnancy-related lumbopelvic pain: a systematic review of physiotherapy modalities.",
+      "authors": [
+        "Gutke Annelie",
+        "Betten Carola",
+        "Degerskär Kristina",
+        "Pousette Sara",
+        "Olsén Monika Fagevik"
+      ],
+      "year": "2015",
+      "journal": "Acta obstetricia et gynecologica Scandinavica",
+      "doi": "10.1111/aogs.12681",
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
+      ],
+      "abstract": "OBJECTIVE: To explore the effect of physiotherapeutic interventions on pregnancy-related lumbopelvic pain. MATERIAL AND METHODS: Data sources: MEDLINE, Cochrane Central Register of Controlled Trials, PEDro, CINAHL, AMED, and SCOPUS databases were searched up to December 2014 for studies written in English, French, German or Scandinavian languages that evaluated physiotherapeutic modalities for preventing and treating pregnancy-related lumbopelvic pain. RESULTS: For lumbopelvic pain during pregnancy, the evidence was strong for positive effects of acupuncture and pelvic belts. The evidence was low for exercise in general and for specific stabilizing exercises. The evidence was very limited for efficacy of water gymnastics, progressive muscle relaxation, a specific pelvic tilt exercise, osteopathic manual therapy, craniosacral therapy, electrotherapy and yoga. For postpartum lumbopelvic pain, the evidence was very limited for clinic-based treatment concepts, including specific stabilizing exercises, and for self-management interventions for women with severe disabilities. No specific adverse events were reported for any intervention. No meta-analysis could be performed because of study heterogeneity. CONCLUSIONS: The levels of evidence were strong for a positive effect of acupuncture and pelvic belts, but weak for an effect of specific exercises. Caution should prevail in choosing other interventions for pregnancy-related lumbopelvic pain.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/26018758/",
+      "search_domain": "pmr"
+    },
+    {
+      "pmid": "35623448",
+      "title": "Effects of voluntary slow breathing on heart rate and heart rate variability: A systematic review and a meta-analysis.",
+      "authors": [
+        "Laborde S",
+        "Allen M S",
+        "Borges U",
+        "Dosseville F",
+        "Hosang T J",
+        "Iskra M",
+        "Mosley E",
+        "Salvotti C",
+        "Spolverato L",
+        "Zammit N",
+        "Javelle F"
+      ],
+      "year": "2022",
+      "journal": "Neuroscience and biobehavioral reviews",
+      "doi": "10.1016/j.neubiorev.2022.104711",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
+      ],
+      "abstract": "Voluntary slow breathing (VSB) is used as a prevention technique to support physical and mental health, given it is suggested to influence the parasympathetic nervous system (PNS). However, to date, no comprehensive quantitative review exists to support or refute this claim. We address this through a systematic review and meta-analysis of the effects of VSB on heart rate variability (HRV). Specifically, we focus on HRV parameters indexing PNS activity regulating cardiac functioning, referred to as vagally-mediated (vm)HRV: (1) during the breathing session (i.e., DURING), (2) immediately after one training session (i.e., IM-AFTER1), as well as (3) after a multi-session intervention (i.e., AFTER-INT). From the 1842 selected abstracts, 223 studies were suitable for inclusion (172 DURING, 16 IM-AFTER1, and 49 AFTER-INT). Results indicate increases in vmHRV with VSB, DURING, IM-AFTER1, and AFTER-INT. Given the involvement of the PNS in a large range of health-related outcomes and conditions, VSB exercises could be advised as a low-tech and low-cost technique to use in prevention and adjunct treatment purposes, with few adverse effects expected.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/35623448/",
+      "search_domain": "hrv"
+    },
+    {
+      "pmid": "32385728",
+      "title": "Heart Rate Variability Biofeedback Improves Emotional and Physical Health and Performance: A Systematic Review and Meta Analysis.",
+      "authors": [
+        "Lehrer Paul",
+        "Kaur Karenjot",
+        "Sharma Agratta",
+        "Shah Khushbu",
+        "Huseby Robert",
+        "Bhavsar Jay",
+        "Sgobba Phillip",
+        "Zhang Yingting"
+      ],
+      "year": "2020",
+      "journal": "Applied psychophysiology and biofeedback",
+      "doi": "10.1007/s10484-020-09466-z",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
+      ],
+      "abstract": "We performed a systematic and meta analytic review of heart rate variability biofeedback (HRVB) for various symptoms and human functioning. We analyzed all problems addressed by HRVB and all outcome measures in all studies, whether or not relevant to the studied population, among randomly controlled studies. Targets included various biological and psychological problems and issues with athletic, cognitive, and artistic performance. Our initial review yielded 1868 papers, from which 58 met inclusion criteria. A significant small to moderate effect size was found favoring HRVB, which does not differ from that of other effective treatments. With a small number of studies for each, HRVB has the largest effect sizes for anxiety, depression, anger and athletic/artistic performance and the smallest effect sizes on PTSD, sleep and quality of life. We found no significant differences for number of treatment sessions or weeks between pretest and post-test, whether the outcome measure was targeted to the population, or year of publication. Effect sizes are larger in comparison to inactive than active control conditions although significant for both. HRVB improves symptoms and functioning in many areas, both in the normal and pathological ranges. It appears useful as a complementary treatment. Further research is needed to confirm its efficacy for particular applications.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/32385728/",
+      "search_domain": "hrv"
+    },
+    {
+      "pmid": "28478782",
+      "title": "The effect of heart rate variability biofeedback training on stress and anxiety: a meta-analysis.",
+      "authors": [
+        "Goessl V C",
+        "Curtiss J E",
+        "Hofmann S G"
+      ],
+      "year": "2017",
+      "journal": "Psychological medicine",
+      "doi": "10.1017/S0033291717001003",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis"
+      ],
+      "abstract": "BACKGROUND: Some evidence suggests that heart rate variability (HRV) biofeedback might be an effective way to treat anxiety and stress symptoms. To examine the effect of HRV biofeedback on symptoms of anxiety and stress, we conducted a meta-analysis of studies extracted from PubMed, PsycINFO and the Cochrane Library. METHODS: The search identified 24 studies totaling 484 participants who received HRV biofeedback training for stress and anxiety. We conducted a random-effects meta-analysis. RESULTS: The pre-post within-group effect size (Hedges' g) was 0.81. The between-groups analysis comparing biofeedback to a control condition yielded Hedges' g = 0.83. Moderator analyses revealed that treatment efficacy was not moderated by study year, risk of study bias, percentage of females, number of sessions, or presence of an anxiety disorder. CONCLUSIONS: HRV biofeedback training is associated with a large reduction in self-reported stress and anxiety. Although more well-controlled studies are needed, this intervention offers a promising approach for treating stress and anxiety with wearable devices.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/28478782/",
+      "search_domain": "hrv"
+    },
+    {
+      "pmid": "33758260",
+      "title": "A meta-analysis on heart rate variability biofeedback and depressive symptoms.",
+      "authors": [
+        "Pizzoli Silvia F M",
+        "Marzorati Chiara",
+        "Gatti Daniele",
+        "Monzani Dario",
+        "Mazzocco Ketti",
+        "Pravettoni Gabriella"
+      ],
+      "year": "2021",
+      "journal": "Scientific reports",
+      "doi": "10.1038/s41598-021-86149-7",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis"
+      ],
+      "abstract": "Heart rate variability biofeedback (HRVB) has been used for a number of years to treat depressive symptoms, a common mental health issue, which is often comorbid with other psychopathological and medical conditions. The aim of the present meta-analysis is to test whether and to what extent HRVB is effective in reducing depressive symptoms in adult patients. We conducted a literature search on Pubmed, ProQuest, Ovid PsycInfo, and Embase up to October 2020, and identified 721 studies. Fourteen studies were included in the meta-analysis. Three meta-regressions were also performed to further test whether publication year, the questionnaire used to assess depressive symptoms, or the interval of time between T0 and T1 moderated the effect of HRVB. Overall, we analysed 14 RCTs with a total of 794 participants. The random effect analysis yielded a medium mean effect size g = 0.38 [95% CI = 0.16, 0.60; 95% PI =  - 0.19, 0.96], z = 3.44, p = 0.0006. The total heterogeneity was significant, QT = 23.49, p = 0.03, I2 = 45%, which suggested a moderate variance among the included studies. The year of publication (χ2(1) = 4.08, p = 0.04) and the questionnaire used to assess symptoms (χ2(4) = 12.65, p = 0.01) significantly moderated the effect of the interventions and reduced heterogeneity. Overall, results showed that HRVB improves depressive symptoms in several psychophysiological conditions in adult samples and should be considered as a valid technique to increase psychological well-being.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/33758260/",
+      "search_domain": "hrv"
+    },
+    {
+      "pmid": "36917418",
+      "title": "Methods for Heart Rate Variability Biofeedback (HRVB): A Systematic Review and Guidelines.",
+      "authors": [
+        "Lalanza Jaume F",
+        "Lorente Sonia",
+        "Bullich Raimon",
+        "García Carlos",
+        "Losilla Josep-Maria",
+        "Capdevila Lluis"
+      ],
+      "year": "2023",
+      "journal": "Applied psychophysiology and biofeedback",
+      "doi": "10.1007/s10484-023-09582-6",
+      "publication_types": [
+        "Systematic Review",
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "abstract": "Heart Rate Variability Biofeedback (HRVB) has been widely used to improve cardiovascular health and well-being. HRVB is based on breathing at an individual's resonance frequency, which stimulates respiratory sinus arrhythmia (RSA) and the baroreflex. There is, however, no methodological consensus on how to apply HRVB, while details about the protocol used are often not well reported. Thus, the objectives of this systematic review are to describe the different HRVB protocols and detect methodological concerns. PsycINFO, CINALH, Medline and Web of Science were searched between 2000 and April 2021. Data extraction and quality assessment were based on PRISMA guidelines. A total of 143 studies were finally included from any scientific field and any type of sample. Three protocols for HRVB were found: (i) \"Optimal RF\" (n = 37), each participant breathes at their previously detected RF; (ii) \"Individual RF\" (n = 48), each participant follows a biofeedback device that shows the optimal breathing rate based on cardiovascular data in real time, and (iii) \"Preset-pace RF\" (n = 51), all participants breathe at the same rate rate, usually 6 breaths/minute. In addition, we found several methodological differences for applying HRVB in terms of number of weeks, duration of breathing or combination of laboratory and home sessions. Remarkably, almost 2/3 of the studies did not report enough information to replicate the HRVB protocol in terms of breathing duration, inhalation/exhalation ratio, breathing control or body position. Methodological guidelines and a checklist are proposed to enhance the methodological quality of future HRVB studies and increase the information reported.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/36917418/",
+      "search_domain": "hrv"
+    },
+    {
+      "pmid": "38287778",
+      "title": "Heart Rate Variability Biofeedback as a Treatment for Military PTSD: A Meta-Analysis.",
+      "authors": [
+        "Kenemore Jordan",
+        "Benham Grant",
+        "Charak Ruby",
+        "Hernandez Rodriguez Juventino"
+      ],
+      "year": "2024",
+      "journal": "Military medicine",
+      "doi": "10.1093/milmed/usae003",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis"
+      ],
+      "abstract": "INTRODUCTION: Emerging research has provided tentative support for the use of heart rate variability biofeedback (HRVB) as a treatment for several psychological disorders, with meta-analyses providing compelling evidence for HRVB as a promising treatment for anxiety, depression, and PTSD. Given the prevalence of PTSD in military veterans and the comparatively lower benefit and higher attrition rate of traditional psychological treatment for PTSD relative to civilian counterparts, it is important to examine complementary and alternative treatment approaches such as HRVB in this population. Although studies of HRVB for PTSD have been conducted with military veterans, they have involved relatively small sample sizes, limiting interpretation. To address this, the current article presents a comprehensive meta-analysis, consolidating existing literature to more accurately evaluate the efficacy of HRVB in reducing PTSD symptoms within military populations. MATERIALS AND METHODS: This meta-analysis was conducted according to Preferred Reporting Items for Systematic Reviews and Meta-Analysis guidelines, and our protocol was registered with PROSPERO to increase review transparency. A literature search of HRVB interventions was conducted using PubMed, PsycINFO, Military Database, PTSDPubs, and EBSCO's Psychological and Behavioral Sciences Collection. RESULTS: Five studies met eligibility criteria, providing a combined sample size of 95 military services members. For all studies, effect sizes were negative, indicating a reduction in PTSD symptoms. Effect sizes ranged from -1.614 to -0.414, resulting in an overall moderate to large mean effect for HRVB (Hedges's g = -0.557; 95% confidence interval = -0.818 to -0.296; P < .001). Additionally, cumulative attrition was 5.8%, significantly lower than commonly reported rates for evidence-based treatments (16%-36%). CONCLUSIONS: The present study is the first meta-analysis to examine HRVB as a treatment for military service members with PTSD. Results indicate that HRVB may be a viable treatment approach to reduce PTSD symptomatology. Low attrition rates, ease of accessibility, and favorable participant outlook serve as additional benefits for the use of HRVB.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/38287778/",
+      "search_domain": "hrv"
+    },
+    {
+      "pmid": "34187114",
+      "title": "A preliminary systematic review and meta-analysis on the effects of heart rate variability biofeedback on heart rate variability and respiration of athletes.",
+      "authors": [
+        "Pagaduan Jeffrey Cayaban",
+        "Chen Yung-Sheng",
+        "Fell James William",
+        "Xuan Wu Sam Shi"
+      ],
+      "year": "2022",
+      "journal": "Journal of complementary & integrative medicine",
+      "doi": "10.1515/jcim-2020-0528",
+      "publication_types": [
+        "Journal Article",
+        "Review"
+      ],
+      "abstract": "To date, there is no quantitative review examining the influence of heart rate variability biofeedback (HRV BFB) on the athlete population. Such an undertaking may provide valuable information on the autonomic and respiration responses of athletes when performing HRV BFB. Thus, purpose of this preliminary systematic review and meta-analysis on the effects of HRV BFB on HRV and respiration of athletes. Searches of Springerlink, SportDiscus, Web of Science, PROQUEST Academic Research Library, Google Scholar, and ScienceDirect were conducted for studies that met the following criteria: (1) experimental studies involving athletes that underwent randomized control trial; (2) availability of HRV BFB as a treatment compared with a control (CON)/placebo (PLA); (3) any pre and post HRV variable and/or breathing frequency as dependent variable/s; and, (4) peer-reviewed articles written in English. Four out of 660 studies involving 115 athletes (25 females and 90 males) ages 16-30 years old were assessed in this review. Preliminary findings suggest the promising ability of HRV BFB to improve respiratory mechanics in athlete population. More work is needed to determine the autonomic modulatory effect of HRV BFB in athletes.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/34187114/",
+      "search_domain": "hrv"
+    },
+    {
+      "pmid": "34118390",
+      "title": "Heart rate variability biofeedback in chronic disease management: A systematic review.",
+      "authors": [
+        "Fournié Claire",
+        "Chouchou Florian",
+        "Dalleau Georges",
+        "Caderby Teddy",
+        "Cabrera Quentin",
+        "Verkindt Chantal"
+      ],
+      "year": "2021",
+      "journal": "Complementary therapies in medicine",
+      "doi": "10.1016/j.ctim.2021.102750",
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
+      ],
+      "abstract": "BACKGROUND: Heart rate variability biofeedback (HRVB) is a non-pharmacological intervention used in the management of chronic diseases. METHOD: A systematic search was performed according to eligibility criteria including adult chronic patients, HRVB as main treatment with or without control conditions, and psychophysiological outcomes as dependent variables. RESULTS: In total, 29 articles were included. Reported results showed the feasibility of HRVB in chronic patients without adverse effects. Significant positive effects were found in various patient profiles on hypertension and cardiovascular prognosis, inflammatory state, asthma disorders, depression and anxiety, sleep disturbances, cognitive performance and pain, which could be associated with improved quality of life. Improvements in clinical outcomes co-occurred with improvements in heart rate variability, suggesting possible regulatory effect of HRVB on autonomic function. CONCLUSIONS: HRVB could be effective in managing patients with chronic diseases. Further investigations are required to confirm these results and recommend the most effective method.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/34118390/",
+      "search_domain": "hrv"
+    },
+    {
+      "pmid": "37385740",
+      "title": "Workplace interventions to improve well-being and reduce burnout for nurses, physicians and allied healthcare professionals: a systematic review.",
+      "authors": [
+        "Cohen Catherine",
+        "Pignata Silvia",
+        "Bezak Eva",
+        "Tie Mark",
+        "Childs Jessie"
+      ],
+      "year": "2023",
+      "journal": "BMJ open",
+      "doi": "10.1136/bmjopen-2022-071203",
+      "publication_types": [
+        "Systematic Review",
+        "Journal Article"
+      ],
+      "abstract": "UNLABELLED: There is a growing need for interventions to improve well-being in healthcare workers, particularly since the onset of COVID-19. OBJECTIVES: To synthesise evidence since 2015 on the impact of interventions designed to address well-being and burnout in physicians, nurses and allied healthcare professionals. DESIGN: Systematic literature review. DATA SOURCES: Medline, Embase, Emcare, CINAHL, PsycInfo and Google Scholar were searched in May-October 2022. ELIGIBILITY CRITERIA FOR SELECTING STUDIES: Studies that primarily investigated burnout and/or well-being and reported quantifiable preintervention and postintervention outcomes using validated well-being measures were included. DATA EXTRACTION AND SYNTHESIS: Full-text articles in English were independently screened and quality assessed by two researchers using the Medical Education Research Study Quality Instrument. Results were synthesised and presented in both quantitative and narrative formats. Meta-analysis was not possible due to variations in study designs and outcomes. RESULTS: A total of 1663 articles were screened for eligibility, with 33 meeting inclusion criterium. Thirty studies used individually focused interventions, while three were organisationally focused. Thirty-one studies used secondary level interventions (managed stress in individuals) and two were primary level (eliminated stress causes). Mindfulness-based practices were adopted in 20 studies; the remainder used meditation, yoga and acupuncture. Other interventions promoted a positive mindset (gratitude journaling, choirs, coaching) while organisational interventions centred on workload reduction, job crafting and peer networks. Effective outcomes were reported in 29 studies, with significant improvements in well-being, work engagement, quality of life and resilience, and reductions in burnout, perceived stress, anxiety and depression. CONCLUSION: The review found that interventions benefitted healthcare workers by increasing well-being, engagement and resilience, and reducing burnout. It is noted that the outcomes of numerous studies were impacted by design limitations that is, no control/waitlist control, and/or no post intervention follow-up. Suggestions are made for future research.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/37385740/",
+      "search_domain": "gratitude"
+    },
+    {
+      "pmid": "41818908",
+      "title": "Interventions for preventing or reducing nurse burnout: A systematic review and meta-analysis.",
+      "authors": [
+        "Jiménez-García Segundo",
+        "Flor-Martínez Aitana"
+      ],
+      "year": "2026",
+      "journal": "International journal of nursing studies",
+      "doi": "10.1016/j.ijnurstu.2026.105391",
+      "publication_types": [
+        "Systematic Review",
+        "Journal Article",
+        "Meta-Analysis"
+      ],
+      "abstract": "BACKGROUND: Nursing burnout, recognised in the International Classification of Diseases 11th Revision (ICD-11) as emotional exhaustion, depersonalisation, and reduced professional efficacy, threatens staff retention, patient safety, and quality of care, and also undermines the psychological wellbeing and overall quality of life of nurses themselves. Although numerous interventions exist, it is unclear which approaches (individual-level vs. organisational-level) yield the greatest and most durable reductions in burnout. OBJECTIVE: Guided by Maslach's tripartite burnout model and the Job Demands-Resources framework, to quantify the effects of nurse-targeted interventions on global burnout, and its three dimensions (emotional exhaustion, depersonalisation, and professional efficacy/personal accomplishment), and to explore durability and moderators (intervention type) across both individual- and organisational-level strategies. DESIGN: Systematic review and meta-analysis. METHODS: Six databases (MEDLINE, CENTRAL, PsycINFO, CINAHL, Scopus and Web of Science) were searched from inception to October 2025. Randomised, quasi-experimental or controlled before-after studies targeting registered nurses were eligible. Risk of bias was assessed with RoB 2 (RCTs) or ROBINS-I (non-randomised). Random-effects meta-analyses generated Hedges g; heterogeneity was explored with I2 and subgroup tests. GRADE informed certainty ratings. The review followed PRISMA 2020 and was prospectively registered (PROSPERO CRD420251041394). RESULTS: Sixty-three studies met inclusion criteria; forty-six contributed to quantitative synthesis. Interventions produced significant reductions in global burnout (g = -0.71, 95% CI -1.27 to -0.14; k = 11). Effects were strongest for emotional exhaustion (g = -1.46, 95% CI -2.64 to -0.27) and depersonalisation (g = -0.89, 95% CI -1.54 to -0.24), whereas personal accomplishment showed small, imprecise, and inconsistent changes. By intervention type, mindfulness and yoga programmes produced the most consistent improvements in exhaustion and depersonalisation; workshop-based approaches yielded smaller but favourable effects. Sensitivity analyses restricted to randomised controlled trials confirmed the direction of benefit and attenuated extreme values. No evidence of publication bias was detected. CONCLUSIONS: Mindfulness-based and brief positive-psychology interventions offer the most reliable and scalable pathway to mitigating nurse burnout, particularly emotional exhaustion. Hybrid relational formats (Balint groups, reflective supervision) show additional promise when paired with protected time and managerial endorsement, whereas passive educational packages are insufficient. Health-system leaders should integrate accessible digital mindfulness or gratitude-based micro-interventions into routine wellness platforms and reinforce these with team-level reflective structures. Future research should include head-to-head trials, cost-effectiveness analyses, and studies in resource-constrained settings with follow-up beyond six months.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/41818908/",
+      "search_domain": "gratitude"
+    },
+    {
+      "pmid": "31545815",
+      "title": "Effects of the Best Possible Self intervention: A systematic review and meta-analysis.",
+      "authors": [
+        "Carrillo Alba",
+        "Rubio-Aparicio María",
+        "Molinari Guadalupe",
+        "Enrique Ángel",
+        "Sánchez-Meca Julio",
+        "Baños Rosa M"
+      ],
+      "year": "2019",
+      "journal": "PloS one",
+      "doi": "10.1371/journal.pone.0222386",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Research Support, Non-U.S. Gov't",
+        "Systematic Review"
+      ],
+      "abstract": "The Best Possible Self (BPS) exercise promotes a positive view of oneself in the best possible future, after working hard towards it. Since the first work that attempted to examine the benefits of this intervention in 2001, studies on the BPS have grown exponentially and, currently, this is one of the most widely used Positive Psychology Interventions. However, little is yet known about its overall effectiveness in increasing wellbeing outcomes. Thus, the aim of this meta-analysis is to shed light on this question. A systematic literature search was conducted, and 29 studies (in 26 articles) met the inclusion criteria of empirically testing the intervention and comparing it to a control condition. In addition, BPS was compared to gratitude interventions in some of the included studies. A total of 2,909 participants were involved in the analyses. The outcome measures were wellbeing, optimism, depressive symptoms, and positive and negative affect. Results showed that the BPS is an effective intervention to improve wellbeing (d+ = .325), optimism (d+ = .334) and positive affect (d+ = .511) comparing to controls. Small effect sizes were obtained for negative affect and depressive symptoms. Moderator analyses did not show statistically significant results for wellbeing, except for a trend towards significance in the age of the participants (years) and the magnitude of the intervention (total minutes of practice). In addition, the BPS was found to be more beneficial for positive and negative affect than gratitude interventions (d+ = .326 and d+ = .485, respectively). These results indicate that the BPS can be considered a valuable Positive Psychology Intervention to improve clients' wellbeing, and it seems that it might be more effective for older participants and with shorter practices (measured as total minutes of practice).",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/31545815/",
+      "search_domain": "gratitude"
+    },
+    {
+      "pmid": "36865075",
+      "title": "Resilience to depression: Implication for psychological vaccination.",
+      "authors": [
+        "Dai Qin",
+        "Smith Graeme D"
+      ],
+      "year": "2023",
+      "journal": "Frontiers in psychiatry",
+      "doi": "10.3389/fpsyt.2023.1071859",
+      "publication_types": [
+        "Journal Article",
+        "Review"
+      ],
+      "abstract": "From the vulnerability perspective, we often ask the question \"why someone suffers from depression?\" Despite outstanding achievements along this line, we still face high occurrence or recurrence and unsatisfied therapeutic efficacy of depression, suggesting that solely focusing on vulnerability perspective is insufficient to prevent and cure depression. Importantly, although experiencing same adversity, most people do not suffer from depression but manifest certain resilience, which could be used to prevent and cure depression, however, the systematic review is still lack. Here, we propose the concept \"resilience to depression\" to emphasize resilient diathesis against depression, by asking the question \"why someone is exempted from depression?\" Research evidence of resilience to depression has been reviewed systematically: positive cognitive style (clear purpose in life, hopefulness, et al.), positive emotion (emotional stability, et al.), adaptive behavior (extraversion, internal self-control, et al.), strong social interaction (gratitude and love, et al.), and neural foundation (dopamine circuit, et al.). Inspired by these evidence, \"psychological vaccination\" could be achieved by well-known real-world natural-stress vaccination (mild, controllable, and adaptive of stress, with help from parents or leaders) or newly developed \"clinical vaccination\" (positive activity intervention for current depression, preventive cognitive therapy for remitted depression, et al.), both of which aim to enhance the resilient psychological diathesis against depression, through events or training. Potential neural circuit vaccination was further discussed. This review calls for directing attention to resilient diathesis against depression, which offers a new thinking \"psychological vaccination\" in both prevention and therapy of depression.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/36865075/",
+      "search_domain": "gratitude"
+    },
+    {
+      "pmid": "35273874",
+      "title": "Meta-Analysis of Positive Psychology Interventions on the Treatment of Depression.",
+      "authors": [
+        "Pan Shannon",
+        "Ali Kiran",
+        "Kahathuduwa Chanaka",
+        "Baronia Regina",
+        "Ibrahim Yasin"
+      ],
+      "year": "2022",
+      "journal": "Cureus",
+      "doi": "10.7759/cureus.21933",
+      "publication_types": [
+        "Journal Article",
+        "Review"
+      ],
+      "abstract": "This meta-analysis examined the efficacy of positive psychology interventions (PPIs) in treating depression in 11 articles. PubMed, Web of Science, and Clinical Key were used to identify papers published from 2010 to 2020 that utilized PPIs. Key terms were \"positive psychology\" and \"treatment of depression.\" Studies on adults with (a) depressive symptoms or (b) diagnosed clinical depression were included. A random-effects model was used to compare PPIs and control groups on post- vs. pre-intervention differences in depression scores. Data analysis examined Beck Depression Inventory-II (BDI-II), Center for Epidemiologic Studies Depression Scale (CES-D), and Quick Inventory of Depressive Symptomatology-Self-Report (QIDS-SR16) scores. Findings show PPIs are effective in treating depressive symptoms, with significant improvements in depression scores when compared to control groups in all but one study. This was true for both post- vs. pre-intervention (pooled Cohen's d = -0.44 (-0.77, -0.11)) and follow-up- vs. pre-intervention analyses (pooled Cohen's d = -0.46 (-1.02, 0.09)). PPIs can improve the accessibility and affordability of depression treatments.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/35273874/",
+      "search_domain": "gratitude"
+    },
+    {
+      "pmid": "40627390",
+      "title": "A meta-analysis of the effectiveness of gratitude interventions on well-being across cultures.",
+      "authors": [
+        "Choi Hyewon",
+        "Cha Youngjae",
+        "McCullough Michael E",
+        "Coles Nicholas A",
+        "Oishi Shigehiro"
+      ],
+      "year": "2025",
+      "journal": "Proceedings of the National Academy of Sciences of the United States of America",
+      "doi": "10.1073/pnas.2425193122",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis"
+      ],
+      "abstract": "Gratitude practice is a popular strategy for promoting happiness worldwide. However, is it equally effective for people from different cultural backgrounds? To answer this question, we conducted a preregistered meta-analysis on the effectiveness of gratitude interventions on well-being across cultures. Using data from 145 papers, 163 samples, 727 effect sizes, and 24,804 participants from 28 countries, we found that gratitude interventions led to small overall increases in well-being, Hedges' g = 0.19, 95% CI [0.15, 0.22]. Moderation analyses revealed significant between-country differences in the effects of gratitude interventions. However, we found no significant evidence of moderators explaining such cross-cultural variability, highlighting the need for more primary research in this domain. Subsequent analyses indicated that three methodological characteristics moderated the effects: well-being outcomes, intervention types, and randomization. The effectiveness of gratitude interventions was greater when well-being outcomes were measured as positive affect, when multiple types of gratitude interventions were combined, and when randomized controlled trials were employed. Overall, the results appeared to be robust against publication bias and the presence of influential cases. These findings contribute to a deeper understanding of the effectiveness of gratitude interventions on well-being across cultural contexts and methodological characteristics.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/40627390/",
+      "search_domain": "gratitude"
+    },
+    {
+      "pmid": "36843822",
+      "title": "Healthcare Workers' Well-Being: A Systematic Review of Positive Psychology Interventions.",
+      "authors": [
+        "Townsley Alexandra P",
+        "Li-Wang Jenny",
+        "Katta Rajani"
+      ],
+      "year": "2023",
+      "journal": "Cureus",
+      "doi": "10.7759/cureus.34102",
+      "publication_types": [
+        "Journal Article",
+        "Review"
+      ],
+      "abstract": "Given persistent occupational stressors and multiple challenges in the delivery of healthcare, there is an increased focus on the well-being of healthcare workers. Responding to these challenges will require a multipronged approach, focusing on system level, organization, and individual actions. Positive psychology interventions (PPIs) represent a promising area for individual action. This systematic review indicates that PPI, delivered via many methods, holds promise for improving the well-being of healthcare workers, although there is a clear need for additional randomized controlled trials utilizing defined and standardized outcome measures. In this review, the most commonly evaluated PPIs were mindfulness-based or gratitude-based interventions. These were delivered via different methods, with many administered in the workplace and commonly in the form of courses ranging from two days to eight weeks. Researchers documented measurable improvements in multiple studied outcomes, noting reductions in symptoms of depression, anxiety, burnout, and stress. Some interventions increased well-being, job and life satisfaction, self-compassion, relaxation, and resilience. Most studies emphasized that these are simple, accessible, low-cost interventions. Limitations included some nonrandomized or quasi-experimental designs, alongside generally small sample sizes and varying methods of intervention delivery. Another concern is the lack of standardized outcome assessments and long-term follow-up data. As almost all studies included were performed before the pandemic, further research will be required post-pandemic. Overall, however, PPI shows promise as one arm of a multipronged approach to improving the well-being of healthcare workers.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/36843822/",
+      "search_domain": "gratitude"
+    },
+    {
+      "pmid": "34762326",
+      "title": "Effects of gratitude intervention on mental health and well-being among workers: A systematic review.",
+      "authors": [
+        "Komase Yu",
+        "Watanabe Kazuhiro",
+        "Hori Daisuke",
+        "Nozawa Kyosuke",
+        "Hidaka Yui",
+        "Iida Mako",
+        "Imamura Kotaro",
+        "Kawakami Norito"
+      ],
+      "year": "2021",
+      "journal": "Journal of occupational health",
+      "doi": "10.1002/1348-9585.12290",
+      "publication_types": [
+        "Systematic Review",
+        "Journal Article"
+      ],
+      "abstract": "OBJECTIVES: Gratitude intervention, which requires participants to engage regularly in brief activities designed to cultivate a sense of gratefulness, is known as one of the most effective positive psychological interventions. Although numerous meta-analyses and systematic reviews have been conducted on gratitude intervention, no studies have focused on the working population. This study aimed to systematically summarize the effectiveness of gratitude interventions on workers' mental health and well-being. METHODS: Systematic search was conducted in February 2021 using five databases. Eligible studies included randomized controlled trials implementing gratitude activities among healthy workers and measuring mental health or well-being indicators and original articles or thesis in English. RESULTS: Nine out of 1957 articles met the inclusion criteria. Eight studies adopted gratitude list interventions, showing a significant improvement in perceived stress and depression; however, the effects on well-being were inconsistent. Interventions with gratitude list four times or less did not report significant changes in any outcomes. CONCLUSIONS: Most gratitude interventions incorporated a gratitude list, and some studies included gratitude activities as a part of the combined program. On the other hand, no studies focused on only behavioral gratitude expression among workers. Gratitude interventions might be effective in improving mental health, but their effects on well-being remain unclear. The total number of gratitude lists and reflections might influence the effect on mental health and well-being; however, due to the high heterogeneity of the studies, further studies are needed.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/34762326/",
+      "search_domain": "gratitude"
+    },
+    {
+      "pmid": "35834503",
+      "title": "The effects of mindfulness-based interventions on symptoms of depression, anxiety, and cancer-related fatigue in oncology patients: A systematic review and meta-analysis.",
+      "authors": [
+        "Chayadi Ellentika",
+        "Baes Naomi",
+        "Kiropoulos Litza"
+      ],
+      "year": "2022",
+      "journal": "PloS one",
+      "doi": "10.1371/journal.pone.0269519",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
+      ],
+      "abstract": "OBJECTIVE: Mindfulness-based interventions (MBIs) are increasingly being integrated into oncological treatment to mitigate psychological distress and promote emotional and physical well-being. This review aims to provide the most recent evaluation of Mindfulness-Based Stress Reduction (MBSR), Mindfulness-Based Cognitive Therapy (MBCT), and Mindfulness-Based Cancer Recovery (MBCR) treatments, in reducing symptoms of depression, anxiety and CRF in oncology populations. METHODS: A search using the following search terms was conducted: (mindful* OR mindfulness* OR mindfulness-based* OR MBI* OR MBCT OR MBSR OR MBCR) AND (Oncol* OR cancer OR neoplasm OR lymphoma OR carcinoma OR sarcoma) to obtain relevant publications from five databases: PsycINFO, PubMed, Embase, and MEDLINE by EC, and ProQuest Dissertations & Theses Global from January 2000 to February 2022. 36 independent studies (n = 1677) were evaluated for their overall effect sizes (using random-effects models), subgroup analyses, and quality appraisals. Evaluations were performed separately for non-randomized (K = 20, n = 784) and randomized controlled trials (K = 16, n = 893). RESULTS: The results showed that MBIs have significant medium effects in reducing symptoms of depression (Hedges' g = 0.43), anxiety (Hedges' g = 0.55) and CRF (Hedges' g = 0.43), which were maintained at least three months post-intervention. MBIs were also superior in reducing symptoms of anxiety (Hedges' g = 0.56), depression (Hedges' g = 0.43), and CRF (Hedges' g = 0.42) in oncology samples relative to control groups. The superiority of MBIs to control groups was also maintained at least three months post-intervention for anxiety and CRF symptoms, but not for depressive symptoms. The risk of bias of the included studies were low to moderate. CONCLUSIONS: This review found that MBIs reduced symptoms of depression, anxiety and CRF in oncology populations. SYSTEMATIC REVIEW REGISTRATION: PROSPERO: International Prospective Register of Systematic Reviews: CRD42020143286.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/35834503/",
+      "search_domain": "mbct_relapse"
+    },
+    {
+      "pmid": "34650179",
+      "title": "A systematic review and meta-analysis of acceptance- and mindfulness-based interventions for DSM-5 anxiety disorders.",
+      "authors": [
+        "Haller Heidemarie",
+        "Breilmann Pascal",
+        "Schröter Marleen",
+        "Dobos Gustav",
+        "Cramer Holger"
+      ],
+      "year": "2021",
+      "journal": "Scientific reports",
+      "doi": "10.1038/s41598-021-99882-w",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Research Support, Non-U.S. Gov't",
+        "Systematic Review"
+      ],
+      "abstract": "This meta-analysis systematically reviewed the evidence on standardized acceptance-/mindfulness-based interventions in DSM-5 anxiety disorders. Randomized controlled trials examining Acceptance and Commitment Therapy (ACT), Mindfulness-Based Cognitive Therapy (MBCT), and Mindfulness-Based Stress Reduction (MBSR) were searched via PubMed, Central, PsycInfo, and Scopus until June 2021. Standardized mean differences (SMD) and 95% confidence intervals (CI) were calculated for primary outcomes (anxiety) and secondary ones (depression and quality of life). Risk of bias was assessed using the Cochrane tool. We found 23 studies, mostly of unclear risk of bias, including 1815 adults with different DSM-5 anxiety disorders. ACT, MBCT and MBSR led to short-term effects on clinician- and patient-rated anxiety in addition to treatment as usual (TAU) versus TAU alone. In comparison to Cognitive Behavioral Therapy (CBT), ACT and MBCT showed comparable effects on both anxiety outcomes, while MBSR showed significantly lower effects. Analyses up to 6 and 12 months did not reveal significant differences compared to TAU or CBT. Effects on depression and quality of life showed similar trends. Statistical heterogeneity was moderate to considerable. Adverse events were reported insufficiently. The evidence suggests short-term anxiolytic effects of acceptance- and mindfulness-based interventions. Specific treatment effects exceeding those of placebo mechanisms remain unclear. Protocol registry: Registered at Prospero on November 3rd, 2017 (CRD42017076810).",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/34650179/",
+      "search_domain": "mbct_relapse"
+    },
+    {
+      "pmid": "36796118",
+      "title": "Effectiveness of mindfulness-based interventions on anxiety, depression, and fatigue in people with lung cancer: A systematic review and meta-analysis.",
+      "authors": [
+        "Li Juan",
+        "Li Chan",
+        "Puts Martine",
+        "Wu Yu-Chen",
+        "Lyu Meng-Meng",
+        "Yuan Bo",
+        "Zhang Jing-Ping"
+      ],
+      "year": "2023",
+      "journal": "International journal of nursing studies",
+      "doi": "10.1016/j.ijnurstu.2023.104447",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
+      ],
+      "abstract": "BACKGROUND: Lung cancer is one of the most common cancers and poses a physical and psychological threat to patients. Mindfulness-based interventions are emerging forms of psychotherapy that are effective in improving physical and psychological symptoms, but no review has summarized their effectiveness on anxiety, depression, and fatigue in people with lung cancer. OBJECTIVES: To evaluate the effectiveness of mindfulness-based interventions in reducing anxiety, depression, and fatigue in people with lung cancer. DESIGN: Systematic review and meta-analysis. METHODS: We searched the PubMed, Web of Science, Embase, China Biology Medicine disc, Wanfang Data, China National Knowledge Infrastructure, and China Science and Technology Journal databases from inception to 13 April 2022. Eligible studies included randomized controlled trials of people with lung cancer receiving mindfulness-based interventions reporting on the outcomes of anxiety, depression, and fatigue. Two researchers independently reviewed the abstracts and full texts, extracted the data and assessed the risk of bias independently by using the Cochrane 'Risk of bias assessment tool'. The meta-analysis was performed by using Review Manager 5.4, and the effect size was calculated by the standardized mean difference and its 95% confidence interval. RESULTS: The systematic review included 25 studies (2420 participants), whereas the meta-analysis included 18 studies (1731 participants). Mindfulness-based interventions significantly decreased levels of anxiety [standardized mean difference = -1.15, 95% confidence interval (-1.36, -0.94), Z = 10.75, P < 0.001], depression [standardized mean difference = -1.04, 95% confidence interval (-1.60, -0.48), Z = 3.66, P < 0.001], and fatigue [standardized mean difference = -1.29, 95% confidence interval (-1.66, -0.91), Z = 6.79, P < 0.001]. The subgroup analysis indicated that programs lasting less than eight weeks in length with structured intervention components (e.g., mindfulness-based stress reduction and mindfulness-based cognitive therapy) and 45 min of daily home practice implemented in patients with advanced stage lung cancer showed better effects than programs lasting more than eight weeks in length with less structured components and more than 45 min of daily home practice implemented in patients with mixed stage lung cancer. The overall quality of the evidence was low due to the lack of allocation concealment and blinding and the high risk of bias in most studies (80%). CONCLUSIONS: Mindfulness-based interventions might be effective in reducing anxiety, depression, and fatigue in people with lung cancer. However, we cannot draw definitive conclusions because the overall quality of the evidence was low. More rigorous studies are needed to confirm the effectiveness and examine which intervention components may be most effective for improved outcomes.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/36796118/",
+      "search_domain": "mbct_relapse"
+    },
+    {
+      "pmid": "27119968",
+      "title": "Efficacy of Mindfulness-Based Cognitive Therapy in Prevention of Depressive Relapse: An Individual Patient Data Meta-analysis From Randomized Trials.",
+      "authors": [
+        "Kuyken Willem",
+        "Warren Fiona C",
+        "Taylor Rod S",
+        "Whalley Ben",
+        "Crane Catherine",
+        "Bondolfi Guido",
+        "Hayes Rachel",
+        "Huijbers Marloes",
+        "Ma Helen",
+        "Schweizer Susanne",
+        "Segal Zindel",
+        "Speckens Anne",
+        "Teasdale John D",
+        "Van Heeringen Kees",
+        "Williams Mark"
+      ],
+      "year": "2016",
+      "journal": "JAMA psychiatry",
+      "doi": "10.1001/jamapsychiatry.2016.0076",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis"
+      ],
+      "abstract": "IMPORTANCE: Relapse prevention in recurrent depression is a significant public health problem, and antidepressants are the current first-line treatment approach. Identifying an equally efficacious nonpharmacological intervention would be an important development. OBJECTIVE: To conduct a meta-analysis on individual patient data to examine the efficacy of mindfulness-based cognitive therapy (MBCT) compared with usual care and other active treatments, including antidepressants, in treating those with recurrent depression. DATA SOURCES: English-language studies published or accepted for publication in peer-reviewed journals identified from EMBASE, PubMed/Medline, PsycINFO, Web of Science, Scopus, and the Cochrane Controlled Trials Register from the first available year to November 22, 2014. Searches were conducted from November 2010 to November 2014. STUDY SELECTION: Randomized trials of manualized MBCT for relapse prevention in recurrent depression in full or partial remission that compared MBCT with at least 1 non-MBCT treatment, including usual care. DATA EXTRACTION AND SYNTHESIS: This was an update to a previous meta-analysis. We screened 2555 new records after removing duplicates. Abstracts were screened for full-text extraction (S.S.) and checked by another researcher (T.D.). There were no disagreements. Of the original 2555 studies, 766 were evaluated against full study inclusion criteria, and we acquired full text for 8. Of these, 4 studies were excluded, and the remaining 4 were combined with the 6 studies identified from the previous meta-analysis, yielding 10 studies for qualitative synthesis. Full patient data were not available for 1 of these studies, resulting in 9 studies with individual patient data, which were included in the quantitative synthesis. RESULTS: Of the 1258 patients included, the mean (SD) age was 47.1 (11.9) years, and 944 (75.0%) were female. A 2-stage random effects approach showed that patients receiving MBCT had a reduced risk of depressive relapse within a 60-week follow-up period compared with those who did not receive MBCT (hazard ratio, 0.69; 95% CI, 0.58-0.82). Furthermore, comparisons with active treatments suggest a reduced risk of depressive relapse within a 60-week follow-up period (hazard ratio, 0.79; 95% CI, 0.64-0.97). Using a 1-stage approach, sociodemographic (ie, age, sex, education, and relationship status) and psychiatric (ie, age at onset and number of previous episodes of depression) variables showed no statistically significant interaction with MBCT treatment. However, there was some evidence to suggest that a greater severity of depressive symptoms prior to treatment was associated with a larger effect of MBCT compared with other treatments. CONCLUSIONS AND RELEVANCE: Mindfulness-based cognitive therapy appears efficacious as a treatment for relapse prevention for those with recurrent depression, particularly those with more pronounced residual symptoms. Recommendations are made concerning how future trials can address remaining uncertainties and improve the rigor of the field.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/27119968/",
+      "search_domain": "mbct_relapse"
+    },
+    {
+      "pmid": "35466396",
+      "title": "Psychological treatments for depression and anxiety in dementia and mild cognitive impairment.",
+      "authors": [
+        "Orgeta Vasiliki",
+        "Leung Phuong",
+        "Del-Pino-Casado Rafael",
+        "Qazi Afifa",
+        "Orrell Martin",
+        "Spector Aimee E",
+        "Methley Abigail M"
+      ],
+      "year": "2022",
+      "journal": "The Cochrane database of systematic reviews",
+      "doi": "10.1002/14651858.CD009125.pub3",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Research Support, Non-U.S. Gov't",
+        "Systematic Review"
+      ],
+      "abstract": "BACKGROUND: Experiencing anxiety and depression is very common in people living with dementia and mild cognitive impairment (MCI). There is uncertainty about the best treatment approach. Drug treatments may be ineffective and associated with adverse effects. Guidelines recommend psychological treatments. In this updated systematic review, we investigated the effectiveness of different psychological treatment approaches. OBJECTIVES: Primary objective To assess the clinical effectiveness of psychological interventions in reducing depression and anxiety in people with dementia or MCI. Secondary objectives To determine whether psychological interventions improve individuals' quality of life, cognition, activities of daily living (ADL), and reduce behavioural and psychological symptoms of dementia, and whether they improve caregiver quality of life or reduce caregiver burden. SEARCH METHODS: We searched ALOIS, the Cochrane Dementia and Cognitive Improvement Group's register, MEDLINE, Embase, four other databases, and three trials registers on 18 February 2021. SELECTION CRITERIA: We included randomised controlled trials (RCTs) that compared a psychological intervention for depression or anxiety with treatment as usual (TAU) or another control intervention in people with dementia or MCI. DATA COLLECTION AND ANALYSIS: A minimum of two authors worked independently to select trials, extract data, and assess studies for risk of bias. We classified the included psychological interventions as cognitive behavioural therapies (cognitive behavioural therapy (CBT), behavioural activation (BA), problem-solving therapy (PST)); 'third-wave' therapies (such as mindfulness-based cognitive therapy (MBCT)); supportive and counselling therapies; and interpersonal therapies. We compared each class of intervention with control. We expressed treatment effects as standardised mean differences or risk ratios. Where possible, we pooled data using a fixed-effects model. We used GRADE methods to assess the certainty of the evidence behind each result. MAIN RESULTS: We included 29 studies with 2599 participants. They were all published between 1997 and 2020. There were 15 trials of cognitive behavioural therapies (4 CBT, 8 BA, 3 PST), 11 trials of supportive and counselling therapies, three trials of MBCT, and one of interpersonal therapy. The comparison groups received either usual care, attention-control education, or enhanced usual care incorporating an active control condition that was not a specific psychological treatment. There were 24 trials of people with a diagnosis of dementia, and five trials of people with MCI. Most studies were conducted in community settings. We considered none of the studies to be at low risk of bias in all domains.  Cognitive behavioural therapies (CBT, BA, PST) Cognitive behavioural therapies are probably slightly better than treatment as usual or active control conditions for reducing depressive symptoms (standardised mean difference (SMD) -0.23, 95% CI -0.37 to -0.10; 13 trials, 893 participants; moderate-certainty evidence). They may also increase rates of depression remission at the end of treatment (risk ratio (RR) 1.84, 95% CI 1.18 to 2.88; 2 studies, with one study contributing 2 independent comparisons, 146 participants; low-certainty evidence). We were very uncertain about the effect of cognitive behavioural therapies on anxiety at the end of treatment (SMD -0.03, 95% CI -0.36 to 0.30; 3 trials, 143 participants; very low-certainty evidence). Cognitive behavioural therapies probably improve patient quality of life (SMD 0.31, 95% CI 0.13 to 0.50; 7 trials, 459 participants; moderate-certainty evidence) and activities of daily living at end of treatment compared to treatment as usual or active control (SMD -0.25, 95% CI -0.40 to -0.09; 7 trials, 680 participants; moderate-certainty evidence). Supportive and counselling interventions Meta-analysis showed that supportive and counselling interventions may have little or no effect on depressive symptoms in people with dementia compared to usual care at end of treatment (SMD -0.05, 95% CI -0.18 to 0.07; 9 trials, 994 participants; low-certainty evidence). We were very uncertain about the effects of these treatments on anxiety, which was assessed only in one small pilot study. Other interventions There were very few data and very low-certainty evidence on MBCT and interpersonal therapy, so we were unable to draw any conclusions about the effectiveness of these interventions. AUTHORS' CONCLUSIONS: CBT-based treatments added to usual care probably slightly reduce symptoms of depression for people with dementia and MCI and may increase rates of remission of depression. There may be important effect modifiers (degree of baseline depression, cognitive diagnosis, or content of the intervention). CBT-based treatments probably also have a small positive effect on quality of life and activities of daily living. Supportive and counselling interventions may not improve symptoms of depression in people with dementia. Effects of both types of treatment on anxiety symptoms are very uncertain. We are also uncertain about the effects of other types of psychological treatments, and about persistence of effects over time. To inform clinical guidelines, future studies should assess detailed components of these interventions and their implementation in different patient populations and in different settings.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/35466396/",
+      "search_domain": "mbct_relapse"
+    },
+    {
+      "pmid": "26818413",
+      "title": "Acceptance- and mindfulness-based interventions for the treatment of chronic pain: a meta-analytic review.",
+      "authors": [
+        "Veehof M M",
+        "Trompetter H R",
+        "Bohlmeijer E T",
+        "Schreurs K M G"
+      ],
+      "year": "2016",
+      "journal": "Cognitive behaviour therapy",
+      "doi": "10.1080/16506073.2015.1098724",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
+      ],
+      "abstract": "The number of acceptance- and mindfulness-based interventions for chronic pain, such as acceptance and commitment therapy (ACT), mindfulness-based stress reduction (MBSR), and mindfulness-based cognitive therapy (MBCT), increased in recent years. Therefore an update is warranted of our former systematic review and meta-analysis of studies that reported effects on the mental and physical health of chronic pain patients. Pubmed, EMBASE, PsycInfo and Cochrane were searched for eligible studies. Current meta-analysis only included randomized controlled trials (RCTs). Studies were rated for quality. Mean quality did not improve in recent years. Pooled standardized mean differences using the random-effect model were calculated to represent the average intervention effect and, to perform subgroup analyses. Outcome measures were pain intensity, depression, anxiety, pain interference, disability and quality of life. Included were twenty-five RCTs totaling 1285 patients with chronic pain, in which we compared acceptance- and mindfulness-based interventions to the waitlist, (medical) treatment-as-usual, and education or support control groups. Effect sizes ranged from small (on all outcome measures except anxiety and pain interference) to moderate (on anxiety and pain interference) at post-treatment and from small (on pain intensity and disability) to large (on pain interference) at follow-up. ACT showed significantly higher effects on depression and anxiety than MBSR and MBCT. Studies' quality, attrition rate, type of pain and control group, did not moderate the effects of acceptance- and mindfulness-based interventions. Current acceptance- and mindfulness-based interventions, while not superior to traditional cognitive behavioral treatments, can be good alternatives.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/26818413/",
+      "search_domain": "mbct_relapse"
+    },
+    {
+      "pmid": "32480120",
+      "title": "Mindfulness-based cognitive therapy for bipolar disorder: A systematic review and meta-analysis.",
+      "authors": [
+        "Xuan Rongrong",
+        "Li Xiaoming",
+        "Qiao Yuxi",
+        "Guo Qianhui",
+        "Liu Xiaoyu",
+        "Deng Wenrui",
+        "Hu Qian",
+        "Wang Kai",
+        "Zhang Lei"
+      ],
+      "year": "2020",
+      "journal": "Psychiatry research",
+      "doi": "10.1016/j.psychres.2020.113116",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Research Support, Non-U.S. Gov't",
+        "Systematic Review"
+      ],
+      "abstract": "BACKGROUND: Mindfulness-based cognitive therapy (MBCT) is an increasingly popular treatment for major depression and anxiety disorder, but has shown inconsistent efficacy for bipolar disorder (BD). Therefore, we conducted a meta-analysis to assess the general efficacy of MBCT for BD. METHODS: Ten studies were identified that fulfilled the current inclusion criteria, including three controlled and seven uncontrolled studies. The effects of MBCT on depression, anxiety, mania, stress, mindfulness ability, and emotional regulation were assessed by comparing psychometric scale scores within groups (pre- vs. post-intervention) across trials as well as between groups (control vs. MBCT) across controlled trials. RESULTS: Within-group comparison revealed a reduction in symptoms of depression (g = 0.37, 95%CI = 0.09-0.64, P = 0.009) and anxiety (g = 0.45, 95%CI =0.16-0.75, P = 0.002) following treatment compared to baseline. Stress symptoms were also significantly reduced (g = 0.39, 95%CI = 0.09-0.69, P = 0.01), mindfulness ability (g = 0.63, 95%CI = 0.39-0.87, P<0.00001) and emotion regulation (g = 0.62, 95%CI=0.14-1.10, P = 0.01) were significantly improved compared to baseline. However, symptoms of mania were not alleviated (g=-0.26, 95%CI=-1.43-0.91, P = 0.66). Subgroup analysis indicated that symptoms of depression and anxiety were still significantly improved at 3 months post-intervention (g = 0.46, 95%CI = 0.13-0.80, P = 0.006 and g = 0.57, 95%CI = 0.21-0.94, P = 0.002, respectively) but not at 12 months (g = 0.04, 95%CI = -0.29-0.37, P = 0.82 and g = 0.17, 95%CI =-0.16-0.50, P = 0.31). In between-groups analysis of controlled studies, MBCT significantly reduced depressive symptoms (g = 0.3, 95%CI =-0.05-0.65, P = 0.09) but not anxiety symptoms (g = 0.51, 95%CI =  -0.20-1.22, P = 0.16). CONCLUSION: Mindfulness-based cognitive therapy appears effective for alleviation of depression and anxiety among BD patients, possibly by improving emotional regulation and mindfulness abilities. However, efficacy appears time-limited and inconsistent, necessitating additional larger-scale studies and the development of post-intervention programs for sustained efficacy.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/32480120/",
+      "search_domain": "mbct_relapse"
+    },
+    {
+      "pmid": "39724104",
+      "title": "Correction: Mindfulness-Based Cognitive Therapy for Treatment-Resistant Depression: A protocol for systematic review and meta-analysis.",
+      "authors": [
+        "Rodrigues Michele F",
+        "Junkes Larissa",
+        "Appolinario Jose",
+        "Nardi Antonio E"
+      ],
+      "year": "2024",
+      "journal": "PloS one",
+      "doi": "10.1371/journal.pone.0316594",
+      "publication_types": [
+        "Published Erratum"
+      ],
+      "abstract": "[This corrects the article DOI: 10.1371/journal.pone.0306227.].",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/39724104/",
+      "search_domain": "mbct_relapse"
+    },
+    {
+      "pmid": "35094802",
+      "title": "Using Virtual Reality Exposure Therapy in Pain Management: A Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
+      "authors": [
+        "Huang Qiangru",
+        "Lin Junqing",
+        "Han Rui",
+        "Peng Cheng",
+        "Huang Aji"
+      ],
+      "year": "2022",
+      "journal": "Value in health : the journal of the International Society for Pharmacoeconomics and Outcomes Research",
+      "doi": "10.1016/j.jval.2021.04.1285",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Research Support, Non-U.S. Gov't",
+        "Systematic Review"
+      ],
+      "abstract": "OBJECTIVES: This study aimed to assess the effectiveness of virtual reality (VR) in managing different types of pain in different age groups and to provide evidence for the clinical application of new alternative strategy for pain management. METHODS: Electronic databases, including the Cochrane Library, PubMed, EMBASE, and the Web of Science, were searched for studies published up to October 2020. Randomized controlled trials that reported on VR for pain management were included. RESULTS: A total of 31 randomized controlled trials were included. As for the pain intensity, the increase of visual analog scale score in the VR group was 1.62 scores less than that in the control group. In juvenile patients, the VR group had 1.79 scores lower than that in control group. For adult patients, the VR group had 1.34 scores lower than that in control group. As for other pain-related indicators, the VR group had lower levels of anxiety, lower pain unpleasantness, lower pulse rate, and shorter duration of dressing change and spent less time thinking about pain. Nevertheless, there was no statistical difference in pain tolerance. VR can effectively alleviate acute pain. In terms of chronic low back pain and cancer-related pain, there was no statistical difference between VR therapy and standard therapy. CONCLUSIONS: VR is a feasible alternative therapy for both juveniles and adults in pain management, and it has a greater potential for juveniles. VR can effectively alleviate acute pain. Nevertheless, VR showed little effectiveness in increasing pain tolerance, which may explain in part the ineffectiveness of VR therapy in pain management for chronic pain.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/35094802/",
+      "search_domain": "exposure"
+    },
+    {
+      "pmid": "30287083",
+      "title": "Virtual reality exposure therapy for anxiety and related disorders: A meta-analysis of randomized controlled trials.",
+      "authors": [
+        "Carl Emily",
+        "Stein Aliza T",
+        "Levihn-Coon Andrew",
+        "Pogue Jamie R",
+        "Rothbaum Barbara",
+        "Emmelkamp Paul",
+        "Asmundson Gordon J G",
+        "Carlbring Per",
+        "Powers Mark B"
+      ],
+      "year": "2019",
+      "journal": "Journal of anxiety disorders",
+      "doi": "10.1016/j.janxdis.2018.08.003",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis"
+      ],
+      "abstract": "Trials of virtual reality exposure therapy (VRET) for anxiety-related disorders have proliferated in number and diversity since our previous meta-analysis that examined 13 total trials, most of which were for specific phobias (Powers & Emmelkamp, 2008). Since then, new trials have compared VRET to more diverse anxiety and related disorders including social anxiety disorder (SAD), posttraumatic stress disorder (PTSD), and panic disorder (PD) with and without agoraphobia. With the availability of this data, it is imperative to re-examine the efficacy of VRET for anxiety. A literature search for randomized controlled trials of VRET versus control or in vivo exposure yielded 30 studies with 1057 participants. Fourteen studies tested VRET for specific phobias, 8 for SAD or performance anxiety, 5 for PTSD, and 3 for PD. A random effects analysis estimated a large effect size for VRET versus waitlist (g = 0.90) and a medium to large effect size for VRET versus psychological placebo conditions (g = 0.78). A comparison of VRET and in vivo conditions did not show significantly different effect sizes (g = -0.07). These findings were relatively consistent across disorders. A meta-regression analysis revealed that larger sample sizes were associated with lower effect sizes in VRET versus control comparisons (β = -0.007, p <  0.05). These results indicate that VRET is an effective and equal medium for exposure therapy.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/30287083/",
+      "search_domain": "exposure"
+    },
+    {
+      "pmid": "25932596",
+      "title": "Efficacy of treatments for anxiety disorders: a meta-analysis.",
+      "authors": [
+        "Bandelow Borwin",
+        "Reitt Markus",
+        "Röver Christian",
+        "Michaelis Sophie",
+        "Görlich Yvonne",
+        "Wedekind Dirk"
+      ],
+      "year": "2015",
+      "journal": "International clinical psychopharmacology",
+      "doi": "10.1097/YIC.0000000000000078",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Review"
+      ],
+      "abstract": "To our knowledge, no previous meta-analysis has attempted to compare the efficacy of pharmacological, psychological and combined treatments for the three main anxiety disorders (panic disorder, generalized anxiety disorder and social phobia). Pre-post and treated versus control effect sizes (ES) were calculated for all evaluable randomized-controlled studies (n = 234), involving 37,333 patients. Medications were associated with a significantly higher average pre-post ES [Cohen's d = 2.02 (1.90-2.15); 28,051 patients] than psychotherapies [1.22 (1.14-1.30); 6992 patients; P < 0.0001]. ES were 2.25 for serotonin-noradrenaline reuptake inhibitors (n = 23 study arms), 2.15 for benzodiazepines (n = 42), 2.09 for selective serotonin reuptake inhibitors (n = 62) and 1.83 for tricyclic antidepressants (n = 15). ES for psychotherapies were mindfulness therapies, 1.56 (n = 4); relaxation, 1.36 (n = 17); individual cognitive behavioural/exposure therapy (CBT), 1.30 (n = 93); group CBT, 1.22 (n = 18); psychodynamic therapy 1.17 (n = 5); therapies without face-to-face contact (e.g. Internet therapies), 1.11 (n = 34); eye movement desensitization reprocessing, 1.03 (n = 3); and interpersonal therapy 0.78 (n = 4). The ES was 2.12 (n = 16) for CBT/drug combinations. Exercise had an ES of 1.23 (n = 3). For control groups, ES were 1.29 for placebo pills (n = 111), 0.83 for psychological placebos (n = 16) and 0.20 for waitlists (n = 50). In direct comparisons with control groups, all investigated drugs, except for citalopram, opipramol and moclobemide, were significantly more effective than placebo. Individual CBT was more effective than waiting list, psychological placebo and pill placebo. When looking at the average pre-post ES, medications were more effective than psychotherapies. Pre-post ES for psychotherapies did not differ from pill placebos; this finding cannot be explained by heterogeneity, publication bias or allegiance effects. However, the decision on whether to choose psychotherapy, medications or a combination of the two should be left to the patient as drugs may have side effects, interactions and contraindications.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/25932596/",
+      "search_domain": "exposure"
+    },
+    {
+      "pmid": "36356351",
+      "title": "Virtual reality in the diagnostic and therapy for mental disorders: A systematic review.",
+      "authors": [
+        "Wiebe Annika",
+        "Kannen Kyra",
+        "Selaskowski Benjamin",
+        "Mehren Aylin",
+        "Thöne Ann-Kathrin",
+        "Pramme Lisa",
+        "Blumenthal Nike",
+        "Li Mengtong",
+        "Asché Laura",
+        "Jonas Stephan",
+        "Bey Katharina",
+        "Schulze Marcel",
+        "Steffens Maria",
+        "Pensel Max Christian",
+        "Guth Matthias"
+      ],
+      "year": "2022",
+      "journal": "Clinical psychology review",
+      "doi": "10.1016/j.cpr.2022.102213",
+      "publication_types": [
+        "Systematic Review",
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "abstract": "BACKGROUND: Virtual reality (VR) technologies are playing an increasingly important role in the diagnostics and treatment of mental disorders. OBJECTIVE: To systematically review the current evidence regarding the use of VR in the diagnostics and treatment of mental disorders. DATA SOURCE: Systematic literature searches via PubMed (last literature update: 9th of May 2022) were conducted for the following areas of psychopathology: Specific phobias, panic disorder and agoraphobia, social anxiety disorder, generalized anxiety disorder, posttraumatic stress disorder (PTSD), obsessive-compulsive disorder, eating disorders, dementia disorders, attention-deficit/hyperactivity disorder, depression, autism spectrum disorder, schizophrenia spectrum disorders, and addiction disorders. ELIGIBILITY CRITERIA: To be eligible, studies had to be published in English, to be peer-reviewed, to report original research data, to be VR-related, and to deal with one of the above-mentioned areas of psychopathology. STUDY EVALUATION: For each study included, various study characteristics (including interventions and conditions, comparators, major outcomes and study designs) were retrieved and a risk of bias score was calculated based on predefined study quality criteria. RESULTS: Across all areas of psychopathology, k = 9315 studies were inspected, of which k = 721 studies met the eligibility criteria. From these studies, 43.97% were considered assessment-related, 55.48% therapy-related, and 0.55% were mixed. The highest research activity was found for VR exposure therapy in anxiety disorders, PTSD and addiction disorders, where the most convincing evidence was found, as well as for cognitive trainings in dementia and social skill trainings in autism spectrum disorder. CONCLUSION: While VR exposure therapy will likely find its way successively into regular patient care, there are also many other promising approaches, but most are not yet mature enough for clinical application. REVIEW REGISTRATION: PROSPERO register CRD42020188436. FUNDING: The review was funded by budgets from the University of Bonn. No third party funding was involved.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/36356351/",
+      "search_domain": "exposure"
+    },
+    {
+      "pmid": "37149743",
+      "title": "Efficacy of nonpharmacologic interventions in preoperative anxiety: A systematic review of systematic reviews.",
+      "authors": [
+        "Agüero-Millan Basilio",
+        "Abajas-Bustillo Rebeca",
+        "Ortego-Maté Carmen"
+      ],
+      "year": "2023",
+      "journal": "Journal of clinical nursing",
+      "doi": "10.1111/jocn.16755",
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
+      ],
+      "abstract": "AIMS AND OBJECTIVES: Evidence suggests that preparing patients for surgery using nonpharmacological strategies reduces their anxiety. However, there is no consensus on what the best practices are. This study aims to answer the question: Are interventions using nonpharmacological therapies effective in reducing preoperative anxiety? BACKGROUND: Preoperative anxiety causes physiological and psychological adverse effects, with a negative effect on postoperative recovery. INTRODUCTION: According to the World Health Organization, between 266 and 360 million surgical procedures are performed annually worldwide, and it is estimated that more than 50% of patients will experience some degree of preoperative anxiety. DESIGN: Systematic review of systematic reviews with results of interventions aimed at mitigating preoperative anxiety. METHODS: A search was conducted for systematic reviews with meta-analyses published between 2012 and 2021 in Medline, Scopus, Web of Science and Cochrane Library. Quality was assessed using the AMSTAR-2 scale. The protocol was registered in PROSPERO. RESULTS: A total of 1016 studies were examined, of which 17 systematic reviews were selected, yielding 188 controlled trials with 16,884 participants. In adults, the most common intervention included music, followed by massage, in children virtual reality and clowns. Almost all controlled trials reported a reduction in preoperative anxiety after the intervention, of which almost half had statistically significant results. CONCLUSION: Interventions that include music, massage and virtual reality reduce preoperative anxiety and have shown that they are cost-effective, minimally invasive and with a low risk of adverse effects. Preoperative anxiety can be reduced through a short-term intervention involving nursing professionals as an alternative or complement to drugs. RELEVANCE TO CLINICAL PRACTICE: This review suggests that nursing professionals, in collaboration with other health professionals, should continue to conduct research on the reduction in preoperative anxiety. Further research in this area is needed, to reduce heterogeneity and consolidate the results. NO PATIENT OR PUBLIC CONTRIBUTION: Not applied to our study, as it is a systematic review of systematic reviews.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/37149743/",
+      "search_domain": "exposure"
+    },
+    {
+      "pmid": "40023260",
+      "title": "Psychotherapies for social anxiety disorder in adults: A systematic review and Bayesian network meta-analysis.",
+      "authors": [
+        "Sun Linghan",
+        "Dai Xu",
+        "Zhu Shunshun",
+        "Liu Zhengjie",
+        "Zhongming Zhang"
+      ],
+      "year": "2025",
+      "journal": "Journal of affective disorders",
+      "doi": "10.1016/j.jad.2025.02.092",
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review",
+        "Network Meta-Analysis"
+      ],
+      "abstract": "Psychotherapies for social anxiety disorder (SAD) encompass various protocols and delivery formats; consequently, an investigation into the relative efficacy of different treatments is needed. This study aimed to compare the efficacy of different common psychotherapies for SAD and identify the most effective psychotherapies for SAD. Using a Bayesian network meta-analysis, we compared the relative efficacy of six common psychotherapies: cognitive behavioral therapy (CBT), cognitive restructuring (CR), exposure therapy (ET), psychodynamic therapy (PDT), interpersonal therapy (IPT), and mindfulness-based interventions (MBI). Sensitivity analyses were conducted to test the robustness of the results. This network meta-analysis included 92 studies up to June 2024, covering 90 randomized controlled trials. The findings suggested that, compared with the waitlist control group, all included psychotherapies showed varying degrees of efficacy in reducing SAD symptoms severity. Specifically, CBT was generally the most effective psychotherapy. The Clark and Wells CBT protocol showed the highest efficacy (SMD: 1.42, 95 % CrI: [1.14, 1.70]), while Andersson and Carlbring's Internet-based CBT ranked highly (SMD: 1.15, 95 % CrI: [0.87, 1.42]). PDT was the most effective non-CBT treatment (SMD: 0.98, 95 % CrI: [0.61, 1.36]). Guided therapies appeared more effective than unguided ones, and Internet-based treatments were comparable to face-to-face therapies. This study can aid clinicians in optimizing treatment choices and selecting appropriate formats when treating patients with SAD.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/40023260/",
+      "search_domain": "exposure"
+    },
+    {
+      "pmid": "35142632",
+      "title": "The Effectiveness of Virtual Reality Exposure-Based Cognitive Behavioral Therapy for Severe Anxiety Disorders, Obsessive-Compulsive Disorder, and Posttraumatic Stress Disorder: Meta-analysis.",
+      "authors": [
+        "van Loenen Inge",
+        "Scholten Willemijn",
+        "Muntingh Anna",
+        "Smit Johannes",
+        "Batelaan Neeltje"
+      ],
+      "year": "2022",
+      "journal": "Journal of medical Internet research",
+      "doi": "10.2196/26736",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Review"
+      ],
+      "abstract": "BACKGROUND: In recent years, virtual reality exposure-based cognitive behavioral therapy (VRE-CBT) has shown good treatment results in (subclinical) anxiety disorders and seems to be a good alternative to exposure in vivo in regular cognitive behavioral therapy (CBT). However, previous meta-analyses on the efficacy of VRE-CBT on anxiety disorders have included studies on specific phobias and subthreshold anxiety; therefore, these results may not be generalizable to patients with more severe and disabling anxiety disorders. OBJECTIVE: The objective of our study is to determine the efficacy of VRE-CBT on more severe anxiety disorders, excluding specific phobias and subthreshold anxiety disorders. Meta-analyses will be conducted to examine the efficacy of VRE-CBT versus waitlist and regular CBT. Our secondary objectives are to examine whether the efficacy differs according to the type of anxiety disorder, type of recruitment, and type of VRE-CBT (virtual reality exposure either with or without regular CBT). Furthermore, attrition in VRE-CBT and CBT will be compared. METHODS: Studies published until August 20, 2020, were retrieved through systematic literature searches in PubMed, PsycINFO, and Embase. We calculated the effect sizes (Hedges g) for the difference between the conditions and their 95% CIs for posttest and follow-up measurements in a random effects model. A separate meta-analysis was performed to compare attrition between the VRE-CBT and CBT conditions. RESULTS: A total of 16 trials with 817 participants were included. We identified 10 comparisons between VRE-CBT and a waitlist condition and 13 comparisons between VRE-CBT and a CBT condition. With regard to risk of bias, information on random sequence generation, allocation concealment, and risk of bias for selective outcome reporting was often absent or unclear. The mean effect size of VRE-CBT compared with waitlist (nco=10) was medium and significant, favoring VRE-CBT (Hedges g=-0.490, 95% CI -0.82 to -0.16; P=.003). The mean effect size of VRE-CBT compared with CBT (nco=13) was small and nonsignificant, favoring CBT (Hedges g=0.083, 95% CI -0.13 to 0.30; P=.45). The dropout rates between VRE-CBT and CBT (nco=10) showed no significant difference (odds ratio 0.79, 95% CI 0.49-1.27; P=.32). There were no indications of small study effects or publication bias. CONCLUSIONS: The results of our study show that VRE-CBT is more effective than waitlist and as effective as CBT in the treatment of more severe anxiety disorders. Therefore, VRE-CBT may be considered a promising alternative to CBT for patients with more severe anxiety disorders. Higher-quality randomized controlled trials are needed to verify the robustness of these findings.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/35142632/",
+      "search_domain": "exposure"
+    },
+    {
+      "pmid": "38945067",
+      "title": "Interventions to reduce adult state anxiety, dental trait anxiety, and dental phobia: A systematic review and meta-analyses of randomized controlled trials.",
+      "authors": [
+        "Steenen Serge A",
+        "Linke Fabiënne",
+        "van Westrhenen Roos",
+        "de Jongh Ad"
+      ],
+      "year": "2024",
+      "journal": "Journal of anxiety disorders",
+      "doi": "10.1016/j.janxdis.2024.102891",
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review",
+        "Meta-Analysis"
+      ],
+      "abstract": "This review evaluates randomized controlled trials (RCTs) intervening on adult state anxiety (fear and emotional distress during dental treatment), chronic dental (trait) anxiety or dental phobia (disproportionately high trait anxiety; meeting diagnostic criteria for specific phobia). Seven online databases were systematically searched. 173 RCTs met inclusion criteria, of which 67 qualified for 14 pooled analyses. To alleviate state anxiety during oral surgery, moderate-certainty evidence supports employing hypnosis (SMD=-0.31, 95 %CI[-0.56,-0.05]), and low-certainty evidence supports prescribing benzodiazepines (SMD=-0.43, [-0.74,-0.12]). Evidence for reducing state anxiety is inconclusive regarding psychotherapy, and does not support virtual reality exposure therapy (VRET), virtual reality distraction, music, aromatherapy, video information and acupuncture. To reduce trait anxiety, moderate-certainty evidence supports using Cognitive Behavioral Therapy (CBT; SMD=-0.65, [-1.06, -0.24]). Regarding dental phobia, evidence with low-to-moderate certainty supports employing psychotherapy (SMD=-0.48, [-0.72,-0.24]), and CBT specifically (SMD=-0.43, [-0.68,-0.17]), but not VRET. These results show that dental anxieties are manageable and treatable. Clinicians should ensure that interventions match their purpose-managing acute emotions during treatment, or alleviating chronic anxiety and avoidance tendencies. Existing research gaps underscore the necessity for future trials to minimize bias and follow CONSORT reporting guidelines.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/38945067/",
+      "search_domain": "exposure"
+    },
+    {
+      "pmid": "32086598",
+      "title": "State of the Evidence Traffic Lights 2019: Systematic Review of Interventions for Preventing and Treating Children with Cerebral Palsy.",
+      "authors": [
+        "Novak Iona",
+        "Morgan Catherine",
+        "Fahey Michael",
+        "Finch-Edmondson Megan",
+        "Galea Claire",
+        "Hines Ashleigh",
+        "Langdon Katherine",
+        "Namara Maria Mc",
+        "Paton Madison Cb",
+        "Popat Himanshu",
+        "Shore Benjamin",
+        "Khamis Amanda",
+        "Stanton Emma",
+        "Finemore Olivia P",
+        "Tricks Alice"
+      ],
+      "year": "2020",
+      "journal": "Current neurology and neuroscience reports",
+      "doi": "10.1007/s11910-020-1022-z",
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
+      ],
+      "abstract": "PURPOSE OF REVIEW: Cerebral palsy is the most common physical disability of childhood, but the rate is falling, and severity is lessening. We conducted a systematic overview of best available evidence (2012-2019), appraising evidence using GRADE and the Evidence Alert Traffic Light System and then aggregated the new findings with our previous 2013 findings. This article summarizes the best available evidence interventions for preventing and managing cerebral palsy in 2019. RECENT FINDINGS: Effective prevention strategies include antenatal corticosteroids, magnesium sulfate, caffeine, and neonatal hypothermia. Effective allied health interventions include acceptance and commitment therapy, action observations, bimanual training, casting, constraint-induced movement therapy, environmental enrichment, fitness training, goal-directed training, hippotherapy, home programs, literacy interventions, mobility training, oral sensorimotor, oral sensorimotor plus electrical stimulation, pressure care, stepping stones triple P, strength training, task-specific training, treadmill training, partial body weight support treadmill training, and weight-bearing. Effective medical and surgical interventions include anti-convulsants, bisphosphonates, botulinum toxin, botulinum toxin plus occupational therapy, botulinum toxin plus casting, diazepam, dentistry, hip surveillance, intrathecal baclofen, scoliosis correction, selective dorsal rhizotomy, and umbilical cord blood cell therapy. We have provided guidance about what works and what does not to inform decision-making, and highlighted areas for more research.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/32086598/",
+      "search_domain": "act_recent"
+    },
+    {
+      "pmid": "27479642",
+      "title": "Acceptance and Commitment Therapy (ACT) for Chronic Pain: A Systematic Review and Meta-Analyses.",
+      "authors": [
+        "Hughes Laura S",
+        "Clark Jodi",
+        "Colclough Janette A",
+        "Dale Elizabeth",
+        "McMillan Dean"
+      ],
+      "year": "2017",
+      "journal": "The Clinical journal of pain",
+      "doi": "10.1097/AJP.0000000000000425",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
+      ],
+      "abstract": "OBJECTIVES: Chronic pain places a burden on individuals and the economy. Although there is evidence for the effectiveness of cognitive-behavior therapy, it is recognized that the effects are limited. Acceptance and Commitment Therapy (ACT), which aims to increase valued action in the presence of pain, has been suggested as an alternative approach. The objective of this review was to determine the clinical effectiveness of ACT for chronic pain in adults when compared with control conditions and other active treatments. METHODS: The searches of this systematic review were conducted in the Cochrane library, MEDLINE, EMBASE, CINAHL Plus (EBSCO), and PsycINFO. Grey literature, reference list, and reverse citation searches were also completed. RESULTS: Eleven trials were included. ACT was favored over controls (no alternative intervention or treatment as usual). Significant, medium to large effect sizes were found for measures of pain acceptance and psychological flexibility, which are typically considered processes of ACT. Significant small to medium effect sizes were found for measures of functioning, anxiety, and depression. Measures of pain intensity and quality of life were not significantly different than zero. Generally effect sizes were smaller at follow-up. DISCUSSION: ACT was more clinically effective than controls on a number of outcomes. It is possible that methodological limitations, some of which are common to psychological trials, may have led to overestimated effects. Only a few studies compared ACT to active treatments and while the evidence is promising for ACT in the treatment of chronic pain, further methodologically robust trials are required.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/27479642/",
+      "search_domain": "act_recent"
+    },
+    {
+      "pmid": "37748597",
+      "title": "Acceptance and Commitment Therapy for Chronic Pain: An Overview of Systematic Reviews with Meta-Analysis of Randomized Clinical Trials.",
+      "authors": [
+        "Martinez-Calderon Javier",
+        "García-Muñoz Cristina",
+        "Rufo-Barbero Carmen",
+        "Matias-Soto Javier",
+        "Cano-García Francisco J"
+      ],
+      "year": "2024",
+      "journal": "The journal of pain",
+      "doi": "10.1016/j.jpain.2023.09.013",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "abstract": "This overview of reviews aimed to summarize the evidence from systematic reviews and meta-analyses of randomized clinical trials of the efficacy of acceptance and commitment therapy (ACT) for adults with chronic pain in relation to pain intensity, pain-related functioning, quality of life, and psychological factors. The Cumulative Index of Nursing and Allied Health Literature (CINAHL), Embase, PsycINFO, PubMed, and the Cochrane Library databases were searched from inception to July 2, 2023. AMSTAR 2 was used to assess the methodological quality of systematic reviews. The overlap among reviews was calculated. Nine reviews comprising 84 meta-analyses of interest were included. At post-treatment, some meta-analyses mainly showed that ACT can reduce depression symptoms, anxiety symptoms, psychological inflexibility, and pain catastrophizing; and can improve mindfulness, pain acceptance, and psychological flexibility. At three-month follow-up, ACT can reduce depression symptoms and psychological inflexibility, as well as improve pain-related functioning and psychological flexibility. At six-month follow-up, ACT can improve mindfulness, pain-related functioning, pain acceptance, psychological flexibility, and quality of life. At six-twelve-month follow-up, ACT can reduce pain catastrophizing and can improve pain-related functioning. Some methodological and clinical issues are identified in the reviews, such as a very high overlap between systematic reviews, the fact that the certainty of the evidence is often not rated and specific details needed to replicate the interventions reviewed are often not reported. Overall, however, randomized clinical trials and systematic reviews show that ACT can improve outcomes related to chronic pain (eg, pain-related functioning). Future systematic reviews should address the methodological and clinical concerns identified here to produce higher-quality findings. PERSPECTIVE: Despite certain methodological and clinical issues, randomized clinical trials and systematic reviews of ACT appear to show that it can improve outcomes related to chronic pain (eg, psychological factors).",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/37748597/",
+      "search_domain": "act_recent"
+    },
+    {
+      "pmid": "29080598",
+      "title": "Acceptance and Commitment Therapy as a Treatment for Anxiety and Depression: A Review.",
+      "authors": [
+        "Twohig Michael P",
+        "Levin Michael E"
+      ],
+      "year": "2017",
+      "journal": "The Psychiatric clinics of North America",
+      "doi": "10.1016/j.psc.2017.08.009",
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review"
+      ],
+      "abstract": "Acceptance and commitment therapy (ACT) is a modern form of cognitive behavioral therapy based on a distinct philosophy and basic science of cognition. This article reviews the core features of ACT's theoretic model of psychopathology and treatment and its therapeutic approach. It provides a systematic review of randomized controlled trials (RCTs) evaluating ACT for depression and anxiety disorders. Summarizing 36 RCTs, ACT appears to be more efficacious than waitlist conditions and treatment-as-usual, with largely equivalent effects relative to traditional cognitive behavioral therapy. Evidence indicates that ACT treatment outcomes are mediated through increases in psychological flexibility, its theorized process of change.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/29080598/",
+      "search_domain": "act_recent"
+    },
+    {
+      "pmid": "25547522",
+      "title": "A meta-analysis of the efficacy of acceptance and commitment therapy for clinically relevant mental and physical health problems.",
+      "authors": [
+        "A-Tjak Jacqueline G L",
+        "Davis Michelle L",
+        "Morina Nexhmedin",
+        "Powers Mark B",
+        "Smits Jasper A J",
+        "Emmelkamp Paul M G"
+      ],
+      "year": "2015",
+      "journal": "Psychotherapy and psychosomatics",
+      "doi": "10.1159/000365764",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis"
+      ],
+      "abstract": "BACKGROUND: The current study presents the results of a meta-analysis of 39 randomized controlled trials on the efficacy of acceptance and commitment therapy (ACT), including 1,821 patients with mental disorders or somatic health problems. METHODS: We searched PsycINFO, MEDLINE and the Cochrane Central Register of Controlled Trials. Information provided by the ACBS (Association of Contextual Behavioral Science) community was also included. Statistical calculations were conducted using Comprehensive Meta-Analysis software. Study quality was rated using a methodology rating form. RESULTS: ACT outperformed control conditions (Hedges' g = 0.57) at posttreatment and follow-up assessments in completer and intent-to-treat analyses for primary outcomes. ACT was superior to waitlist (Hedges' g = 0.82), to psychological placebo (Hedges' g = 0.51) and to treatment as usual (TAU) (we defined TAU as the standard treatment as usual; Hedges' g = 0.64). ACT was also superior on secondary outcomes (Hedges' g = 0.30), life satisfaction/quality measures (Hedges' g = 0.37) and process measures (Hedges' g = 0. 56) compared to control conditions. The comparison between ACT and established treatments (cognitive behavioral therapy) did not reveal any significant differences between these treatments (p = 0.140). CONCLUSIONS: Our findings indicate that ACT is more effective than treatment as usual or placebo and that ACT may be as effective in treating anxiety disorders, depression, addiction, and somatic health problems as established psychological interventions. More research that focuses on quality of life and processes of change is needed to understand the added value of ACT and its transdiagnostic nature.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/25547522/",
+      "search_domain": "act_recent"
+    },
+    {
+      "pmid": "35247788",
+      "title": "Comparative efficacy of 11 non-pharmacological interventions on depression, anxiety, quality of life, and caregiver burden for informal caregivers of people with dementia: A systematic review and network meta-analysis.",
+      "authors": [
+        "Sun Yue",
+        "Ji Mengmeng",
+        "Leng Minmin",
+        "Li Xinrui",
+        "Zhang Xueer",
+        "Wang Zhiwen"
+      ],
+      "year": "2022",
+      "journal": "International journal of nursing studies",
+      "doi": "10.1016/j.ijnurstu.2022.104204",
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review",
+        "Network Meta-Analysis"
+      ],
+      "abstract": "BACKGROUND: In recent years, numerous dementia caregiving interventions for informal caregivers of community-dwelling people with dementia have been developed. However, it remains unclear which non-pharmacological interventions are effective and preferred for their depression and anxiety symptoms, quality of life, and caregiver burden. OBJECTIVES: To compare and rank the efficacy of different non-pharmacological interventions on depression, anxiety, quality of life, and caregiver burden for informal caregivers of people with dementia. DESIGN: A systematic review and network meta-analysis. METHODS: Relevant randomized controlled trials on the efficacy of non-pharmacological interventions for informal caregivers of people with dementia were extracted from seven electronic databases. A network meta-analysis was then performed to evaluate the relative efficacy of the non-pharmacological interventions for informal caregivers of people with dementia. The quality of the data was assessed using the Cochrane Risk of Bias tool. RESULTS: A total of 85 randomized controlled trials on 11 non-pharmacological interventions were included in the final analysis. Acceptance and commitment therapy, behavioral activation, mindfulness-based intervention, multicomponent intervention, psychoeducation, and cognitive behavioral therapy might reduce depression. Notably, psychoeducation was the only effective intervention against anxiety. Only support groups had a statistically significant effect on the quality of life. When considering decreasing caregiver burden, case management, psychoeducation, and multicomponent intervention would be the effective interventions. CONCLUSIONS: Several non-pharmacological interventions seemed to be effective in treating depression and anxiety, improving quality of life, and reducing caregiver burden for informal caregivers of people with dementia. Healthcare professionals should be encouraged to apply these non-pharmacological interventions for informal caregivers of people with dementia during routine care.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/35247788/",
+      "search_domain": "act_recent"
+    },
+    {
+      "pmid": "33875837",
+      "title": "A systematic review and meta-analysis of psychological interventions to improve mental wellbeing.",
+      "authors": [
+        "van Agteren Joep",
+        "Iasiello Matthew",
+        "Lo Laura",
+        "Bartholomaeus Jonathan",
+        "Kopsaftis Zoe",
+        "Carey Marissa",
+        "Kyrios Michael"
+      ],
+      "year": "2021",
+      "journal": "Nature human behaviour",
+      "doi": "10.1038/s41562-021-01093-w",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Research Support, Non-U.S. Gov't",
+        "Systematic Review"
+      ],
+      "abstract": "Our current understanding of the efficacy of psychological interventions in improving mental states of wellbeing is incomplete. This study aimed to overcome limitations of previous reviews by examining the efficacy of distinct types of psychological interventions, irrespective of their theoretical underpinning, and the impact of various moderators, in a unified systematic review and meta-analysis. Four-hundred-and-nineteen randomized controlled trials from clinical and non-clinical populations (n = 53,288) were identified for inclusion. Mindfulness-based and multi-component positive psychological interventions demonstrated the greatest efficacy in both clinical and non-clinical populations. Meta-analyses also found that singular positive psychological interventions, cognitive and behavioural therapy-based, acceptance and commitment therapy-based, and reminiscence interventions were impactful. Effect sizes were moderate at best, but differed according to target population and moderator, most notably intervention intensity. The evidence quality was generally low to moderate. While the evidence requires further advancement, the review provides insight into how psychological interventions can be designed to improve mental wellbeing.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/33875837/",
+      "search_domain": "act_recent"
+    },
+    {
+      "pmid": "33875025",
+      "title": "Efficacy of dialectical behavior therapy for adolescent self-harm and suicidal ideation: a systematic review and meta-analysis.",
+      "authors": [
+        "Kothgassner Oswald D",
+        "Goreis Andreas",
+        "Robinson Kealagh",
+        "Huscsava Mercedes M",
+        "Schmahl Christian",
+        "Plener Paul L"
+      ],
+      "year": "2021",
+      "journal": "Psychological medicine",
+      "doi": "10.1017/S0033291721001355",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Research Support, Non-U.S. Gov't",
+        "Systematic Review"
+      ],
+      "abstract": "BACKGROUND: Given the widespread nature and clinical consequences of self-harm and suicidal ideation among adolescents, establishing the efficacy of developmentally appropriate treatments that reduce both self-harm and suicidal ideation in the context of broader adolescent psychopathology is critical. METHODS: We conducted a systematic review and meta-analysis of the Dialectical Behaviour Therapy for Adolescents (DBT-A) literature on treating self-injury in adolescents (12-19 years). We searched for eligible trials and treatment evaluations published prior to July 2020 in MEDLINE/PubMed, Scopus, Google Scholar, EMBASE, and the Cochrane Library databases for clinical trials. Twenty-one studies were identified [five randomized-controlled trials (RCTs), three controlled clinical trials (CCTs), and 13 pre-post evaluations]. We extracted data for predefined primary (self-harm, suicidal ideation) and secondary outcomes (borderline personality symptoms; BPD) and calculated treatment effects for RCTs/CCTs and pre-post evaluations. This meta-analysis was pre-registered with OSF: osf.io/v83e7. RESULTS: Overall, the studies comprised 1673 adolescents. Compared to control groups, DBT-A showed small to moderate effects for reducing self-harm (g = -0.44; 95% CI -0.81 to -0.07) and suicidal ideation (g = -0.31, 95% CI -0.52 to -0.09). Pre-post evaluations suggested large effects for all outcomes (self-harm: g = -0.98, 95% CI -1.15 to -0.81; suicidal ideation: g = -1.16, 95% CI -1.51 to -0.80; BPD symptoms: g = -0.97, 95% CI -1.31 to -0.63). CONCLUSIONS: DBT-A appears to be a valuable treatment in reducing both adolescent self-harm and suicidal ideation. However, evidence that DBT-A reduces BPD symptoms was only found in pre-post evaluations.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/33875025/",
+      "search_domain": "dbt_recent"
+    },
+    {
+      "pmid": "35420839",
+      "title": "Cultural adaptations of dialectical behavior therapy: A systematic review.",
+      "authors": [
+        "Haft Stephanie L",
+        "O'Grady Sinclaire M",
+        "Shaller Esme A L",
+        "Liu Nancy H"
+      ],
+      "year": "2022",
+      "journal": "Journal of consulting and clinical psychology",
+      "doi": "10.1037/ccp0000730",
+      "publication_types": [
+        "Systematic Review",
+        "Journal Article"
+      ],
+      "abstract": "OBJECTIVE: Adapting mental health-care interventions to the race, ethnicity, or culture of the target group can enhance the acceptance and effectiveness of the treatment. Dialectical behavior therapy (DBT) is an evidence-based treatment that is principle-driven, rendering it well-suited for adaptations across cultural contexts. This article conducts a systematic review of the literature to determine the nature and extent of cultural adaptations of DBT to date. METHOD: We searched databases for original articles describing cultural adaptations of DBT, as applied to both (a) people of color within Western countries and (b) populations within non-Western countries. Consistent with the focus on descriptively characterizing extant DBT cultural adaptations, we included both published and nonpublished studies, as well as both observational and experimental studies. RESULTS: Our search yielded 18 articles that met inclusion criteria. Of these articles, half described adaptations made with people and communities of color within the U.S. Most adaptations involved modifications to language, metaphors, methods, and context. CONCLUSIONS: Culturally adapted DBT has been implemented and accepted among several racial, ethnic, and cultural groups, although there is insufficient evidence to determine whether culturally adapted DBT is more efficacious than nonadapted DBT. We conclude with recommendations for best practices for DBT researchers and clinicians, and situate our findings among larger efforts to render existing evidence-based psychotherapies more optimal for people of color and people from non-Western countries. (PsycInfo Database Record (c) 2022 APA, all rights reserved).",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/35420839/",
+      "search_domain": "dbt_recent"
+    },
+    {
+      "pmid": "39351658",
+      "title": "A systematic review and meta-analysis on the efficacy of dialectical behavior therapy variants for the treatment of post-traumatic stress disorder.",
+      "authors": [
+        "Prillinger Karin",
+        "Goreis Andreas",
+        "Macura Sarah",
+        "Hajek Gross Carola",
+        "Lozar Annika",
+        "Fanninger Selina",
+        "Mayer Anna",
+        "Oppenauer Claudia",
+        "Plener Paul L",
+        "Kothgassner Oswald D"
+      ],
+      "year": "2024",
+      "journal": "European journal of psychotraumatology",
+      "doi": "10.1080/20008066.2024.2406662",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
+      ],
+      "abstract": "Background: While there are well-established treatments for post-traumatic stress disorder (PTSD), these interventions appear to be less effective for individuals with comorbid borderline personality disorder (BPD) symptoms. Dialectical Behavior Therapy (DBT) for PTSD and DBT Prolonged Exposure (PE) are both effective interventions for treating these patients, but a comprehensive analysis evaluating the efficacy of these two interventions is lacking.Objective: To determine the effect sizes of PTSD-specific DBT treatments.Methods: We conducted a systematic review and pre-registered meta-analysis of the DBT literature for treating PTSD (osf.io/62rfq). Eligible trials and treatment evaluations published before September 2023 were searched in SCOPUS, PubMed, and the Cochrane Library databases. Thirteen articles were identified, and data were extracted for primary (PTSD symptoms) and secondary outcomes (BPD, depression, dissociation, non-suicidal self-injury [NSSI]). Treatment effects were calculated for randomised controlled trials, controlled clinical trials, and pre-post evaluations.Results: Overall, the studies involved 663 participants. Compared with control groups, PTSD-specific DBT treatments showed moderate effects in reducing PTSD symptom severity g = -0.69 (95% CI -1.03 to -0.34, p < .001) and depression g = -0.62 (95% CI -1.13 to -0.12, p = .016). Moreover, the pre-post changes showed an overall effect size for dissociative symptoms of g = -0.72 (95% CI -1.05 to -0.40, p < .001), for BPD-associated symptoms of g = -0.82 (95% CI -1.06 to -0.59, p < .001), and for NSSI frequency (g = -0.70, 95% CI -1.12 to -0.28, p = .001).Conclusions: Based on the results of our meta-analysis, DBT-PTSD and DBT PE were effective in reducing PTSD symptom severity and comorbid depressive symptoms. Further research on stage-based treatments should focus on systematically assessing NSSI, BPD symptoms, and suicidality.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/39351658/",
+      "search_domain": "dbt_recent"
+    },
+    {
+      "pmid": "33596680",
+      "title": "Improving Suicide Prevention Through Evidence-Based Strategies: A Systematic Review.",
+      "authors": [
+        "Mann J John",
+        "Michel Christina A",
+        "Auerbach Randy P"
+      ],
+      "year": "2021",
+      "journal": "The American journal of psychiatry",
+      "doi": "10.1176/appi.ajp.2020.20060864",
+      "publication_types": [
+        "Journal Article",
+        "Research Support, N.I.H., Extramural",
+        "Systematic Review"
+      ],
+      "abstract": "OBJECTIVE: The authors sought to identify scalable evidence-based suicide prevention strategies. METHODS: A search of PubMed and Google Scholar identified 20,234 articles published between September 2005 and December 2019, of which 97 were randomized controlled trials with suicidal behavior or ideation as primary outcomes or epidemiological studies of limiting access to lethal means, using educational approaches, and the impact of antidepressant treatment. RESULTS: Training primary care physicians in depression recognition and treatment prevents suicide. Educating youths on depression and suicidal behavior, as well as active outreach to psychiatric patients after discharge or a suicidal crisis, prevents suicidal behavior. Meta-analyses find that antidepressants prevent suicide attempts, but individual randomized controlled trials appear to be underpowered. Ketamine reduces suicidal ideation in hours but is untested for suicidal behavior prevention. Cognitive-behavioral therapy and dialectical behavior therapy prevent suicidal behavior. Active screening for suicidal ideation or behavior is not proven to be better than just screening for depression. Education of gatekeepers about youth suicidal behavior lacks effectiveness. No randomized trials have been reported for gatekeeper training for prevention of adult suicidal behavior. Algorithm-driven electronic health record screening, Internet-based screening, and smartphone passive monitoring to identify high-risk patients are understudied. Means restriction, including of firearms, prevents suicide but is sporadically employed in the United States, even though firearms are used in half of all U.S. suicides. CONCLUSIONS: Training general practitioners warrants wider implementation and testing in other nonpsychiatrist physician settings. Active follow-up of patients after discharge or a suicide-related crisis should be routine, and restricting firearm access by at-risk individuals warrants wider use. Combination approaches in health care systems show promise in reducing suicide in several countries, but evaluating the benefit attributable to each component is essential. Further suicide rate reduction requires evaluating newer approaches, such as electronic health record-derived algorithms, Internet-based screening methods, ketamine's potential benefit for preventing attempts, and passive monitoring of acute suicide risk change.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/33596680/",
+      "search_domain": "dbt_recent"
+    },
+    {
+      "pmid": "38683583",
+      "title": "Systematic Review and Meta-Analysis: Pharmacological and Nonpharmacological Interventions for Disruptive Mood Dysregulation Disorder.",
+      "authors": [
+        "Zhang Yuhan",
+        "Zhang Wenxuan",
+        "Yu Enyan"
+      ],
+      "year": "2024",
+      "journal": "Journal of child and adolescent psychopharmacology",
+      "doi": "10.1089/cap.2024.0013",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "abstract": "Objectives: Disruptive mood dysregulation disorder (DMDD) is a relatively new diagnosis that comprises severe, nonepisodic irritability and recurrent outbursts of emotional instability in adolescents. This meta-analysis examined the efficacy of the available pharmacological and nonpharmacological interventions for DMDD. Methods: Literature searches were conducted in July 2023. To determine relevant articles, 330 abstracts were reviewed, and 39 articles were identified for full review. A random-effects model was used for the meta-analysis, and a subgroup analysis was performed to assess the effects of study design and intervention type. Results: Eleven studies were reviewed, including six pharmacological and five nonpharmacological. Despite high heterogeneity in effects (I2 = 85%), we showed statistically significant improvements in irritability symptoms following intervention. We showed statistically significant enhancements in symptoms of irritability following the intervention. The subgroup analysis revealed that, compared with randomized controlled trials (RCTs), open trials showed significant improvements in irritability. In addition, drug intervention significantly improved irritability compared to nondrug interventions. Atomoxetine (ATX), optimized stimulants, and stimulants combined with other drugs and behavioral therapy effectively improved irritability. Conclusions: With research indicating potential benefits for irritability from a combination of pharmacological interventions and therapy, including ATX, stimulants in conjunction with antipsychotic or antidepressant medications, and cognitive-behavioral techniques such as Dialectical Behavior Therapy for Children. Future large-scale RCTs are essential to further explore and refine these treatment approaches, especially focusing on the efficacy of combining pharmacological with effective nonpharmacological to improve irritability and overall outcomes in this population.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/38683583/",
+      "search_domain": "dbt_recent"
+    },
+    {
+      "pmid": "28249086",
+      "title": "Efficacy of Psychotherapies for Borderline Personality Disorder: A Systematic Review and Meta-analysis.",
+      "authors": [
+        "Cristea Ioana A",
+        "Gentili Claudio",
+        "Cotet Carmen D",
+        "Palomba Daniela",
+        "Barbui Corrado",
+        "Cuijpers Pim"
+      ],
+      "year": "2017",
+      "journal": "JAMA psychiatry",
+      "doi": "10.1001/jamapsychiatry.2016.4287",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review"
+      ],
+      "abstract": "IMPORTANCE: Borderline personality disorder (BPD) is a debilitating condition, but several psychotherapies are considered effective. OBJECTIVE: To conduct an updated systematic review and meta-analysis of randomized clinical trials to assess the efficacy of psychotherapies for BPD populations. DATA SOURCES: Search terms were combined for borderline personality and randomized trials in PubMed, PsycINFO, EMBASE, and the Cochrane Central Register of Controlled Trials (from database inception to November 2015), as well as the reference lists of earlier meta-analyses. STUDY SELECTION: Included were randomized clinical trials of adults with diagnosed BPD randomized to psychotherapy exclusively or to a control intervention. Study selection differentiated stand-alone designs (in which an independent psychotherapy was compared with control interventions) from add-on designs (in which an experimental intervention added to usual treatment was compared with usual treatment alone). DATA EXTRACTION AND SYNTHESIS: Data extraction coded characteristics of trials, participants, and interventions and assessed risk of bias using 4 domains of the Cochrane Collaboration Risk of Bias tool (independent extraction by 2 assessors). Outcomes were pooled using a random-effects model. Subgroup and meta-regression analyses were conducted. MAIN OUTCOMES AND MEASURES: Standardized mean differences (Hedges g) were calculated using all outcomes reported in the trials for borderline symptoms, self-harm, suicide, health service use, and general psychopathology at posttest and follow-up. Differential treatment retention at posttest was analyzed, reporting odds ratios. RESULTS: Thirty-three trials (2256 participants) were included. For borderline-relevant outcomes combined (symptoms, self-harm, and suicide) at posttest, the investigated psychotherapies were moderately more effective than control interventions in stand-alone designs (g = 0.32; 95% CI, 0.14-0.51) and add-on designs (g = 0.40; 95% CI, 0.15-0.65). Results were similar for other outcomes, including stand-alone designs: self-harm (g = 0.32; 95% CI, 0.09-0.54), suicide (g = 0.44; 95% CI, 0.15-0.74), health service use (g = 0.40; 95% CI, 0.22-0.58), and general psychopathology (g = 0.32; 95% CI, 0.09-0.55), with no differences between design types. There were no significant differences in the odds ratios for treatment retention (1.32; 95% CI, 0.87-2.00 for stand-alone designs and 1.01; 95% CI, 0.55-1.87 for add-on designs). Thirteen trials reported borderline-relevant outcomes at follow-up (g = 0.45; 95% CI, 0.15-0.75). Dialectical behavior therapy (g = 0.34; 95% CI, 0.15-0.53) and psychodynamic approaches (g = 0.41; 95% CI, 0.12-0.69) were the only types of psychotherapies more effective than control interventions. Risk of bias was a significant moderator in subgroup and meta-regression analyses (slope β = -0.16; 95% CI, -0.29 to -0.03; P = .02). Publication bias was persistent, particularly for follow-up. CONCLUSIONS AND RELEVANCE: Psychotherapies, most notably dialectical behavior therapy and psychodynamic approaches, are effective for borderline symptoms and related problems. Nonetheless, effects are small, inflated by risk of bias and publication bias, and particularly unstable at follow-up.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/28249086/",
+      "search_domain": "dbt_recent"
+    },
+    {
+      "pmid": "30661567",
+      "title": "Dialectical Behavior Therapy Is Effective for the Treatment of Suicidal Behavior: A Meta-Analysis.",
+      "authors": [
+        "DeCou Christopher R",
+        "Comtois Katherine Anne",
+        "Landes Sara J"
+      ],
+      "year": "2019",
+      "journal": "Behavior therapy",
+      "doi": "10.1016/j.beth.2018.03.009",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Review"
+      ],
+      "abstract": "Dialectical Behavior Therapy (DBT) prioritizes suicidal behavior and other self-directed violence as the primary treatment targets, and has been demonstrated to reduce self-directed violence in clinical trials. This paper synthesizes findings from controlled trials that assessed self-directed violence and suicidality, including suicide attempts, non-suicidal self-injury (NSSI), suicidal ideation, and accessing psychiatric crisis services. Eighteen controlled trials of DBT were identified. Random effects meta-analyses demonstrated that DBT reduced self-directed violence (d = -.324, 95% CI = -.471 to -.176), and reduced frequency of psychiatric crisis services (d = -.379, 95% CI = -.581 to -.176). There was not a significant pooled effect of DBT with regard to suicidal ideation (d = -.229, 95% CI = -.473 to .016). Our findings may reflect the prioritization of behavior over thoughts within DBT, and offer implications for clinical practice and future research concerning the implementation of DBT for acute suicidality.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/30661567/",
+      "search_domain": "dbt_recent"
+    },
+    {
+      "pmid": "38420274",
+      "title": "Efficacy of Dialectical Behavior Therapy in the Treatment of Borderline Personality Disorder: A Systematic Review of Randomized Controlled Trials.",
+      "authors": [
+        "Hernandez-Bustamante Milton",
+        "Cjuno Julio",
+        "Hernández Ronald M",
+        "Ponce-Meza Jacqueline C"
+      ],
+      "year": "2024",
+      "journal": "Iranian journal of psychiatry",
+      "doi": "10.18502/ijps.v19i1.14347",
+      "publication_types": [
+        "Journal Article"
+      ],
+      "abstract": "Objective: Borderline personality disorder (BPD) is a serious public health problem. Dialectical Behavior Therapy (DBT) is a program that has provided encouraging results for its treatment. However, scientific evidence about its efficacy is scarce. Therefore, we aimed to describe the scientific production on the components of the DBT program and its therapeutic efficacy in the treatment of people with BPD. Method : A systematic review with relevant keywords was conducted based on studies available in Scopus, Web of Science, and PubMed until June 2023, including studies in English, research on therapeutic intervention, studies with a randomized controlled trial (RCT) design that included people with the diagnosis of BPD. Results: We found 18 RCTs, most of which supported the effectiveness of DBT for BPD. There were a total of 1,755 participants in these studies, most of whom were women. These studies looked for treating self-injurious behaviors, suicidal thoughts or ideations, number of visits to emergency services, and frequency of hospital admissions. Most studies revealed that both short-term DBT and standard DBT improved suicidality in BPD patients with small or moderate effect sizes, lasting up to 24 months after the treatment period. Furthermore, these studies showed that DBT can significantly improve general psychopathology and depressive symptoms in patients with BPD. Improvement of compliance, impulsivity, mood instability, as well as reduction in hospitalization rate are other findings observed in the trials following DBT. Conclusion: Although DBT shows efficacy in the treatment of BPD, heterogeneity in the methodologies employed is highlighted. Therefore, it is necessary to design studies from a homogeneous theoretical and methodological framework.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/38420274/",
+      "search_domain": "dbt_recent"
+    },
+    {
+      "pmid": "28616996",
+      "title": "Coping, emotion regulation, and psychopathology in childhood and adolescence: A meta-analysis and narrative review.",
+      "authors": [
+        "Compas Bruce E",
+        "Jaser Sarah S",
+        "Bettis Alexandra H",
+        "Watson Kelly H",
+        "Gruhn Meredith A",
+        "Dunbar Jennifer P",
+        "Williams Ellen",
+        "Thigpen Jennifer C"
+      ],
+      "year": "2017",
+      "journal": "Psychological bulletin",
+      "doi": "10.1037/bul0000110",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Review"
+      ],
+      "abstract": "In this meta-analytic and narrative review, we examine several overarching issues related to the study of coping, emotion regulation, and internalizing and externalizing symptoms of psychopathology in childhood and adolescence, including the conceptualization and measurement of these constructs. We report a quantitative meta-analysis of 212 studies (N = 80,850 participants) that measured the associations between coping and emotion regulation with symptoms of internalizing and externalizing psychopathology. Within the meta-analysis we address the association of broad domains of coping and emotion regulation (e.g., total coping, emotion regulation), intermediate factors of coping and emotion regulation (e.g., primary control coping, secondary control coping), and specific coping and emotion regulation strategies (e.g., emotional expression, cognitive reappraisal) with internalizing and externalizing symptoms. For cross-sectional studies, which made up the majority of studies included, we examine 3 potential moderators: age, measure quality, and single versus multiple informants. Finally, we separately consider findings from longitudinal studies as these provide stronger tests of the effects. After accounting for publication bias, findings indicate that the broad domain of emotion regulation and adaptive coping and the factors of primary control coping and secondary control coping are related to lower levels of symptoms of psychopathology. Further, the domain of maladaptive coping, the factor of disengagement coping, and the strategies of emotional suppression, avoidance, and denial are related to higher levels of symptoms of psychopathology. Finally, we offer a critique of the current state of the field and outline an agenda for future research. (PsycINFO Database Record",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/28616996/",
+      "search_domain": "emotion_regulation"
+    },
+    {
+      "pmid": "35851975",
+      "title": "Emotion regulation in substance use disorders: a systematic review and meta-analysis.",
+      "authors": [
+        "Stellern Jordan",
+        "Xiao Ke Bin",
+        "Grennell Erin",
+        "Sanches Marcos",
+        "Gowin Joshua L",
+        "Sloan Matthew E"
+      ],
+      "year": "2023",
+      "journal": "Addiction (Abingdon, England)",
+      "doi": "10.1111/add.16001",
+      "publication_types": [
+        "Meta-Analysis",
+        "Systematic Review",
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "abstract": "BACKGROUND AND AIMS: The ability to regulate emotions effectively has been associated with resilience to psychopathology. Individuals with substance use disorders (SUDs) have been shown to have higher levels of negative emotionality, with some evidence suggesting impairment in emotion regulation compared with individuals without SUDs. However, no previous attempt has been made to systematically review the literature to assess the magnitude of this difference. We aimed to assess the association between SUD diagnosis and emotion regulation as measured by the Difficulties in Emotion Regulation Scale (DERS) and Emotion Regulation Questionnaire (ERQ) through a systematic review and meta-analysis of existing findings. METHODS: The systematic review was conducted using PubMed, PsycINFO and Embase. We examined cross-sectional studies that compared a SUD group with a control group and measured emotion regulation using the DERS or the ERQ. The primary analysis focused on papers using the DERS, as this was the predominant instrument in the literature. RESULTS: Twenty-two studies met our primary analysis criteria, representing 1936 individuals with a SUD and 1567 controls. Individuals with SUDs relative to controls had significantly greater DERS scores, with a mean difference of 21.44 [95% confidence interval (CI) = 16.49-26.40, P < 0.001] and Hedges' g = 1.05 (95% CI = 0.86-1.24, P < 0.001). The difference was robust, remaining significant after removing outliers and studies with high risk of bias. Individuals with SUDs demonstrated poorer emotion regulation on each subscale of the DERS, with the largest deficits in the Strategies and Impulse subscales. The ERQ analysis revealed greater use of expressive suppression in those with SUDs relative to controls (Hedges' g = 0.76, 95% CI = 0.25-1.28, P = 0.004). CONCLUSIONS: People with substance use disorders appear to have greater difficulties in emotion regulation than people without substance use disorders.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/35851975/",
+      "search_domain": "emotion_regulation"
+    },
+    {
+      "pmid": "38401510",
+      "title": "Emotion regulation and emotion dysregulation in children and adolescents with Autism Spectrum Disorder: A meta-analysis of evaluation and intervention studies.",
+      "authors": [
+        "Restoy Damián",
+        "Oriol-Escudé Montserrat",
+        "Alonzo-Castillo Teresa",
+        "Magán-Maganto María",
+        "Canal-Bedia Ricardo",
+        "Díez-Villoria Emiliano",
+        "Gisbert-Gustemps Laura",
+        "Setién-Ramos Imanol",
+        "Martínez-Ramírez María",
+        "Ramos-Quiroga Josep Antoni",
+        "Lugo-Marín Jorge"
+      ],
+      "year": "2024",
+      "journal": "Clinical psychology review",
+      "doi": "10.1016/j.cpr.2024.102410",
+      "publication_types": [
+        "Meta-Analysis",
+        "Journal Article",
+        "Review"
+      ],
+      "abstract": "Children and adolescents with Autism Spectrum Disorder (ASD) often experience challenges in emotion regulation (ER) and emotion dysregulation (ED) which can interfere with their adaptive functioning. This study aimed to systematically review and meta-analyze the evidence on ER/ED in children and/or adolescents with ASD, examining its relationship with the following variables: internalizing and externalizing symptoms, cognitive function and social skills, and the effectiveness of non-pharmacological interventions addressing ER difficulties. Both electronic and manual searches were conducted to identify potential studies. Fifty-five studies were included in the meta-analysis. A statistically significant between-group difference was found, suggesting greater ER/ED challenges in the ASD group. Also, the ASD group showed more maladaptive ER strategies and fewer adaptive ER strategies compared to the non-ASD participants. Additionally, more severe ASD and poorer social skills were associated with greater ED and poorer ER skills, respectivelly. Furthermore, there was a significant correlation between internalizing symptomatology and both adaptive and maladaptive ER strategies. Studies of non-pharmacological interventions showed significant improvement in both ER and ED. These results imply that assessing ER/ED in children and adolescents with ASD should be part of the evaluation process, and it should also be a focal point for intervention in this population.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/38401510/",
+      "search_domain": "emotion_regulation"
+    },
+    {
+      "pmid": "36965452",
+      "title": "Intolerance of uncertainty and emotion regulation: A meta-analytic and systematic review.",
+      "authors": [
+        "Sahib A",
+        "Chen J",
+        "Cárdenas D",
+        "Calear A L"
+      ],
+      "year": "2023",
+      "journal": "Clinical psychology review",
+      "doi": "10.1016/j.cpr.2023.102270",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Systematic Review",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "abstract": "Intolerance of uncertainty, a transdiagnostic factor manifested across emotional disorders, has been associated with difficulties in regulating emotions. This meta-analysis addresses the lack of synthesis of this relationship. PsycInfo, PubMed, Scopus, and ProQuest were systematically searched for relevant articles published up to and during November 2022. We combined 161 effect sizes from 91 studies (N = 30,239), separating the analysis into maladaptive and adaptive emotion regulation strategies and their association with intolerance of uncertainty. We found a moderate positive relationship between maladaptive, and a moderate inverse relationship between adaptive emotion regulation and intolerance of uncertainty. Analysing the magnitude of relationships revealed that cognitive avoidance and mindfulness were the maladaptive and adaptive strategies respectively which had the largest effect sizes and thus strongest relationships with intolerance of uncertainty. Combining all strategies, cognitive avoidance remained the largest effect size, while expressive suppression had the smallest effect size and was non-significant in its relationship. Further analyses testing study sample, design, and age as moderators found no significant moderator for the relationships between intolerance of uncertainty and emotion regulation strategies. These findings have implications for future intolerance of uncertainty interventions, with emotion regulation as a potential target of change.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/36965452/",
+      "search_domain": "emotion_regulation"
+    },
+    {
+      "pmid": "35219929",
+      "title": "Emotion regulation as mediator between childhood adversity and psychopathology: A meta-analysis.",
+      "authors": [
+        "Miu Andrei C",
+        "Szentágotai-Tătar Aurora",
+        "Balázsi Róbert",
+        "Nechita Diana",
+        "Bunea Ioana",
+        "Pollak Seth D"
+      ],
+      "year": "2022",
+      "journal": "Clinical psychology review",
+      "doi": "10.1016/j.cpr.2022.102141",
+      "publication_types": [
+        "Journal Article",
+        "Meta-Analysis",
+        "Research Support, N.I.H., Extramural",
+        "Research Support, Non-U.S. Gov't",
+        "Review"
+      ],
+      "abstract": "Childhood adversity is a major risk factor for multiple forms of psychopathology, and recent efforts have focused on understanding the underlying psychological mechanisms. One outstanding candidate is emotion regulation, which has been associated with both childhood adversity, and psychopathology. Based on the available evidence, the present meta-analysis set out to investigate the mechanistic involvement of emotion regulation in the relation between childhood adversity and psychopathology. Systematic searches in three databases (PubMed; PsycINFO; Web of Science) identified 215 eligible studies. Using meta-analytic structural equation modeling, we fitted a partial mediation model to the available data across studies, in which childhood adversity was related to psychopathology both directly and through emotion regulation. Multiple emotion regulation dimensions were analyzed, including emotion regulation difficulties and the habitual use of rumination, distraction, reappraisal, and suppression. Measures of psychopathology included a wide range of internalizing and externalizing symptoms in both clinical and non-clinical samples. The results indicated that childhood adversity was positively associated with emotion regulation difficulties, as well as with the habitual use of rumination and suppression. In turn, these measures of emotion regulation were positively associated with psychopathology. Habitual reappraisal use showed negative relations with both childhood adversity and psychopathology. All these emotion regulation measures were supported as mediators in the relation between childhood adversity and psychopathology. In contrast, distraction was not related to childhood adversity or psychopathology, and its mediator role was not supported. These results suggest that altered emotion regulation is a consistent marker of childhood adversity and contributes to risk of psychopathology.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/35219929/",
+      "search_domain": "emotion_regulation"
+    },
+    {
+      "pmid": "36943017",
+      "title": "Enhancing emotion regulation.",
+      "authors": [
+        "Iwakabe Shigeru",
+        "Nakamura Kaori",
+        "Thoma Nathan C"
+      ],
+      "year": "2023",
+      "journal": "Psychotherapy research : journal of the Society for Psychotherapy Research",
+      "doi": "10.1080/10503307.2023.2183155",
+      "publication_types": [
+        "Systematic Review",
+        "Meta-Analysis",
+        "Journal Article",
+        "Research Support, Non-U.S. Gov't"
+      ],
+      "abstract": "Background: Emotion regulation (ER) refers to the process of modulating an affective experience or response. Objectives: This is a systematic review of the research on therapist methods to facilitate patient ER, including affect-focused, experiential methods that aim to enhance immediate patient emotion regulation, and structured psychoeducation, skills training in ER. Method: A total of 10 studies of immediate and intermediate outcomes of emotion regulation methods were examined. A total of 38 studies were included in the meta-analysis of distal treatment effects on emotion regulation. Results: In eight studies with 84 clients and 33 therapists, we found evidence of positive intermediate outcomes for affect-focused therapist methods and interpretations. A meta-analysis of 26 studies showed that the average effect size of ER methods from pre- to post-treatment was large (g = 0.82). Conclusions: Both affect-focused and structured skill training are associated with distal improvements in emotion regulation. When working with ER in psychotherapy, therapists must consider how patients' cultural backgrounds inform display rules, as well as what might be considered adaptive or maladaptive. The article concludes with training implications and therapeutic practices based on the research evidence.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/36943017/",
+      "search_domain": "emotion_regulation"
+    },
+    {
+      "pmid": "40728368",
+      "title": "Early childhood trauma and its long-term impact on cognitive and emotional development: a systematic review and meta-analysis.",
+      "authors": [
+        "Fan Linlin",
+        "Kang Tinghu"
+      ],
+      "year": "2025",
+      "journal": "Annals of medicine",
+      "doi": "10.1080/07853890.2025.2536199",
+      "publication_types": [
+        "Journal Article",
+        "Systematic Review",
+        "Meta-Analysis"
+      ],
+      "abstract": "BACKGROUND: Childhood trauma has profound, long-term effects on cognitive and emotional development. This systematic review and meta-analysis sought to synthesis the evidence around the long-term impact of human childhood trauma on domains of cognition and emotion in order to inform interventions and public health strategies. METHODS: We systematically reviewed 465 studies from PubMed, Cochrane Library, and Google Scholar, 9 studies were included after duplicates were removed and inclusion and exclusion criteria were applied, and all 9 studies were aimed at low-income people in the United States. Data on study design, trauma types, and cognitive/emotional outcomes were extracted. Study quality was assessed using the Newcastle-Ottawa Scale (NOS) and Cochrane Risk of Bias Tool (RoB 2). Random-effects meta-analysis and subgroup analyses (processing speed, attention, working memory, emotion regulation, executive function) were conducted using R software. RESULTS: Childhood trauma was associated with significant deficits in: Attention (SMD = 2.37, 95% CI: [5.75, 10.50]) Working memory (SMD = 3.55, 95% CI: [2.18, 9.28]) Emotion regulation (SMD = 1.25, 95% CI: [1.12, 3.62]) Executive function (SMD = 1.61, 95% CI: [0.06, 3.28]) Processing speed showed smaller deficits (SMD = -0.48, 95% CI: [-1.91, 0.94]). High heterogeneity (I2: 77-98%) reflected variability in trauma types and assessments. The pooled effect size (SMD = 1.57, 95% CI: [-0.12, 3.26]) highlighted trauma's pervasive impact. CONCLUSION: Childhood trauma disproportionately impairs attention and working memory. These findings, however, point to the importance of early screening, trauma-informed care and targeted interventions to ameliorate the long-term consequences of trauma, even with high heterogeneity. Methodological variability should be addressed to inform prevention and treatment strategies in future research, as well as resilience factors explored.",
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/40728368/",
+      "search_domain": "emotion_regulation"
+    }
+  ]
+}

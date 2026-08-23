@@ -1,0 +1,10 @@
+CREATE TABLE studies (id TEXT PRIMARY KEY, title TEXT NOT NULL, year INT, journal TEXT, doi TEXT, pmid TEXT, source_url TEXT NOT NULL, study_type TEXT, evidence_tier CHAR(1), extraction_status TEXT NOT NULL, data JSONB NOT NULL);
+CREATE TABLE models (id TEXT PRIMARY KEY, name TEXT NOT NULL, data JSONB NOT NULL);
+CREATE TABLE emotions (id TEXT PRIMARY KEY, name TEXT NOT NULL, data JSONB NOT NULL);
+CREATE TABLE exercises (id TEXT PRIMARY KEY, name TEXT NOT NULL, evidence_grade CHAR(1), data JSONB NOT NULL);
+CREATE TABLE recommendation_rules (version TEXT PRIMARY KEY, data JSONB NOT NULL);
+CREATE TABLE safety_protocol (version TEXT PRIMARY KEY, data JSONB NOT NULL);
+CREATE TABLE recommendation_test_cases (id TEXT PRIMARY KEY, data JSONB NOT NULL);
+CREATE TABLE study_exercise (study_id TEXT REFERENCES studies(id), exercise_id TEXT REFERENCES exercises(id), PRIMARY KEY(study_id,exercise_id));
+CREATE TABLE model_study (model_id TEXT REFERENCES models(id), study_id TEXT REFERENCES studies(id), PRIMARY KEY(model_id,study_id));
+CREATE INDEX studies_doi_idx ON studies(doi); CREATE INDEX studies_pmid_idx ON studies(pmid); CREATE INDEX studies_tier_idx ON studies(evidence_tier); CREATE INDEX exercises_grade_idx ON exercises(evidence_grade);

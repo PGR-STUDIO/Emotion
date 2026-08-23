@@ -1,0 +1,145 @@
+{
+  "version": "0.1.0",
+  "machine_rules": [
+    {
+      "id": "MR-CRISIS",
+      "priority": 1000,
+      "when": {"requires_safe": true},
+      "recommend": [],
+      "action": "safety_first"
+    },
+    {
+      "id": "MR-HIGH-INTENSITY",
+      "priority": 900,
+      "when": {"min_intensity": 8},
+      "recommend": ["EX-GROUNDING-321", "EX-DELAY-URGE"],
+      "avoid": ["EX-COGNITIVE-RESTRUCTURING", "EX-GRADED-EXPOSURE"],
+      "action": "create_distance"
+    },
+    {
+      "id": "MR-ANGER",
+      "priority": 700,
+      "when": {"emotions": ["Colère", "Rage", "Contrariété"]},
+      "recommend": ["EX-GROUNDING-321", "EX-NEEDS-IDENTIFICATION", "EX-DELAY-URGE"],
+      "action": "delay_before_acting"
+    },
+    {
+      "id": "MR-FEAR-ANXIETY",
+      "priority": 600,
+      "when": {"emotions": ["Peur", "Anxiété", "Appréhension", "Stress"], "min_intensity": 4, "max_intensity": 7},
+      "recommend": ["EX-GROUNDING-321", "EX-COGNITIVE-RESTRUCTURING"],
+      "professional_option": "EX-GRADED-EXPOSURE"
+    },
+    {
+      "id": "MR-SHAME",
+      "priority": 500,
+      "when": {"emotions": ["Honte", "Culpabilité"]},
+      "recommend": ["EX-COMPASSION", "EX-ACT-DEFUSION", "EX-EMOTION-JOURNAL"]
+    },
+    {
+      "id": "MR-SADNESS",
+      "priority": 400,
+      "when": {"emotions": ["Tristesse", "Mélancolie", "Chagrin"], "max_intensity": 7},
+      "recommend": ["EX-EMOTION-JOURNAL", "EX-NEEDS-IDENTIFICATION", "EX-COMPASSION"]
+    },
+    {
+      "id": "MR-LOW-ACTIVATION",
+      "priority": 300,
+      "when": {"emotions": ["Calme", "Sérénité", "Joie", "Confiance"], "max_intensity": 4},
+      "recommend": ["EX-GRATITUDE", "EX-EMOTION-JOURNAL"]
+    },
+    {
+      "id": "MR-LOW-ANXIETY",
+      "priority": 350,
+      "when": {"emotions": ["Peur", "Anxiété", "Stress"], "max_intensity": 3},
+      "recommend": ["EX-MINDFUL-BREATHING", "EX-GROUNDING-321"]
+    }
+  ],
+  "input_schema": {
+    "emotion": "string|null",
+    "intensity": "0-10",
+    "situation": "text",
+    "thoughts": "text",
+    "body_sensations": "array|string",
+    "history_user": "array of prior entries"
+  },
+  "triage_rules": [
+    {
+      "id": "RISK-SELF-HARM",
+      "if": "situation/thoughts mention suicide, self-harm, intent, plan, inability to stay safe",
+      "then": "show emergency/professional help message; do not provide standalone exercise only",
+      "confidence": "high"
+    },
+    {
+      "id": "RISK-VIOLENCE-DANGER",
+      "if": "immediate violence, abuse, medical danger, panic with medical symptoms",
+      "then": "prioritize safety, emergency services, trusted person; app not sufficient",
+      "confidence": "high"
+    }
+  ],
+  "analysis_steps": [
+    "Detect stated emotion and intensity.",
+    "Map body sensations and thoughts to possible emotion families.",
+    "Identify possible secondary emotions.",
+    "Infer possible needs using SDT/attachment/CBT-compatible mapping.",
+    "Select exercises by intensity and contraindications.",
+    "Generate accessible explanation with uncertainty language."
+  ],
+  "selection_logic": [
+    {
+      "condition": "intensity >= 8",
+      "recommend_first": [
+        "EX-GROUNDING-321",
+        "EX-MINDFUL-BREATHING if no contraindication",
+        "EX-DELAY-URGE"
+      ],
+      "avoid_first": [
+        "EX-COGNITIVE-RESTRUCTURING",
+        "EX-GRADED-EXPOSURE"
+      ]
+    },
+    {
+      "condition": "fear/anxiety and avoidance pattern, intensity 4-7",
+      "recommend": [
+        "EX-GROUNDING-321",
+        "EX-COGNITIVE-RESTRUCTURING"
+      ],
+      "professional_option": "graded exposure under professional support if persistent impairment"
+    },
+    {
+      "condition": "anger/rage and urge to act",
+      "recommend": [
+        "EX-GROUNDING-321",
+        "EX-NEEDS-IDENTIFICATION"
+      ],
+      "message": "create delay before responding"
+    },
+    {
+      "condition": "shame/self-criticism",
+      "recommend": [
+        "EX-COMPASSION",
+        "EX-ACT-DEFUSION",
+        "EX-EMOTION-JOURNAL"
+      ]
+    },
+    {
+      "condition": "sadness/loss, low activation",
+      "recommend": [
+        "EX-EMOTION-JOURNAL",
+        "EX-NEEDS-IDENTIFICATION",
+        "EX-GRATITUDE only if not invalidating"
+      ]
+    }
+  ],
+  "output_schema": {
+    "primary_emotion_probable": "string",
+    "secondary_emotions_possible": "array",
+    "needs_possible": "array",
+    "mechanisms_involved": "array",
+    "accessible_explanation": "text",
+    "recommended_exercises": "array with id, rationale, steps summary",
+    "scientific_justification": "study ids",
+    "confidence": "low|moderate|high",
+    "consult_professional_when": "array"
+  }
+}
