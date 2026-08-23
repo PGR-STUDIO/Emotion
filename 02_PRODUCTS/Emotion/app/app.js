@@ -424,10 +424,15 @@ function renderBodySigns() {
     if (sign === '__other__') {
       const existing = draft.bodySigns.find(item => item === 'Autre' || item.startsWith('Autre : '));
       draft.bodySigns = existing ? draft.bodySigns.filter(item => item !== existing) : [...draft.bodySigns, 'Autre'];
+      saveDraft(); renderBodySigns();
+      return;
     } else {
       draft.bodySigns = draft.bodySigns.includes(sign) ? draft.bodySigns.filter(item => item !== sign) : [...draft.bodySigns, sign];
     }
-    saveDraft(); renderBodySigns();
+    const selected = draft.bodySigns.includes(sign);
+    button.classList.toggle('selected', selected);
+    button.setAttribute('aria-pressed', String(selected));
+    saveDraft();
   });
   $('#bodyOther')?.addEventListener('input', event => {
     const value = event.target.value.trim();
@@ -627,7 +632,7 @@ function insertDynamicPanels() {
   const bodyField = $('#understand .body-field');
   const insight = $('#emotionInsight');
   const senseContent = $('#senseContent');
-  if (context) context.insertAdjacentHTML('afterend', '<button id="toSense" class="main-action">Que ressens-tu ? <span>→</span></button>');
+  if (context) context.insertAdjacentHTML('afterend', '<button type="button" id="toSense" class="main-action">Que ressens-tu ? <span>→</span></button>');
   if (senseContent && bodyField) {
     senseContent.append(bodyField);
     bodyField.querySelector('strong').textContent = 'Que ressens-tu dans ton corps ?';
