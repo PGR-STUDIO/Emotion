@@ -218,3 +218,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-vi
 #sense .main-action{margin-top:20px}
 #sense .emotion-insight{display:none!important}
 @media(max-width:360px){#sense .body-field .choice-chips{grid-template-columns:1fr}}
+.emotion-logo{display:block;width:42px;height:42px;flex:0 0 42px}
+#understand .emotion-summary-identity .emotion-logo{width:42px;height:42px}
+.extra-emotion{display:inline-flex;align-items:center;gap:6px}
+.extra-emotion .emotion-logo{width:24px;height:24px;flex-basis:24px}

@@ -150,8 +150,7 @@ function renderEmotionContext() {
   const needs = (emotion?.psychological_needs || []).slice(0, 3);
   const behaviors = (guidance?.impulse || emotion?.possible_behaviors || []).slice(0, 2);
   if (understand) {
-    const selectedMain = emotions.find(([id]) => id === draft.emotion);
-    const mark = selectedMain ? `<img src="assets/${selectedMain[2]}" alt="">` : '<span aria-hidden="true">•</span>';
+    const mark = emotionIcon(name);
     understand.innerHTML = `<div class="emotion-summary-heading"><div class="emotion-summary-identity">${mark}<div><span class="emotion-summary-kicker">VOUS AVEZ SÉLECTIONNÉ</span><b>${escapeHtml(name)}</b></div></div><div class="emotion-summary-intensity"><small>Intensité actuelle</small><strong>${draft.intensity}/10</strong></div></div>${guidance?.definition || emotion?.definition ? `<p class="emotion-summary-definition">${escapeHtml(guidance?.definition || emotion?.definition)}</p>` : ''}${triggers.length ? `<div class="emotion-related"><b>Cette émotion peut être liée à :</b><div>${triggers.map(item => `<span>${escapeHtml(item)}</span>`).join('')}</div></div>` : ''}<small class="emotion-summary-note">Ce sont des pistes : garde seulement ce qui correspond à ton vécu.</small>`;
     understand.classList.add('show');
   }
@@ -270,6 +269,31 @@ const wheelData = [
   { levels: ['Intérêt', 'Anticipation', 'Vigilance'], colors: ['#fff0cf', '#ffca65', '#e89028'] }
 ];
 const wheelDisplayLabel = word => word === 'Stupéfaction' ? 'Sidération' : word;
+function emotionIcon(name) {
+  const key = normalizeText(name);
+  let family = 'relational';
+  if (/joie|serenite|extase|acceptation|confiance|admiration|espoir|soulagement|gratitude|fierte|amour|affection|plaisir/.test(key)) family = 'joy';
+  else if (/trist|melancolie|chagrin|solitude|decouragement|regret|deception|abandon/.test(key)) family = 'sad';
+  else if (/colere|rage|agacement|contrariete|frustration|irrit|injustice/.test(key)) family = 'anger';
+  else if (/peur|apprehension|terreur|anxiete|panique|vigilance|alerte/.test(key)) family = 'fear';
+  else if (/surprise|sideration|stupefaction|distraction/.test(key)) family = 'surprise';
+  else if (/degout|aversion|mepris|rejet/.test(key)) family = 'disgust';
+  else if (/interet|anticipation|curiosite|enthousiasme/.test(key)) family = 'anticipation';
+  else if (/stress|confusion|impuissance|surcharge|epuisement|vide|ennui/.test(key)) family = 'blocked';
+  const specs = {
+    joy: { bg: '#fff1c9', eyes: '<circle cx="45" cy="49" r="4"/><circle cx="75" cy="49" r="4"/>', mouth: '<path d="M40 62c10 14 30 14 40 0"/>' },
+    sad: { bg: '#e2e8fc', eyes: '<path d="M42 49c4-4 8-4 12 0M66 49c4-4 8-4 12 0"/>', mouth: '<path d="M43 76c10-12 24-12 34 0"/>' },
+    anger: { bg: '#ffe1dd', eyes: '<path d="M40 45l14 8M80 45L66 53"/>', mouth: '<path d="M43 76c10-12 24-12 34 0"/>' },
+    fear: { bg: '#e0f6f7', eyes: '<circle cx="45" cy="49" r="6"/><circle cx="75" cy="49" r="6"/>', mouth: '<ellipse cx="60" cy="73" rx="7" ry="10"/>' },
+    surprise: { bg: '#f1e4ff', eyes: '<circle cx="45" cy="49" r="4"/><circle cx="75" cy="49" r="4"/>', mouth: '<ellipse cx="60" cy="73" rx="8" ry="11"/>' },
+    disgust: { bg: '#edf0cc', eyes: '<path d="M40 52c5-5 10-5 15 0M65 52c5-5 10-5 15 0"/>', mouth: '<path d="M43 72c8-8 26 8 34 0"/>' },
+    anticipation: { bg: '#fff0cf', eyes: '<path d="M41 49h12M67 49h12"/>', mouth: '<path d="M45 68c9 5 21 5 30 0"/>' },
+    relational: { bg: '#f7e5e7', eyes: '<path d="M42 51h10M68 51h10"/>', mouth: '<path d="M46 75c8-5 20-5 28 0"/>' },
+    blocked: { bg: '#eee5fb', eyes: '<path d="M41 49h10M69 49h10"/>', mouth: '<path d="M51 70h18"/>' }
+  };
+  const spec = specs[family];
+  return `<svg class="emotion-logo" viewBox="0 0 120 120" role="img" aria-label="Icône ${escapeHtml(name)}"><circle cx="60" cy="60" r="43" fill="${spec.bg}"/><g fill="none" stroke="#29435f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">${spec.eyes}${spec.mouth}</g></svg>`;
+}
 let state = { entries: [] };
 let secureMode = !BROWSER_TEST_MODE && Boolean(localStorage.getItem(SECURE_KEY));
 let stateLocked = secureMode;
@@ -361,7 +385,7 @@ function renderWheel() {
   const labelPaths = wheelData.map((family, familyIndex) => family.levels.map((word, levelIndex) => { const radius = [139, 102, 66][levelIndex]; const start = familyIndex * 45 - 17; const end = start + 34; const defaultForward = familyIndex < 4; const forward = [3, 6, 7].includes(familyIndex) ? !defaultForward : defaultForward; const [x1, y1] = point(radius, forward ? start : end); const [x2, y2] = point(radius, forward ? end : start); return `<path id="wheel-label-path-${familyIndex}-${levelIndex}" class="wheel-label-path" d="M ${x1} ${y1} A ${radius} ${radius} 0 0 ${forward ? 1 : 0} ${x2} ${y2}"/>`; }).join('')).join('');
   const labelsInWheel = wheelData.map((family, familyIndex) => family.levels.map((word, levelIndex) => `<text class="wheel-arc-label wheel-arc-label-${levelIndex}"><textPath href="#wheel-label-path-${familyIndex}-${levelIndex}" startOffset="50%">${wheelDisplayLabel(word)}</textPath></text>`).join('')).join('');
   const legend = wheelData.map((family, index) => `<span><i style="background:${family.colors[1]}"></i>${wheelItems[index]}</span>`).join('');
-  $('#wheelPanel').innerHTML = `<p>Touche directement une zone. Plus elle est proche du centre, plus l’intensité est forte.</p><div class="interactive-wheel-wrap"><svg class="interactive-wheel" viewBox="20 20 320 320" role="group" aria-label="Roue interactive des émotions de Plutchik"><defs>${labelPaths}</defs>${svg}${selectedOverlay}<circle cx="180" cy="180" r="43" class="wheel-center"></circle>${labelsInWheel}</svg></div><div class="wheel-legend">${legend}</div><div class="wheel-extra-emotions"><b>Autres émotions disponibles · 17 nuances</b><div>${extraEmotionOptions.map(word => `<button type="button" class="extra-emotion ${draft.nuance === word ? 'selected' : ''}" data-nuance="${escapeHtml(word)}" aria-pressed="${draft.nuance === word}">${escapeHtml(word)}</button>`).join('')}</div></div><div class="wheel-selection">${draft.nuance ? `Émotion choisie : ${escapeHtml(wheelDisplayLabel(draft.nuance))}` : 'Aucune émotion choisie pour le moment.'}</div><p class="wheel-credit">Roue interactive inspirée du modèle de Robert Plutchik. 41 émotions disposent d’un exercice adapté.</p>`;
+  $('#wheelPanel').innerHTML = `<p>Touche directement une zone. Plus elle est proche du centre, plus l’intensité est forte.</p><div class="interactive-wheel-wrap"><svg class="interactive-wheel" viewBox="20 20 320 320" role="group" aria-label="Roue interactive des émotions de Plutchik"><defs>${labelPaths}</defs>${svg}${selectedOverlay}<circle cx="180" cy="180" r="43" class="wheel-center"></circle>${labelsInWheel}</svg></div><div class="wheel-legend">${legend}</div><div class="wheel-extra-emotions"><b>Autres émotions disponibles · 17 nuances</b><div>${extraEmotionOptions.map(word => `<button type="button" class="extra-emotion ${draft.nuance === word ? 'selected' : ''}" data-nuance="${escapeHtml(word)}" aria-pressed="${draft.nuance === word}">${emotionIcon(word)}<span>${escapeHtml(word)}</span></button>`).join('')}</div></div><div class="wheel-selection">${draft.nuance ? `Émotion choisie : ${escapeHtml(wheelDisplayLabel(draft.nuance))}` : 'Aucune émotion choisie pour le moment.'}</div><p class="wheel-credit">Roue interactive inspirée du modèle de Robert Plutchik. 41 émotions disposent d’un exercice adapté.</p>`;
 }
 document.addEventListener('click', event => {
   const part = event.target.closest('#wheelPanel .interactive-sector, #wheelPanel .extra-emotion');
