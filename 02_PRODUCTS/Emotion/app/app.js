@@ -471,6 +471,7 @@ document.addEventListener('click', event => {
   draft.nuance = part.dataset.nuance;
   saveDraft();
   renderEmotions();
+  renderBodySigns();
   renderWheel();
   syncContinueButton();
   renderEmotionInsight();
