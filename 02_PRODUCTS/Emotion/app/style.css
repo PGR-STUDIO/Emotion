@@ -232,9 +232,9 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-vi
 .wheel-blends small{grid-column:1;color:var(--muted);font-size:9px;line-height:1.2}
 
 /* Selection renforcée après le choix d’une émotion. */
-#wheelPanel .interactive-sector.selected{stroke:#29435f;stroke-width:5;filter:saturate(1.18) brightness(.94)}
-#wheelPanel .wheel-selection-halo{stroke:#fffefa;stroke-width:9}
-#wheelPanel .wheel-selection-overlay{stroke:#29435f!important;stroke-width:5.5}
+#wheelPanel .interactive-sector.selected{stroke:#29435f;stroke-width:3.5;filter:saturate(1.1) brightness(.97)}
+#wheelPanel .wheel-selection-halo{stroke:#fffefa;stroke-width:5}
+#wheelPanel .wheel-selection-overlay{stroke:#29435f!important;stroke-width:3}
 #wheelPanel .extra-emotion.selected{border:2px solid var(--accent);background:var(--accent-soft);font-weight:800;box-shadow:0 0 0 2px #d8eadb}
 #wheelPanel .wheel-selection{padding:10px 12px;border:2px solid var(--accent);border-radius:12px;background:var(--accent-soft);text-align:center;color:var(--ink);font-weight:800}
 
