@@ -187,6 +187,7 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-vi
 #understand .emotion-summary-identity{display:flex;align-items:center;gap:10px;min-width:0}
 #understand .emotion-summary-identity img,#understand .emotion-summary-identity>span{width:42px;height:42px;flex:0 0 42px;border-radius:50%;display:grid;place-items:center;background:#f1b0a7;color:#fff;font-size:25px;font-weight:800}
 #understand .emotion-summary-identity img{object-fit:contain}
+#understand .emotion-summary-identity .emotion-summary-swatch{display:block;width:42px;height:42px;flex:0 0 42px;border-radius:50%;border:5px solid #fffefa;box-shadow:0 0 0 2px #29435f}
 #understand .emotion-summary-identity div{display:grid;gap:3px;min-width:0}
 #understand .emotion-summary-kicker{color:#6b9b78;font-size:9px;letter-spacing:1.2px;font-weight:800}
 #understand .emotion-summary-identity b{font-size:21px;line-height:1.1}

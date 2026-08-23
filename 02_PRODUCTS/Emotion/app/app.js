@@ -150,7 +150,7 @@ function renderEmotionContext() {
   const needs = (emotion?.psychological_needs || []).slice(0, 3);
   const behaviors = (guidance?.impulse || emotion?.possible_behaviors || []).slice(0, 2);
   if (understand) {
-    const mark = emotionIcon(name);
+    const mark = `<span class="emotion-summary-swatch" style="background:${emotionColor(name)}" aria-hidden="true"></span>`;
     understand.innerHTML = `<div class="emotion-summary-heading"><div class="emotion-summary-identity">${mark}<div><span class="emotion-summary-kicker">VOUS AVEZ SÉLECTIONNÉ</span><b>${escapeHtml(name)}</b></div></div><div class="emotion-summary-intensity"><small>Intensité actuelle</small><strong>${draft.intensity}/10</strong></div></div>${guidance?.definition || emotion?.definition ? `<p class="emotion-summary-definition">${escapeHtml(guidance?.definition || emotion?.definition)}</p>` : ''}${triggers.length ? `<div class="emotion-related"><b>Cette émotion peut être liée à :</b><div>${triggers.map(item => `<span>${escapeHtml(item)}</span>`).join('')}</div></div>` : ''}<small class="emotion-summary-note">Ce sont des pistes : garde seulement ce qui correspond à ton vécu.</small>`;
     understand.classList.add('show');
   }
@@ -269,6 +269,20 @@ const wheelData = [
   { levels: ['Intérêt', 'Anticipation', 'Vigilance'], colors: ['#fff0cf', '#ffca65', '#e89028'] }
 ];
 const wheelDisplayLabel = word => word === 'Stupéfaction' ? 'Sidération' : word;
+function emotionColor(name) {
+  const key = normalizeText(name);
+  for (const family of wheelData) {
+    const level = family.levels.findIndex(word => normalizeText(word) === key);
+    if (level >= 0) return family.colors[level];
+  }
+  if (/trist|melancolie|chagrin|solitude|decouragement|deception/.test(key)) return '#9db2e6';
+  if (/colere|rage|agac|contrariete|frustration|injustice/.test(key)) return '#f39b93';
+  if (/peur|anxiete|panique|terreur|vigilance|alerte/.test(key)) return '#7ed1db';
+  if (/surprise|stupefaction|sideration|confusion/.test(key)) return '#c69aef';
+  if (/degout|aversion|rejet|ennui/.test(key)) return '#b9c36d';
+  if (/interet|anticipation|curiosite/.test(key)) return '#ffca65';
+  return '#9cd792';
+}
 function emotionIcon(name) {
   const key = normalizeText(name);
   let family = 'relational';
