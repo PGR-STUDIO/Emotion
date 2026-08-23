@@ -271,16 +271,6 @@ const wheelData = [
 const wheelDisplayLabel = word => word === 'Stupéfaction' ? 'Sidération' : word;
 function emotionIcon(name) {
   const key = normalizeText(name);
-  const glyphs = {
-    'serenite': '🌤️', 'joie': '🙂', 'extase': '⭐', 'acceptation': '🤝', 'confiance': '🤝', 'admiration': '⭐',
-    'apprehension': '😟', 'peur': '😨', 'terreur': '😱', 'distraction': '👀', 'surprise': '😲', 'stupefaction': '🤯',
-    'melancolie': '🌧️', 'tristesse': '😢', 'chagrin': '💔', 'ennui': '😒', 'degout': '🤢', 'aversion': '↩️',
-    'contrariete': '😤', 'colere': '😠', 'rage': '🔥', 'interet': '🔎', 'anticipation': '👁️', 'vigilance': '🛡️',
-    'anxiete': '😰', 'honte': '😳', 'culpabilite': '😔', 'solitude': '🧍', 'frustration': '😤', 'amour / affection': '❤️',
-    'espoir': '🌱', 'soulagement': '😌', 'gratitude': '🙏', 'fierte': '🏆', 'curiosite': '🔎', 'panique': '😱',
-    'amour': '❤️', 'optimisme': '🧡', 'soumission': '💚', 'effroi': '💙', 'deception': '💜', 'remords': '💔', 'agressivite': '🔥', 'ambition': '🌟',
-    'impuissance': '🫥', 'confusion': '❓', 'surcharge': '🔋', 'decouragement': '📉', 'rejet': '🚫'
-  };
   let family = 'relational';
   if (/joie|serenite|extase|acceptation|confiance|admiration|espoir|soulagement|gratitude|fierte|amour|affection|plaisir/.test(key)) family = 'joy';
   else if (/trist|melancolie|chagrin|solitude|decouragement|regret|deception|abandon/.test(key)) family = 'sad';
@@ -291,19 +281,69 @@ function emotionIcon(name) {
   else if (/interet|anticipation|curiosite|enthousiasme/.test(key)) family = 'anticipation';
   else if (/stress|confusion|impuissance|surcharge|epuisement|vide|ennui/.test(key)) family = 'blocked';
   const specs = {
-    joy: { bg: '#fff1c9', eyes: '<circle cx="45" cy="49" r="4"/><circle cx="75" cy="49" r="4"/>', mouth: '<path d="M40 62c10 14 30 14 40 0"/>' },
-    sad: { bg: '#e2e8fc', eyes: '<path d="M42 49c4-4 8-4 12 0M66 49c4-4 8-4 12 0"/>', mouth: '<path d="M43 76c10-12 24-12 34 0"/>' },
-    anger: { bg: '#ffe1dd', eyes: '<path d="M40 45l14 8M80 45L66 53"/>', mouth: '<path d="M43 76c10-12 24-12 34 0"/>' },
-    fear: { bg: '#e0f6f7', eyes: '<circle cx="45" cy="49" r="6"/><circle cx="75" cy="49" r="6"/>', mouth: '<ellipse cx="60" cy="73" rx="7" ry="10"/>' },
-    surprise: { bg: '#f1e4ff', eyes: '<circle cx="45" cy="49" r="4"/><circle cx="75" cy="49" r="4"/>', mouth: '<ellipse cx="60" cy="73" rx="8" ry="11"/>' },
-    disgust: { bg: '#edf0cc', eyes: '<path d="M40 52c5-5 10-5 15 0M65 52c5-5 10-5 15 0"/>', mouth: '<path d="M43 72c8-8 26 8 34 0"/>' },
-    anticipation: { bg: '#fff0cf', eyes: '<path d="M41 49h12M67 49h12"/>', mouth: '<path d="M45 68c9 5 21 5 30 0"/>' },
-    relational: { bg: '#f7e5e7', eyes: '<path d="M42 51h10M68 51h10"/>', mouth: '<path d="M46 75c8-5 20-5 28 0"/>' },
-    blocked: { bg: '#eee5fb', eyes: '<path d="M41 49h10M69 49h10"/>', mouth: '<path d="M51 70h18"/>' }
+    joy: { bg: '#fff1c9', eyes: '<path d="M40 50c4 5 9 5 13 0M67 50c4 5 9 5 13 0"/>', mouth: '<path d="M39 64c11 16 31 16 42 0"/>' },
+    sad: { bg: '#e2e8fc', eyes: '<path d="M40 50c4-5 9-5 13 0M67 50c4-5 9-5 13 0"/>', mouth: '<path d="M42 77c11-14 25-14 36 0"/>' },
+    anger: { bg: '#ffe1dd', eyes: '<path d="M39 43l16 9M81 43L65 52"/>', mouth: '<path d="M42 77c11-14 25-14 36 0"/>' },
+    fear: { bg: '#e0f6f7', eyes: '<circle cx="45" cy="49" r="7"/><circle cx="75" cy="49" r="7"/>', mouth: '<ellipse cx="60" cy="73" rx="8" ry="11"/>' },
+    surprise: { bg: '#f1e4ff', eyes: '<circle cx="45" cy="49" r="5"/><circle cx="75" cy="49" r="5"/>', mouth: '<ellipse cx="60" cy="73" rx="9" ry="12"/>' },
+    disgust: { bg: '#edf0cc', eyes: '<path d="M39 51c5-6 10-6 15 0M66 51c5-6 10-6 15 0"/>', mouth: '<path d="M42 70c8-9 14 9 36 0"/>' },
+    anticipation: { bg: '#fff0cf', eyes: '<path d="M40 49h14M66 49h14"/>', mouth: '<path d="M43 68c10 7 24 7 34 0"/>' },
+    relational: { bg: '#f7e5e7', eyes: '<path d="M40 51h14M66 51h14"/>', mouth: '<path d="M44 75c9-6 23-6 32 0"/>' },
+    blocked: { bg: '#eee5fb', eyes: '<path d="M40 50h14M66 50h14"/>', mouth: '<path d="M50 72h20"/>' }
   };
   const spec = specs[family];
-  const glyph = glyphs[key] || '•';
-  return `<svg class="emotion-logo" viewBox="0 0 120 120" role="img" aria-label="Icône ${escapeHtml(name)}"><circle cx="60" cy="60" r="43" fill="${spec.bg}"/><g fill="none" stroke="#29435f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">${spec.eyes}${spec.mouth}</g><text x="91" y="30" font-size="20" text-anchor="middle">${glyph}</text></svg>`;
+  const decorations = {
+    serenite: '<path d="M28 78c-11-8-12-22-5-29 12 2 18 13 13 25"/><path d="M27 75l12-17"/>',
+    joie: '<path d="M60 12v13M60 95v13M12 60h13M95 60h13M25 25l9 9M86 86l9 9"/>',
+    extase: '<path d="M27 27l7 7M86 27l-7 7M21 60h13M99 60H86"/><path d="M60 10l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/>',
+    acceptation: '<path d="M28 62c-8-5-12-13-9-21 9 0 16 5 18 13M92 62c8-5 12-13 9-21-9 0-16 5-18 13"/>',
+    confiance: '<path d="M60 13l18 7v20c0 15-8 26-18 32-10-6-18-17-18-32V20z"/><path d="M50 40l7 7 14-15"/>',
+    admiration: '<path d="M60 10l4 12 12 4-12 4-4 12-4-12-12-4 12-4zM91 54l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/>',
+    apprehension: '<path d="M31 30l8 7M89 30l-8 7M60 12v12"/><path d="M60 62v12M60 80v3"/>',
+    peur: '<path d="M25 29l7 8M95 29l-7 8M60 12v12"/><path d="M90 72c-4 8-12 8-12 0 0-7 6-10 6-16 0 6 6 9 6 16z"/>' ,
+    terreur: '<path d="M26 22l8 10M94 22l-8 10M60 8v16M16 53h13M104 53H91"/><path d="M47 88c8 6 18 6 26 0"/>',
+    distraction: '<path d="M20 48c10-14 25-14 35 0-10 14-25 14-35 0zM65 48c10-14 25-14 35 0-10 14-25 14-35 0z"/><circle cx="48" cy="48" r="4"/><circle cx="72" cy="48" r="4"/>',
+    surprise: '<path d="M60 10v16M28 26l10 10M92 26L82 36M15 60h16M105 60H89"/>',
+    stupefaction: '<path d="M25 28l10 10M95 28L85 38M60 10v16"/><path d="M60 91c-6 0-11-5-11-11s5-11 11-11 11 5 11 11-5 11-11 11z"/>',
+    melancolie: '<path d="M22 28c8-7 18-6 23 2 8-5 19-1 21 8 9-2 17 5 17 14H22c-5-8-3-18 5-24z"/><path d="M37 66v13M53 66v13M69 66v13"/>',
+    tristesse: '<path d="M88 67c-3 8-12 8-12 0 0-7 6-10 6-16 0 6 6 9 6 16z"/>',
+    chagrin: '<path d="M60 87L43 70c-11-12 4-25 17-12 13-13 28 0 17 12z"/><path d="M60 58l-3 10 6 6-3 8"/>',
+    ennui: '<path d="M25 86h70M34 94h52"/><path d="M50 70h20"/>',
+    degout: '<path d="M24 36c8-9 16-8 22 0M96 36c-8-9-16-8-22 0"/><path d="M86 75l5 5m0-5l-5 5"/>',
+    aversion: '<path d="M24 60h25M96 60H71M39 49L50 60 39 71M81 49L70 60l11 11"/>',
+    contrariete: '<path d="M24 32l6 8M96 32l-6 8M60 14v11"/><path d="M86 27l-5 8 7 2-6 10"/>',
+    colere: '<path d="M25 24l8 12M95 24l-8 12M60 9v18"/><path d="M86 29l-7 12 8 2-8 13"/>',
+    rage: '<path d="M21 26l10 16M99 26L89 42M60 8v22"/><path d="M85 20l-8 17 9 2-10 19M35 20l8 17-9 2 10 19"/>',
+    interet: '<circle cx="76" cy="34" r="12"/><path d="M85 43l11 11M20 76c8-9 18-9 26 0"/>',
+    anticipation: '<path d="M28 60h55M70 44l16 16-16 16M30 34l8 8M44 24l4 11"/>',
+    vigilance: '<path d="M60 11l19 8v19c0 16-9 28-19 34-10-6-19-18-19-34V19z"/><path d="M60 30v14M60 51v3"/>',
+    anxiete: '<circle cx="25" cy="27" r="3"/><circle cx="95" cy="27" r="3"/><circle cx="18" cy="67" r="3"/><circle cx="102" cy="67" r="3"/>',
+    honte: '<path d="M32 26c8 9 17 13 28 13s20-4 28-13"/><path d="M48 81c8 5 16 5 24 0"/>',
+    culpabilite: '<path d="M60 18c-18 16-23 27-23 39 0 14 10 25 23 25s23-11 23-25c0-12-5-23-23-39z"/><path d="M60 37v22M60 67v3"/>',
+    solitude: '<circle cx="60" cy="22" r="7"/><path d="M60 31v30M45 48l15 9 15-9M49 91l11-30 11 30"/><path d="M27 94h66"/>',
+    frustration: '<path d="M24 30h72M24 45h52M24 60h64M24 75h40"/><path d="M88 69l-8 10 8 10"/>',
+    'amour / affection': '<path d="M60 87L42 68c-13-14 4-31 18-16 14-15 31 2 18 16z"/>',
+    espoir: '<path d="M60 92V55M60 65c-14-2-21-10-21-19 12-1 21 5 21 19M60 74c14-2 21-10 21-19-12-1-21 5-21 19"/>',
+    soulagement: '<path d="M26 44c8 10 18 10 26 0M42 60c8 10 18 10 26 0M58 76c8 10 18 10 26 0"/>',
+    gratitude: '<path d="M60 86L43 68c-11-12 4-26 17-13 13-13 28 1 17 13z"/><path d="M60 21l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/>',
+    fierte: '<path d="M60 13l5 15 16 1-12 10 4 16-13-9-13 9 4-16-12-10 16-1z"/><path d="M60 69v23M46 92h28"/>',
+    curiosite: '<circle cx="54" cy="47" r="18"/><path d="M67 60l18 18M30 82c8-9 18-9 26 0"/>',
+    panique: '<path d="M60 10l27 49-27 49L33 59z"/><path d="M60 43v18M60 70v3"/>',
+    impuissance: '<path d="M30 36l30 25 30-25M30 36v40h60V36"/><path d="M42 91h36"/>',
+    confusion: '<path d="M47 44c0-13 25-14 25-1 0 9-12 9-12 18M60 71v2"/><path d="M31 27l7 7M89 27l-7 7"/>',
+    surcharge: '<path d="M28 78h64M28 63h64M28 48h64M28 33h64"/><path d="M42 89l-5 8M60 89v10M78 89l5 8"/>',
+    decouragement: '<path d="M24 28l18 18 17-14 16 18 21-21"/><path d="M82 29h14v14"/>',
+    rejet: '<circle cx="60" cy="60" r="31"/><path d="M39 39l42 42"/>'
+  };
+  const familyDecorations = {
+    joy: '<path d="M18 28l7 7M102 28l-7 7"/>', sad: '<path d="M92 72c-3 8-12 8-12 0 0-7 6-10 6-16 0 6 6 9 6 16z"/>',
+    anger: '<path d="M87 23l-7 13 8 2-8 13"/>', fear: '<path d="M60 12v14M25 30l9 9M95 30l-9 9"/>',
+    surprise: '<path d="M60 10v14M28 28l9 9M92 28l-9 9"/>', disgust: '<path d="M88 34l5 5m0-5l-5 5"/>',
+    anticipation: '<path d="M26 80h68M81 68l13 12-13 12"/>', relational: '<path d="M60 14l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/>',
+    blocked: '<path d="M25 30h70M25 90h70"/>'
+  };
+  const decoration = decorations[key] || familyDecorations[family];
+  return `<svg class="emotion-logo" viewBox="0 0 120 120" role="img" aria-label="Icône ${escapeHtml(name)}"><circle cx="60" cy="60" r="47" fill="${spec.bg}"/><g fill="none" stroke="#29435f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">${spec.eyes}${spec.mouth}${decoration}</g></svg>`;
 }
 let state = { entries: [] };
 let secureMode = !BROWSER_TEST_MODE && Boolean(localStorage.getItem(SECURE_KEY));
