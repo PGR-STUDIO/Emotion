@@ -224,3 +224,9 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-vi
 .extra-emotion .emotion-logo{width:24px;height:24px;flex-basis:24px}
 .wheel-legend>span{display:flex;align-items:center;gap:7px}
 .wheel-legend .emotion-logo{width:24px;height:24px;flex-basis:24px}
+.wheel-blends{margin:10px 0 14px;border:1px solid var(--line);border-radius:14px;background:#fbfaf6;padding:10px 12px}
+.wheel-blends summary{cursor:pointer;color:var(--ink);font-size:12px;font-weight:800}
+.wheel-blends>div{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:10px}
+.wheel-blends>div>span{display:grid;grid-template-columns:24px 1fr;column-gap:6px;align-items:center;color:var(--ink);font-size:11px}
+.wheel-blends .emotion-logo{width:24px;height:24px;grid-row:span 2}
+.wheel-blends small{grid-column:2;color:var(--muted);font-size:9px;line-height:1.2}
