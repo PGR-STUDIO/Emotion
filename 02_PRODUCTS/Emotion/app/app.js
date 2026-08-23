@@ -443,7 +443,7 @@ function renderWheel() {
   const svg = wheelData.map((family, familyIndex) => family.levels.map((word, levelIndex) => {
     const start = familyIndex * 45 - 21.7; const end = start + 43.4;
     const displayLabel = wheelDisplayLabel(word);
-    return `<path class="interactive-sector" data-nuance="${escapeHtml(word)}" role="button" tabindex="0" aria-label="Choisir ${escapeHtml(displayLabel)}" aria-pressed="${draft.nuance === word}" d="${sector(rings[levelIndex][0], rings[levelIndex][1], start, end)}" fill="${family.colors[levelIndex]}"><title>${escapeHtml(displayLabel)}</title></path>`;
+    return `<path class="interactive-sector ${draft.nuance === word ? 'selected' : ''}" data-nuance="${escapeHtml(word)}" role="button" tabindex="0" aria-label="Choisir ${escapeHtml(displayLabel)}" aria-pressed="${draft.nuance === word}" d="${sector(rings[levelIndex][0], rings[levelIndex][1], start, end)}" fill="${family.colors[levelIndex]}"><title>${escapeHtml(displayLabel)}</title></path>`;
   }).join('')).join('');
   let selectedOverlay = '';
   wheelData.forEach((family, familyIndex) => family.levels.forEach((word, levelIndex) => { if (draft.nuance !== word) return; const start = familyIndex * 45 - 21.7; const end = start + 43.4; const selectedShape = sector(rings[levelIndex][0], rings[levelIndex][1], start, end); selectedOverlay = `<path class="wheel-selection-halo" d="${selectedShape}"></path><path class="wheel-selection-overlay" d="${selectedShape}" stroke="${family.colors[1]}"></path>`; }));
