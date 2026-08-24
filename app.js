@@ -238,16 +238,13 @@ const bodySignsByEmotion = {
   unknown: bodySignOptions
 };
 const wheelItems = ['Joie', 'Confiance', 'Peur', 'Surprise', 'Tristesse', 'Dégoût', 'Colère', 'Anticipation'];
-const wheelBlends = [
-  { name: 'Amour', angle: 22.5, pair: 'Joie + confiance' },
-  { name: 'Optimisme', angle: 337.5, pair: 'Joie + anticipation' },
-  { name: 'Soumission', angle: 67.5, pair: 'Confiance + peur' },
-  { name: 'Effroi', angle: 112.5, pair: 'Peur + surprise' },
-  { name: 'Déception', angle: 157.5, pair: 'Surprise + tristesse' },
-  { name: 'Remords', angle: 202.5, pair: 'Tristesse + colère' },
-  { name: 'Agressivité', angle: 292.5, pair: 'Colère + anticipation' },
-  { name: 'Ambition', angle: 0, pair: 'Anticipation + confiance' }
-];
+const primaryBlendNames = { '0-1': 'Amour', '0-7': 'Optimisme', '1-2': 'Soumission', '1-7': 'Ambition', '2-3': 'Effroi', '3-4': 'Déception', '4-6': 'Remords', '6-7': 'Agressivité' };
+const wheelBlends = wheelItems.flatMap((first, firstIndex) => wheelItems.slice(firstIndex + 1).map((second, offset) => {
+  const secondIndex = firstIndex + offset + 1;
+  const pair = `${first} + ${second}`;
+  const key = `${firstIndex}-${secondIndex}`;
+  return { name: primaryBlendNames[key] || `Mélange : ${pair}`, pair, canonical: Boolean(primaryBlendNames[key]), firstIndex, secondIndex, angle: (firstIndex + secondIndex / 2) * 45 };
+}));
 const extraEmotionOptions = ['Anxiété', 'Honte', 'Culpabilité', 'Solitude', 'Frustration', 'Amour / affection', 'Espoir', 'Soulagement', 'Gratitude', 'Fierté', 'Curiosité', 'Panique', 'Impuissance', 'Confusion', 'Surcharge', 'Découragement', 'Rejet'];
 const wheelFamilies = [
   { id: 'pleasant', label: 'Agréables', color: '#dff2d5', emotions: ['Sérénité', 'Joie', 'Plaisir', 'Soulagement', 'Confiance', 'Espoir', 'Gratitude', 'Affection', 'Fierté', 'Curiosité', 'Enthousiasme', 'Émerveillement'] },
@@ -451,18 +448,22 @@ function renderBodySigns() {
 function renderWheel() {
   const point = (radius, angle) => [180 + radius * Math.sin(angle * Math.PI / 180), 180 - radius * Math.cos(angle * Math.PI / 180)];
   const sector = (inner, outer, start, end) => { const [x1, y1] = point(outer, start); const [x2, y2] = point(outer, end); const [x3, y3] = point(inner, end); const [x4, y4] = point(inner, start); return `M ${x1} ${y1} A ${outer} ${outer} 0 0 1 ${x2} ${y2} L ${x3} ${y3} A ${inner} ${inner} 0 0 0 ${x4} ${y4} Z`; };
+  const primarySector = (outer, start, end) => { const [x1, y1] = point(outer, start); const [x2, y2] = point(outer, end); return `M 180 180 L ${x1} ${y1} A ${outer} ${outer} 0 0 1 ${x2} ${y2} Z`; };
   const rings = [[122, 156], [86, 118], [50, 82]];
+  const primarySvg = wheelData.map((family, familyIndex) => { const start = familyIndex * 45 - 21.7; const end = start + 43.4; return `<path class="interactive-sector primary-sector ${draft.nuance === family.levels[1] ? 'selected' : ''}" data-nuance="${escapeHtml(family.levels[1])}" role="button" tabindex="0" aria-label="Choisir la famille ${escapeHtml(wheelItems[familyIndex])}" d="${primarySector(46, start, end)}" fill="${family.colors[1]}"><title>${escapeHtml(wheelItems[familyIndex])}</title></path>`; }).join('');
   const svg = wheelData.map((family, familyIndex) => family.levels.map((word, levelIndex) => {
     const start = familyIndex * 45 - 21.7; const end = start + 43.4;
     const displayLabel = wheelDisplayLabel(word);
     return `<path class="interactive-sector ${draft.nuance === word ? 'selected' : ''}" data-nuance="${escapeHtml(word)}" role="button" tabindex="0" aria-label="Choisir ${escapeHtml(displayLabel)}" aria-pressed="${draft.nuance === word}" d="${sector(rings[levelIndex][0], rings[levelIndex][1], start, end)}" fill="${family.colors[levelIndex]}"><title>${escapeHtml(displayLabel)}</title></path>`;
   }).join('')).join('');
+  const blendSvg = wheelBlends.map((blend, blendIndex) => { const step = 360 / wheelBlends.length; const start = blendIndex * step - step / 2; const end = start + step - 0.2; return `<path class="interactive-sector blend-sector ${draft.nuance === blend.name ? 'selected' : ''}" data-nuance="${escapeHtml(blend.name)}" role="button" tabindex="0" aria-label="Choisir ${escapeHtml(blend.name)}" d="${sector(158, 176, start, end)}" fill="${wheelData[blend.firstIndex].colors[1]}"><title>${escapeHtml(blend.name)} — ${escapeHtml(blend.pair)}</title></path>`; }).join('');
   let selectedOverlay = '';
   wheelData.forEach((family, familyIndex) => family.levels.forEach((word, levelIndex) => { if (draft.nuance !== word) return; const start = familyIndex * 45 - 21.7; const end = start + 43.4; const selectedShape = sector(rings[levelIndex][0], rings[levelIndex][1], start, end); selectedOverlay = `<path class="wheel-selection-halo" d="${selectedShape}"></path><path class="wheel-selection-overlay" d="${selectedShape}" stroke="${family.colors[1]}"></path>`; }));
+  wheelBlends.forEach((blend, blendIndex) => { if (draft.nuance !== blend.name) return; const step = 360 / wheelBlends.length; const start = blendIndex * step - step / 2; const end = start + step - 0.2; const selectedShape = sector(158, 176, start, end); selectedOverlay = `<path class="wheel-selection-halo" d="${selectedShape}"></path><path class="wheel-selection-overlay" d="${selectedShape}" stroke="${wheelData[blend.firstIndex].colors[1]}"></path>`; });
   const labelPaths = wheelData.map((family, familyIndex) => family.levels.map((word, levelIndex) => { const radius = [139, 102, 66][levelIndex]; const start = familyIndex * 45 - 17; const end = start + 34; const defaultForward = familyIndex < 4; const forward = [3, 6, 7].includes(familyIndex) ? !defaultForward : defaultForward; const [x1, y1] = point(radius, forward ? start : end); const [x2, y2] = point(radius, forward ? end : start); return `<path id="wheel-label-path-${familyIndex}-${levelIndex}" class="wheel-label-path" d="M ${x1} ${y1} A ${radius} ${radius} 0 0 ${forward ? 1 : 0} ${x2} ${y2}"/>`; }).join('')).join('');
   const labelsInWheel = wheelData.map((family, familyIndex) => family.levels.map((word, levelIndex) => `<text class="wheel-arc-label wheel-arc-label-${levelIndex}"><textPath href="#wheel-label-path-${familyIndex}-${levelIndex}" startOffset="50%">${wheelDisplayLabel(word)}</textPath></text>`).join('')).join('');
   const legend = wheelData.map((family, index) => `<span><i style="background:${family.colors[1]}"></i>${wheelItems[index]}</span>`).join('');
-  $('#wheelPanel').innerHTML = `<p>Touche directement une zone. Plus elle est proche du centre, plus l’intensité est forte.</p><div class="interactive-wheel-wrap"><svg class="interactive-wheel" viewBox="20 20 320 320" role="group" aria-label="Roue interactive des émotions de Plutchik"><defs>${labelPaths}</defs>${svg}${selectedOverlay}<circle cx="180" cy="180" r="43" class="wheel-center"></circle>${labelsInWheel}</svg></div><div class="wheel-legend">${legend}</div><div class="wheel-extra-emotions"><b>Autres émotions disponibles · 17 nuances</b><div>${extraEmotionOptions.map(word => `<button type="button" class="extra-emotion ${draft.nuance === word ? 'selected' : ''}" data-nuance="${escapeHtml(word)}" aria-pressed="${draft.nuance === word}"><span>${escapeHtml(word)}</span></button>`).join('')}</div></div><details class="wheel-blends"><summary>8 mélanges émotionnels</summary><div>${wheelBlends.map(blend => `<span style="display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-width:0"><b>${escapeHtml(blend.name)}</b><small>${escapeHtml(blend.pair)}</small></span>`).join('')}</div></details><div class="wheel-selection">${draft.nuance ? `Émotion choisie : ${escapeHtml(wheelDisplayLabel(draft.nuance))}` : 'Aucune émotion choisie pour le moment.'}</div><p class="wheel-credit">Roue interactive inspirée du modèle de Robert Plutchik. 41 émotions disposent d’un exercice adapté.</p>`;
+  $('#wheelPanel').innerHTML = `<p>Centre : familles primaires · anneaux : intensités · extérieur : chevauchements.</p><div class="interactive-wheel-wrap"><svg class="interactive-wheel" viewBox="0 0 360 360" role="group" aria-label="Roue interactive des émotions de Plutchik"><defs>${labelPaths}</defs>${blendSvg}${svg}${primarySvg}${selectedOverlay}<circle cx="180" cy="180" r="18" class="wheel-center"></circle>${labelsInWheel}</svg></div><div class="wheel-legend">${legend}</div><div class="wheel-extra-emotions"><b>Autres émotions disponibles · 17 nuances</b><div>${extraEmotionOptions.map(word => `<button type="button" class="extra-emotion ${draft.nuance === word ? 'selected' : ''}" data-nuance="${escapeHtml(word)}" aria-pressed="${draft.nuance === word}"><span>${escapeHtml(word)}</span></button>`).join('')}</div></div><details class="wheel-blends"><summary>28 chevauchements possibles · 8 mélanges principaux</summary><div>${wheelBlends.map(blend => `<span style="display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-width:0"><b>${escapeHtml(blend.name)}</b><small>${blend.canonical ? 'Mélange principal' : 'Chevauchement possible'} · ${escapeHtml(blend.pair)}</small></span>`).join('')}</div></details><div class="wheel-selection">${draft.nuance ? `Émotion choisie : ${escapeHtml(wheelDisplayLabel(draft.nuance))}` : 'Aucune émotion choisie pour le moment.'}</div><p class="wheel-credit">Roue interactive inspirée du modèle de Robert Plutchik. Les 8 mélanges principaux sont distingués des 20 autres chevauchements possibles.</p>`;
 }
 document.addEventListener('click', event => {
   const part = event.target.closest('#wheelPanel .interactive-sector, #wheelPanel .extra-emotion');
