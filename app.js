@@ -12,7 +12,8 @@ const emotions = [
   ['anger', 'Agacé', 'icon-irritated.png'],
   ['sad', 'Triste', 'icon-sad.png'],
   ['stress', 'Stressé', 'icon-stressed.png'],
-  ['rage', 'En colère', 'icon-angry.png']
+  ['rage', 'En colère', 'icon-angry.png'],
+  ['urge', 'Envie difficile à contrôler', 'icon-urge.svg']
 ];
 const labels = Object.fromEntries(emotions.map(([id, label]) => [id, label]));
 labels.unknown = 'Je ne sais pas encore';
@@ -22,7 +23,8 @@ const exercises = {
   anger: { name: 'Créer un délai', duration: 60, kind: 'timer', text: 'Éloigne-toi si possible. Pose les pieds au sol et attends une minute avant de répondre ou d’agir.' },
   sad: { name: 'Nommer le besoin', duration: 45, kind: 'timer', text: 'Complète doucement : « Là, j’aurais peut-être besoin de… » Il n’y a pas besoin de trouver une solution.' },
   stress: { name: 'Revenir à l’extérieur', duration: 60, kind: 'breath', text: 'Regarde autour de toi et nomme trois choses que tu vois. Laisse ta respiration rester naturelle.' },
-  rage: { name: 'Prendre de la distance', duration: 60, kind: 'timer', text: 'Mets de l’espace entre toi et la situation si possible. Ne règle pas le problème pendant le pic de colère.' }
+  rage: { name: 'Prendre de la distance', duration: 60, kind: 'timer', text: 'Mets de l’espace entre toi et la situation si possible. Ne règle pas le problème pendant le pic de colère.' },
+  urge: { name: 'Mettre l’envie en pause', duration: 60, kind: 'timer', text: 'Observe l’envie pendant une minute sans te juger. Éloigne-toi du produit ou de la situation si possible et contacte une personne de confiance si tu en as besoin.' }
 };
 const nuanceExercises = {
   'Sérénité': { name: 'Ancrer le calme', duration: 45, kind: 'timer', text: 'Repère trois sensations agréables ou neutres et reste quelques secondes avec chacune.' },
@@ -51,9 +53,9 @@ const nuanceExercises = {
   'Vigilance': { name: 'Observer sans se tendre', duration: 60, kind: 'breath', text: 'Balaye doucement ton environnement et distingue les signes utiles des alertes imaginées.' }
 };
 const scientific = { emotions: [], guidance: [], exercises: [], studies: [], rules: null, safety: null, evidence: null, sources: null, emotionExerciseMap: [], ready: false };
-const scientificEmotionNames = { calm: 'Sérénité', anger: 'Colère', sad: 'Tristesse', stress: 'Stress', rage: 'Colère', unknown: '' };
+const scientificEmotionNames = { calm: 'Sérénité', anger: 'Colère', sad: 'Tristesse', stress: 'Stress', rage: 'Colère', urge: 'Envie difficile à contrôler', unknown: '' };
 const emotionSentenceForms = {
-  'Sérénité': 'la sérénité', 'Joie': 'la joie', 'Extase': 'l’extase', 'Acceptation': 'l’acceptation', 'Confiance': 'la confiance', 'Admiration': 'l’admiration', 'Appréhension': 'l’appréhension', 'Peur': 'la peur', 'Terreur': 'la terreur', 'Distraction': 'la distraction', 'Surprise': 'la surprise', 'Stupéfaction': 'la stupéfaction', 'Mélancolie': 'la mélancolie', 'Tristesse': 'la tristesse', 'Chagrin': 'le chagrin', 'Ennui': 'l’ennui', 'Dégoût': 'le dégoût', 'Aversion': 'l’aversion', 'Contrariété': 'la contrariété', 'Colère': 'la colère', 'Rage': 'la rage', 'Intérêt': 'l’intérêt', 'Anticipation': 'l’anticipation', 'Vigilance': 'la vigilance', 'Anxiété': 'l’anxiété', 'Honte': 'la honte', 'Culpabilité': 'la culpabilité', 'Solitude': 'la solitude', 'Frustration': 'la frustration', 'Stress': 'le stress'
+  'Sérénité': 'la sérénité', 'Joie': 'la joie', 'Extase': 'l’extase', 'Acceptation': 'l’acceptation', 'Confiance': 'la confiance', 'Admiration': 'l’admiration', 'Appréhension': 'l’appréhension', 'Peur': 'la peur', 'Terreur': 'la terreur', 'Distraction': 'la distraction', 'Surprise': 'la surprise', 'Stupéfaction': 'la stupéfaction', 'Mélancolie': 'la mélancolie', 'Tristesse': 'la tristesse', 'Chagrin': 'le chagrin', 'Ennui': 'l’ennui', 'Dégoût': 'le dégoût', 'Aversion': 'l’aversion', 'Contrariété': 'la contrariété', 'Colère': 'la colère', 'Rage': 'la rage', 'Intérêt': 'l’intérêt', 'Anticipation': 'l’anticipation', 'Vigilance': 'la vigilance', 'Anxiété': 'l’anxiété', 'Honte': 'la honte', 'Culpabilité': 'la culpabilité', 'Solitude': 'la solitude', 'Frustration': 'la frustration', 'Stress': 'le stress', 'Envie difficile à contrôler': 'une envie difficile à contrôler'
 };
 function emotionSentenceForm(name) { return emotionSentenceForms[name] || `l’émotion « ${String(name).toLowerCase()} »`; }
 const scientificExerciseIds = {
@@ -173,10 +175,12 @@ function renderEmotionInsight() {
   if (!panel) return;
   const emotion = scientificEmotion();
   const guidance = emotionGuidance();
-  if ((!emotion && !guidance) || (!draft.emotion && !draft.nuance)) { panel.classList.remove('show'); panel.innerHTML = ''; renderEmotionContext(); return; }
-  const needs = (emotion?.psychological_needs || []).slice(0, 4);
+  const urge = draft.emotion === 'urge';
+  if ((!emotion && !guidance && !urge) || (!draft.emotion && !draft.nuance)) { panel.classList.remove('show'); panel.innerHTML = ''; renderEmotionContext(); return; }
+  const needs = urge ? ['sécurité', 'soutien', 'un délai avant d’agir'] : (emotion?.psychological_needs || []).slice(0, 4);
   const name = guidance?.name || emotion?.name || currentEmotionName();
-  panel.innerHTML = `<div class="insight-heading"><span class="insight-kicker">POUR COMPRENDRE</span><span class="insight-intensity">${draft.intensity}/10</span></div><h3>${escapeHtml(name)} peut être un signal</h3><p>${escapeHtml(guidance?.definition || emotion?.definition || 'Un état à observer avec curiosité, sans chercher à lui donner une seule interprétation.')}</p>${needs.length ? `<div class="insight-needs"><b>Besoin possible</b><div>${needs.map(need => `<span>${escapeHtml(need)}</span>`).join('')}</div></div>` : ''}<small>Ce sont des pistes, pas une conclusion : ton vécu peut être différent.</small>`;
+  const definition = urge ? 'Une envie forte peut apparaître avec du stress, de la tristesse, de la solitude ou une habitude. Elle donne une information, mais ne commande pas forcément l’action.' : guidance?.definition || emotion?.definition || 'Un état à observer avec curiosité, sans chercher à lui donner une seule interprétation.';
+  panel.innerHTML = `<div class="insight-heading"><span class="insight-kicker">SITUATION À OBSERVER</span><span class="insight-intensity">${draft.intensity}/10</span></div><h3>${escapeHtml(name)}</h3><p>${escapeHtml(definition)}</p>${needs.length ? `<div class="insight-needs"><b>Besoin possible</b><div>${needs.map(need => `<span>${escapeHtml(need)}</span>`).join('')}</div></div>` : ''}<small>Ce sont des pistes, pas une conclusion : ton vécu peut être différent.</small>`;
   panel.classList.add('show');
   renderEmotionContext();
 }
@@ -218,13 +222,14 @@ function familyExerciseFallback() {
   };
   return { name: `Observer ${draft.nuance}`, duration: 60, kind: 'timer', text: protocols[family.id][0], objective: 'Mettre des mots et retrouver une marge de choix.', steps: protocols[family.id], contraindications: 'Arrête si le malaise augmente et cherche un soutien humain si tu ne te sens pas en sécurité.' };
 }
-function currentExercise() { if (!draft.emotion && !draft.nuance) return null; if (scientific.ready && detectSafety().critical) return null; return scientificExercise() || nuanceExercises[draft.nuance] || exercises[draft.emotion] || familyExerciseFallback(); }
+function currentExercise() { if (!draft.emotion && !draft.nuance) return null; if (scientific.ready && detectSafety().critical) return null; if (draft.emotion === 'urge') return exercises.urge; return scientificExercise() || nuanceExercises[draft.nuance] || exercises[draft.emotion] || familyExerciseFallback(); }
 function exerciseEmotionTheme() {
   const key = normalizeText(draft.nuance || labels[draft.emotion] || draft.emotion);
   if (/colere|agace|rage|frustration|contrariete|injustice/.test(key)) return { dark: '#d96f62', light: '#f6c3bb' };
   if (/triste|melancolie|chagrin|decouragement|desespoir/.test(key)) return { dark: '#6f91c9', light: '#cbdcf5' };
   if (/stress|anxiete|peur|panique|apprehension|vigilance/.test(key)) return { dark: '#956ac3', light: '#decaf1' };
   if (/calme|serenite|joie|soulagement|confiance|espoir|gratitude/.test(key)) return { dark: '#70a984', light: '#c8e3cc' };
+  if (/envie|controler|consom/.test(key)) return { dark: '#b36f91', light: '#f1d4df' };
   return { dark: '#6d99a2', light: '#c5e0e2' };
 }
 
@@ -235,7 +240,8 @@ const bodySignsByEmotion = {
   sad: ['Gorge serrée', 'Lourdeur ou fatigue', 'Larmes', 'Poitrine serrée', 'Envie de rester seul'],
   stress: ['Respiration courte', 'Ventre noué', 'Pensées rapides', 'Agitation', 'Difficulté à rester immobile'],
   rage: ['Très forte chaleur', 'Tension dans tout le corps', 'Tremblements', 'Respiration forte', 'Envie d’exploser'],
-  unknown: bodySignOptions
+  unknown: bodySignOptions,
+  urge: ['Envie forte ou insistante', 'Pensées qui reviennent', 'Tension ou agitation', 'Difficulté à attendre', 'Besoin de soulagement']
 };
 const wheelItems = ['Joie', 'Confiance', 'Peur', 'Surprise', 'Tristesse', 'Dégoût', 'Colère', 'Anticipation'];
 const wheelBlends = [
