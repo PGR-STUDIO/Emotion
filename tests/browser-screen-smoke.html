@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Emotion — smoke test des écrans</title>
+  <style>
+    body{font:16px system-ui,sans-serif;max-width:900px;margin:24px auto;padding:0 16px;color:#25343d;background:#faf9f5}
+    h1{font-size:24px}.status{padding:12px 14px;border-radius:10px;background:#eef5ee;margin:14px 0}.status.fail{background:#fff0ee;color:#7a3029}
+    iframe{width:390px;height:844px;border:1px solid #ccd6d0;border-radius:16px;background:#fff;display:block}
+    pre{white-space:pre-wrap;line-height:1.45}.meta{color:#5f7180;font-size:13px}
+  </style>
+</head>
+<body>
+  <h1>Smoke test — écrans Emotion</h1>
+  <p class="meta">Parcours réel des écrans principaux à 390 px, avec contrôle du scroll pédagogique et du débordement de la bibliothèque.</p>
+  <div id="status" class="status">Test en cours…</div>
+  <pre id="results"></pre>
+  <iframe id="app" title="Application Emotion — smoke test" src="../index.html?browser-test=1"></iframe>
+  <script>
+    const frame = document.querySelector('#app');
+    const status = document.querySelector('#status');
+    const output = document.querySelector('#results');
+    const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
+    const doc = () => frame.contentDocument;
+    const win = () => frame.contentWindow;
+    const text = selector => doc().querySelector(selector)?.textContent || '';
+    async function waitFor(predicate, timeout = 10000) {
+      const end = Date.now() + timeout;
+      while (Date.now() < end) { if (predicate()) return; await wait(80); }
+      throw new Error('Délai dépassé pendant le smoke test');
+    }
+    function button(label) { return [...doc().querySelectorAll('button')].find(item => (item.dataset.nuance || item.textContent.trim()) === label && item.offsetParent !== null && !item.disabled); }
+    function click(label) { const item = button(label); if (!item) throw new Error(`Bouton absent : ${label}`); item.click(); }
+    function active(id) { return doc().querySelector('.screen.active')?.id === id; }
+    async function expectScreen(id) { await waitFor(() => active(id)); }
+    async function run() {
+      if (location.protocol === 'file:') {
+        const message = 'Ce test doit être lancé via HTTP, pas directement en file://. Lance python3 -m http.server 8080 depuis final-simple, puis ouvre cette page avec http://127.0.0.1:8080/tests/browser-screen-smoke.html.';
+        status.textContent = `NON LANCÉ — ${message}`;
+        status.classList.add('fail');
+        output.textContent = message;
+        return;
+      }
+      const errors = [];
+      await new Promise((resolve, reject) => {
+        frame.addEventListener('load', resolve, { once: true });
+        frame.addEventListener('error', () => reject(new Error('iframe impossible à charger')), { once: true });
+      });
+      frame.contentWindow.addEventListener('error', event => errors.push(event.message || 'erreur iframe'));
+      await waitFor(() => Boolean(doc().querySelector('#privacyButton')));
+      const visited = [];
+      const visit = async (id, action) => { await action(); await expectScreen(id); visited.push(id); };
+
+      await expectScreen('start'); visited.push('start');
+      await visit('observe', () => click('Commencer une observation →'));
+      click('Préciser avec la roue des émotions');
+      await waitFor(() => Boolean(doc().querySelector('#wheelPanel .extra-emotion')));
+      click('Panique');
+      await visit('understand', () => click('Comprendre cette émotion →'));
+      await visit('sense', () => click('Que ressens-tu ? →'));
+      await waitFor(() => Boolean(button('Autre')));
+      click('Autre');
+      const otherBody = doc().querySelector('#bodyOther');
+      if (!otherBody) throw new Error('Champ Autre absent dans les sensations corporelles');
+      otherBody.value = 'vertige';
+      otherBody.dispatchEvent(new Event('input', { bubbles: true }));
+      await visit('exercise', () => click('Voir l’exercice →'));
+      await visit('exerciseRun', () => doc().querySelector('#exerciseStart').click());
+      const exerciseTimerVisible = Boolean(doc().querySelector('#exerciseAnimation.show'));
+      await visit('exerciseResult', () => doc().querySelector('#exerciseStop').click());
+      await visit('after', () => click('Passer aux questions →'));
+      for (let index = 0; index < 5; index += 1) click('Continuer →');
+      await visit('saved', () => click('Garder cette observation ✓'));
+      await visit('observe', () => click('Faire une nouvelle observation →'));
+
+      await visit('history', () => doc().querySelector('[data-nav="history"]').click());
+      await visit('start', () => click('← Retour'));
+      await visit('science', () => click('Voir la base scientifique du projet'));
+      await visit('start', () => click('← Retour'));
+      await visit('tools', () => click('J’ai besoin d’un repère maintenant'));
+      await visit('library', () => click('Découvrir les exercices'));
+      await waitFor(() => doc().querySelectorAll('#exerciseLibrary .library-card').length === 15);
+      const libraryCards = doc().querySelectorAll('#exerciseLibrary .library-card').length;
+      const professionalWarnings = doc().querySelectorAll('#exerciseLibrary .professional-warning').length;
+      const noHorizontalOverflow = doc().documentElement.scrollWidth <= doc().documentElement.clientWidth;
+      await visit('start', () => click('← Retour'));
+      await visit('tools', () => click('J’ai besoin d’un repère maintenant'));
+      click('Comprendre ce qu’est une émotion');
+      await waitFor(() => doc().querySelector('#definitionPanel.open'));
+      const definitionScrollTop = win().scrollY;
+      click('← Retour au repère');
+      await visit('start', () => click('Nouveau'));
+      await visit('privacy', () => click('Voir mes données et les supprimer'));
+      const result = { status: errors.length || visited.length !== 20 || libraryCards !== 15 || professionalWarnings !== 1 || !noHorizontalOverflow || definitionScrollTop > 1 || !exerciseTimerVisible ? 'failed' : 'passed', visited, libraryCards, professionalWarnings, exerciseTimerVisible, noHorizontalOverflow, definitionScrollTop, iframeErrors: errors };
+      output.textContent = JSON.stringify(result, null, 2);
+      status.textContent = result.status === 'passed' ? 'RÉUSSI — écrans, scroll pédagogique et bibliothèque vérifiés' : 'ÉCHEC — voir le détail';
+      status.classList.toggle('fail', result.status !== 'passed');
+    }
+    run().catch(error => { status.textContent = `ÉCHEC — ${error.message}`; status.classList.add('fail'); output.textContent = error.stack || String(error); });
+  </script>
+</body>
+</html>

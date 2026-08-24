@@ -1,0 +1,14 @@
+{
+  "version": "0.3.0",
+  "grades": {
+    "A": "Méta-analyse/revue systématique robuste de RCTs directement pertinente",
+    "B": "Synthèse ou RCT cohérent mais indirect/hétérogène",
+    "C": "Preuve mécanistique, observationnelle ou transposable",
+    "D": "Modèle théorique ou preuve directe non extraite"
+  },
+  "rules": [
+    "Grade attribué à la relation exercice-effet, pas seulement au modèle.",
+    "Grade A ne garantit pas un effet individuel.",
+    "Sans texte intégral, extraction_status reste pending."
+  ]
+}

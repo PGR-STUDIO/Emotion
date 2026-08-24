@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 760">
+<rect width="1000" height="760" rx="36" fill="#fffdf8"/>
+<path d="M500 380c-180-180-180 180 0 0s180 180 0 0-180-180 0 0" fill="none" stroke="#e5eee4" stroke-width="3" stroke-dasharray="8 14"/>
+<circle cx="500" cy="380" r="142" fill="#e8f1e6" stroke="#739c7d" stroke-width="5"/>
+<text x="500" y="365" text-anchor="middle" font-family="Arial,sans-serif" font-size="34" font-weight="700" fill="#19324f">ÉMOTION</text>
+<text x="500" y="405" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#63758a">réaction automatique</text>
+<text x="500" y="432" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#63758a">et temporaire</text>
+<g font-family="Arial,sans-serif" fill="#19324f" text-anchor="middle">
+<rect x="370" y="48" width="260" height="100" rx="24" fill="#eee7fb"/><text x="500" y="90" font-size="25" font-weight="700">Pensées</text><text x="500" y="122" font-size="17" fill="#63758a">« Que se passe-t-il ? »</text>
+<rect x="42" y="270" width="260" height="100" rx="24" fill="#e6f1fc"/><text x="172" y="312" font-size="25" font-weight="700">Le corps</text><text x="172" y="344" font-size="17" fill="#63758a">« Que ressens-je ? »</text>
+<rect x="698" y="270" width="260" height="100" rx="24" fill="#fff0df"/><text x="828" y="312" font-size="25" font-weight="700">Envie d’agir</text><text x="828" y="344" font-size="17" fill="#63758a">« Que veux-je faire ? »</text>
+<rect x="100" y="590" width="300" height="100" rx="24" fill="#e5f1dc"/><text x="250" y="632" font-size="25" font-weight="700">Ressenti intérieur</text><text x="250" y="664" font-size="17" fill="#63758a">« Ce que je vis dedans »</text>
+<rect x="600" y="590" width="300" height="100" rx="24" fill="#ffe7e5"/><text x="750" y="632" font-size="25" font-weight="700">Expression visible</text><text x="750" y="664" font-size="17" fill="#63758a">« Ce que l’on peut voir »</text>
+</g>
+<g fill="none" stroke="#90aa9a" stroke-width="4" stroke-linecap="round"><path d="M500 148v90"/><path d="M302 320h56"/><path d="M642 320h56"/><path d="M360 590l65-90"/><path d="M640 590l-65-90"/></g>
+</svg>

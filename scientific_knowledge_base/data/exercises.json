@@ -1,0 +1,444 @@
+[
+  {
+    "id": "EX-GROUNDING-321",
+    "name": "Ancrage 3–2–1",
+    "objective": "Réorienter l'attention vers le présent lorsque l'intensité émotionnelle augmente.",
+    "target_emotions": [
+      "Peur",
+      "Stress",
+      "Colère",
+      "Honte"
+    ],
+    "mechanism": "grounding attentionnel, réduction de la réactivité, orientation externe",
+    "protocol_steps": [
+      "Poser les pieds au sol.",
+      "Nommer mentalement 3 choses visibles.",
+      "Nommer 2 sons entendus.",
+      "Nommer 1 sensation corporelle neutre ou tolérable.",
+      "Observer si l'intensité change sans chercher à forcer."
+    ],
+    "duration": "60-120 secondes",
+    "recommended_frequency": "Selon besoin; plusieurs fois par jour si utile",
+    "difficulty": "Facile",
+    "population": "Adultes et adolescents; adaptation nécessaire pour jeunes enfants",
+    "contraindications": "Peut être insuffisant en danger réel; ne pas utiliser pour rester dans une situation dangereuse.",
+    "associated_studies": [
+      "SR-META-MINDFULNESS-KHOURY-2013",
+      "SR-DBT-KLIEM-2010"
+    ],
+    "evidence_grade": "C",
+    "evidence_status": "Compétence plausible; protocole exact peu étudié",
+    "safety_flags": [
+      "real_danger"
+    ],
+    "research_notes": "Ne pas confondre preuve du modèle et preuve de cette formulation exacte."
+  },
+  {
+    "id": "EX-MINDFUL-BREATHING",
+    "name": "Respiration attentive courte",
+    "objective": "Stabiliser l'attention et soutenir la régulation physiologique.",
+    "target_emotions": [
+      "Stress",
+      "Peur",
+      "Colère"
+    ],
+    "mechanism": "attention au souffle, modulation autonome, décélération comportementale",
+    "protocol_steps": [
+      "S'asseoir ou rester debout stable.",
+      "Observer la respiration naturelle pendant 20 secondes.",
+      "Allonger légèrement l'expiration sans forcer.",
+      "Continuer 1 à 3 minutes.",
+      "Arrêter si vertiges, panique ou inconfort augmente."
+    ],
+    "duration": "1-3 minutes",
+    "recommended_frequency": "1 à 3 fois par jour ou au besoin",
+    "difficulty": "Facile à modérée",
+    "population": "Adultes/adolescents; prudence avec trauma, panique ou troubles respiratoires",
+    "contraindications": "Hyperventilation, crises de panique déclenchées par focalisation respiratoire, avis médical si pathologie respiratoire/cardiaque.",
+    "associated_studies": [
+      "SR-BREATH-ZACCARO-2018",
+      "SR-META-MBSR-KHOURY-2015"
+    ],
+    "evidence_grade": "B",
+    "evidence_status": "Systématique/mécanistique; prudence selon personne",
+    "safety_flags": [
+      "respiratory_or_cardiac_condition",
+      "panic_triggered_by_breath_focus"
+    ],
+    "research_notes": "Ne pas confondre preuve du modèle et preuve de cette formulation exacte."
+  },
+  {
+    "id": "EX-COGNITIVE-RESTRUCTURING",
+    "name": "Restructuration cognitive brève",
+    "objective": "Identifier une pensée automatique et générer une alternative plus nuancée.",
+    "target_emotions": [
+      "Peur",
+      "Colère",
+      "Tristesse",
+      "Honte",
+      "Culpabilité"
+    ],
+    "mechanism": "réévaluation cognitive, test d'hypothèse, diminution de catastrophisation",
+    "protocol_steps": [
+      "Écrire la situation en une phrase.",
+      "Noter la pensée automatique exacte.",
+      "Évaluer la croyance de 0 à 100%.",
+      "Lister preuves pour et contre.",
+      "Formuler une pensée alternative réaliste.",
+      "Réévaluer l'intensité émotionnelle."
+    ],
+    "duration": "5-15 minutes",
+    "recommended_frequency": "Après situations émotionnelles; entraînement hebdomadaire",
+    "difficulty": "Modérée",
+    "population": "Adultes/adolescents avec capacité d'écriture/réflexion",
+    "contraindications": "Ne pas utiliser pour invalider une émotion ou minimiser un danger réel; prudence en crise aiguë.",
+    "associated_studies": [
+      "META-CBT-HOFMANN-2012"
+    ],
+    "evidence_grade": "A",
+    "evidence_status": "Soutenu dans TCC; effet de la micro-technique seule dépend du protocole",
+    "safety_flags": [
+      "acute_crisis",
+      "real_danger"
+    ],
+    "research_notes": "Ne pas confondre preuve du modèle et preuve de cette formulation exacte."
+  },
+  {
+    "id": "EX-EMOTION-JOURNAL",
+    "name": "Journal émotionnel structuré",
+    "objective": "Mieux comprendre les liens situation-pensées-corps-besoins-actions.",
+    "target_emotions": [
+      "Toutes"
+    ],
+    "mechanism": "auto-monitoring, affect labeling, clarification des patterns",
+    "protocol_steps": [
+      "Décrire le contexte factuellement.",
+      "Nommer émotion(s) et intensité.",
+      "Noter pensées/images.",
+      "Identifier sensations corporelles.",
+      "Identifier besoin possible.",
+      "Noter action choisie et conséquence."
+    ],
+    "duration": "3-10 minutes",
+    "recommended_frequency": "Lors d'un épisode marquant; revue en séance",
+    "difficulty": "Facile",
+    "population": "Large public; adapté à préparation de séance",
+    "contraindications": "Peut augmenter rumination chez certains; limiter la durée et privilégier support professionnel si détresse augmente.",
+    "associated_studies": [
+      "RCT-AFFECT-LABEL-LIEBERMAN-2007",
+      "META-CBT-HOFMANN-2012"
+    ],
+    "evidence_grade": "C",
+    "evidence_status": "Auto-monitoring et affect-labeling; application exacte à évaluer",
+    "safety_flags": [
+      "rumination_increase",
+      "acute_crisis"
+    ],
+    "research_notes": "Ne pas confondre preuve du modèle et preuve de cette formulation exacte."
+  },
+  {
+    "id": "EX-GRADED-EXPOSURE",
+    "name": "Exposition graduelle",
+    "objective": "Réduire l'évitement et réapprendre la sécurité face à des situations craintes.",
+    "target_emotions": [
+      "Peur",
+      "Anxiété"
+    ],
+    "mechanism": "apprentissage inhibiteur, réduction de l'évitement, tolérance à l'incertitude",
+    "protocol_steps": [
+      "Identifier une situation évitée non dangereuse.",
+      "Créer une hiérarchie de 0 à 100.",
+      "Choisir une étape modérée.",
+      "Rester dans la situation sans comportements de sécurité inutiles.",
+      "Répéter jusqu'à apprentissage.",
+      "Monter progressivement."
+    ],
+    "duration": "Variable; souvent 10-60 minutes par exercice",
+    "recommended_frequency": "Planifiée avec un professionnel si anxiété sévère",
+    "difficulty": "Difficile",
+    "population": "Troubles anxieux, phobies, évitement; idéalement accompagné",
+    "contraindications": "Ne pas exposer à un danger réel; prudence trauma/PTSD, dissociation, risque médical; supervision clinique recommandée.",
+    "associated_studies": [
+      "META-CBT-HOFMANN-2012"
+    ],
+    "evidence_grade": "A",
+    "evidence_status": "Forte preuve pour troubles anxieux; planification clinique fréquente",
+    "safety_flags": [
+      "real_danger",
+      "severe_dissociation",
+      "unstable_crisis",
+      "trauma_without_support"
+    ],
+    "research_notes": "Ne pas confondre preuve du modèle et preuve de cette formulation exacte."
+  },
+  {
+    "id": "EX-ACT-DEFUSION",
+    "name": "Défusion ACT : “Je remarque que j’ai la pensée…”",
+    "objective": "Réduire la fusion avec une pensée douloureuse sans devoir la supprimer.",
+    "target_emotions": [
+      "Anxiété",
+      "Honte",
+      "Colère",
+      "Tristesse"
+    ],
+    "mechanism": "défusion cognitive, flexibilité psychologique",
+    "protocol_steps": [
+      "Identifier une pensée difficile.",
+      "La reformuler : “J’ai la pensée que…”",
+      "Puis : “Je remarque que j’ai la pensée que…”",
+      "Observer si cela crée un espace.",
+      "Choisir une action alignée avec une valeur."
+    ],
+    "duration": "1-5 minutes",
+    "recommended_frequency": "Au besoin; entraînement régulier",
+    "difficulty": "Facile à modérée",
+    "population": "Adultes/adolescents",
+    "contraindications": "Peut sembler invalidant si présenté trop tôt; éviter en crise dissociative sans accompagnement.",
+    "associated_studies": [
+      "META-ACT-A-TJAK-2015"
+    ],
+    "evidence_grade": "B",
+    "evidence_status": "Preuve ACT/mécanisme; script exact moins spécifique",
+    "safety_flags": [
+      "dissociation",
+      "acute_crisis"
+    ],
+    "research_notes": "Ne pas confondre preuve du modèle et preuve de cette formulation exacte."
+  },
+  {
+    "id": "EX-PMR",
+    "name": "Relaxation musculaire progressive",
+    "objective": "Réduire tension corporelle et activation physiologique.",
+    "target_emotions": [
+      "Stress",
+      "Peur",
+      "Colère"
+    ],
+    "mechanism": "relaxation neuromusculaire, discrimination tension-relâchement",
+    "protocol_steps": [
+      "Choisir une posture confortable.",
+      "Contracter doucement un groupe musculaire 5 secondes.",
+      "Relâcher 10-15 secondes.",
+      "Parcourir mains, bras, épaules, visage, abdomen, jambes.",
+      "Observer les différences tension/relâchement."
+    ],
+    "duration": "10-20 minutes; version brève 3-5 minutes",
+    "recommended_frequency": "3-5 fois/semaine en entraînement",
+    "difficulty": "Facile",
+    "population": "Large public",
+    "contraindications": "Douleurs, blessures, spasmes; éviter contractions fortes; avis médical si condition musculaire/neurologique.",
+    "associated_studies": [
+      "PUBMED-REALTIME-38322293"
+    ],
+    "evidence_grade": "B",
+    "evidence_status": "Preuve des interventions de relaxation",
+    "safety_flags": [
+      "pain",
+      "injury",
+      "neuromuscular_condition"
+    ],
+    "research_notes": "Ne pas confondre preuve du modèle et preuve de cette formulation exacte."
+  },
+  {
+    "id": "EX-COMPASSION",
+    "name": "Pause d’auto-compassion",
+    "objective": "Réduire autocritique et honte, soutenir sécurité émotionnelle.",
+    "target_emotions": [
+      "Honte",
+      "Culpabilité",
+      "Tristesse",
+      "Anxiété"
+    ],
+    "mechanism": "auto-compassion, apaisement affiliatif, réduction de l'autocritique",
+    "protocol_steps": [
+      "Nommer : “C'est un moment difficile.”",
+      "Reconnaître l'humanité commune : “Je ne suis pas seul à vivre cela.”",
+      "Formuler une phrase de soutien : “Puis-je me parler avec respect maintenant.”",
+      "Choisir un geste doux si utile."
+    ],
+    "duration": "1-5 minutes",
+    "recommended_frequency": "Au besoin; entraînement quotidien possible",
+    "difficulty": "Modérée pour personnes très autocritiques",
+    "population": "Adultes/adolescents",
+    "contraindications": "Peut activer tristesse ou résistance; adapter progressivement, surtout trauma complexe.",
+    "associated_studies": [
+      "PUBMED-REALTIME-26311196",
+      "PUBMED-REALTIME-32196399"
+    ],
+    "evidence_grade": "B",
+    "evidence_status": "Preuve croissante; effets variables",
+    "safety_flags": [
+      "trauma_activation",
+      "strong_self_criticism"
+    ],
+    "research_notes": "Ne pas confondre preuve du modèle et preuve de cette formulation exacte."
+  },
+  {
+    "id": "EX-NEEDS-IDENTIFICATION",
+    "name": "Identification des besoins",
+    "objective": "Traduire l'émotion en information sur un besoin psychologique possible.",
+    "target_emotions": [
+      "Toutes"
+    ],
+    "mechanism": "clarification motivationnelle, auto-détermination, mentalisation",
+    "protocol_steps": [
+      "Nommer l'émotion.",
+      "Demander : “Qu'est-ce qui est important pour moi ici ?”",
+      "Choisir parmi sécurité, respect, repos, lien, autonomie, compétence, justice, sens.",
+      "Formuler une demande ou une action réaliste."
+    ],
+    "duration": "2-7 minutes",
+    "recommended_frequency": "Après épisodes émotionnels ou avant conversation",
+    "difficulty": "Facile à modérée",
+    "population": "Large public",
+    "contraindications": "Ne remplace pas une évaluation de sécurité; certains besoins peuvent être contradictoires et nécessiter médiation ou thérapie.",
+    "associated_studies": [
+      "META-SELFDETERMINATION-SLEMP-2024"
+    ],
+    "evidence_grade": "C",
+    "evidence_status": "Soutien théorique/mécanistique; efficacité directe à établir",
+    "safety_flags": [
+      "unsafe_relationship",
+      "immediate_danger"
+    ],
+    "research_notes": "Ne pas confondre preuve du modèle et preuve de cette formulation exacte."
+  },
+  {
+    "id": "EX-GRATITUDE",
+    "name": "Trois choses appréciées",
+    "objective": "Renforcer attention aux expériences positives et ressources.",
+    "target_emotions": [
+      "Humeur basse légère",
+      "Calme",
+      "Joie"
+    ],
+    "mechanism": "savoring, orientation attentionnelle positive",
+    "protocol_steps": [
+      "Noter trois choses appréciées aujourd'hui.",
+      "Pour chacune, écrire pourquoi elle compte.",
+      "Observer une sensation associée sans forcer."
+    ],
+    "duration": "3-5 minutes",
+    "recommended_frequency": "3 fois/semaine ou quotidien court",
+    "difficulty": "Facile",
+    "population": "Non-crise; bien-être et prévention",
+    "contraindications": "Peut être invalidant en détresse aiguë; ne pas imposer en deuil ou crise.",
+    "associated_studies": [
+      "META-POSITIVE-BOLIER-2013"
+    ],
+    "evidence_grade": "B",
+    "evidence_status": "Effets modestes sur bien-être dans synthèses",
+    "safety_flags": [
+      "acute_grief",
+      "acute_crisis"
+    ],
+    "research_notes": "Ne pas confondre preuve du modèle et preuve de cette formulation exacte."
+  },
+  {
+    "id": "EX-DELAY-URGE",
+    "name": "Délai avant d’agir",
+    "objective": "Créer un espace bref entre l’impulsion et l’action choisie.",
+    "target_emotions": [
+      "Colère",
+      "Rage",
+      "Peur",
+      "Stress"
+    ],
+    "mechanism": "décélération comportementale, régulation de l’impulsion, restauration d’une marge de choix",
+    "protocol_steps": [
+      "S’éloigner de la situation si cela est possible et sûr.",
+      "Poser les pieds au sol et nommer l’impulsion sans la suivre.",
+      "Dire : « Je répondrai quand je serai prêt. »",
+      "Choisir une prochaine action sûre et limitée dans le temps.",
+      "Ne pas utiliser ce délai pour rester dans un danger réel."
+    ],
+    "duration": "30-60 secondes",
+    "recommended_frequency": "Au moment où l’envie d’agir vite augmente",
+    "difficulty": "Facile",
+    "population": "Large public; adaptation et accompagnement si crise",
+    "contraindications": "Ne remplace pas une mise en sécurité en cas de danger, violence ou risque pour soi/autrui.",
+    "associated_studies": [
+      "SR-DBT-KLIEM-2010"
+    ],
+    "evidence_grade": "C",
+    "evidence_status": "Principe cohérent avec la régulation émotionnelle; formulation exacte peu étudiée",
+    "safety_flags": [
+      "real_danger",
+      "acute_crisis",
+      "risk_to_others"
+    ],
+    "research_notes": "La preuve du modèle de délai ne valide pas chaque formulation ni chaque contexte d’utilisation."
+  },
+  {
+    "id": "EX-PROBLEM-SOLVING",
+    "name": "Résolution de problème en 4 étapes",
+    "objective": "Transformer une situation bloquée en une prochaine action réaliste.",
+    "target_emotions": ["Frustration", "Confusion", "Impuissance", "Anticipation", "Anxiété"],
+    "mechanism": "clarification, génération d'options, action graduée",
+    "protocol_steps": ["Décrire le problème en une phrase factuelle.", "Lister deux solutions possibles, même imparfaites.", "Choisir la plus sûre et la plus petite.", "La tester puis réévaluer sans se juger."],
+    "duration": "3-5 minutes",
+    "recommended_frequency": "À chaque problème concret qui semble bloqué",
+    "difficulty": "Facile à modérée",
+    "population": "Adultes et adolescents; adapter avec un professionnel si crise",
+    "contraindications": "Ne remplace pas une mise en sécurité ni une aide professionnelle face à la violence ou au danger.",
+    "associated_studies": ["PUBMED-40238104", "PUBMED-18363421"],
+    "evidence_grade": "B",
+    "evidence_status": "Principe issu des approches cognitivo-comportementales; l'effet dépend du contexte.",
+    "safety_flags": ["real_danger", "acute_crisis"],
+    "research_notes": "La preuve des TCC ne valide pas chaque formulation ni chaque situation individuelle."
+  },
+  {
+    "id": "EX-BEHAVIORAL-ACTIVATION",
+    "name": "Petite activation choisie",
+    "objective": "Retrouver un mouvement compatible avec l'énergie disponible lorsque l'humeur se retire.",
+    "target_emotions": ["Tristesse", "Mélancolie", "Ennui", "Découragement", "Solitude"],
+    "mechanism": "action graduée, contact avec des activités valorisées, réduction de l'évitement",
+    "protocol_steps": ["Choisir une activité de cinq minutes liée au soin, au lien ou à un intérêt.", "La rendre plus petite si elle semble impossible.", "La faire sans attendre d'abord d'aller mieux.", "Noter l'effet après, même s'il est faible."],
+    "duration": "5-10 minutes",
+    "recommended_frequency": "Une petite action par jour, à ajuster selon l'énergie",
+    "difficulty": "Facile à modérée",
+    "population": "Adultes et adolescents; accompagnement recommandé si désespoir marqué",
+    "contraindications": "Ne pas s'imposer une activité épuisante; ce n'est pas un traitement d'une crise aiguë.",
+    "associated_studies": ["PUBMED-23870719", "PUBMED-40238104"],
+    "evidence_grade": "B",
+    "evidence_status": "Appuyé par les approches comportementales; l'effet n'est pas immédiat pour tout le monde.",
+    "safety_flags": ["acute_crisis", "severe_fatigue"],
+    "research_notes": "Une action graduée ne remplace pas une évaluation clinique si la souffrance persiste."
+  },
+  {
+    "id": "EX-SELF-COMPASSION",
+    "name": "Réponse compatissante",
+    "objective": "Réduire l'attaque contre soi et reconnaître la difficulté sans nier la responsabilité.",
+    "target_emotions": ["Honte", "Culpabilité", "Tristesse", "Rejet", "Impuissance"],
+    "mechanism": "acceptation, auto-compassion, mise à distance de l'auto-critique",
+    "protocol_steps": ["Nommer: « C'est difficile pour moi maintenant. »", "Ajouter une phrase réaliste de soutien.", "Distinguer ce qui doit être réparé de ce qui n'est pas sous contrôle.", "Choisir un geste de soin ou de réparation sûr."],
+    "duration": "2-4 minutes",
+    "recommended_frequency": "Au besoin; arrêter si cela augmente le malaise",
+    "difficulty": "Modérée",
+    "population": "Adultes et adolescents; adapter avec un professionnel si trauma ou crise",
+    "contraindications": "Ne pas utiliser pour excuser une violence; la réparation et la sécurité restent prioritaires.",
+    "associated_studies": ["PUBMED-REALTIME-26311196", "PUBMED-REALTIME-32196399"],
+    "evidence_grade": "B",
+    "evidence_status": "Soutenu par des méta-analyses de l'auto-compassion; les effets varient selon les personnes.",
+    "safety_flags": ["acute_crisis", "trauma_triggered"],
+    "research_notes": "L'auto-compassion n'est pas une injonction à être positif ni à minimiser un dommage."
+  },
+  {
+    "id": "EX-RELAXATION-MUSCULAIRE-COURTE",
+    "name": "Relâchement musculaire court",
+    "objective": "Repérer puis diminuer une tension corporelle sans forcer.",
+    "target_emotions": ["Stress", "Anxiété", "Colère", "Vigilance", "Surcharge"],
+    "mechanism": "contraste tension-relâchement, attention corporelle, récupération",
+    "protocol_steps": ["Choisir une zone non douloureuse, par exemple les épaules.", "Contracter doucement pendant quelques secondes.", "Relâcher plus longtemps et observer la différence.", "Répéter deux fois, sans retenir le souffle."],
+    "duration": "2-4 minutes",
+    "recommended_frequency": "Au besoin; pratique progressive si elle est aidante",
+    "difficulty": "Facile",
+    "population": "Adultes et adolescents; adapter en cas de douleur ou problème musculaire",
+    "contraindications": "Ne pas contracter une zone blessée; arrêter en cas de douleur, vertige ou malaise.",
+    "associated_studies": ["PUBMED-REALTIME-38322293"],
+    "evidence_grade": "B",
+    "evidence_status": "Soutenu par une revue systématique; les protocoles et effets restent hétérogènes.",
+    "safety_flags": ["pain_or_injury", "dizziness"],
+    "research_notes": "La relaxation n'est pas adaptée à toutes les personnes ni à toutes les situations."
+  }
+]

@@ -1,0 +1,47 @@
+{
+  "date": "2026-08-22",
+  "version": "0.5.0",
+  "overall": "partial",
+  "checks": [
+    {
+      "requirement": "JavaScript syntax",
+      "status": "passed",
+      "details": "node --check OK"
+    },
+    {
+      "requirement": "JSON integrity",
+      "status": "passed",
+      "details": "Tous les JSON sont valides."
+    },
+    {
+      "requirement": "Automated tests",
+      "status": "passed",
+      "details": "----------------------------------------------------------------------\nRan 15 tests in 0.003s\n\nOK"
+    },
+    {
+      "requirement": "Rules and scientific references",
+      "status": "passed",
+      "details": "11 exercices, 33 études, références fermées=True"
+    },
+    {
+      "requirement": "Full-text extraction",
+      "status": "partial",
+      "details": "12/33 études ont une extraction PMC vérifiée ; 21 restent à obtenir ou revoir."
+    },
+    {
+      "requirement": "Official live connectors",
+      "status": "partial",
+      "details": "Variables configurées=[]; aucune valeur n'est enregistrée par l'audit."
+    },
+    {
+      "requirement": "PWA asset contract",
+      "status": "passed",
+      "details": "18 ressources précachées, manquantes=[]"
+    },
+    {
+      "requirement": "Local privacy and deletion",
+      "status": "passed",
+      "details": "Chiffrement, export et suppression présents."
+    }
+  ]
+}
