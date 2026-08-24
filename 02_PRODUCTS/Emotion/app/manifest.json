@@ -8,6 +8,6 @@
   "theme_color": "#f9f6f1",
   "description": "Support local d’auto-observation émotionnelle et de préparation de séance.",
   "icons": [
-    {"src": "assets/logo-pgr-emotions.png", "sizes": "1254x1254", "type": "image/png"}
+    {"src": "assets/app-icon-emotions.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
   ]
 }
