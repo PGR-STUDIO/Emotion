@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Émotions">
+  <rect width="512" height="512" rx="116" fill="#29435f"/>
+  <circle cx="256" cy="256" r="164" fill="#fffefa"/>
+  <path d="M256 92a164 164 0 0 1 155.5 112" fill="none" stroke="#e98b73" stroke-width="28" stroke-linecap="round"/>
+  <path d="M411.5 204A164 164 0 0 1 315 408" fill="none" stroke="#b99bdc" stroke-width="28" stroke-linecap="round"/>
+  <path d="M315 408a164 164 0 0 1-177-12" fill="none" stroke="#8dbbe8" stroke-width="28" stroke-linecap="round"/>
+  <path d="M138 396a164 164 0 0 1-37.5-192" fill="none" stroke="#f1c96b" stroke-width="28" stroke-linecap="round"/>
+  <path d="M100.5 204A164 164 0 0 1 256 92" fill="none" stroke="#91c69c" stroke-width="28" stroke-linecap="round"/>
+  <circle cx="256" cy="256" r="42" fill="#29435f"/>
+  <circle cx="256" cy="162" r="25" fill="#91c69c"/>
+  <circle cx="344" cy="214" r="25" fill="#e98b73"/>
+  <circle cx="322" cy="318" r="25" fill="#b99bdc"/>
+  <circle cx="190" cy="318" r="25" fill="#8dbbe8"/>
+  <circle cx="168" cy="214" r="25" fill="#f1c96b"/>
+</svg>
