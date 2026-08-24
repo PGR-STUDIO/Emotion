@@ -10,7 +10,7 @@ const CORE = [
   './scientific_knowledge_base/data/studies.json',
   './scientific_knowledge_base/data/evidence_grading.json',
   './scientific_knowledge_base/source_config.json',
-  './assets/logo-emotions.svg', './assets/icon-calm.png', './assets/icon-irritated.png',
+  './assets/logo-emotions.svg', './assets/app-icon-emotions.svg', './assets/app-icon-emotions.png', './assets/icon-calm.png', './assets/icon-irritated.png',
   './assets/icon-sad.png', './assets/icon-stressed.png', './assets/icon-angry.png'
 ];
 self.addEventListener('install', event => event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(CORE)).then(() => self.skipWaiting())));
