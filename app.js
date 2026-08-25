@@ -882,7 +882,8 @@ insertDynamicPanels(); restoreDraft(); draft.nuance = ''; saveDraft();
 document.querySelector('#historyButton')?.remove();
 const brandLockup = document.querySelector('.brand-lockup');
 if (brandLockup) {
-  brandLockup.insertAdjacentHTML('beforeend', '<small class="creator-header">PGR-STUDIO</small>');
+  const brandText = brandLockup.querySelector('div');
+  (brandText || brandLockup).insertAdjacentHTML('beforeend', '<small class="creator-header">PGR-STUDIO</small>');
   brandLockup.setAttribute('role', 'link');
   brandLockup.setAttribute('tabindex', '0');
   brandLockup.setAttribute('aria-label', 'Revenir à l’accueil Émotions');
