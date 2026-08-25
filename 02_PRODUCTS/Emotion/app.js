@@ -528,7 +528,8 @@ function renderBodySigns() {
   }
   const options = stableBodyOptions;
   const otherValue = draft.bodySigns.find(sign => sign === 'Autre' || sign.startsWith('Autre : ')) || '';
-  $('#bodySigns').innerHTML = `${options.map(sign => `<button type="button" class="choice-chip ${draft.bodySigns.includes(sign) ? 'selected' : ''}" data-body-sign="${escapeHtml(sign)}" aria-pressed="${draft.bodySigns.includes(sign)}">${escapeHtml(sign)}</button>`).join('')}<button type="button" class="choice-chip body-other-choice ${otherValue ? 'selected' : ''}" data-body-sign="__other__" aria-pressed="${Boolean(otherValue)}">Autre</button>${otherValue ? `<label class="body-other-field">Précise si tu le souhaites<input id="bodyOther" type="text" maxlength="80" value="${escapeHtml(otherValue.replace(/^Autre\s*:\s*/, ''))}" placeholder="Ex. gorge serrée, vertige…"></label>` : ''}`;
+  const otherText = otherValue.startsWith('Autre : ') ? otherValue.replace(/^Autre\s*:\s*/, '') : '';
+  $('#bodySigns').innerHTML = `${options.map(sign => `<button type="button" class="choice-chip ${draft.bodySigns.includes(sign) ? 'selected' : ''}" data-body-sign="${escapeHtml(sign)}" aria-pressed="${draft.bodySigns.includes(sign)}">${escapeHtml(sign)}</button>`).join('')}<button type="button" class="choice-chip body-other-choice ${otherValue ? 'selected' : ''}" data-body-sign="__other__" aria-pressed="${Boolean(otherValue)}">Autre</button>${otherValue ? `<label class="body-other-field">Précise si tu le souhaites<input id="bodyOther" type="text" maxlength="80" value="${escapeHtml(otherText)}" placeholder="Ex. gorge serrée, vertige…"></label>` : ''}`;
   document.querySelectorAll('[data-body-sign]').forEach(button => button.onclick = () => {
     const sign = button.dataset.bodySign;
     if (sign === '__other__') {
