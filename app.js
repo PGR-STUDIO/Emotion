@@ -181,6 +181,12 @@ function renderEmotionContext() {
   const after = $('#afterContext');
   const emotion = scientificEmotion();
   const guidance = emotionGuidance();
+  const blend = blendPathways.find(item => normalizeText(item.name) === normalizeText(draft.nuance));
+  if (blend && !draft.emotion) {
+    if (understand) { understand.innerHTML = `<div class="emotion-summary-heading"><div class="emotion-summary-identity"><span class="emotion-summary-swatch" style="background:#8bb99a" aria-hidden="true"></span><div><span class="emotion-summary-kicker">MÉLANGE ÉMOTIONNEL</span><b>${escapeHtml(blend.name)}</b></div></div><div class="emotion-summary-intensity"><small>Intensité actuelle</small><strong>${draft.intensity}/10</strong></div></div><p class="emotion-summary-definition">${escapeHtml(blend.understand)}</p><div class="emotion-related"><b>Ce mélange associe :</b><div><span>${escapeHtml(blend.pair)}</span></div></div><small class="emotion-summary-note">C’est un repère descriptif, pas une émotion primaire ni un diagnostic.</small>`; understand.classList.add('show'); }
+    if (after) { after.innerHTML = `<b>Pour en parler en séance sur ${escapeHtml(blend.name)}</b><p>${escapeHtml(blend.story)}</p><small>Tu peux garder seulement ce qui correspond à ton vécu.</small>`; after.classList.add('show'); }
+    return;
+  }
   if (draft.emotion === 'urge') {
     const type = urgeTypeLabel(draft.urgeType);
     if (understand) {
@@ -282,8 +288,20 @@ function scientificExercise() {
   };
   return { name: source.name, duration: durationSeconds, durationLabel: `${durationSeconds} secondes`, kind: source.name.toLowerCase().includes('respiration') ? 'breath' : 'timer', animation: animationById[source.id] || 'timer', text: (source.protocol_steps || []).slice(0, 2).join(' '), objective: source.objective || '', mechanism: source.mechanism || '', steps: source.protocol_steps || [], evidenceGrade: source.evidence_grade || 'Non classé', contraindications: source.contraindications || '', studies, sourceId: source.id, emotionPlanReason: plan?.reason || '', intensityNote };
 }
+const blendPathways = [
+  { name: 'Amour', pair: 'Joie + Confiance', understand: 'Lien chaleureux, attachement et sécurité relationnelle.', body: ['Chaleur', 'Ouverture', 'Détente', 'Envie de se rapprocher'], exercise: 'Trois choses appréciées', second: 'Pause d’auto-compassion', story: 'Une ressource de lien à savourer en respectant les limites et le consentement.', steps: ['Nomme une personne ou un lien qui compte.', 'Repère ce que ce lien apporte maintenant.', 'Choisis une façon de l’entretenir sans te forcer.'] },
+  { name: 'Optimisme', pair: 'Joie + Anticipation', understand: 'Élan positif vers une possibilité future.', body: ['Énergie', 'Légèreté', 'Impatience possible'], exercise: 'Activation comportementale — petite activation', second: 'Ancrage 3–2–1', story: 'Transformer l’élan en une petite action réaliste.', steps: ['Nomme ce que tu espères.', 'Choisis une action faisable aujourd’hui.', 'Définis un premier pas de moins de dix minutes.'] },
+  { name: 'Soumission', pair: 'Confiance + Peur', understand: 'Recherche d’appui ou adaptation face à une menace perçue.', body: ['Tension', 'Retenue', 'Vigilance', 'Besoin de protection'], exercise: 'Identification des besoins', second: 'Ancrage 3–2–1', story: 'Repérer ce qui est choisi, subi ou négociable.', steps: ['Repère ce qui te met sous pression.', 'Nomme ce dont tu as besoin pour te sentir plus en sécurité.', 'Identifie une personne ou une limite qui peut aider.'] },
+  { name: 'Effroi', pair: 'Peur + Surprise', understand: 'Alarme forte face à un événement inattendu.', body: ['Sursaut', 'Cœur rapide', 'Souffle court', 'Tremblements'], exercise: 'Ancrage 3–2–1', second: 'Respiration attentive courte', story: 'Revenir aux repères présents avant d’interpréter.', steps: ['Regarde trois éléments autour de toi.', 'Écoute deux sons.', 'Repère un contact des pieds ou des mains.'] },
+  { name: 'Déception', pair: 'Surprise + Tristesse', understand: 'Écart douloureux entre attente et réalité.', body: ['Lourdeur', 'Gorge serrée', 'Baisse d’énergie', 'Incrédulité'], exercise: 'Pause d’auto-compassion', second: 'Résolution de problème en 4 étapes', story: 'Reconnaître la perte d’attente puis identifier ce qui reste possible.', steps: ['Nomme ce que tu espérais.', 'Reconnais la déception sans te juger.', 'Choisis ce qui mérite encore ton attention.'] },
+  { name: 'Remords', pair: 'Tristesse + Colère', understand: 'Souffrance et colère tournées vers une action passée.', body: ['Poids', 'Tension', 'Chaleur', 'Pensées répétitives'], exercise: 'Défusion ACT : “Je remarque que j’ai la pensée…”', second: 'Pause d’auto-compassion', story: 'Distinguer responsabilité, réparation possible et attaque contre soi.', steps: ['Nomme la pensée qui revient.', 'Sépare ce qui est réparable de ce qui ne l’est pas.', 'Choisis une action de réparation réaliste ou un geste de soutien.'] },
+  { name: 'Agressivité', pair: 'Colère + Anticipation', understand: 'Énergie tournée vers l’action ou la confrontation.', body: ['Chaleur', 'Tension', 'Poings serrés', 'Envie d’agir'], exercise: 'Délai avant d’agir', second: 'Ancrage 3–2–1', story: 'Créer une distance avant toute parole ou action.', steps: ['Mets de la distance si possible.', 'Laisse retomber l’impulsion.', 'Formule la limite sans passer à l’acte.'] },
+  { name: 'Ambition', pair: 'Anticipation + Confiance', understand: 'Projection vers un objectif avec sentiment de capacité.', body: ['Énergie', 'Concentration', 'Tension possible', 'Envie d’avancer'], exercise: 'Résolution de problème en 4 étapes', second: 'Activation comportementale — petite activation', story: 'Transformer l’objectif en prochaine étape soutenable.', steps: ['Décris l’objectif concrètement.', 'Liste deux options.', 'Choisis la prochaine étape réaliste et préserve ton repos.'] }
+];
 function familyExerciseFallback() {
   const blend = wheelBlends.find(item => item.name === draft.nuance);
+  const pathway = blendPathways.find(item => normalizeText(item.name) === normalizeText(draft.nuance));
+  if (pathway) return { name: pathway.exercise, duration: 60, kind: 'timer', text: pathway.steps.slice(0, 2).join(' '), objective: pathway.story, steps: pathway.steps, contraindications: 'Arrête si le malaise augmente et cherche un soutien humain si tu ne te sens pas en sécurité.' };
   if (blend) return { name: `Observer ${draft.nuance}`, duration: 60, kind: 'timer', text: `Observe le mélange décrit par ${blend.pair}.`, objective: 'Distinguer les deux composantes de ce ressenti pour retrouver une marge de choix.', steps: ['Nomme les deux émotions qui se mélangent.', 'Repère ce qui est le plus présent maintenant.', 'Choisis une petite action adaptée à ce besoin.'], contraindications: 'Arrête si le malaise augmente et cherche un soutien humain si tu ne te sens pas en sécurité.' };
   const family = wheelFamilies.find(item => item.emotions.includes(draft.nuance));
   if (!family) return null;
@@ -523,7 +541,8 @@ function renderBodySigns() {
   if (bodyOptionsKey !== currentBodyOptionsKey || !stableBodyOptions.length) {
     const scientificOptions = scientificEmotion()?.body_sensations;
     const guidanceOptions = emotionGuidance()?.body;
-    stableBodyOptions = [...new Set(scientificOptions?.length ? scientificOptions : guidanceOptions?.length ? guidanceOptions : (bodySignsByEmotion[draft.emotion] || bodySignOptions))];
+    const blendBody = blendPathways.find(item => normalizeText(item.name) === normalizeText(draft.nuance))?.body;
+    stableBodyOptions = [...new Set(scientificOptions?.length ? scientificOptions : guidanceOptions?.length ? guidanceOptions : blendBody?.length ? blendBody : (bodySignsByEmotion[draft.emotion] || bodySignOptions))];
     bodyOptionsKey = currentBodyOptionsKey;
   }
   const options = stableBodyOptions;
