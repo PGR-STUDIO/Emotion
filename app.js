@@ -76,7 +76,24 @@ const nuanceExercises = {
   'Vigilance': { name: 'Observer sans se tendre', duration: 60, kind: 'breath', text: 'Balaye doucement ton environnement et distingue les signes utiles des alertes imaginées.' }
 };
 const scientific = { emotions: [], guidance: [], exercises: [], studies: [], rules: null, safety: null, evidence: null, sources: null, emotionExerciseMap: [], ready: false };
-const scientificEmotionNames = { calm: 'Sérénité', anger: 'Colère', sad: 'Tristesse', stress: 'Stress', rage: 'Colère', urge: 'Envie à gérer', unknown: '' };
+// Les cartes rapides gardent leur nom propre à l'accueil, tout en pointant
+// vers une référence scientifique distincte pour le contenu et l'exercice.
+const quickStateScientificNames = {
+  calm: 'Sérénité',
+  anger: 'Contrariété',
+  sad: 'Tristesse',
+  stress: 'Surcharge',
+  rage: 'Colère'
+};
+const scientificAliasNames = { 'En colère': 'Colère' };
+const scientificEmotionNames = { ...quickStateScientificNames, urge: 'Envie à gérer', unknown: '' };
+const quickStateGuidance = {
+  calm: { name: 'Calme', definition: 'État de repos et de stabilité, utilisé ici comme repère d’apaisement.', triggers: ['sécurité', 'repos', 'situation stable'], body: ['respiration régulière', 'corps relâché', 'sensation de stabilité'], response: 'Ce calme peut servir de point de repère avant ou après une émotion intense.' },
+  anger: { name: 'Agacé', definition: 'Irritation liée à un petit obstacle, une contrariété ou une limite légèrement mise à l’épreuve.', triggers: ['petit obstacle', 'contrariété', 'impatience'], body: ['tension légère', 'chaleur', 'impatience'], response: 'Un signal qu’une limite ou un ajustement peut être nécessaire.' },
+  sad: { name: 'Triste', definition: 'État de baisse ou de peine qui peut apparaître après une perte, une séparation ou une déception.', triggers: ['perte', 'séparation', 'déception'], body: ['gorge serrée', 'lourdeur', 'fatigue'], response: 'Un besoin possible de soutien, de lien ou de récupération.' },
+  stress: { name: 'Stressé', definition: 'Réponse d’adaptation face à une demande perçue comme supérieure aux ressources disponibles.', triggers: ['trop de demandes', 'pression prolongée', 'manque de repos'], body: ['pensées rapides', 'tension', 'respiration courte'], response: 'Un signal pour ralentir, prioriser et retrouver une marge de choix.' },
+  rage: { name: 'En colère', definition: 'Énergie de colère forte, souvent liée à une limite dépassée, une injustice ou une frustration importante.', triggers: ['injustice', 'limite dépassée', 'frustration'], body: ['forte chaleur', 'tension dans le corps', 'envie d’agir'], response: 'Un signal de limite ou de besoin de protection ; agir après la pause.', safety: 'Si tu crains de blesser quelqu’un ou de perdre le contrôle, éloigne-toi et contacte immédiatement une personne de confiance ou les secours.' }
+};
 const emotionSentenceForms = {
   'Sérénité': 'la sérénité', 'Joie': 'la joie', 'Extase': 'l’extase', 'Acceptation': 'l’acceptation', 'Confiance': 'la confiance', 'Admiration': 'l’admiration', 'Appréhension': 'l’appréhension', 'Peur': 'la peur', 'Terreur': 'la terreur', 'Distraction': 'la distraction', 'Surprise': 'la surprise', 'Stupéfaction': 'la stupéfaction', 'Mélancolie': 'la mélancolie', 'Tristesse': 'la tristesse', 'Chagrin': 'le chagrin', 'Ennui': 'l’ennui', 'Dégoût': 'le dégoût', 'Aversion': 'l’aversion', 'Contrariété': 'la contrariété', 'Colère': 'la colère', 'Rage': 'la rage', 'Intérêt': 'l’intérêt', 'Anticipation': 'l’anticipation', 'Vigilance': 'la vigilance', 'Anxiété': 'l’anxiété', 'Honte': 'la honte', 'Culpabilité': 'la culpabilité', 'Solitude': 'la solitude', 'Frustration': 'la frustration', 'Stress': 'le stress', 'Envie à gérer': 'une envie à gérer'
 };
@@ -155,8 +172,10 @@ function renderSafetyTriage() {
   const saveButton = $('#saveButton');
   if (saveButton) saveButton.disabled = result.risk.critical;
 }
-function scientificEmotion() { const name = scientificEmotionNames[draft.emotion] || draft.nuance; return scientific.emotions.find(item => item.name.toLowerCase() === String(name).toLowerCase()) || scientific.emotions.find(item => item.plutchik_family === name); }
-function emotionGuidance() { const name = currentEmotionName(); return scientific.guidance.find(item => normalizeText(item.name) === normalizeText(name)) || null; }
+function scientificNameFor(value) { const name = scientificEmotionNames[draft.emotion] || value || ''; return scientificAliasNames[name] || name; }
+function scientificEmotion() { const name = scientificNameFor(draft.nuance); return scientific.emotions.find(item => item.name.toLowerCase() === String(name).toLowerCase()) || scientific.emotions.find(item => item.plutchik_family === name); }
+function emotionGuidance() { const name = scientificNameFor(draft.nuance); return scientific.guidance.find(item => normalizeText(item.name) === normalizeText(name)) || null; }
+function selectedQuickStateGuidance() { return draft.emotion ? quickStateGuidance[draft.emotion] || null : null; }
 function renderEmotionContext() {
   const understand = $('#understandContext');
   const after = $('#afterContext');
@@ -188,16 +207,19 @@ function renderEmotionContext() {
     if (after) { after.classList.remove('show'); after.innerHTML = ''; }
     return;
   }
-  const name = guidance?.name || emotion.name;
+  const quickGuidance = selectedQuickStateGuidance();
+  const name = quickGuidance?.name || guidance?.name || emotion.name;
   const phrase = emotionSentenceForm(name);
-  const triggers = (guidance?.triggers || emotion?.common_triggers || []).slice(0, 3);
-  const body = (guidance?.body || emotion?.body_sensations || []).slice(0, 6);
+  const triggers = (quickGuidance?.triggers || guidance?.triggers || emotion?.common_triggers || []).slice(0, 3);
+  const body = (quickGuidance?.body || guidance?.body || emotion?.body_sensations || []).slice(0, 6);
   const thoughts = (emotion?.associated_thoughts || []).slice(0, 2);
   const needs = (emotion?.psychological_needs || []).slice(0, 3);
   const behaviors = (guidance?.impulse || emotion?.possible_behaviors || []).slice(0, 2);
   if (understand) {
     const mark = `<span class="emotion-summary-swatch" style="background:${emotionColor(name)}" aria-hidden="true"></span>`;
-    understand.innerHTML = `<div class="emotion-summary-heading"><div class="emotion-summary-identity">${mark}<div><span class="emotion-summary-kicker">VOUS AVEZ SÉLECTIONNÉ</span><b>${escapeHtml(name)}</b></div></div><div class="emotion-summary-intensity"><small>Intensité actuelle</small><strong>${draft.intensity}/10</strong></div></div>${guidance?.definition || emotion?.definition ? `<p class="emotion-summary-definition">${escapeHtml(guidance?.definition || emotion?.definition)}</p>` : ''}${triggers.length ? `<div class="emotion-related"><b>Cette émotion peut être liée à :</b><div>${triggers.map(item => `<span>${escapeHtml(item)}</span>`).join('')}</div></div>` : ''}<small class="emotion-summary-note">Ce sont des pistes : garde seulement ce qui correspond à ton vécu.</small>`;
+    const definition = quickGuidance?.definition || guidance?.definition || emotion?.definition;
+    const safetyNote = quickGuidance?.safety || (/terreur|panique|rage|colère/.test(normalizeText(name)) ? 'Si tu n’es pas en sécurité, éloigne-toi du danger et contacte une personne fiable ou les secours.' : '');
+    understand.innerHTML = `<div class="emotion-summary-heading"><div class="emotion-summary-identity">${mark}<div><span class="emotion-summary-kicker">VOUS AVEZ SÉLECTIONNÉ</span><b>${escapeHtml(name)}</b></div></div><div class="emotion-summary-intensity"><small>Intensité actuelle</small><strong>${draft.intensity}/10</strong></div></div>${definition ? `<p class="emotion-summary-definition">${escapeHtml(definition)}</p>` : ''}${triggers.length ? `<div class="emotion-related"><b>Cette émotion peut être liée à :</b><div>${triggers.map(item => `<span>${escapeHtml(item)}</span>`).join('')}</div></div>` : ''}${safetyNote ? `<p class="emotion-summary-note"><b>Sécurité :</b> ${escapeHtml(safetyNote)}</p>` : ''}<small class="emotion-summary-note">Ce sont des pistes : garde seulement ce qui correspond à ton vécu.</small>`;
     understand.classList.add('show');
   }
   if (after) {
@@ -222,8 +244,9 @@ function renderEmotionInsight() {
   const urge = draft.emotion === 'urge';
   if ((!emotion && !guidance && !urge) || (!draft.emotion && !draft.nuance)) { panel.classList.remove('show'); panel.innerHTML = ''; renderEmotionContext(); return; }
   const needs = urge ? ['sécurité', 'soutien', 'un délai avant d’agir'] : (emotion?.psychological_needs || []).slice(0, 4);
-  const name = guidance?.name || emotion?.name || currentEmotionName();
-  const definition = urge ? 'Une envie forte peut pousser à consommer ou à manger alors qu’une autre partie de toi voudrait attendre. Elle peut être liée à une habitude, un déclencheur ou un besoin de soulagement ; elle ne confirme pas une addiction et ne commande pas forcément l’action.' : guidance?.definition || emotion?.definition || 'Un état à observer avec curiosité, sans chercher à lui donner une seule interprétation.';
+  const quickGuidance = selectedQuickStateGuidance();
+  const name = quickGuidance?.name || guidance?.name || emotion?.name || currentEmotionName();
+  const definition = urge ? 'Une envie forte peut pousser à consommer ou à manger alors qu’une autre partie de toi voudrait attendre. Elle peut être liée à une habitude, un déclencheur ou un besoin de soulagement ; elle ne confirme pas une addiction et ne commande pas forcément l’action.' : quickGuidance?.definition || guidance?.definition || emotion?.definition || 'Un état à observer avec curiosité, sans chercher à lui donner une seule interprétation.';
   const insightTitle = urge ? name : `${name} peut être un signal`;
   panel.innerHTML = `<div class="insight-heading"><span class="insight-kicker">${urge ? 'ENVIE / IMPULSION' : 'SITUATION À OBSERVER'}</span><span class="insight-intensity">${draft.intensity}/10</span></div><h3>${escapeHtml(insightTitle)}</h3><p>${escapeHtml(definition)}</p>${urge ? '<p class="urge-safety-note"><b>Sécurité :</b> si tu consommes régulièrement ou en grande quantité, ne tente pas un arrêt brutal de l’alcool ou d’un médicament sans avis médical. En cas de danger immédiat, appelle les secours.</p>' : ''}${needs.length ? `<div class="insight-needs"><b>Besoin possible</b><div>${needs.map(need => `<span>${escapeHtml(need)}</span>`).join('')}</div></div>` : ''}<small>${urge ? 'Choisis seulement ce qui correspond à ton vécu. Cette rubrique ne pose aucun diagnostic.' : 'Ce sont des pistes, pas une conclusion : ton vécu peut être différent.'}</small>`;
   panel.classList.add('show');
@@ -231,11 +254,12 @@ function renderEmotionInsight() {
 }
 function intensityBand() { return draft.intensity >= 8 ? 'high' : draft.intensity <= 3 ? 'low' : 'medium'; }
 function selectedEmotionExercisePlan() {
-  const name = currentEmotionName();
+  const name = scientificNameFor(draft.nuance);
   return scientific.emotionExerciseMap.find(item => normalizeText(item.emotion) === normalizeText(name)) || null;
 }
 function pickScientificExerciseId() {
   const plan = selectedEmotionExercisePlan();
+  if (draft.exerciseRound === 2 && plan?.second_exercise_id) return plan.second_exercise_id;
   if (plan) return intensityBand() === 'high' ? (plan.high_intensity_exercise_id || plan.exercise_id) : plan.exercise_id;
   return evaluateRecommendation().exercises[0] || null;
 }
@@ -250,7 +274,13 @@ function scientificExercise() {
   const durationSeconds = band === 'high' ? Math.min(duration.maxSeconds, Math.max(duration.seconds, 90)) : band === 'medium' ? Math.round((duration.seconds + duration.maxSeconds) / 2) : duration.seconds;
   const plan = selectedEmotionExercisePlan();
   const intensityNote = band === 'high' ? 'Intensité forte : commence par stabiliser et ne force pas.' : band === 'low' ? 'Intensité basse : avance doucement et observe ce qui t’aide.' : 'Intensité moyenne : essaie cette étape puis réévalue.';
-  return { name: source.name, duration: durationSeconds, durationLabel: `${durationSeconds} secondes`, kind: source.name.toLowerCase().includes('respiration') ? 'breath' : 'timer', text: (source.protocol_steps || []).slice(0, 2).join(' '), objective: source.objective || '', mechanism: source.mechanism || '', steps: source.protocol_steps || [], evidenceGrade: source.evidence_grade || 'Non classé', contraindications: source.contraindications || '', studies, sourceId: source.id, emotionPlanReason: plan?.reason || '', intensityNote };
+  const animationById = {
+    'EX-MINDFUL-BREATHING': 'breath', 'EX-MINDFULNESS-SHORT': 'mindful', 'EX-GROUNDING-321': 'grounding',
+    'EX-PMR': 'relax', 'EX-RELAXATION-MUSCULAIRE-COURTE': 'relax', 'EX-PROBLEM-SOLVING': 'steps',
+    'EX-BEHAVIORAL-ACTIVATION': 'activate', 'EX-COMPASSION': 'compassion', 'EX-SELF-COMPASSION': 'compassion',
+    'EX-DELAY-URGE': 'delay', 'EX-EMOTION-JOURNAL': 'journal', 'EX-NEEDS-IDENTIFICATION': 'needs'
+  };
+  return { name: source.name, duration: durationSeconds, durationLabel: `${durationSeconds} secondes`, kind: source.name.toLowerCase().includes('respiration') ? 'breath' : 'timer', animation: animationById[source.id] || 'timer', text: (source.protocol_steps || []).slice(0, 2).join(' '), objective: source.objective || '', mechanism: source.mechanism || '', steps: source.protocol_steps || [], evidenceGrade: source.evidence_grade || 'Non classé', contraindications: source.contraindications || '', studies, sourceId: source.id, emotionPlanReason: plan?.reason || '', intensityNote };
 }
 function familyExerciseFallback() {
   const blend = wheelBlends.find(item => item.name === draft.nuance);
@@ -288,7 +318,7 @@ const bodySignsByEmotion = {
   unknown: bodySignOptions,
   urge: ['Envie forte ou insistante', 'Pensées qui reviennent', 'Tension ou agitation', 'Difficulté à attendre', 'Besoin de soulagement']
 };
-const wheelItems = ['Joie', 'Confiance', 'Peur', 'Surprise', 'Tristesse', 'Dégoût', 'Colère', 'Anticipation'];
+const wheelItems = ['Joie', 'Confiance', 'Peur', 'Surprise', 'Tristesse', 'Dégoût', 'En colère', 'Anticipation'];
 const wheelBlends = [
   { name: 'Amour', angle: 22.5, pair: 'Joie + confiance' },
   { name: 'Optimisme', angle: 337.5, pair: 'Joie + anticipation' },
@@ -316,7 +346,7 @@ const wheelData = [
   { levels: ['Distraction', 'Surprise', 'Stupéfaction'], colors: ['#f1e4ff', '#c69aef', '#8d61c9'] },
   { levels: ['Mélancolie', 'Tristesse', 'Chagrin'], colors: ['#e2e8fc', '#9db2e6', '#627fc3'] },
   { levels: ['Ennui', 'Dégoût', 'Aversion'], colors: ['#edf0cc', '#b9c36d', '#79862e'] },
-  { levels: ['Contrariété', 'Colère', 'Rage'], colors: ['#ffe1dd', '#f39b93', '#d9534f'] },
+  { levels: ['Contrariété', 'En colère', 'Rage'], colors: ['#ffe1dd', '#f39b93', '#d9534f'] },
   { levels: ['Intérêt', 'Anticipation', 'Vigilance'], colors: ['#fff0cf', '#ffca65', '#e89028'] }
 ];
 const wheelDisplayLabel = word => word;
@@ -498,7 +528,8 @@ function renderBodySigns() {
   }
   const options = stableBodyOptions;
   const otherValue = draft.bodySigns.find(sign => sign === 'Autre' || sign.startsWith('Autre : ')) || '';
-  $('#bodySigns').innerHTML = `${options.map(sign => `<button type="button" class="choice-chip ${draft.bodySigns.includes(sign) ? 'selected' : ''}" data-body-sign="${escapeHtml(sign)}" aria-pressed="${draft.bodySigns.includes(sign)}">${escapeHtml(sign)}</button>`).join('')}<button type="button" class="choice-chip body-other-choice ${otherValue ? 'selected' : ''}" data-body-sign="__other__" aria-pressed="${Boolean(otherValue)}">Autre</button>${otherValue ? `<label class="body-other-field">Précise si tu le souhaites<input id="bodyOther" type="text" maxlength="80" value="${escapeHtml(otherValue.replace(/^Autre\s*:\s*/, ''))}" placeholder="Ex. gorge serrée, vertige…"></label>` : ''}`;
+  const otherText = otherValue.startsWith('Autre : ') ? otherValue.replace(/^Autre\s*:\s*/, '') : '';
+  $('#bodySigns').innerHTML = `${options.map(sign => `<button type="button" class="choice-chip ${draft.bodySigns.includes(sign) ? 'selected' : ''}" data-body-sign="${escapeHtml(sign)}" aria-pressed="${draft.bodySigns.includes(sign)}">${escapeHtml(sign)}</button>`).join('')}<button type="button" class="choice-chip body-other-choice ${otherValue ? 'selected' : ''}" data-body-sign="__other__" aria-pressed="${Boolean(otherValue)}">Autre</button>${otherValue ? `<label class="body-other-field">Précise si tu le souhaites<input id="bodyOther" type="text" maxlength="80" value="${escapeHtml(otherText)}" placeholder="Ex. gorge serrée, vertige…"></label>` : ''}`;
   document.querySelectorAll('[data-body-sign]').forEach(button => button.onclick = () => {
     const sign = button.dataset.bodySign;
     if (sign === '__other__') {
@@ -597,6 +628,18 @@ function renderExerciseResult() {
   const after = draft.exerciseAfterIntensity;
   document.querySelectorAll('[data-exercise-result]').forEach(button => button.classList.toggle('selected', button.dataset.exerciseResult === draft.exerciseResult));
   if (after == null) { output.textContent = 'Après l’exercice, observe simplement ce qui a changé — ou pas changé.'; return; }
+  const second = after >= 7 && draft.exerciseRound !== 2 && scientific.ready && !detectSafety().critical && selectedEmotionExercisePlan()?.second_exercise_id;
+  let followUp = $('#secondExercisePrompt');
+  if (!followUp) {
+    $('#exerciseResultQuestions').insertAdjacentHTML('beforebegin', '<div id="secondExercisePrompt" class="second-exercise-prompt" hidden></div>');
+    followUp = $('#secondExercisePrompt');
+  }
+  if (second) {
+    const next = scientific.exercises.find(item => item.id === selectedEmotionExercisePlan().second_exercise_id);
+    followUp.innerHTML = `<b>L’intensité reste élevée.</b><p>Tu peux essayer une deuxième étape différente : <strong>${escapeHtml(next?.name || 'un autre exercice adapté')}</strong>.</p><button type="button" id="trySecondExercise" class="secondary-action">Essayer la deuxième étape</button>`;
+    followUp.hidden = false;
+    $('#trySecondExercise').onclick = () => { draft.exerciseRound = 2; draft.exerciseAfterIntensity = null; draft.exerciseResult = ''; saveDraft(); renderExercise(); show('exercise'); };
+  } else if (followUp) { followUp.hidden = true; followUp.innerHTML = ''; }
   const delta = after - Number(draft.intensity);
   output.textContent = delta < 0 ? `Ton intensité est passée de ${draft.intensity}/10 à ${after}/10. Une baisse peut être utile, sans garantir que l’exercice conviendra toujours.` : delta > 0 ? `Ton intensité est passée de ${draft.intensity}/10 à ${after}/10. Si le malaise augmente, arrête l’exercice et choisis un repère plus simple ou demande de l’aide.` : `Ton intensité reste à ${after}/10. Cela donne une information utile : l’exercice n’a pas forcément changé l’état cette fois-ci.`;
 }
@@ -650,11 +693,11 @@ function runExercise() {
   let remaining = exercise.duration;
   const isBreathing = exercise.kind === 'breath';
   $('#exerciseAnimation').classList.add('show');
-  $('#exerciseOrb').className = isBreathing ? 'breath-orb' : 'timer-orb';
-  $('#exerciseOrb').setAttribute('aria-label', isBreathing ? 'Animation de respiration lente' : 'Compte à rebours de l’exercice');
+  $('#exerciseOrb').className = `${isBreathing ? 'breath-orb' : 'timer-orb'} animation-${exercise.animation || 'timer'}`;
+  $('#exerciseOrb').setAttribute('aria-label', `Animation : ${exercise.name}`);
   $('#exerciseOrb').style.setProperty('--breath-duration', isBreathing ? '10s' : '8s');
   $('#exerciseSeconds').textContent = remaining;
-  $('#exercisePhase').textContent = isBreathing ? 'Inspire doucement…' : 'Tu peux simplement rester avec ce qui est présent.';
+  $('#exercisePhase').textContent = isBreathing ? 'Inspire doucement…' : exercise.animation === 'steps' ? 'Étape 1 : clarifier ce qui se passe.' : exercise.animation === 'activate' ? 'Choisis une petite action possible.' : exercise.animation === 'grounding' ? 'Regarde autour de toi, doucement.' : exercise.animation === 'relax' ? 'Contracte doucement, puis relâche.' : exercise.animation === 'compassion' ? 'Adresse-toi avec douceur.' : exercise.animation === 'delay' ? 'Laisse passer quelques instants avant d’agir.' : 'Tu peux simplement rester avec ce qui est présent.';
   if ($('#exerciseBreathWarning')) $('#exerciseBreathWarning').hidden = !isBreathing;
   $('#exerciseStart').disabled = true; $('#exerciseStart').textContent = 'Exercice en cours…'; $('#exerciseRunRestart').hidden = true; $('#exerciseStop').hidden = false;
   let elapsed = 0;
@@ -685,7 +728,15 @@ function report() {
   const resultLabel = result => result === 'helpful' ? 'Un peu aidant' : result === 'harder' ? 'Plus difficile' : result === 'same' ? 'Plutôt pareil' : 'Non renseigné';
   const observationCards = state.entries.slice().reverse().map((entry, index) => `<article class="observation"><div class="observation-head"><div><p class="eyebrow">OBSERVATION ${state.entries.length - index}</p><h2>${text(observationLabel(entry))}</h2></div><strong>${entry.intensity}/10</strong></div><p class="date">${text(new Date(entry.date).toLocaleString('fr-FR'))}</p><div class="grid"><section><h3>Type de situation</h3><p>${text(entry.emotion === 'urge' ? urgeTypeLabel(entry.urgeType) : '')}</p></section><section><h3>Nuance</h3><p>${text(entry.nuance)}</p></section><section><h3>Situation</h3><p>${text(entry.situation)}</p></section><section><h3>Pensées</h3><p>${text(entry.thoughts)}</p></section><section><h3>Signes et ressentis</h3><p>${text((entry.bodySigns || []).join(', '))}</p></section><section><h3>Exercice essayé</h3><p>${text(entry.exercise)}</p></section><section><h3>Durée prévue</h3><p>${entry.exerciseDuration ? `${entry.exerciseDuration} secondes` : 'Non renseignée'}</p></section><section><h3>Statut de l’exercice</h3><p>${text(entry.exerciseStatus)}</p></section><section><h3>Intensité après l’exercice</h3><p>${entry.exerciseAfterIntensity == null ? 'Non renseignée' : `${entry.exerciseAfterIntensity}/10`}</p></section><section><h3>Ressenti après exercice</h3><p>${resultLabel(entry.exerciseResult)}</p></section><section><h3>Besoin possible</h3><p>${text(entry.need)}</p></section><section><h3>Réaction</h3><p>${text(entry.reaction)}</p></section><section><h3>Après</h3><p>${text(entry.consequence)}</p></section></div><p class="question"><b>Question pour la séance :</b> ${text(entry.question === 'Aucune' ? '' : entry.question)}</p></article>`).join('');
   const html = `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Résumé de séance — Émotions</title><style>:root{color-scheme:light}*{box-sizing:border-box}body{margin:0;background:#f5f6f1;color:#29435f;font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.page{max-width:860px;margin:0 auto;padding:48px 24px}.cover,.observation{background:#fffefa;border:1px solid #dce8df;border-radius:24px;box-shadow:0 10px 30px #29435f12}.cover{padding:38px;margin-bottom:22px}.brand{color:#85b79b;font-size:13px;font-weight:800;letter-spacing:.18em}.cover h1{margin:8px 0 10px;font-size:38px;line-height:1.1}.cover p{color:#627586;margin:0}.summary{display:inline-block;margin-top:24px;padding:9px 14px;border-radius:999px;background:#e7f2e7;color:#38734b;font-weight:700}.observation{padding:28px;margin:18px 0;break-inside:avoid}.observation-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;border-bottom:1px solid #e3ece4;padding-bottom:14px}.eyebrow{margin:0;color:#85b79b;font-size:12px;font-weight:800;letter-spacing:.16em}.observation h2{margin:4px 0 0;font-size:28px}.observation-head strong{color:#85b79b;font-size:27px}.date{color:#7a8994;font-size:13px;margin:12px 0 18px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.grid section{background:#f7faf5;border-radius:14px;padding:12px 14px;min-height:76px}.grid h3{font-size:13px;margin:0 0 4px;color:#6d987d}.grid p{margin:0}.question{padding:12px 14px;border-left:4px solid #9ac4a7;background:#f7faf5;margin-bottom:0}@media(max-width:600px){.page{padding:24px 14px}.cover{padding:26px 20px}.cover h1{font-size:31px}.grid{grid-template-columns:1fr}}@media print{body{background:#fff}.page{padding:0}.cover,.observation{box-shadow:none}}</style></head><body><main class="page"><header class="cover"><div class="brand">ÉMOTIONS</div><h1>Résumé de séance</h1><p>Une trace claire de ce que tu as observé, ressenti et essayé.</p><div class="summary">Nombre d’observations : ${state.entries.length}</div></header>${observationCards || '<p>Aucune observation enregistrée.</p>'}</main></body></html>`;
-  const link = document.createElement('a'); link.href = URL.createObjectURL(new Blob([html], { type: 'text/html;charset=utf-8' })); link.download = 'resume-seance-emotions.html'; link.click(); URL.revokeObjectURL(link.href);
+  const printWindow = window.open('', '_blank');
+  if (printWindow) {
+    printWindow.document.open();
+    printWindow.document.write(html);
+    printWindow.document.close();
+    printWindow.addEventListener('load', () => printWindow.print(), { once: true });
+  } else {
+    const link = document.createElement('a'); link.href = URL.createObjectURL(new Blob([html], { type: 'text/html;charset=utf-8' })); link.download = 'resume-seance-emotions.html'; link.click(); URL.revokeObjectURL(link.href);
+  }
 }
 async function restoreDraft() {
   if (BROWSER_TEST_MODE) return;
@@ -828,6 +879,18 @@ function renderPrivacyStatus() {
 }
 
 insertDynamicPanels(); restoreDraft(); draft.nuance = ''; saveDraft();
+document.querySelector('#historyButton')?.remove();
+const brandLockup = document.querySelector('.brand-lockup');
+if (brandLockup) {
+  brandLockup.insertAdjacentHTML('beforeend', '<small class="creator-header">PGR-STUDIO</small>');
+  brandLockup.setAttribute('role', 'link');
+  brandLockup.setAttribute('tabindex', '0');
+  brandLockup.setAttribute('aria-label', 'Revenir à l’accueil Émotions');
+  const goHome = () => { window.location.href = 'https://pgr-studio.github.io/Emotion/'; };
+  brandLockup.addEventListener('click', goHome);
+  brandLockup.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); goHome(); } });
+}
+document.querySelector('.science-footer-link')?.insertAdjacentHTML('afterend', '<p class="creator-credit">Créé par PGR-STUDIO</p>');
 loadScientificBase().finally(() => { renderEmotions(); renderBodySigns(); renderEmotionInsight(); renderSafetyTriage(); renderWheel(); renderExercise(); renderScienceLivePanel(); renderExerciseLibrary(); renderToolsExercises(); syncQuickLevels(); syncContinueButton(); });
 
 $('#startButton').onclick = () => show('observe');

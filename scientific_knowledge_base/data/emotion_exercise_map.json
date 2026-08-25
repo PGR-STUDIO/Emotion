@@ -1,48 +1,294 @@
 {
   "version": "0.1.0",
-  "emotion_count": 29,
-  "policy": "Un exercice principal est choisi pour chaque émotion. En intensité forte (8-10), la variante privilégie la stabilisation et la sécurité. La recommandation est suspendue si le triage détecte un danger.",
+  "emotion_count": 41,
+  "policy": "Un exercice principal est choisi pour chaque émotion. Si l’intensité après le premier exercice reste à 7/10 ou plus, une deuxième étape différente peut être proposée. La recommandation est suspendue si le triage détecte un danger.",
   "mappings": [
-    {"emotion": "Sérénité", "exercise_id": "EX-GRATITUDE", "high_intensity_exercise_id": "EX-GROUNDING-321", "reason": "Consolider une ressource calme sans la forcer."},
-    {"emotion": "Joie", "exercise_id": "EX-GRATITUDE", "high_intensity_exercise_id": "EX-DELAY-URGE", "reason": "Savourer et garder une marge de choix quand l'énergie monte."},
-    {"emotion": "Extase", "exercise_id": "EX-GROUNDING-321", "high_intensity_exercise_id": "EX-GROUNDING-321", "reason": "Revenir aux repères corporels lorsque l'activation est très forte."},
-    {"emotion": "Acceptation", "exercise_id": "EX-ACT-DEFUSION", "high_intensity_exercise_id": "EX-GROUNDING-321", "reason": "Observer l'expérience sans lutter, puis se stabiliser si nécessaire."},
-    {"emotion": "Confiance", "exercise_id": "EX-EMOTION-JOURNAL", "high_intensity_exercise_id": "EX-GROUNDING-321", "reason": "Identifier l'appui disponible et garder le contact avec le présent."},
-    {"emotion": "Admiration", "exercise_id": "EX-GRATITUDE", "high_intensity_exercise_id": "EX-GROUNDING-321", "reason": "Préciser ce qui inspire et l'intégrer comme ressource."},
-    {"emotion": "Appréhension", "exercise_id": "EX-GROUNDING-321", "high_intensity_exercise_id": "EX-GROUNDING-321", "reason": "Distinguer le présent de l'anticipation sans alimenter l'alarme."},
-    {"emotion": "Peur", "exercise_id": "EX-GROUNDING-321", "high_intensity_exercise_id": "EX-GROUNDING-321", "reason": "Retrouver des repères présents avant toute réflexion."},
-    {"emotion": "Terreur", "exercise_id": "EX-GROUNDING-321", "high_intensity_exercise_id": "EX-GROUNDING-321", "reason": "Prioriser les repères immédiats et la sécurité, jamais l'exposition autonome."},
-    {"emotion": "Distraction", "exercise_id": "EX-GROUNDING-321", "high_intensity_exercise_id": "EX-GROUNDING-321", "reason": "Ramener doucement l'attention vers un élément concret."},
-    {"emotion": "Surprise", "exercise_id": "EX-DELAY-URGE", "high_intensity_exercise_id": "EX-GROUNDING-321", "reason": "Créer une pause avant d'interpréter ou de répondre."},
-    {"emotion": "Stupéfaction", "exercise_id": "EX-GROUNDING-321", "high_intensity_exercise_id": "EX-GROUNDING-321", "reason": "Reprendre les repères sensoriels avant de choisir la suite."},
-    {"emotion": "Mélancolie", "exercise_id": "EX-COMPASSION", "high_intensity_exercise_id": "EX-COMPASSION", "reason": "Répondre à la baisse avec douceur plutôt que forcer une solution."},
-    {"emotion": "Tristesse", "exercise_id": "EX-COMPASSION", "high_intensity_exercise_id": "EX-COMPASSION", "reason": "Soutenir l'expérience et identifier ce qui ferait un peu de bien."},
-    {"emotion": "Chagrin", "exercise_id": "EX-NEEDS-IDENTIFICATION", "high_intensity_exercise_id": "EX-COMPASSION", "reason": "Nommer le besoin de soutien, de lien ou de repos."},
-    {"emotion": "Ennui", "exercise_id": "EX-EMOTION-JOURNAL", "high_intensity_exercise_id": "EX-GROUNDING-321", "reason": "Comprendre ce qui manque avant de choisir une petite activation."},
-    {"emotion": "Dégoût", "exercise_id": "EX-NEEDS-IDENTIFICATION", "high_intensity_exercise_id": "EX-GROUNDING-321", "reason": "Clarifier la limite ou le besoin de protection sans se réexposer."},
-    {"emotion": "Aversion", "exercise_id": "EX-NEEDS-IDENTIFICATION", "high_intensity_exercise_id": "EX-DELAY-URGE", "reason": "Transformer le rejet en limite formulable et sûre."},
-    {"emotion": "Contrariété", "exercise_id": "EX-DELAY-URGE", "high_intensity_exercise_id": "EX-DELAY-URGE", "reason": "Créer un espace avant de traiter le détail qui bloque."},
-    {"emotion": "Colère", "exercise_id": "EX-DELAY-URGE", "high_intensity_exercise_id": "EX-GROUNDING-321", "reason": "Retarder la réaction et revenir au corps avant de parler."},
-    {"emotion": "Rage", "exercise_id": "EX-DELAY-URGE", "high_intensity_exercise_id": "EX-GROUNDING-321", "reason": "Mettre de la distance et stabiliser avant toute action."},
-    {"emotion": "Intérêt", "exercise_id": "EX-EMOTION-JOURNAL", "high_intensity_exercise_id": "EX-GROUNDING-321", "reason": "Transformer la curiosité en observation concrète et choisie."},
-    {"emotion": "Anticipation", "exercise_id": "EX-EMOTION-JOURNAL", "high_intensity_exercise_id": "EX-GROUNDING-321", "reason": "Séparer ce qui peut être préparé de ce qui doit attendre."},
-    {"emotion": "Vigilance", "exercise_id": "EX-GROUNDING-321", "high_intensity_exercise_id": "EX-GROUNDING-321", "reason": "Observer l'environnement sans augmenter inutilement la tension."},
-    {"emotion": "Anxiété", "exercise_id": "EX-ACT-DEFUSION", "high_intensity_exercise_id": "EX-GROUNDING-321", "reason": "Prendre de la distance avec les scénarios puis revenir au présent si besoin."},
-    {"emotion": "Honte", "exercise_id": "EX-COMPASSION", "high_intensity_exercise_id": "EX-GROUNDING-321", "reason": "Réduire l'attaque contre soi et retrouver une base de sécurité."},
-    {"emotion": "Culpabilité", "exercise_id": "EX-ACT-DEFUSION", "high_intensity_exercise_id": "EX-COMPASSION", "reason": "Distinguer la pensée de culpabilité d'une réparation réellement possible."},
-    {"emotion": "Solitude", "exercise_id": "EX-NEEDS-IDENTIFICATION", "high_intensity_exercise_id": "EX-COMPASSION", "reason": "Nommer le besoin de lien et préparer une demande de soutien."},
-    {"emotion": "Frustration", "exercise_id": "EX-PROBLEM-SOLVING", "high_intensity_exercise_id": "EX-DELAY-URGE", "reason": "Faire baisser l'impulsion puis choisir une résolution réaliste."},
-    {"emotion": "Amour / affection", "exercise_id": "EX-GRATITUDE", "high_intensity_exercise_id": "EX-GROUNDING-321", "reason": "Savourer le lien tout en respectant les limites et le consentement."},
-    {"emotion": "Espoir", "exercise_id": "EX-BEHAVIORAL-ACTIVATION", "high_intensity_exercise_id": "EX-GROUNDING-321", "reason": "Transformer l'espoir en une petite action réaliste."},
-    {"emotion": "Soulagement", "exercise_id": "EX-PMR", "high_intensity_exercise_id": "EX-GROUNDING-321", "reason": "Laisser le corps récupérer après la tension."},
-    {"emotion": "Gratitude", "exercise_id": "EX-GRATITUDE", "high_intensity_exercise_id": "EX-GROUNDING-321", "reason": "Identifier une ressource précise sans nier les difficultés."},
-    {"emotion": "Fierté", "exercise_id": "EX-GRATITUDE", "high_intensity_exercise_id": "EX-GROUNDING-321", "reason": "Reconnaître l'effort et garder un rythme soutenable."},
-    {"emotion": "Curiosité", "exercise_id": "EX-EMOTION-JOURNAL", "high_intensity_exercise_id": "EX-GROUNDING-321", "reason": "Transformer la curiosité en observation choisie et concrète."},
-    {"emotion": "Panique", "exercise_id": "EX-GROUNDING-321", "high_intensity_exercise_id": "EX-GROUNDING-321", "reason": "Prioriser la sécurité et les repères externes sans forcer le souffle."},
-    {"emotion": "Impuissance", "exercise_id": "EX-PROBLEM-SOLVING", "high_intensity_exercise_id": "EX-GROUNDING-321", "reason": "Retrouver une action contrôlable et demander un soutien concret."},
-    {"emotion": "Confusion", "exercise_id": "EX-PROBLEM-SOLVING", "high_intensity_exercise_id": "EX-GROUNDING-321", "reason": "Ralentir et transformer le brouillard en une seule prochaine étape."},
-    {"emotion": "Surcharge", "exercise_id": "EX-RELAXATION-MUSCULAIRE-COURTE", "high_intensity_exercise_id": "EX-GROUNDING-321", "reason": "Réduire la tension et les stimulations avant de prioriser."},
-    {"emotion": "Découragement", "exercise_id": "EX-BEHAVIORAL-ACTIVATION", "high_intensity_exercise_id": "EX-COMPASSION", "reason": "Réduire l'évitement avec une action très petite et soutenable."},
-    {"emotion": "Rejet", "exercise_id": "EX-SELF-COMPASSION", "high_intensity_exercise_id": "EX-GROUNDING-321", "reason": "Séparer le refus reçu de la valeur personnelle et retrouver un lien sûr."}
+    {
+      "emotion": "Sérénité",
+      "exercise_id": "EX-GRATITUDE",
+      "high_intensity_exercise_id": "EX-GROUNDING-321",
+      "reason": "Consolider une ressource calme sans la forcer.",
+      "second_exercise_id": "EX-COMPASSION"
+    },
+    {
+      "emotion": "Joie",
+      "exercise_id": "EX-GRATITUDE",
+      "high_intensity_exercise_id": "EX-DELAY-URGE",
+      "reason": "Savourer et garder une marge de choix quand l'énergie monte.",
+      "second_exercise_id": "EX-COMPASSION"
+    },
+    {
+      "emotion": "Extase",
+      "exercise_id": "EX-GROUNDING-321",
+      "high_intensity_exercise_id": "EX-GROUNDING-321",
+      "reason": "Revenir aux repères corporels lorsque l'activation est très forte.",
+      "second_exercise_id": "EX-MINDFUL-BREATHING"
+    },
+    {
+      "emotion": "Acceptation",
+      "exercise_id": "EX-ACT-DEFUSION",
+      "high_intensity_exercise_id": "EX-GROUNDING-321",
+      "reason": "Observer l'expérience sans lutter, puis se stabiliser si nécessaire.",
+      "second_exercise_id": "EX-MINDFULNESS-SHORT"
+    },
+    {
+      "emotion": "Confiance",
+      "exercise_id": "EX-EMOTION-JOURNAL",
+      "high_intensity_exercise_id": "EX-GROUNDING-321",
+      "reason": "Identifier l'appui disponible et garder le contact avec le présent.",
+      "second_exercise_id": "EX-PROBLEM-SOLVING"
+    },
+    {
+      "emotion": "Admiration",
+      "exercise_id": "EX-GRATITUDE",
+      "high_intensity_exercise_id": "EX-GROUNDING-321",
+      "reason": "Préciser ce qui inspire et l'intégrer comme ressource.",
+      "second_exercise_id": "EX-COMPASSION"
+    },
+    {
+      "emotion": "Appréhension",
+      "exercise_id": "EX-GROUNDING-321",
+      "high_intensity_exercise_id": "EX-GROUNDING-321",
+      "reason": "Distinguer le présent de l'anticipation sans alimenter l'alarme.",
+      "second_exercise_id": "EX-MINDFUL-BREATHING"
+    },
+    {
+      "emotion": "Peur",
+      "exercise_id": "EX-GROUNDING-321",
+      "high_intensity_exercise_id": "EX-GROUNDING-321",
+      "reason": "Retrouver des repères présents avant toute réflexion.",
+      "second_exercise_id": "EX-MINDFUL-BREATHING"
+    },
+    {
+      "emotion": "Terreur",
+      "exercise_id": "EX-GROUNDING-321",
+      "high_intensity_exercise_id": "EX-GROUNDING-321",
+      "reason": "Prioriser les repères immédiats et la sécurité, jamais l'exposition autonome.",
+      "second_exercise_id": "EX-MINDFUL-BREATHING"
+    },
+    {
+      "emotion": "Distraction",
+      "exercise_id": "EX-GROUNDING-321",
+      "high_intensity_exercise_id": "EX-GROUNDING-321",
+      "reason": "Ramener doucement l'attention vers un élément concret.",
+      "second_exercise_id": "EX-MINDFUL-BREATHING"
+    },
+    {
+      "emotion": "Surprise",
+      "exercise_id": "EX-DELAY-URGE",
+      "high_intensity_exercise_id": "EX-GROUNDING-321",
+      "reason": "Créer une pause avant d'interpréter ou de répondre.",
+      "second_exercise_id": "EX-MINDFUL-BREATHING"
+    },
+    {
+      "emotion": "Stupéfaction",
+      "exercise_id": "EX-GROUNDING-321",
+      "high_intensity_exercise_id": "EX-GROUNDING-321",
+      "reason": "Reprendre les repères sensoriels avant de choisir la suite.",
+      "second_exercise_id": "EX-MINDFUL-BREATHING"
+    },
+    {
+      "emotion": "Mélancolie",
+      "exercise_id": "EX-COMPASSION",
+      "high_intensity_exercise_id": "EX-COMPASSION",
+      "reason": "Répondre à la baisse avec douceur plutôt que forcer une solution.",
+      "second_exercise_id": "EX-BEHAVIORAL-ACTIVATION"
+    },
+    {
+      "emotion": "Tristesse",
+      "exercise_id": "EX-COMPASSION",
+      "high_intensity_exercise_id": "EX-COMPASSION",
+      "reason": "Soutenir l'expérience et identifier ce qui ferait un peu de bien.",
+      "second_exercise_id": "EX-BEHAVIORAL-ACTIVATION"
+    },
+    {
+      "emotion": "Chagrin",
+      "exercise_id": "EX-NEEDS-IDENTIFICATION",
+      "high_intensity_exercise_id": "EX-COMPASSION",
+      "reason": "Nommer le besoin de soutien, de lien ou de repos.",
+      "second_exercise_id": "EX-PROBLEM-SOLVING"
+    },
+    {
+      "emotion": "Ennui",
+      "exercise_id": "EX-EMOTION-JOURNAL",
+      "high_intensity_exercise_id": "EX-GROUNDING-321",
+      "reason": "Comprendre ce qui manque avant de choisir une petite activation.",
+      "second_exercise_id": "EX-PROBLEM-SOLVING"
+    },
+    {
+      "emotion": "Dégoût",
+      "exercise_id": "EX-NEEDS-IDENTIFICATION",
+      "high_intensity_exercise_id": "EX-GROUNDING-321",
+      "reason": "Clarifier la limite ou le besoin de protection sans se réexposer.",
+      "second_exercise_id": "EX-PROBLEM-SOLVING"
+    },
+    {
+      "emotion": "Aversion",
+      "exercise_id": "EX-NEEDS-IDENTIFICATION",
+      "high_intensity_exercise_id": "EX-DELAY-URGE",
+      "reason": "Transformer le rejet en limite formulable et sûre.",
+      "second_exercise_id": "EX-PROBLEM-SOLVING"
+    },
+    {
+      "emotion": "Contrariété",
+      "exercise_id": "EX-DELAY-URGE",
+      "high_intensity_exercise_id": "EX-DELAY-URGE",
+      "reason": "Créer un espace avant de traiter le détail qui bloque.",
+      "second_exercise_id": "EX-MINDFUL-BREATHING"
+    },
+    {
+      "emotion": "Colère",
+      "exercise_id": "EX-DELAY-URGE",
+      "high_intensity_exercise_id": "EX-GROUNDING-321",
+      "reason": "Retarder la réaction et revenir au corps avant de parler.",
+      "second_exercise_id": "EX-MINDFUL-BREATHING"
+    },
+    {
+      "emotion": "Rage",
+      "exercise_id": "EX-DELAY-URGE",
+      "high_intensity_exercise_id": "EX-GROUNDING-321",
+      "reason": "Mettre de la distance et stabiliser avant toute action.",
+      "second_exercise_id": "EX-MINDFUL-BREATHING"
+    },
+    {
+      "emotion": "Intérêt",
+      "exercise_id": "EX-EMOTION-JOURNAL",
+      "high_intensity_exercise_id": "EX-GROUNDING-321",
+      "reason": "Transformer la curiosité en observation concrète et choisie.",
+      "second_exercise_id": "EX-PROBLEM-SOLVING"
+    },
+    {
+      "emotion": "Anticipation",
+      "exercise_id": "EX-EMOTION-JOURNAL",
+      "high_intensity_exercise_id": "EX-GROUNDING-321",
+      "reason": "Séparer ce qui peut être préparé de ce qui doit attendre.",
+      "second_exercise_id": "EX-PROBLEM-SOLVING"
+    },
+    {
+      "emotion": "Vigilance",
+      "exercise_id": "EX-GROUNDING-321",
+      "high_intensity_exercise_id": "EX-GROUNDING-321",
+      "reason": "Observer l'environnement sans augmenter inutilement la tension.",
+      "second_exercise_id": "EX-MINDFUL-BREATHING"
+    },
+    {
+      "emotion": "Anxiété",
+      "exercise_id": "EX-ACT-DEFUSION",
+      "high_intensity_exercise_id": "EX-GROUNDING-321",
+      "reason": "Prendre de la distance avec les scénarios puis revenir au présent si besoin.",
+      "second_exercise_id": "EX-MINDFULNESS-SHORT"
+    },
+    {
+      "emotion": "Honte",
+      "exercise_id": "EX-COMPASSION",
+      "high_intensity_exercise_id": "EX-GROUNDING-321",
+      "reason": "Réduire l'attaque contre soi et retrouver une base de sécurité.",
+      "second_exercise_id": "EX-BEHAVIORAL-ACTIVATION"
+    },
+    {
+      "emotion": "Culpabilité",
+      "exercise_id": "EX-ACT-DEFUSION",
+      "high_intensity_exercise_id": "EX-COMPASSION",
+      "reason": "Distinguer la pensée de culpabilité d'une réparation réellement possible.",
+      "second_exercise_id": "EX-MINDFULNESS-SHORT"
+    },
+    {
+      "emotion": "Solitude",
+      "exercise_id": "EX-NEEDS-IDENTIFICATION",
+      "high_intensity_exercise_id": "EX-COMPASSION",
+      "reason": "Nommer le besoin de lien et préparer une demande de soutien.",
+      "second_exercise_id": "EX-PROBLEM-SOLVING"
+    },
+    {
+      "emotion": "Frustration",
+      "exercise_id": "EX-PROBLEM-SOLVING",
+      "high_intensity_exercise_id": "EX-DELAY-URGE",
+      "reason": "Faire baisser l'impulsion puis choisir une résolution réaliste.",
+      "second_exercise_id": "EX-BEHAVIORAL-ACTIVATION"
+    },
+    {
+      "emotion": "Amour / affection",
+      "exercise_id": "EX-GRATITUDE",
+      "high_intensity_exercise_id": "EX-GROUNDING-321",
+      "reason": "Savourer le lien tout en respectant les limites et le consentement.",
+      "second_exercise_id": "EX-COMPASSION"
+    },
+    {
+      "emotion": "Espoir",
+      "exercise_id": "EX-BEHAVIORAL-ACTIVATION",
+      "high_intensity_exercise_id": "EX-GROUNDING-321",
+      "reason": "Transformer l'espoir en une petite action réaliste.",
+      "second_exercise_id": "EX-COMPASSION"
+    },
+    {
+      "emotion": "Soulagement",
+      "exercise_id": "EX-PMR",
+      "high_intensity_exercise_id": "EX-GROUNDING-321",
+      "reason": "Laisser le corps récupérer après la tension.",
+      "second_exercise_id": "EX-MINDFUL-BREATHING"
+    },
+    {
+      "emotion": "Gratitude",
+      "exercise_id": "EX-GRATITUDE",
+      "high_intensity_exercise_id": "EX-GROUNDING-321",
+      "reason": "Identifier une ressource précise sans nier les difficultés.",
+      "second_exercise_id": "EX-COMPASSION"
+    },
+    {
+      "emotion": "Fierté",
+      "exercise_id": "EX-GRATITUDE",
+      "high_intensity_exercise_id": "EX-GROUNDING-321",
+      "reason": "Reconnaître l'effort et garder un rythme soutenable.",
+      "second_exercise_id": "EX-COMPASSION"
+    },
+    {
+      "emotion": "Curiosité",
+      "exercise_id": "EX-MINDFULNESS-SHORT",
+      "high_intensity_exercise_id": "EX-GROUNDING-321",
+      "reason": "Observer la curiosité sans se disperser, puis revenir à une action choisie.",
+      "second_exercise_id": "EX-MINDFUL-BREATHING"
+    },
+    {
+      "emotion": "Panique",
+      "exercise_id": "EX-GROUNDING-321",
+      "high_intensity_exercise_id": "EX-GROUNDING-321",
+      "reason": "Prioriser la sécurité et les repères externes sans forcer le souffle.",
+      "second_exercise_id": "EX-MINDFUL-BREATHING"
+    },
+    {
+      "emotion": "Impuissance",
+      "exercise_id": "EX-PROBLEM-SOLVING",
+      "high_intensity_exercise_id": "EX-GROUNDING-321",
+      "reason": "Retrouver une action contrôlable et demander un soutien concret.",
+      "second_exercise_id": "EX-BEHAVIORAL-ACTIVATION"
+    },
+    {
+      "emotion": "Confusion",
+      "exercise_id": "EX-PROBLEM-SOLVING",
+      "high_intensity_exercise_id": "EX-GROUNDING-321",
+      "reason": "Ralentir et transformer le brouillard en une seule prochaine étape.",
+      "second_exercise_id": "EX-BEHAVIORAL-ACTIVATION"
+    },
+    {
+      "emotion": "Surcharge",
+      "exercise_id": "EX-RELAXATION-MUSCULAIRE-COURTE",
+      "high_intensity_exercise_id": "EX-GROUNDING-321",
+      "reason": "Réduire la tension et les stimulations avant de prioriser.",
+      "second_exercise_id": "EX-MINDFULNESS-SHORT"
+    },
+    {
+      "emotion": "Découragement",
+      "exercise_id": "EX-BEHAVIORAL-ACTIVATION",
+      "high_intensity_exercise_id": "EX-COMPASSION",
+      "reason": "Réduire l'évitement avec une action très petite et soutenable.",
+      "second_exercise_id": "EX-COMPASSION"
+    },
+    {
+      "emotion": "Rejet",
+      "exercise_id": "EX-SELF-COMPASSION",
+      "high_intensity_exercise_id": "EX-GROUNDING-321",
+      "reason": "Séparer le refus reçu de la valeur personnelle et retrouver un lien sûr.",
+      "second_exercise_id": "EX-NEEDS-IDENTIFICATION"
+    }
   ]
 }

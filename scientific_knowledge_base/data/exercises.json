@@ -373,72 +373,173 @@
     "id": "EX-PROBLEM-SOLVING",
     "name": "Résolution de problème en 4 étapes",
     "objective": "Transformer une situation bloquée en une prochaine action réaliste.",
-    "target_emotions": ["Frustration", "Confusion", "Impuissance", "Anticipation", "Anxiété"],
+    "target_emotions": [
+      "Frustration",
+      "Confusion",
+      "Impuissance",
+      "Anticipation",
+      "Anxiété"
+    ],
     "mechanism": "clarification, génération d'options, action graduée",
-    "protocol_steps": ["Décrire le problème en une phrase factuelle.", "Lister deux solutions possibles, même imparfaites.", "Choisir la plus sûre et la plus petite.", "La tester puis réévaluer sans se juger."],
+    "protocol_steps": [
+      "Décrire le problème en une phrase factuelle.",
+      "Lister deux solutions possibles, même imparfaites.",
+      "Choisir la plus sûre et la plus petite.",
+      "La tester puis réévaluer sans se juger."
+    ],
     "duration": "3-5 minutes",
     "recommended_frequency": "À chaque problème concret qui semble bloqué",
     "difficulty": "Facile à modérée",
     "population": "Adultes et adolescents; adapter avec un professionnel si crise",
     "contraindications": "Ne remplace pas une mise en sécurité ni une aide professionnelle face à la violence ou au danger.",
-    "associated_studies": ["PUBMED-40238104", "PUBMED-18363421"],
+    "associated_studies": [
+      "PUBMED-40238104",
+      "PUBMED-18363421"
+    ],
     "evidence_grade": "B",
     "evidence_status": "Principe issu des approches cognitivo-comportementales; l'effet dépend du contexte.",
-    "safety_flags": ["real_danger", "acute_crisis"],
+    "safety_flags": [
+      "real_danger",
+      "acute_crisis"
+    ],
     "research_notes": "La preuve des TCC ne valide pas chaque formulation ni chaque situation individuelle."
   },
   {
     "id": "EX-BEHAVIORAL-ACTIVATION",
-    "name": "Petite activation choisie",
+    "name": "Activation comportementale — petite activation",
     "objective": "Retrouver un mouvement compatible avec l'énergie disponible lorsque l'humeur se retire.",
-    "target_emotions": ["Tristesse", "Mélancolie", "Ennui", "Découragement", "Solitude"],
+    "target_emotions": [
+      "Tristesse",
+      "Mélancolie",
+      "Ennui",
+      "Découragement",
+      "Solitude"
+    ],
     "mechanism": "action graduée, contact avec des activités valorisées, réduction de l'évitement",
-    "protocol_steps": ["Choisir une activité de cinq minutes liée au soin, au lien ou à un intérêt.", "La rendre plus petite si elle semble impossible.", "La faire sans attendre d'abord d'aller mieux.", "Noter l'effet après, même s'il est faible."],
+    "protocol_steps": [
+      "Choisir une activité de cinq minutes liée au soin, au lien ou à un intérêt.",
+      "La rendre plus petite si elle semble impossible.",
+      "La faire sans attendre d'abord d'aller mieux.",
+      "Noter l'effet après, même s'il est faible."
+    ],
     "duration": "5-10 minutes",
     "recommended_frequency": "Une petite action par jour, à ajuster selon l'énergie",
     "difficulty": "Facile à modérée",
     "population": "Adultes et adolescents; accompagnement recommandé si désespoir marqué",
     "contraindications": "Ne pas s'imposer une activité épuisante; ce n'est pas un traitement d'une crise aiguë.",
-    "associated_studies": ["PUBMED-23870719", "PUBMED-40238104"],
+    "associated_studies": [
+      "PUBMED-23870719",
+      "PUBMED-40238104"
+    ],
     "evidence_grade": "B",
     "evidence_status": "Appuyé par les approches comportementales; l'effet n'est pas immédiat pour tout le monde.",
-    "safety_flags": ["acute_crisis", "severe_fatigue"],
+    "safety_flags": [
+      "acute_crisis",
+      "severe_fatigue"
+    ],
     "research_notes": "Une action graduée ne remplace pas une évaluation clinique si la souffrance persiste."
   },
   {
     "id": "EX-SELF-COMPASSION",
     "name": "Réponse compatissante",
     "objective": "Réduire l'attaque contre soi et reconnaître la difficulté sans nier la responsabilité.",
-    "target_emotions": ["Honte", "Culpabilité", "Tristesse", "Rejet", "Impuissance"],
+    "target_emotions": [
+      "Honte",
+      "Culpabilité",
+      "Tristesse",
+      "Rejet",
+      "Impuissance"
+    ],
     "mechanism": "acceptation, auto-compassion, mise à distance de l'auto-critique",
-    "protocol_steps": ["Nommer: « C'est difficile pour moi maintenant. »", "Ajouter une phrase réaliste de soutien.", "Distinguer ce qui doit être réparé de ce qui n'est pas sous contrôle.", "Choisir un geste de soin ou de réparation sûr."],
+    "protocol_steps": [
+      "Nommer: « C'est difficile pour moi maintenant. »",
+      "Ajouter une phrase réaliste de soutien.",
+      "Distinguer ce qui doit être réparé de ce qui n'est pas sous contrôle.",
+      "Choisir un geste de soin ou de réparation sûr."
+    ],
     "duration": "2-4 minutes",
     "recommended_frequency": "Au besoin; arrêter si cela augmente le malaise",
     "difficulty": "Modérée",
     "population": "Adultes et adolescents; adapter avec un professionnel si trauma ou crise",
     "contraindications": "Ne pas utiliser pour excuser une violence; la réparation et la sécurité restent prioritaires.",
-    "associated_studies": ["PUBMED-REALTIME-26311196", "PUBMED-REALTIME-32196399"],
+    "associated_studies": [
+      "PUBMED-REALTIME-26311196",
+      "PUBMED-REALTIME-32196399"
+    ],
     "evidence_grade": "B",
     "evidence_status": "Soutenu par des méta-analyses de l'auto-compassion; les effets varient selon les personnes.",
-    "safety_flags": ["acute_crisis", "trauma_triggered"],
+    "safety_flags": [
+      "acute_crisis",
+      "trauma_triggered"
+    ],
     "research_notes": "L'auto-compassion n'est pas une injonction à être positif ni à minimiser un dommage."
   },
   {
     "id": "EX-RELAXATION-MUSCULAIRE-COURTE",
     "name": "Relâchement musculaire court",
     "objective": "Repérer puis diminuer une tension corporelle sans forcer.",
-    "target_emotions": ["Stress", "Anxiété", "Colère", "Vigilance", "Surcharge"],
+    "target_emotions": [
+      "Stress",
+      "Anxiété",
+      "Colère",
+      "Vigilance",
+      "Surcharge"
+    ],
     "mechanism": "contraste tension-relâchement, attention corporelle, récupération",
-    "protocol_steps": ["Choisir une zone non douloureuse, par exemple les épaules.", "Contracter doucement pendant quelques secondes.", "Relâcher plus longtemps et observer la différence.", "Répéter deux fois, sans retenir le souffle."],
+    "protocol_steps": [
+      "Choisir une zone non douloureuse, par exemple les épaules.",
+      "Contracter doucement pendant quelques secondes.",
+      "Relâcher plus longtemps et observer la différence.",
+      "Répéter deux fois, sans retenir le souffle."
+    ],
     "duration": "2-4 minutes",
     "recommended_frequency": "Au besoin; pratique progressive si elle est aidante",
     "difficulty": "Facile",
     "population": "Adultes et adolescents; adapter en cas de douleur ou problème musculaire",
     "contraindications": "Ne pas contracter une zone blessée; arrêter en cas de douleur, vertige ou malaise.",
-    "associated_studies": ["PUBMED-REALTIME-38322293"],
+    "associated_studies": [
+      "PUBMED-REALTIME-38322293"
+    ],
     "evidence_grade": "B",
     "evidence_status": "Soutenu par une revue systématique; les protocoles et effets restent hétérogènes.",
-    "safety_flags": ["pain_or_injury", "dizziness"],
+    "safety_flags": [
+      "pain_or_injury",
+      "dizziness"
+    ],
     "research_notes": "La relaxation n'est pas adaptée à toutes les personnes ni à toutes les situations."
+  },
+  {
+    "id": "EX-MINDFULNESS-SHORT",
+    "name": "Pleine conscience courte",
+    "objective": "Observer brièvement l’expérience présente avec curiosité, sans chercher à la modifier immédiatement.",
+    "target_emotions": [
+      "Sérénité",
+      "Joie",
+      "Curiosité",
+      "Anxiété",
+      "Stress"
+    ],
+    "mechanism": "attention au moment présent, désengagement de la réaction automatique, observation non jugeante",
+    "protocol_steps": [
+      "Choisir un repère présent : respiration naturelle, son ou contact des pieds au sol.",
+      "Observer ce qui est présent pendant quelques instants, sans forcer ni retenir le souffle.",
+      "Nommer simplement une sensation, une pensée ou une émotion.",
+      "Revenir au repère choisi puis décider de la prochaine petite action."
+    ],
+    "duration": "1-3 minutes",
+    "recommended_frequency": "Au besoin; commencer court et arrêter si le malaise augmente",
+    "difficulty": "Facile à modérée",
+    "population": "Adultes et adolescents; adaptation nécessaire selon la situation",
+    "contraindications": "Ne remplace pas une mise en sécurité. Adapter ou arrêter si l’observation interne augmente la détresse ou la dissociation.",
+    "associated_studies": [
+      "SR-META-MINDFULNESS-KHOURY-2013"
+    ],
+    "evidence_grade": "B",
+    "evidence_status": "Méthode soutenue par des synthèses; la formulation courte exacte est une adaptation prudente.",
+    "safety_flags": [
+      "acute_crisis",
+      "dissociation"
+    ],
+    "research_notes": "La preuve porte sur des interventions de pleine conscience plus larges; elle ne garantit pas un effet individuel ni celui de cette version courte."
   }
 ]
