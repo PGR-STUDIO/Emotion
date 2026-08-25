@@ -1,0 +1,217 @@
+[
+  {
+    "id": "MODEL-CBT",
+    "name": "Thérapie Cognitivo-Comportementale (TCC)",
+    "principles": [
+      "Les émotions sont influencées par les interprétations, comportements et contextes.",
+      "Les schémas de pensée et l'évitement peuvent maintenir la détresse."
+    ],
+    "mechanisms": [
+      "restructuration cognitive",
+      "activation comportementale",
+      "exposition",
+      "auto-monitoring"
+    ],
+    "situations_of_use": [
+      "anxiété",
+      "dépression",
+      "colère",
+      "stress",
+      "évitement"
+    ],
+    "validated_exercises": [
+      "EX-COGNITIVE-RESTRUCTURING",
+      "EX-GRADED-EXPOSURE",
+      "EX-EMOTION-JOURNAL"
+    ],
+    "key_studies": [
+      "META-CBT-HOFMANN-2012"
+    ]
+  },
+  {
+    "id": "MODEL-ACT",
+    "name": "Thérapie d’Acceptation et d’Engagement (ACT)",
+    "principles": [
+      "Augmenter la flexibilité psychologique.",
+      "Changer la relation aux pensées plutôt que leur contenu lorsque c'est plus utile."
+    ],
+    "mechanisms": [
+      "acceptation",
+      "défusion cognitive",
+      "clarification des valeurs",
+      "action engagée"
+    ],
+    "situations_of_use": [
+      "rumination",
+      "anxiété",
+      "douleur chronique",
+      "évitement expérientiel"
+    ],
+    "validated_exercises": [
+      "EX-ACT-DEFUSION",
+      "EX-VALUES-NEEDS"
+    ],
+    "key_studies": [
+      "META-ACT-A-TJAK-2015"
+    ]
+  },
+  {
+    "id": "MODEL-DBT",
+    "name": "Thérapie Comportementale Dialectique (TCD/DBT)",
+    "principles": [
+      "Validation de l'expérience et changement comportemental.",
+      "Compétences concrètes pour tolérance à la détresse et régulation émotionnelle."
+    ],
+    "mechanisms": [
+      "distress tolerance",
+      "opposite action",
+      "mindfulness skills",
+      "interpersonal effectiveness"
+    ],
+    "situations_of_use": [
+      "émotions très intenses",
+      "impulsivité",
+      "auto-agressivité sous suivi clinique",
+      "conflits relationnels"
+    ],
+    "validated_exercises": [
+      "EX-GROUNDING-321",
+      "EX-DELAY-URGE",
+      "EX-OPPOSITE-ACTION"
+    ],
+    "key_studies": [
+      "SR-DBT-KLIEM-2010"
+    ]
+  },
+  {
+    "id": "MODEL-MINDFULNESS",
+    "name": "Mindfulness MBSR / MBCT",
+    "principles": [
+      "Attention intentionnelle au présent avec attitude de non-jugement.",
+      "Observer les pensées, émotions et sensations comme des événements mentaux transitoires."
+    ],
+    "mechanisms": [
+      "décentration",
+      "attention au présent",
+      "réduction de la réactivité",
+      "acceptation"
+    ],
+    "situations_of_use": [
+      "stress",
+      "rumination",
+      "rechute dépressive en contexte MBCT",
+      "anxiété légère à modérée"
+    ],
+    "validated_exercises": [
+      "EX-MINDFUL-BREATHING",
+      "EX-BODY-SCAN",
+      "EX-GROUNDING-321"
+    ],
+    "key_studies": [
+      "SR-META-MINDFULNESS-KHOURY-2013",
+      "SR-META-MBSR-KHOURY-2015"
+    ]
+  },
+  {
+    "id": "MODEL-POSITIVE-PSYCHOLOGY",
+    "name": "Psychologie positive",
+    "principles": [
+      "Cultiver émotions positives, sens, forces, gratitude et relations positives.",
+      "Complément du traitement de la souffrance, pas remplacement."
+    ],
+    "mechanisms": [
+      "savoring",
+      "gratitude",
+      "forces personnelles",
+      "élargissement attentionnel"
+    ],
+    "situations_of_use": [
+      "humeur basse légère",
+      "consolidation du bien-être",
+      "prévention",
+      "motivation"
+    ],
+    "validated_exercises": [
+      "EX-GRATITUDE",
+      "EX-SAVORING"
+    ],
+    "key_studies": [
+      "META-POSITIVE-BOLIER-2013"
+    ]
+  },
+  {
+    "id": "MODEL-ATTACHMENT",
+    "name": "Théorie de l’attachement",
+    "principles": [
+      "Les expériences relationnelles façonnent des modèles internes de sécurité, proximité et disponibilité d'autrui.",
+      "Les émotions interpersonnelles peuvent signaler un besoin de sécurité ou de connexion."
+    ],
+    "mechanisms": [
+      "activation du système d'attachement",
+      "recherche de proximité",
+      "hyperactivation ou désactivation"
+    ],
+    "situations_of_use": [
+      "peur de rejet",
+      "colère relationnelle",
+      "tristesse liée à séparation",
+      "besoin de réassurance"
+    ],
+    "validated_exercises": [
+      "EX-SAFE-PERSON",
+      "EX-NEEDS-IDENTIFICATION"
+    ],
+    "key_studies": []
+  },
+  {
+    "id": "MODEL-SDT",
+    "name": "Théorie de l’autodétermination",
+    "principles": [
+      "Trois besoins psychologiques fondamentaux : autonomie, compétence, relation.",
+      "La motivation autonome soutient l'engagement durable."
+    ],
+    "mechanisms": [
+      "satisfaction/frustration des besoins",
+      "motivation autonome",
+      "choix soutenant l'autonomie"
+    ],
+    "situations_of_use": [
+      "perte de motivation",
+      "conflits de besoin",
+      "choix d'action après émotion"
+    ],
+    "validated_exercises": [
+      "EX-NEEDS-IDENTIFICATION",
+      "EX-VALUES-NEEDS"
+    ],
+    "key_studies": [
+      "META-SELFDETERMINATION-SLEMP-2024"
+    ]
+  },
+  {
+    "id": "MODEL-AFFECTIVE-NEUROSCIENCE",
+    "name": "Neurosciences des émotions",
+    "principles": [
+      "Les émotions impliquent des réseaux distribués plutôt qu'un seul centre cérébral.",
+      "La régulation implique interactions entre attention, évaluation, mémoire, corps et contrôle préfrontal."
+    ],
+    "mechanisms": [
+      "saillance",
+      "interoception",
+      "réévaluation",
+      "étiquetage affectif"
+    ],
+    "situations_of_use": [
+      "psychoéducation",
+      "mise en mots",
+      "compréhension corps-émotion"
+    ],
+    "validated_exercises": [
+      "EX-AFFECT-LABELING",
+      "EX-INTEROCEPTION-CHECK"
+    ],
+    "key_studies": [
+      "RCT-AFFECT-LABEL-LIEBERMAN-2007"
+    ]
+  }
+]

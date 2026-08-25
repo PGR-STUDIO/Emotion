@@ -1,0 +1,101 @@
+{
+  "required": [
+    "id",
+    "title",
+    "authors",
+    "year",
+    "journal",
+    "doi",
+    "source_url",
+    "study_type",
+    "evidence_level",
+    "population",
+    "participants",
+    "duration",
+    "method",
+    "assessment_tools",
+    "main_results",
+    "limitations",
+    "scientific_conclusion"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "journal": {
+      "type": "string"
+    },
+    "doi": {
+      "type": "string"
+    },
+    "source_url": {
+      "type": "string"
+    },
+    "study_type": {
+      "type": "string"
+    },
+    "evidence_level": {
+      "type": "string"
+    },
+    "population": {
+      "type": "string"
+    },
+    "participants": {
+      "type": "string"
+    },
+    "duration": {
+      "type": "string"
+    },
+    "method": {
+      "type": "string"
+    },
+    "main_results": {
+      "type": "string"
+    },
+    "limitations": {
+      "type": "string"
+    },
+    "scientific_conclusion": {
+      "type": "string"
+    },
+    "abstract": {
+      "type": "string"
+    },
+    "pmid": {
+      "type": "string"
+    },
+    "pmc_id": {
+      "type": "string"
+    },
+    "pubmed_url": {
+      "type": "string"
+    },
+    "extraction_status": {
+      "type": "string"
+    },
+    "full_text_access": {
+      "type": "string"
+    },
+    "full_text_extraction_status": {
+      "type": "string"
+    },
+    "full_text_extraction": {
+      "type": "object",
+      "properties": {
+        "pmc_id": {"type": "string"},
+        "pmc_url": {"type": "string"},
+        "source": {"type": "string"},
+        "retrieved_on": {"type": "string"},
+        "title_from_full_text": {"type": "string"},
+        "sections": {"type": "array"},
+        "references": {"type": "array"},
+        "reference_count": {"type": "integer"},
+        "character_count": {"type": "integer"},
+        "extraction_status": {"type": "string"}
+      }
+    }
+  }
+}

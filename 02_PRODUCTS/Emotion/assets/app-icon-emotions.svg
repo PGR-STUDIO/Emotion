@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Émotions">
+  <circle cx="256" cy="256" r="164" fill="#fffefa"/>
+  <g fill="none" stroke-width="28" stroke-linecap="butt" stroke-dasharray="128.8 901.6">
+    <circle cx="256" cy="256" r="164" stroke="#f1c96b" transform="rotate(-90 256 256)"/>
+    <circle cx="256" cy="256" r="164" stroke="#91c69c" transform="rotate(-45 256 256)"/>
+    <circle cx="256" cy="256" r="164" stroke="#72c8d2" transform="rotate(0 256 256)"/>
+    <circle cx="256" cy="256" r="164" stroke="#b99bdc" transform="rotate(45 256 256)"/>
+    <circle cx="256" cy="256" r="164" stroke="#8fa9dc" transform="rotate(90 256 256)"/>
+    <circle cx="256" cy="256" r="164" stroke="#b7c66b" transform="rotate(135 256 256)"/>
+    <circle cx="256" cy="256" r="164" stroke="#e85b57" transform="rotate(180 256 256)"/>
+    <circle cx="256" cy="256" r="164" stroke="#f0a24d" transform="rotate(225 256 256)"/>
+  </g>
+  <circle cx="256" cy="256" r="42" fill="#29435f"/>
+  <circle cx="256" cy="156" r="19" fill="#f1c96b"/>
+  <circle cx="327" cy="185" r="19" fill="#91c69c"/>
+  <circle cx="356" cy="256" r="19" fill="#72c8d2"/>
+  <circle cx="327" cy="327" r="19" fill="#b99bdc"/>
+  <circle cx="256" cy="356" r="19" fill="#8fa9dc"/>
+  <circle cx="185" cy="327" r="19" fill="#b7c66b"/>
+  <circle cx="156" cy="256" r="19" fill="#e85b57"/>
+  <circle cx="185" cy="185" r="19" fill="#f0a24d"/>
+</svg>
