@@ -576,8 +576,9 @@ document.addEventListener('click', event => {
     saveDraft(); renderEmotionContext(); renderExercise();
     return;
   }
-  const part = event.target.closest('#wheelPanel .interactive-sector, #wheelPanel .extra-emotion');
+  const part = event.target.closest('#wheelPanel .interactive-sector, #wheelPanel .extra-emotion, #wheelPanel .blend-emotion, #wheelPanel .wheel-blends span');
   if (!part) return;
+  if (part.matches('.wheel-blends span')) part.dataset.nuance = part.querySelector('b')?.textContent?.trim() || '';
   draft.emotion = null;
   draft.nuance = part.dataset.nuance;
   draft.urgeType = '';
@@ -590,7 +591,7 @@ document.addEventListener('click', event => {
   renderExercise();
 });
 document.addEventListener('keydown', event => {
-  const part = event.target.closest?.('#wheelPanel .interactive-sector, #wheelPanel .extra-emotion');
+  const part = event.target.closest?.('#wheelPanel .interactive-sector, #wheelPanel .extra-emotion, #wheelPanel .blend-emotion, #wheelPanel .wheel-blends span');
   if (!part || (event.key !== 'Enter' && event.key !== ' ')) return;
   event.preventDefault();
   part.click();
