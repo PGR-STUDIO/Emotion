@@ -1,0 +1,13 @@
+{
+  "name": "Émotions",
+  "short_name": "Émotions",
+  "lang": "fr",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f9f6f1",
+  "theme_color": "#f9f6f1",
+  "description": "Support local d’auto-observation émotionnelle et de préparation de séance.",
+  "icons": [
+    {"src": "assets/app-icon-emotions.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
+  ]
+}

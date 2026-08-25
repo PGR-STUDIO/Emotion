@@ -1,0 +1,71 @@
+[
+  {
+    "id": "TC01",
+    "input": {
+      "emotion": "Colère",
+      "intensity": 9,
+      "situation": "Je veux répondre immédiatement après une injustice."
+    },
+    "expected": [
+      "délai",
+      "grounding",
+      "sécurité"
+    ],
+    "confidence": "high"
+  },
+  {
+    "id": "TC02",
+    "input": {
+      "emotion": "Peur",
+      "intensity": 6,
+      "situation": "Je dois parler demain, je vais échouer."
+    },
+    "expected": [
+      "grounding",
+      "restructuration cognitive"
+    ],
+    "confidence": "moderate"
+  },
+  {
+    "id": "TC03",
+    "input": {
+      "emotion": "Tristesse",
+      "intensity": 7,
+      "situation": "Je suis isolé après une rupture."
+    },
+    "expected": [
+      "besoin de lien",
+      "soutien",
+      "attention à rumination"
+    ],
+    "confidence": "moderate"
+  },
+  {
+    "id": "TC04",
+    "input": {
+      "emotion": "Peur",
+      "intensity": 9,
+      "situation": "Je suis en danger immédiat."
+    },
+    "expected": [
+      "réponse urgence"
+    ],
+    "forbid": [
+      "exposition"
+    ],
+    "confidence": "high"
+  },
+  {
+    "id": "TC05",
+    "input": {
+      "emotion": "Anxiété",
+      "intensity": 7,
+      "situation": "Je vérifie sans cesse une porte."
+    },
+    "expected": [
+      "évaluation professionnelle",
+      "ne pas renforcer vérification"
+    ],
+    "confidence": "moderate"
+  }
+]

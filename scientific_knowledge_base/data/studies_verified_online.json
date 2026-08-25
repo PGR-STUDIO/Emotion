@@ -1,0 +1,315 @@
+[
+  {
+    "id": "SR-META-MINDFULNESS-KHOURY-2013",
+    "doi": "10.1016/j.cpr.2013.05.005",
+    "input_title": "Mindfulness-based therapy: A comprehensive meta-analysis",
+    "verified_at": "2026-08-22",
+    "pubmed": {
+      "pmid": "23796855",
+      "title": "Mindfulness-based therapy: a comprehensive meta-analysis.",
+      "journal": "Clinical psychology review",
+      "pubdate": "2013 Aug",
+      "authors": [
+        "Khoury B",
+        "Lecomte T",
+        "Fortin G",
+        "Masse M",
+        "Therien P",
+        "Bouchard V",
+        "Chapleau MA",
+        "Paquin K",
+        "Hofmann SG"
+      ],
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/23796855/"
+    },
+    "crossref": {
+      "title": "Mindfulness-based therapy: A comprehensive meta-analysis",
+      "container": "Clinical Psychology Review",
+      "published": {
+        "date-parts": [
+          [
+            2013,
+            8
+          ]
+        ]
+      },
+      "type": "journal-article",
+      "is_referenced_by_count": 1674,
+      "url": "https://doi.org/10.1016/j.cpr.2013.05.005"
+    },
+    "status": "verified_online_metadata_found",
+    "notes": []
+  },
+  {
+    "id": "SR-META-MBSR-KHOURY-2015",
+    "doi": "10.1016/j.jpsychores.2015.03.009",
+    "input_title": "Mindfulness-based stress reduction for healthy individuals: A meta-analysis",
+    "verified_at": "2026-08-22",
+    "pubmed": {
+      "pmid": "25818837",
+      "title": "Mindfulness-based stress reduction for healthy individuals: A meta-analysis.",
+      "journal": "Journal of psychosomatic research",
+      "pubdate": "2015 Jun",
+      "authors": [
+        "Khoury B",
+        "Sharma M",
+        "Rush SE",
+        "Fournier C"
+      ],
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/25818837/"
+    },
+    "crossref": {
+      "title": "Mindfulness-based stress reduction for healthy individuals: A meta-analysis",
+      "container": "Journal of Psychosomatic Research",
+      "published": {
+        "date-parts": [
+          [
+            2015,
+            6
+          ]
+        ]
+      },
+      "type": "journal-article",
+      "is_referenced_by_count": 1354,
+      "url": "https://doi.org/10.1016/j.jpsychores.2015.03.009"
+    },
+    "status": "verified_online_metadata_found",
+    "notes": []
+  },
+  {
+    "id": "META-CBT-HOFMANN-2012",
+    "doi": "10.1007/s10608-012-9476-1",
+    "input_title": "The efficacy of cognitive behavioral therapy: A review of meta-analyses",
+    "verified_at": "2026-08-22",
+    "pubmed": {
+      "pmid": "23459093",
+      "title": "The Efficacy of Cognitive Behavioral Therapy: A Review of Meta-analyses.",
+      "journal": "Cognitive therapy and research",
+      "pubdate": "2012 Oct 1",
+      "authors": [
+        "Hofmann SG",
+        "Asnaani A",
+        "Vonk IJ",
+        "Sawyer AT",
+        "Fang A"
+      ],
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/23459093/"
+    },
+    "crossref": {
+      "title": "The Efficacy of Cognitive Behavioral Therapy: A Review of Meta-analyses",
+      "container": "Cognitive Therapy and Research",
+      "published": {
+        "date-parts": [
+          [
+            2012,
+            10
+          ]
+        ]
+      },
+      "type": "journal-article",
+      "is_referenced_by_count": 2660,
+      "url": "https://doi.org/10.1007/s10608-012-9476-1"
+    },
+    "status": "verified_online_metadata_found",
+    "notes": []
+  },
+  {
+    "id": "META-ACT-A-TJAK-2015",
+    "doi": "10.1159/000365764",
+    "input_title": "A meta-analysis of the efficacy of acceptance and commitment therapy for clinically relevant mental and physical health problems",
+    "verified_at": "2026-08-22",
+    "pubmed": {
+      "pmid": "25547522",
+      "title": "A meta-analysis of the efficacy of acceptance and commitment therapy for clinically relevant mental and physical health problems.",
+      "journal": "Psychotherapy and psychosomatics",
+      "pubdate": "2015",
+      "authors": [
+        "A-Tjak JG",
+        "Davis ML",
+        "Morina N",
+        "Powers MB",
+        "Smits JA",
+        "Emmelkamp PM"
+      ],
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/25547522/"
+    },
+    "crossref": {
+      "title": "A Meta-Analysis of the Efficacy of Acceptance and Commitment Therapy for Clinically Relevant Mental and Physical Health Problems",
+      "container": "Psychotherapy and Psychosomatics",
+      "published": {
+        "date-parts": [
+          [
+            2015
+          ]
+        ]
+      },
+      "type": "journal-article",
+      "is_referenced_by_count": 735,
+      "url": "https://doi.org/10.1159/000365764"
+    },
+    "status": "verified_online_metadata_found",
+    "notes": []
+  },
+  {
+    "id": "SR-DBT-KLIEM-2010",
+    "doi": "10.1037/a0021015",
+    "input_title": "A meta-analysis of the effects of dialectical behavior therapy in borderline personality disorder",
+    "verified_at": "2026-08-22",
+    "pubmed": {
+      "pmid": "21114345",
+      "title": "Dialectical behavior therapy for borderline personality disorder: a meta-analysis using mixed-effects modeling.",
+      "journal": "Journal of consulting and clinical psychology",
+      "pubdate": "2010 Dec",
+      "authors": [
+        "Kliem S",
+        "Kröger C",
+        "Kosfelder J"
+      ],
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/21114345/"
+    },
+    "crossref": {
+      "title": "Dialectical behavior therapy for borderline personality disorder: A meta-analysis using mixed-effects modeling.",
+      "container": "Journal of Consulting and Clinical Psychology",
+      "published": {
+        "date-parts": [
+          [
+            2010
+          ]
+        ]
+      },
+      "type": "journal-article",
+      "is_referenced_by_count": 364,
+      "url": "https://doi.org/10.1037/a0021015"
+    },
+    "status": "verified_online_metadata_found",
+    "notes": []
+  },
+  {
+    "id": "RCT-AFFECT-LABEL-LIEBERMAN-2007",
+    "doi": "10.1111/j.1467-9280.2007.01916.x",
+    "input_title": "Putting feelings into words: affect labeling disrupts amygdala activity in response to affective stimuli",
+    "verified_at": "2026-08-22",
+    "pubmed": {
+      "pmid": "17576282",
+      "title": "Putting feelings into words: affect labeling disrupts amygdala activity in response to affective stimuli.",
+      "journal": "Psychological science",
+      "pubdate": "2007 May",
+      "authors": [
+        "Lieberman MD",
+        "Eisenberger NI",
+        "Crockett MJ",
+        "Tom SM",
+        "Pfeifer JH",
+        "Way BM"
+      ],
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/17576282/"
+    },
+    "crossref": {
+      "title": "Putting Feelings Into Words",
+      "container": "Psychological Science",
+      "published": {
+        "date-parts": [
+          [
+            2007,
+            5
+          ]
+        ]
+      },
+      "type": "journal-article",
+      "is_referenced_by_count": 909,
+      "url": "https://doi.org/10.1111/j.1467-9280.2007.01916.x"
+    },
+    "status": "verified_online_metadata_found",
+    "notes": []
+  },
+  {
+    "id": "SR-BREATH-ZACCARO-2018",
+    "doi": "10.3389/fnhum.2018.00353",
+    "input_title": "How breath-control can change your life: a systematic review on psycho-physiological correlates of slow breathing",
+    "verified_at": "2026-08-22",
+    "pubmed": {
+      "pmid": "30245619",
+      "title": "How Breath-Control Can Change Your Life: A Systematic Review on Psycho-Physiological Correlates of Slow Breathing.",
+      "journal": "Frontiers in human neuroscience",
+      "pubdate": "2018",
+      "authors": [
+        "Zaccaro A",
+        "Piarulli A",
+        "Laurino M",
+        "Garbella E",
+        "Menicucci D",
+        "Neri B",
+        "Gemignani A"
+      ],
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/30245619/"
+    },
+    "crossref": {
+      "title": "How Breath-Control Can Change Your Life: A Systematic Review on Psycho-Physiological Correlates of Slow Breathing",
+      "container": "Frontiers in Human Neuroscience",
+      "published": {
+        "date-parts": [
+          [
+            2018,
+            9,
+            7
+          ]
+        ]
+      },
+      "type": "journal-article",
+      "is_referenced_by_count": 704,
+      "url": "https://doi.org/10.3389/fnhum.2018.00353"
+    },
+    "status": "verified_online_metadata_found",
+    "notes": []
+  },
+  {
+    "id": "META-POSITIVE-BOLIER-2013",
+    "doi": "10.1186/1471-2458-13-119",
+    "input_title": "Positive psychology interventions: a meta-analysis of randomized controlled studies",
+    "verified_at": "2026-08-22",
+    "pubmed": {
+      "pmid": "23390882",
+      "title": "Positive psychology interventions: a meta-analysis of randomized controlled studies.",
+      "journal": "BMC public health",
+      "pubdate": "2013 Feb 8",
+      "authors": [
+        "Bolier L",
+        "Haverman M",
+        "Westerhof GJ",
+        "Riper H",
+        "Smit F",
+        "Bohlmeijer E"
+      ],
+      "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/23390882/"
+    },
+    "crossref": {
+      "title": "Positive psychology interventions: a meta-analysis of randomized controlled studies",
+      "container": "BMC Public Health",
+      "published": {
+        "date-parts": [
+          [
+            2013,
+            12
+          ]
+        ]
+      },
+      "type": "journal-article",
+      "is_referenced_by_count": 1456,
+      "url": "https://doi.org/10.1186/1471-2458-13-119"
+    },
+    "status": "verified_online_metadata_found",
+    "notes": []
+  },
+  {
+    "id": "META-SELFDETERMINATION-SLEMP-2024",
+    "doi": "10.1080/17437199.2023.2293465",
+    "input_title": "Interventions based on self-determination theory to promote health behavior change: a meta-analysis",
+    "verified_at": "2026-08-22",
+    "pubmed": null,
+    "crossref": null,
+    "status": "not_found_or_api_error",
+    "notes": [
+      "crossref lookup error: JSONDecodeError('Expecting value: line 1 column 1 (char 0)')"
+    ]
+  }
+]

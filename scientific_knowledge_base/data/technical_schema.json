@@ -1,0 +1,66 @@
+{
+  "version": "0.3.0",
+  "tables": [
+    {
+      "name": "studies",
+      "primary_key": "id",
+      "indexes": [
+        "doi",
+        "pmid",
+        "search_domain",
+        "evidence_tier"
+      ]
+    },
+    {
+      "name": "models",
+      "primary_key": "id",
+      "foreign_keys": [
+        "key_studies -> studies.id",
+        "validated_exercises -> exercises.id"
+      ]
+    },
+    {
+      "name": "emotions",
+      "primary_key": "id",
+      "indexes": [
+        "name",
+        "plutchik_family"
+      ]
+    },
+    {
+      "name": "exercises",
+      "primary_key": "id",
+      "foreign_keys": [
+        "associated_studies -> studies.id"
+      ],
+      "indexes": [
+        "evidence_grade"
+      ]
+    },
+    {
+      "name": "recommendation_rules",
+      "primary_key": "version"
+    },
+    {
+      "name": "safety_protocol",
+      "primary_key": "version"
+    },
+    {
+      "name": "recommendation_test_cases",
+      "primary_key": "id"
+    }
+  ],
+  "retrieval": [
+    "triage sécurité avant exercice",
+    "récupérer émotion+mécanisme+exercice+preuve",
+    "classer A/B avant C/D",
+    "exposer incertitude et extraction_status"
+  ],
+  "privacy": [
+    "minimum nécessaire",
+    "séparer identités et journaux",
+    "chiffrement production",
+    "export/suppression",
+    "consentement explicite pour recherche"
+  ]
+}

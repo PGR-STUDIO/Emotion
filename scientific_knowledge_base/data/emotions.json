@@ -1,0 +1,1011 @@
+[
+  {
+    "id": "EMO-FEAR",
+    "name": "Peur",
+    "definition": "Émotion liée à la perception d'une menace ou d'un danger potentiel ou immédiat.",
+    "evolutionary_function": "Protection, détection du danger, préparation à fuir, se figer ou demander de l'aide.",
+    "common_triggers": [
+      "danger réel",
+      "incertitude",
+      "menace sociale",
+      "souvenir traumatique",
+      "perte de contrôle"
+    ],
+    "body_sensations": [
+      "cœur qui accélère",
+      "respiration courte",
+      "tension musculaire",
+      "ventre noué",
+      "vigilance"
+    ],
+    "associated_thoughts": [
+      "je ne vais pas y arriver",
+      "il va se passer quelque chose",
+      "je ne suis pas en sécurité"
+    ],
+    "possible_behaviors": [
+      "fuite",
+      "évitement",
+      "recherche de réassurance",
+      "figement",
+      "hypervigilance"
+    ],
+    "secondary_emotions": [
+      "colère",
+      "honte",
+      "tristesse"
+    ],
+    "psychological_needs": [
+      "sécurité",
+      "prévisibilité",
+      "soutien",
+      "contrôle réaliste"
+    ],
+    "plutchik_family": "Peur",
+    "ekman_basic": true
+  },
+  {
+    "id": "EMO-ANGER",
+    "name": "Colère",
+    "definition": "Émotion liée à une perception d'obstacle, d'injustice, d'atteinte aux limites ou de frustration.",
+    "evolutionary_function": "Mobiliser l'énergie pour protéger les limites, corriger une injustice ou restaurer une capacité d'action.",
+    "common_triggers": [
+      "injustice",
+      "frustration",
+      "non-respect",
+      "menace contre soi ou autrui",
+      "impuissance"
+    ],
+    "body_sensations": [
+      "chaleur",
+      "mâchoire serrée",
+      "tension dans les bras",
+      "cœur rapide",
+      "agitation"
+    ],
+    "associated_thoughts": [
+      "ce n'est pas juste",
+      "on ne me respecte pas",
+      "il faut que ça s'arrête"
+    ],
+    "possible_behaviors": [
+      "confrontation",
+      "hausser le ton",
+      "agir vite",
+      "ruminer",
+      "poser une limite"
+    ],
+    "secondary_emotions": [
+      "peur",
+      "honte",
+      "tristesse",
+      "culpabilité"
+    ],
+    "psychological_needs": [
+      "respect",
+      "justice",
+      "limites",
+      "reconnaissance"
+    ],
+    "plutchik_family": "Colère",
+    "ekman_basic": true
+  },
+  {
+    "id": "EMO-SADNESS",
+    "name": "Tristesse",
+    "definition": "Émotion liée à une perte, une séparation, une déception ou un manque important.",
+    "evolutionary_function": "Favoriser le ralentissement, le soutien social, l'intégration d'une perte et la réorientation des priorités.",
+    "common_triggers": [
+      "perte",
+      "rejet",
+      "solitude",
+      "échec",
+      "fatigue émotionnelle"
+    ],
+    "body_sensations": [
+      "lourdeur",
+      "gorge serrée",
+      "larmes",
+      "fatigue",
+      "poitrine serrée"
+    ],
+    "associated_thoughts": [
+      "ça me manque",
+      "je suis seul",
+      "j'ai perdu quelque chose d'important"
+    ],
+    "possible_behaviors": [
+      "pleurer",
+      "se retirer",
+      "chercher du réconfort",
+      "ralentir"
+    ],
+    "secondary_emotions": [
+      "honte",
+      "colère",
+      "anxiété"
+    ],
+    "psychological_needs": [
+      "réconfort",
+      "connexion",
+      "repos",
+      "sens"
+    ],
+    "plutchik_family": "Tristesse",
+    "ekman_basic": true
+  },
+  {
+    "id": "EMO-DISGUST",
+    "name": "Dégoût",
+    "definition": "Émotion de rejet face à quelque chose perçu comme contaminant, moralement inacceptable ou profondément aversif.",
+    "evolutionary_function": "Éviter contamination, menace sanitaire ou violation de valeurs/limites.",
+    "common_triggers": [
+      "odeur/goût aversif",
+      "comportement jugé immoral",
+      "intrusion",
+      "violation de limite"
+    ],
+    "body_sensations": [
+      "nausée",
+      "recul",
+      "tension du visage",
+      "serrement de gorge"
+    ],
+    "associated_thoughts": [
+      "je ne veux pas de ça",
+      "c'est inacceptable",
+      "je dois m'éloigner"
+    ],
+    "possible_behaviors": [
+      "évitement",
+      "rejet",
+      "nettoyage",
+      "mise à distance"
+    ],
+    "secondary_emotions": [
+      "colère",
+      "honte",
+      "peur"
+    ],
+    "psychological_needs": [
+      "protection",
+      "limites",
+      "intégrité",
+      "sécurité"
+    ],
+    "plutchik_family": "Dégoût",
+    "ekman_basic": true
+  },
+  {
+    "id": "EMO-JOY",
+    "name": "Joie",
+    "definition": "Émotion positive liée à la satisfaction, la connexion, l'accomplissement ou l'anticipation favorable.",
+    "evolutionary_function": "Renforcer les comportements bénéfiques, la connexion sociale, l'exploration et l'apprentissage.",
+    "common_triggers": [
+      "réussite",
+      "lien social",
+      "jeu",
+      "bonne nouvelle",
+      "soulagement"
+    ],
+    "body_sensations": [
+      "énergie",
+      "légèreté",
+      "sourire",
+      "chaleur agréable",
+      "ouverture"
+    ],
+    "associated_thoughts": [
+      "c'est bon",
+      "j'ai envie de partager",
+      "je me sens vivant"
+    ],
+    "possible_behaviors": [
+      "partager",
+      "explorer",
+      "rire",
+      "savourer"
+    ],
+    "secondary_emotions": [
+      "peur de perdre",
+      "fierté",
+      "gratitude"
+    ],
+    "psychological_needs": [
+      "partage",
+      "sens",
+      "expression",
+      "continuité"
+    ],
+    "plutchik_family": "Joie",
+    "ekman_basic": true
+  },
+  {
+    "id": "EMO-SURPRISE",
+    "name": "Surprise",
+    "definition": "Émotion brève déclenchée par un événement inattendu, positif, neutre ou négatif.",
+    "evolutionary_function": "Réorienter l'attention et mettre à jour rapidement les attentes.",
+    "common_triggers": [
+      "nouveauté",
+      "changement soudain",
+      "information inattendue"
+    ],
+    "body_sensations": [
+      "sursaut",
+      "yeux ouverts",
+      "pause respiratoire",
+      "orientation rapide"
+    ],
+    "associated_thoughts": [
+      "qu'est-ce qui se passe ?",
+      "je ne m'y attendais pas"
+    ],
+    "possible_behaviors": [
+      "s'arrêter",
+      "observer",
+      "questionner",
+      "réagir vite"
+    ],
+    "secondary_emotions": [
+      "peur",
+      "joie",
+      "colère"
+    ],
+    "psychological_needs": [
+      "compréhension",
+      "repères",
+      "temps d'intégration"
+    ],
+    "plutchik_family": "Surprise",
+    "ekman_basic": true
+  },
+  {
+    "id": "EMO-SHAME",
+    "name": "Honte",
+    "definition": "Émotion sociale douloureuse liée à la perception d'être dévalorisé, exposé ou inadéquat aux yeux de soi ou d'autrui.",
+    "evolutionary_function": "Réguler l'appartenance sociale et les normes du groupe, mais peut devenir dysfonctionnelle si excessive.",
+    "common_triggers": [
+      "critique",
+      "erreur publique",
+      "rejet",
+      "comparaison",
+      "secret exposé"
+    ],
+    "body_sensations": [
+      "rougissement",
+      "envie de disparaître",
+      "tête baissée",
+      "serrement"
+    ],
+    "associated_thoughts": [
+      "je suis nul",
+      "on va me rejeter",
+      "je ne vaux rien"
+    ],
+    "possible_behaviors": [
+      "se cacher",
+      "éviter",
+      "se justifier",
+      "s'attaquer à soi"
+    ],
+    "secondary_emotions": [
+      "colère",
+      "tristesse",
+      "peur"
+    ],
+    "psychological_needs": [
+      "acceptation",
+      "dignité",
+      "réparation",
+      "compassion"
+    ],
+    "plutchik_family": null,
+    "ekman_basic": false
+  },
+  {
+    "id": "EMO-GUILT",
+    "name": "Culpabilité",
+    "definition": "Émotion sociale liée à l'évaluation d'avoir causé un tort ou transgressé une valeur.",
+    "evolutionary_function": "Favoriser réparation, responsabilité et maintien des liens sociaux.",
+    "common_triggers": [
+      "avoir blessé quelqu'un",
+      "ne pas avoir agi comme voulu",
+      "transgression morale"
+    ],
+    "body_sensations": [
+      "poids dans la poitrine",
+      "agitation",
+      "tension",
+      "rumination"
+    ],
+    "associated_thoughts": [
+      "j'aurais dû",
+      "je dois réparer",
+      "c'est ma faute"
+    ],
+    "possible_behaviors": [
+      "s'excuser",
+      "réparer",
+      "éviter",
+      "ruminer"
+    ],
+    "secondary_emotions": [
+      "honte",
+      "anxiété",
+      "tristesse"
+    ],
+    "psychological_needs": [
+      "réparation",
+      "pardon",
+      "alignement valeurs-actions"
+    ],
+    "plutchik_family": null,
+    "ekman_basic": false
+  },
+  {
+    "id": "EMO-ANXIETY",
+    "name": "Anxiété",
+    "definition": "État d’alerte orienté vers une menace possible, incertaine ou future.",
+    "evolutionary_function": "Préparer à détecter et gérer une menace.",
+    "common_triggers": [
+      "incertitude",
+      "anticipation négative",
+      "menace sociale"
+    ],
+    "body_sensations": [
+      "tension",
+      "agitation",
+      "respiration courte",
+      "rumination"
+    ],
+    "associated_thoughts": [
+      "et si…",
+      "je dois être prêt",
+      "je ne pourrai pas gérer"
+    ],
+    "possible_behaviors": [
+      "anticipation",
+      "évitement",
+      "recherche de réassurance",
+      "vérification"
+    ],
+    "secondary_emotions": [
+      "peur",
+      "honte",
+      "colère"
+    ],
+    "psychological_needs": [
+      "sécurité",
+      "prévisibilité",
+      "capacité d’agir"
+    ],
+    "plutchik_family": "Peur",
+    "ekman_basic": false,
+    "source_model_ids": [
+      "MODEL-AFFECTIVE-NEUROSCIENCE"
+    ]
+  },
+  {
+    "id": "EMO-STRESS",
+    "name": "Stress",
+    "definition": "Réponse d’adaptation face à une demande perçue comme dépassant les ressources disponibles.",
+    "evolutionary_function": "Mobiliser attention et énergie.",
+    "common_triggers": [
+      "surcharge",
+      "délais",
+      "conflit",
+      "manque de récupération"
+    ],
+    "body_sensations": [
+      "tension",
+      "fatigue",
+      "cœur rapide",
+      "difficulté à ralentir"
+    ],
+    "associated_thoughts": [
+      "je n’ai pas le temps",
+      "je dois tout gérer"
+    ],
+    "possible_behaviors": [
+      "accélération",
+      "multitâche",
+      "irritabilité",
+      "retrait"
+    ],
+    "secondary_emotions": [
+      "colère",
+      "anxiété",
+      "épuisement"
+    ],
+    "psychological_needs": [
+      "repos",
+      "priorisation",
+      "contrôle réaliste"
+    ],
+    "plutchik_family": null,
+    "ekman_basic": false,
+    "source_model_ids": [
+      "MODEL-AFFECTIVE-NEUROSCIENCE"
+    ]
+  },
+  {
+    "id": "EMO-FRUSTRATION",
+    "name": "Frustration",
+    "definition": "Réaction à un obstacle qui empêche un but ou une attente.",
+    "evolutionary_function": "Signaler un obstacle et mobiliser la résolution de problème.",
+    "common_triggers": [
+      "blocage",
+      "attente",
+      "erreur",
+      "objectif empêché"
+    ],
+    "body_sensations": [
+      "tension",
+      "impatience",
+      "chaleur",
+      "agitation"
+    ],
+    "associated_thoughts": [
+      "ce n’est pas possible",
+      "ça devrait marcher"
+    ],
+    "possible_behaviors": [
+      "insistance",
+      "plainte",
+      "abandon",
+      "résolution de problème"
+    ],
+    "secondary_emotions": [
+      "colère",
+      "découragement",
+      "tristesse"
+    ],
+    "psychological_needs": [
+      "efficacité",
+      "autonomie",
+      "réparation"
+    ],
+    "plutchik_family": "Colère",
+    "ekman_basic": false,
+    "source_model_ids": [
+      "MODEL-AFFECTIVE-NEUROSCIENCE"
+    ]
+  },
+  {
+    "id": "EMO-JEALOUSY",
+    "name": "Jalousie",
+    "definition": "Émotion relationnelle liée à une menace perçue sur une relation ou une place importante.",
+    "evolutionary_function": "Protéger un lien important et signaler un besoin de sécurité relationnelle.",
+    "common_triggers": [
+      "comparaison",
+      "peur de remplacement",
+      "ambiguïté relationnelle"
+    ],
+    "body_sensations": [
+      "serrement",
+      "agitation",
+      "chaleur",
+      "surveillance"
+    ],
+    "associated_thoughts": [
+      "je vais être remplacé",
+      "je ne compte pas assez"
+    ],
+    "possible_behaviors": [
+      "comparaison",
+      "surveillance",
+      "réassurance",
+      "confrontation"
+    ],
+    "secondary_emotions": [
+      "peur",
+      "colère",
+      "honte"
+    ],
+    "psychological_needs": [
+      "sécurité relationnelle",
+      "reconnaissance",
+      "clarté"
+    ],
+    "plutchik_family": null,
+    "ekman_basic": false,
+    "source_model_ids": [
+      "MODEL-AFFECTIVE-NEUROSCIENCE"
+    ]
+  },
+  {
+    "id": "EMO-LONELINESS",
+    "name": "Solitude",
+    "definition": "Décalage douloureux entre relations souhaitées et relations vécues.",
+    "evolutionary_function": "Orienter vers reconnexion et soutien.",
+    "common_triggers": [
+      "isolement",
+      "rejet",
+      "transition",
+      "absence de lien"
+    ],
+    "body_sensations": [
+      "vide",
+      "lourdeur",
+      "fatigue",
+      "douleur sociale"
+    ],
+    "associated_thoughts": [
+      "personne ne me comprend",
+      "je suis seul"
+    ],
+    "possible_behaviors": [
+      "retrait",
+      "chercher du lien",
+      "rumination",
+      "demande de soutien"
+    ],
+    "secondary_emotions": [
+      "tristesse",
+      "honte",
+      "anxiété"
+    ],
+    "psychological_needs": [
+      "connexion",
+      "appartenance",
+      "écoute"
+    ],
+    "plutchik_family": null,
+    "ekman_basic": false,
+    "source_model_ids": [
+      "MODEL-AFFECTIVE-NEUROSCIENCE"
+    ]
+  },
+  {
+    "id": "EMO-BOREDOM",
+    "name": "Ennui",
+    "definition": "Faible engagement et difficulté à maintenir l’attention.",
+    "evolutionary_function": "Signaler un besoin de stimulation, de sens ou de changement.",
+    "common_triggers": [
+      "monotonie",
+      "attente",
+      "activité sans sens"
+    ],
+    "body_sensations": [
+      "lourdeur",
+      "agitation",
+      "somnolence"
+    ],
+    "associated_thoughts": [
+      "rien ne m’intéresse",
+      "à quoi bon"
+    ],
+    "possible_behaviors": [
+      "distraction",
+      "stimulation",
+      "procrastination"
+    ],
+    "secondary_emotions": [
+      "tristesse",
+      "frustration",
+      "irritabilité"
+    ],
+    "psychological_needs": [
+      "stimulation",
+      "sens",
+      "choix"
+    ],
+    "plutchik_family": null,
+    "ekman_basic": false,
+    "source_model_ids": [
+      "MODEL-AFFECTIVE-NEUROSCIENCE"
+    ]
+  },
+  {
+    "id": "EMO-PRIDE",
+    "name": "Fierté",
+    "definition": "Émotion positive liée à un accomplissement ou une qualité investie.",
+    "evolutionary_function": "Renforcer compétence et engagement.",
+    "common_triggers": [
+      "réussite",
+      "effort reconnu",
+      "progrès"
+    ],
+    "body_sensations": [
+      "énergie",
+      "ouverture",
+      "chaleur",
+      "stabilité"
+    ],
+    "associated_thoughts": [
+      "j’ai progressé",
+      "cela compte pour moi"
+    ],
+    "possible_behaviors": [
+      "partage",
+      "engagement",
+      "savouring",
+      "aide"
+    ],
+    "secondary_emotions": [
+      "joie",
+      "peur de perdre",
+      "honte"
+    ],
+    "psychological_needs": [
+      "compétence",
+      "reconnaissance",
+      "sens"
+    ],
+    "plutchik_family": "Joie",
+    "ekman_basic": false,
+    "source_model_ids": [
+      "MODEL-AFFECTIVE-NEUROSCIENCE"
+    ]
+  },
+  {
+    "id": "EMO-GRATITUDE",
+    "name": "Gratitude",
+    "definition": "Reconnaissance d’un bénéfice reçu ou d’une contribution significative.",
+    "evolutionary_function": "Renforcer liens et coopération.",
+    "common_triggers": [
+      "soutien reçu",
+      "chance",
+      "geste d’autrui"
+    ],
+    "body_sensations": [
+      "chaleur",
+      "ouverture",
+      "apaisement"
+    ],
+    "associated_thoughts": [
+      "je n’étais pas seul",
+      "cela m’a aidé"
+    ],
+    "possible_behaviors": [
+      "remercier",
+      "prendre soin",
+      "partager",
+      "savourer"
+    ],
+    "secondary_emotions": [
+      "joie",
+      "dette ressentie",
+      "tristesse"
+    ],
+    "psychological_needs": [
+      "connexion",
+      "réciprocité",
+      "savouring"
+    ],
+    "plutchik_family": "Joie",
+    "ekman_basic": false,
+    "source_model_ids": [
+      "MODEL-AFFECTIVE-NEUROSCIENCE"
+    ]
+  },
+  {
+    "id": "EMO-RELIEF",
+    "name": "Soulagement",
+    "definition": "Baisse de tension après résolution ou disparition d’une menace.",
+    "evolutionary_function": "Marquer la sécurité retrouvée et permettre la récupération.",
+    "common_triggers": [
+      "danger terminé",
+      "résultat favorable",
+      "incertitude levée"
+    ],
+    "body_sensations": [
+      "relâchement",
+      "expiration",
+      "fatigue",
+      "légèreté"
+    ],
+    "associated_thoughts": [
+      "c’est passé",
+      "je peux souffler"
+    ],
+    "possible_behaviors": [
+      "relâchement",
+      "reprendre une activité",
+      "repos"
+    ],
+    "secondary_emotions": [
+      "joie",
+      "fatigue",
+      "tristesse"
+    ],
+    "psychological_needs": [
+      "repos",
+      "sécurité",
+      "intégration"
+    ],
+    "plutchik_family": null,
+    "ekman_basic": false,
+    "source_model_ids": [
+      "MODEL-AFFECTIVE-NEUROSCIENCE"
+    ]
+  },
+  {
+    "id": "EMO-REGRET",
+    "name": "Regret",
+    "definition": "Émotion contrefactuelle liée à l’idée qu’une autre action aurait pu produire un meilleur résultat.",
+    "evolutionary_function": "Favoriser apprentissage et ajustement.",
+    "common_triggers": [
+      "erreur",
+      "occasion manquée",
+      "conséquence négative"
+    ],
+    "body_sensations": [
+      "rumination",
+      "poids",
+      "tension",
+      "tristesse"
+    ],
+    "associated_thoughts": [
+      "j’aurais dû",
+      "si seulement"
+    ],
+    "possible_behaviors": [
+      "rumination",
+      "réparation",
+      "excuses",
+      "évitement"
+    ],
+    "secondary_emotions": [
+      "culpabilité",
+      "honte",
+      "tristesse"
+    ],
+    "psychological_needs": [
+      "réparation",
+      "apprentissage",
+      "pardon"
+    ],
+    "plutchik_family": null,
+    "ekman_basic": false,
+    "source_model_ids": [
+      "MODEL-AFFECTIVE-NEUROSCIENCE"
+    ]
+  },
+  {
+    "id": "EMO-CONFUSION",
+    "name": "Confusion",
+    "definition": "Incertitude cognitive devant des informations incompatibles ou insuffisantes.",
+    "evolutionary_function": "Signaler le besoin de ralentir et clarifier.",
+    "common_triggers": [
+      "information contradictoire",
+      "nouveauté",
+      "stress élevé"
+    ],
+    "body_sensations": [
+      "tête pleine",
+      "tension",
+      "pause",
+      "difficulté à décider"
+    ],
+    "associated_thoughts": [
+      "je ne comprends pas",
+      "quelle est la prochaine étape ?"
+    ],
+    "possible_behaviors": [
+      "questionner",
+      "suspendre",
+      "chercher information"
+    ],
+    "secondary_emotions": [
+      "anxiété",
+      "frustration",
+      "surprise"
+    ],
+    "psychological_needs": [
+      "clarté",
+      "temps",
+      "information"
+    ],
+    "plutchik_family": null,
+    "ekman_basic": false,
+    "source_model_ids": [
+      "MODEL-AFFECTIVE-NEUROSCIENCE"
+    ]
+  },
+  {
+    "id": "EMO-HELPLESSNESS",
+    "name": "Impuissance",
+    "definition": "Faible contrôle perçu face à une situation importante.",
+    "evolutionary_function": "Signaler besoin de soutien, protection ou redéfinition du champ d’action.",
+    "common_triggers": [
+      "échecs répétés",
+      "contrainte",
+      "abus",
+      "perte de contrôle"
+    ],
+    "body_sensations": [
+      "figement",
+      "fatigue",
+      "lourdeur",
+      "tension basse"
+    ],
+    "associated_thoughts": [
+      "ça ne sert à rien",
+      "je ne peux rien faire"
+    ],
+    "possible_behaviors": [
+      "abandon",
+      "figement",
+      "demande d’aide",
+      "protestation"
+    ],
+    "secondary_emotions": [
+      "tristesse",
+      "colère",
+      "honte"
+    ],
+    "psychological_needs": [
+      "sécurité",
+      "soutien",
+      "petite capacité d’action"
+    ],
+    "plutchik_family": null,
+    "ekman_basic": false,
+    "source_model_ids": [
+      "MODEL-AFFECTIVE-NEUROSCIENCE"
+    ]
+  },
+  {
+    "id": "EMO-DISCOURAGEMENT",
+    "name": "Découragement",
+    "definition": "Baisse de motivation et d’espoir après difficultés ou échecs.",
+    "evolutionary_function": "Réévaluer effort, soutien et objectif.",
+    "common_triggers": [
+      "échec",
+      "fatigue",
+      "objectif trop grand"
+    ],
+    "body_sensations": [
+      "baisse énergie",
+      "lourdeur",
+      "retrait"
+    ],
+    "associated_thoughts": [
+      "je n’y arriverai jamais",
+      "ça ne change rien"
+    ],
+    "possible_behaviors": [
+      "réduire effort",
+      "retrait",
+      "soutien"
+    ],
+    "secondary_emotions": [
+      "tristesse",
+      "honte",
+      "colère"
+    ],
+    "psychological_needs": [
+      "encouragement",
+      "compétence",
+      "objectif réaliste"
+    ],
+    "plutchik_family": null,
+    "ekman_basic": false,
+    "source_model_ids": [
+      "MODEL-AFFECTIVE-NEUROSCIENCE"
+    ]
+  },
+  {
+    "id": "EMO-SERENITY",
+    "name": "Sérénité",
+    "definition": "État de calme stable avec faible réactivité et sentiment d’acceptation.",
+    "evolutionary_function": "Favoriser récupération et attention souple.",
+    "common_triggers": [
+      "sécurité",
+      "repos",
+      "acceptation"
+    ],
+    "body_sensations": [
+      "respiration régulière",
+      "relâchement",
+      "stabilité"
+    ],
+    "associated_thoughts": [
+      "je peux prendre mon temps",
+      "c’est supportable"
+    ],
+    "possible_behaviors": [
+      "ralentir",
+      "savourer",
+      "présence"
+    ],
+    "secondary_emotions": [
+      "gratitude",
+      "peur de perdre",
+      "joie"
+    ],
+    "psychological_needs": [
+      "repos",
+      "continuité",
+      "présence"
+    ],
+    "plutchik_family": "Joie",
+    "ekman_basic": false,
+    "source_model_ids": [
+      "MODEL-AFFECTIVE-NEUROSCIENCE"
+    ]
+  },
+  {
+    "id": "EMO-ANTICIPATION",
+    "name": "Anticipation",
+    "definition": "Orientation mentale vers un événement futur avec préparation ou projection.",
+    "evolutionary_function": "Préparer action et organiser attention.",
+    "common_triggers": [
+      "projet",
+      "échéance",
+      "événement futur"
+    ],
+    "body_sensations": [
+      "énergie",
+      "tension",
+      "activation"
+    ],
+    "associated_thoughts": [
+      "je vais me préparer",
+      "que dois-je prévoir ?"
+    ],
+    "possible_behaviors": [
+      "préparer",
+      "planifier",
+      "imaginer",
+      "agir"
+    ],
+    "secondary_emotions": [
+      "joie",
+      "anxiété",
+      "peur"
+    ],
+    "psychological_needs": [
+      "prévisibilité",
+      "compétence",
+      "choix"
+    ],
+    "plutchik_family": "Anticipation",
+    "ekman_basic": false,
+    "source_model_ids": [
+      "MODEL-AFFECTIVE-NEUROSCIENCE"
+    ]
+  },
+  {
+    "id": "EMO-CONTEMPT",
+    "name": "Mépris",
+    "definition": "Évaluation négative d’une personne ou conduite comme inférieure ou indigne.",
+    "evolutionary_function": "Marquer distance avec une violation de normes; risque d’escalade.",
+    "common_triggers": [
+      "violation valeurs",
+      "dévalorisation",
+      "conflit"
+    ],
+    "body_sensations": [
+      "tension faciale",
+      "froideur",
+      "distance"
+    ],
+    "associated_thoughts": [
+      "il est inférieur",
+      "je ne veux pas être associé"
+    ],
+    "possible_behaviors": [
+      "rejeter",
+      "dévaloriser",
+      "distance",
+      "confrontation"
+    ],
+    "secondary_emotions": [
+      "colère",
+      "dégoût",
+      "honte"
+    ],
+    "psychological_needs": [
+      "respect",
+      "limites",
+      "réparation"
+    ],
+    "plutchik_family": "Dégoût",
+    "ekman_basic": false,
+    "source_model_ids": [
+      "MODEL-AFFECTIVE-NEUROSCIENCE"
+    ]
+  }
+]

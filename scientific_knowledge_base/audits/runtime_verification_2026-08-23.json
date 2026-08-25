@@ -1,0 +1,30 @@
+{
+  "date": "2026-08-23",
+  "project": "Emotion / Mon repère",
+  "active_path": "/Users/pgr/PGR-STUDIO/PGR_EMOTIONS/final-simple",
+  "scientific_base": {
+    "scientific_emotions": 24,
+    "guided_emotions": 41,
+    "emotion_exercise_mappings": 41,
+    "exercises": 15,
+    "studies": 33,
+    "pmc_full_text_verified": 12,
+    "pmc_full_text_pending": 21
+  },
+  "checks": {
+    "javascript_syntax": "passed",
+    "python_tests": {"status": "passed", "cases": 22},
+    "browser_matrix": {"status": "passed", "cases": 123, "expected": 123, "intensities": [3, 5, 8]},
+    "mobile_library_390x844": "passed",
+    "mobile_overflow_components_390x844": "passed_badge_sources_science_statuses",
+    "encryption_local_isolated_origin": "passed_protect_reload_wrong_phrase_correct_phrase_manual_lock",
+    "browser_privacy_harness": {"status": "passed", "protected_session": true, "locked_after_reload": true, "wrong_phrase_rejected": true, "correct_phrase_restored_observation": true, "manual_lock": true},
+    "browser_screen_smoke": {"status": "passed", "screens": 10, "library_cards": 15, "professional_warnings": 1, "guided_flow": "emotion_understand_intensity_exercise_questions", "no_horizontal_overflow": true, "definition_scroll_top": 0, "iframe_errors": 0},
+    "clinical_review_packet": "prepared_not_reviewed",
+    "real_device_validation_plan": "prepared_not_executed",
+    "device_availability": {"ios": "physical_iPhone_unavailable", "android": "no_adb_device"},
+    "clinical_review": "not_done",
+    "real_device_installation": "not_done"
+  },
+  "publication_status": "private_beta_or_local_prototype_only"
+}
