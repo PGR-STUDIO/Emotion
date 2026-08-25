@@ -879,6 +879,17 @@ function renderPrivacyStatus() {
 }
 
 insertDynamicPanels(); restoreDraft(); draft.nuance = ''; saveDraft();
+document.querySelector('#historyButton')?.remove();
+const brandLockup = document.querySelector('.brand-lockup');
+if (brandLockup) {
+  brandLockup.insertAdjacentHTML('beforeend', '<small class="creator-header">PGR-STUDIO</small>');
+  brandLockup.setAttribute('role', 'link');
+  brandLockup.setAttribute('tabindex', '0');
+  brandLockup.setAttribute('aria-label', 'Revenir à l’accueil Émotions');
+  const goHome = () => { window.location.href = 'https://pgr-studio.github.io/Emotion/'; };
+  brandLockup.addEventListener('click', goHome);
+  brandLockup.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); goHome(); } });
+}
 document.querySelector('.science-footer-link')?.insertAdjacentHTML('afterend', '<p class="creator-credit">Créé par PGR-STUDIO</p>');
 loadScientificBase().finally(() => { renderEmotions(); renderBodySigns(); renderEmotionInsight(); renderSafetyTriage(); renderWheel(); renderExercise(); renderScienceLivePanel(); renderExerciseLibrary(); renderToolsExercises(); syncQuickLevels(); syncContinueButton(); });
 
