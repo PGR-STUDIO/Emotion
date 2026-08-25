@@ -879,6 +879,7 @@ function renderPrivacyStatus() {
 }
 
 insertDynamicPanels(); restoreDraft(); draft.nuance = ''; saveDraft();
+document.querySelector('.science-footer-link')?.insertAdjacentHTML('afterend', '<p class="creator-credit">Créé par PGR-STUDIO</p>');
 loadScientificBase().finally(() => { renderEmotions(); renderBodySigns(); renderEmotionInsight(); renderSafetyTriage(); renderWheel(); renderExercise(); renderScienceLivePanel(); renderExerciseLibrary(); renderToolsExercises(); syncQuickLevels(); syncContinueButton(); });
 
 $('#startButton').onclick = () => show('observe');
