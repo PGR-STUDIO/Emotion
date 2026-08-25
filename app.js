@@ -879,7 +879,6 @@ function renderPrivacyStatus() {
 }
 
 insertDynamicPanels(); restoreDraft(); draft.nuance = ''; saveDraft();
-document.querySelector('#historyButton')?.remove();
 const brandLockup = document.querySelector('.brand-lockup');
 if (brandLockup) {
   const brandText = brandLockup.querySelector('div');
