@@ -901,8 +901,6 @@ function renderPrivacyStatus() {
 insertDynamicPanels(); restoreDraft(); draft.nuance = ''; saveDraft();
 const brandLockup = document.querySelector('.brand-lockup');
 if (brandLockup) {
-  const brandText = brandLockup.querySelector('div');
-  (brandText || brandLockup).insertAdjacentHTML('beforeend', '<small class="creator-header">PGR-STUDIO</small>');
   brandLockup.setAttribute('role', 'link');
   brandLockup.setAttribute('tabindex', '0');
   brandLockup.setAttribute('aria-label', 'Revenir à l’accueil Émotions');

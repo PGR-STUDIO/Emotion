@@ -149,6 +149,8 @@ button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-vi
 
 /* L’identité affichée reste simplement « ÉMOTIONS ». */
 .brand-lockup h1{display:none}
+.brand-logo-official{width:260px;height:56px;object-fit:contain;object-position:left center}
+@media(max-width:480px){.brand-logo-official{width:min(260px,72vw);height:auto}.brand-lockup{width:100%}}
 
 /* Safari iPhone : 100vh peut inclure la zone occupée par les barres du navigateur. */
 @supports (height:100dvh){
