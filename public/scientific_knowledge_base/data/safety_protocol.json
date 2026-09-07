@@ -1,0 +1,67 @@
+{
+  "version": "0.3.0",
+  "priority": "safety_before_recommendation",
+  "red_flags": [
+    {
+      "id": "RISK-SELF-HARM",
+      "patterns": [
+        "suicide",
+        "me tuer",
+        "me faire du mal",
+        "automutil",
+        "plan suicidaire",
+        "pas rester en sécurité"
+      ],
+      "action": "priorité à l’urgence locale, proche de confiance et professionnel; pas d’exercice seul",
+      "confidence": "high"
+    },
+    {
+      "id": "RISK-HARM-OTHERS",
+      "patterns": [
+        "tuer quelqu’un",
+        "faire du mal à quelqu’un",
+        "arme",
+        "acte violent"
+      ],
+      "action": "sécurité, distance et aide urgente; ne pas coacher la confrontation",
+      "confidence": "high"
+    },
+    {
+      "id": "RISK-ABUSE-DANGER",
+      "patterns": [
+        "violence en cours",
+        "agression",
+        "je suis en danger",
+        "violence conjugale"
+      ],
+      "action": "sécurité physique et ressources locales; ne pas conseiller de rester dans le danger",
+      "confidence": "high"
+    },
+    {
+      "id": "RISK-MEDICAL",
+      "patterns": [
+        "douleur thoracique",
+        "difficulté à respirer",
+        "évanouissement",
+        "confusion aiguë",
+        "symptôme neurologique soudain"
+      ],
+      "action": "évaluation médicale urgente; ne pas attribuer automatiquement à l’émotion",
+      "confidence": "high"
+    }
+  ],
+  "consultation_triggers": [
+    "intensité >= 8 répétée",
+    "aggravation/persistance",
+    "impact majeur sommeil travail relations études",
+    "trauma/dissociation/paniques répétées",
+    "auto-agression/idées suicidaires",
+    "exercice qui augmente le malaise"
+  ],
+  "language_rules": [
+    "ne jamais diagnostiquer",
+    "utiliser peut-être/possible",
+    "ne pas promettre une baisse",
+    "les sensations corporelles ne prouvent pas une émotion"
+  ]
+}

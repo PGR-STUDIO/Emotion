@@ -1,0 +1,10 @@
+{
+  "data_snapshot_date": "2026-08-23",
+  "sources": {
+    "pubmed": {"enabled": true, "access": "public_eutilities", "key_env": "NCBI_API_KEY", "official_url": "https://www.ncbi.nlm.nih.gov/home/develop/api/"},
+    "apa_psycnet": {"enabled": false, "access": "official_api_or_institutional_access_required", "url_env": "APA_PSYNET_API_URL", "key_env": "APA_PSYNET_API_KEY", "official_url": "https://www.apa.org/pubs/psycinfoservices"},
+    "cochrane": {"enabled": false, "access": "official_api_or_institutional_access_required", "url_env": "COCHRANE_API_URL", "key_env": "COCHRANE_API_KEY", "official_url": "https://www.cochranelibrary.com/"},
+    "sciencedirect": {"enabled": false, "access": "Elsevier_API_key_and_entitlement_required", "key_env": "ELSEVIER_API_KEY", "official_url": "https://dev.elsevier.com/sd_apis.html"}
+  },
+  "policy": "Do not scrape protected interfaces or store credentials in this repository."
+}

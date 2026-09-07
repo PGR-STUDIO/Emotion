@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Envie difficile à contrôler">
+  <circle cx="60" cy="60" r="48" fill="#f7e5e7"/>
+  <path d="M38 67c0-13 10-23 22-23s22 10 22 23c0 9-6 17-15 20" fill="none" stroke="#19324f" stroke-width="6" stroke-linecap="round"/>
+  <path d="M48 44c2-8 8-13 16-13 7 0 13 4 16 10" fill="none" stroke="#df8da0" stroke-width="7" stroke-linecap="round"/>
+  <path d="M72 72l10-4-4 10" fill="none" stroke="#df8da0" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="48" cy="61" r="4" fill="#19324f"/>
+  <circle cx="72" cy="61" r="4" fill="#19324f"/>
+  <path d="M48 78c7-5 17-5 24 0" fill="none" stroke="#19324f" stroke-width="5" stroke-linecap="round"/>
+</svg>
