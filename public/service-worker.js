@@ -1,6 +1,6 @@
-const CACHE = 'mon-repere-emotions-v0.9.42';
+const CACHE = 'mon-repere-emotions-v0.9.43-beta';
 const CORE = [
-  './', './index.html', './app.js', './style.css', './style.css?v=ios-zoom-2', './manifest.json',
+  './', './index.html', './app.js', './style.css', './style.css?v=design-system-2', './manifest.json',
   './scientific_knowledge_base/data/emotions.json',
   './scientific_knowledge_base/data/emotion_guidance.json',
   './scientific_knowledge_base/data/exercises.json',
