@@ -1,6 +1,6 @@
 {
   "version": "0.1.0",
-  "emotion_count": 41,
+  "emotion_count": 45,
   "policy": "Un exercice principal est choisi pour chaque émotion. Si l’intensité après le premier exercice reste à 7/10 ou plus, une deuxième étape différente peut être proposée. La recommandation est suspendue si le triage détecte un danger.",
   "mappings": [
     {
@@ -289,6 +289,34 @@
       "high_intensity_exercise_id": "EX-GROUNDING-321",
       "reason": "Séparer le refus reçu de la valeur personnelle et retrouver un lien sûr.",
       "second_exercise_id": "EX-NEEDS-IDENTIFICATION"
+    },
+    {
+      "emotion": "Stress",
+      "exercise_id": "EX-PROBLEM-SOLVING",
+      "high_intensity_exercise_id": "EX-GROUNDING-321",
+      "reason": "Réduire la surcharge puis distinguer l'urgence réelle de la pression ressentie.",
+      "second_exercise_id": "EX-BEHAVIORAL-ACTIVATION"
+    },
+    {
+      "emotion": "Jalousie",
+      "exercise_id": "EX-EMOTION-JOURNAL",
+      "high_intensity_exercise_id": "EX-DELAY-URGE",
+      "reason": "Séparer les faits, les hypothèses et la demande relationnelle avant d'agir.",
+      "second_exercise_id": "EX-NEEDS-IDENTIFICATION"
+    },
+    {
+      "emotion": "Regret",
+      "exercise_id": "EX-COMPASSION",
+      "high_intensity_exercise_id": "EX-GROUNDING-321",
+      "reason": "Distinguer réparation, apprentissage et ce qui ne peut plus être changé.",
+      "second_exercise_id": "EX-PROBLEM-SOLVING"
+    },
+    {
+      "emotion": "Mépris",
+      "exercise_id": "EX-NEEDS-IDENTIFICATION",
+      "high_intensity_exercise_id": "EX-DELAY-URGE",
+      "reason": "Décrire le fait précis, protéger ses limites et éviter l'escalade.",
+      "second_exercise_id": "EX-PROBLEM-SOLVING"
     }
   ]
 }

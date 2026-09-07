@@ -946,6 +946,110 @@
       "exercise": "Séparer le fait du jugement sur sa valeur.",
       "safety": "S'éloigner d'une relation menaçante et chercher du soutien.",
       "definition": "L’expérience « Rejet » peut apparaître dans des situations comme exclusion, critique, refus, distance d'une personne. Elle peut s’accompagner de sensations comme chaleur, douleur dans la poitrine, tension. Une première étape peut être de vérifier les faits, protéger sa dignité et choisir un lien sûr."
+    },
+    {
+      "name": "Stress",
+      "category": "activation et surcharge",
+      "triggers": [
+        "trop de demandes",
+        "pression",
+        "incertitude",
+        "manque de repos"
+      ],
+      "body": [
+        "tension",
+        "pensées rapides",
+        "respiration courte",
+        "fatigue"
+      ],
+      "impulse": [
+        "tout faire vite",
+        "éviter",
+        "s'irriter",
+        "s'immobiliser"
+      ],
+      "response": "Distinguer l'urgence réelle de la pression ressentie, réduire une demande et choisir une seule étape.",
+      "exercise": "Repérer une stimulation à réduire puis choisir une action de trois minutes.",
+      "safety": "Demander un avis professionnel si le stress devient durable, très intense ou empêche de fonctionner.",
+      "definition": "L’expérience « Stress » peut apparaître lorsqu’une demande, une incertitude ou une pression semble dépasser les ressources disponibles. Elle peut s’accompagner de tension, de pensées rapides ou de fatigue. Une première étape peut être de distinguer l’urgence réelle de la pression ressentie et de choisir une seule étape."
+    },
+    {
+      "name": "Jalousie",
+      "category": "relationnel",
+      "triggers": [
+        "peur de perdre une place ou un lien",
+        "comparaison",
+        "incertitude relationnelle",
+        "attention donnée à quelqu'un d'autre"
+      ],
+      "body": [
+        "tension",
+        "chaleur",
+        "nœud au ventre",
+        "agitation"
+      ],
+      "impulse": [
+        "vérifier",
+        "se comparer",
+        "accuser",
+        "se retirer"
+      ],
+      "response": "Séparer les faits, les hypothèses et le besoin de sécurité relationnelle avant d'agir.",
+      "exercise": "Écrire un fait, une hypothèse et une demande formulable sans accusation.",
+      "safety": "Ne pas surveiller, menacer ou confronter dans un contexte dangereux; chercher du soutien si la relation devient menaçante.",
+      "definition": "L’expérience « Jalousie » peut apparaître lorsqu’un lien, une place ou une attention semble menacé. Elle peut s’accompagner de tension, de comparaison ou d’agitation. Une première étape peut être de séparer les faits, les hypothèses et le besoin de sécurité relationnelle."
+    },
+    {
+      "name": "Regret",
+      "category": "retour sur une action",
+      "triggers": [
+        "action passée",
+        "occasion manquée",
+        "conséquence décevante",
+        "comparaison avec ce qui aurait pu arriver"
+      ],
+      "body": [
+        "poids",
+        "tension",
+        "baisse d'énergie",
+        "pensées répétitives"
+      ],
+      "impulse": [
+        "rejouer la scène",
+        "se critiquer",
+        "réparer",
+        "éviter"
+      ],
+      "response": "Distinguer ce qui est réparable, ce qui peut être appris et ce qui ne peut plus être changé.",
+      "exercise": "Formuler une leçon, une réparation possible et une phrase de soutien envers soi.",
+      "safety": "Si le regret devient une rumination persistante ou s'accompagne de désespoir, en parler à un professionnel.",
+      "definition": "L’expérience « Regret » peut apparaître lorsqu’une action passée ou une occasion manquée est comparée à ce qui aurait pu se passer. Elle peut s’accompagner de lourdeur ou de pensées répétitives. Une première étape peut être de distinguer ce qui est réparable, ce qui peut être appris et ce qui ne peut plus être changé."
+    },
+    {
+      "name": "Mépris",
+      "category": "distance et jugement",
+      "triggers": [
+        "conflit de valeurs",
+        "comportement jugé inacceptable",
+        "dévalorisation",
+        "conflit répété"
+      ],
+      "body": [
+        "tension du visage",
+        "froideur",
+        "distance",
+        "agitation"
+      ],
+      "impulse": [
+        "rejeter",
+        "dévaloriser",
+        "confronter",
+        "se couper du lien"
+      ],
+      "response": "Décrire le comportement précis, protéger ses limites et éviter de réduire une personne à un jugement global.",
+      "exercise": "Séparer le fait observé, l'interprétation et la limite que l'on veut poser.",
+      "safety": "Prioriser la distance et la sécurité si le conflit comporte une menace ou un risque de violence.",
+      "definition": "L’expérience « Mépris » peut apparaître lorsqu’un comportement ou une situation est perçu comme profondément contraire à ses valeurs. Elle peut s’accompagner de froideur et d’une envie de prendre ses distances. Une première étape peut être de décrire le comportement précis et de protéger ses limites sans réduire toute une personne à un jugement global."
     }
   ]
 }

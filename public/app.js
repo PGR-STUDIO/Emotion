@@ -17,7 +17,7 @@ const emotions = [
   ['sad', 'Triste', 'icon-sad.png'],
   ['stress', 'Stressé', 'icon-stressed.png'],
   ['rage', 'En colère', 'icon-angry.png'],
-  ['urge', 'Envie à gérer', 'icon-urge.svg']
+  ['urge', 'Envie à gérer', 'icon-urge-face.svg']
 ];
 const labels = Object.fromEntries(emotions.map(([id, label]) => [id, label]));
 labels.unknown = 'Je ne sais pas encore';
@@ -86,7 +86,7 @@ const quickStateScientificNames = {
   calm: 'Sérénité',
   anger: 'Contrariété',
   sad: 'Tristesse',
-  stress: 'Surcharge',
+  stress: 'Stress',
   rage: 'Colère'
 };
 const scientificAliasNames = { 'En colère': 'Colère' };
@@ -104,6 +104,12 @@ const emotionSentenceForms = {
 function emotionSentenceForm(name) { return emotionSentenceForms[name] || `l’émotion « ${String(name).toLowerCase()} »`; }
 const scientificExerciseIds = {
   grounding: 'EX-GROUNDING-321', breathing: 'EX-MINDFUL-BREATHING', journal: 'EX-EMOTION-JOURNAL', needs: 'EX-NEEDS-IDENTIFICATION', compassion: 'EX-COMPASSION', defusion: 'EX-ACT-DEFUSION', gratitude: 'EX-GRATITUDE'
+};
+const exerciseGoals = {
+  stabilize: { label: 'Me stabiliser', exerciseIds: ['EX-GROUNDING-321', 'EX-MINDFUL-BREATHING', 'EX-PMR'] },
+  understand: { label: 'Comprendre ce qui se passe', exerciseIds: ['EX-EMOTION-JOURNAL', 'EX-ACT-DEFUSION'] },
+  act: { label: 'Trouver une prochaine action', exerciseIds: ['EX-PROBLEM-SOLVING', 'EX-BEHAVIORAL-ACTIVATION', 'EX-NEEDS-IDENTIFICATION'] },
+  prepare: { label: 'Préparer ma séance', exerciseIds: ['EX-EMOTION-JOURNAL', 'EX-NEEDS-IDENTIFICATION', 'EX-COMPASSION'] }
 };
 function parseDuration(value) {
   const raw = String(value || '').toLowerCase();
@@ -271,9 +277,15 @@ function selectedEmotionExercisePlan() {
   const name = scientificNameFor(draft.nuance);
   return scientific.emotionExerciseMap.find(item => normalizeText(item.emotion) === normalizeText(name)) || null;
 }
+function goalExerciseId() {
+  const goal = exerciseGoals[draft.goal];
+  if (!goal || !scientific.ready) return null;
+  return goal.exerciseIds.find(id => scientific.exercises.some(exercise => exercise.id === id)) || null;
+}
 function pickScientificExerciseId() {
   const plan = selectedEmotionExercisePlan();
   if (draft.exerciseRound === 2 && plan?.second_exercise_id) return plan.second_exercise_id;
+  if (intensityBand() !== 'high' && goalExerciseId()) return goalExerciseId();
   if (plan) return intensityBand() === 'high' ? (plan.high_intensity_exercise_id || plan.exercise_id) : plan.exercise_id;
   return evaluateRecommendation().exercises[0] || null;
 }
@@ -294,7 +306,7 @@ function scientificExercise() {
     'EX-BEHAVIORAL-ACTIVATION': 'activate', 'EX-COMPASSION': 'compassion', 'EX-SELF-COMPASSION': 'compassion',
     'EX-DELAY-URGE': 'delay', 'EX-EMOTION-JOURNAL': 'journal', 'EX-NEEDS-IDENTIFICATION': 'needs'
   };
-  return { name: source.name, duration: durationSeconds, durationLabel: `${durationSeconds} secondes`, kind: source.name.toLowerCase().includes('respiration') ? 'breath' : 'timer', animation: animationById[source.id] || 'timer', text: (source.protocol_steps || []).slice(0, 2).join(' '), objective: source.objective || '', mechanism: source.mechanism || '', steps: source.protocol_steps || [], evidenceGrade: source.evidence_grade || 'Non classé', contraindications: source.contraindications || '', studies, sourceId: source.id, emotionPlanReason: plan?.reason || '', intensityNote };
+  return { name: source.name, duration: durationSeconds, durationLabel: `${durationSeconds} secondes`, kind: source.id === 'EX-MINDFUL-BREATHING' ? 'breath' : 'timer', animation: animationById[source.id] || 'timer', text: (source.protocol_steps || []).slice(0, 2).join(' '), objective: source.objective || '', mechanism: source.mechanism || '', steps: source.protocol_steps || [], evidenceGrade: source.evidence_grade || 'Non classé', contraindications: source.contraindications || '', studies, sourceId: source.id, emotionPlanReason: plan?.reason || '', intensityNote };
 }
 const blendPathways = [
   { name: 'Amour', pair: 'Joie + Confiance', understand: 'Lien chaleureux, attachement et sécurité relationnelle.', body: ['Chaleur', 'Ouverture', 'Détente', 'Envie de se rapprocher'], exercise: 'Trois choses appréciées', second: 'Pause d’auto-compassion', story: 'Une ressource de lien à savourer en respectant les limites et le consentement.', steps: ['Nomme une personne ou un lien qui compte.', 'Repère ce que ce lien apporte maintenant.', 'Choisis une façon de l’entretenir sans te forcer.'] },
@@ -355,7 +367,7 @@ const wheelBlends = [
   { name: 'Agressivité', angle: 292.5, pair: 'Colère + anticipation' },
   { name: 'Ambition', angle: 0, pair: 'Anticipation + confiance' }
 ];
-const extraEmotionOptions = ['Anxiété', 'Honte', 'Culpabilité', 'Solitude', 'Frustration', 'Amour / affection', 'Espoir', 'Soulagement', 'Gratitude', 'Fierté', 'Curiosité', 'Panique', 'Impuissance', 'Confusion', 'Surcharge', 'Découragement', 'Rejet'];
+const extraEmotionOptions = ['Anxiété', 'Honte', 'Culpabilité', 'Solitude', 'Frustration', 'Amour / affection', 'Espoir', 'Soulagement', 'Gratitude', 'Fierté', 'Curiosité', 'Panique', 'Impuissance', 'Confusion', 'Surcharge', 'Découragement', 'Rejet', 'Stress', 'Mépris', 'Jalousie', 'Regret'];
 const wheelFamilies = [
   { id: 'pleasant', label: 'Agréables', color: '#dff2d5', emotions: ['Sérénité', 'Joie', 'Plaisir', 'Soulagement', 'Confiance', 'Espoir', 'Gratitude', 'Affection', 'Fierté', 'Curiosité', 'Enthousiasme', 'Émerveillement'] },
   { id: 'sadness', label: 'Tristesse et perte', color: '#e2e8fc', emotions: ['Mélancolie', 'Tristesse', 'Chagrin', 'Nostalgie', 'Déception', 'Regret', 'Découragement', 'Désespoir'] },
@@ -482,7 +494,7 @@ let questionStepIndex = 0;
 let bodyOptionsKey = '';
 let stableBodyOptions = [];
 
-function freshDraft() { return { emotion: null, nuance: '', urgeType: '', intensity: 5, bodySigns: [], exercise: '', exerciseDuration: null, exerciseStatus: '', exerciseAfterIntensity: null, exerciseResult: '' }; }
+function freshDraft() { return { emotion: null, nuance: '', urgeType: '', intensity: 5, bodySigns: [], duration: '', frequency: '', impact: '', support: '', goal: '', exercise: '', exerciseDuration: null, exerciseStatus: '', exerciseAfterIntensity: null, exerciseResult: '' }; }
 function escapeHtml(value = '') { return String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[c])); }
 function base64(bytes) { return btoa(String.fromCharCode(...new Uint8Array(bytes))); }
 function fromBase64(value) { return Uint8Array.from(atob(value), char => char.charCodeAt(0)); }
@@ -505,6 +517,7 @@ function show(id) {
 function saveDraft() {
   if (BROWSER_TEST_MODE) return;
   const fields = Object.fromEntries(['situation', 'thoughts', 'need', 'reaction', 'consequence', 'question'].map(id => [id, $('#' + id).value]));
+  ['duration', 'frequency', 'impact', 'support'].forEach(id => { fields[id] = draft[id] || ''; });
   const value = { ...draft, ...fields };
   if (stateLocked) return;
   if (secureMode && sessionPassphrase && crypto.subtle) encryptPayload(value, sessionPassphrase).then(payload => localStorage.setItem(SECURE_DRAFT_KEY, payload)).catch(error => console.warn('Brouillon local indisponible.', error));
@@ -518,11 +531,11 @@ document.addEventListener('keydown', handlePassphraseDialogKeydown);
 async function submitPassphrase() { const mode = $('#passphraseDialog').dataset.mode; const passphrase = $('#passphrase').value; if (!crypto.subtle) { alert('Le chiffrement n’est pas disponible dans ce navigateur.'); return; } if (passphrase.length < 8) { $('#passphraseError').textContent = 'La phrase secrète doit contenir au moins 8 caractères.'; return; } if (mode === 'protect' && passphrase !== $('#passphraseConfirm').value) { $('#passphraseError').textContent = 'Les deux phrases secrètes sont différentes.'; return; } $('#passphraseError').textContent = ''; if (mode === 'protect') { sessionPassphrase = passphrase; secureMode = true; stateLocked = false; await saveState(); const draftPayload = localStorage.getItem(DRAFT_KEY); if (draftPayload) localStorage.setItem(SECURE_DRAFT_KEY, await encryptPayload(JSON.parse(draftPayload), sessionPassphrase)); localStorage.removeItem(KEY); localStorage.removeItem(DRAFT_KEY); } else { try { const unlocked = await decryptPayload(localStorage.getItem(SECURE_KEY), passphrase); state = { entries: Array.isArray(unlocked.entries) ? unlocked.entries : [] }; sessionPassphrase = passphrase; secureMode = true; stateLocked = false; await restoreDraft(); renderHistory(); renderEmotions(); renderBodySigns(); renderEmotionInsight(); renderSafetyTriage(); renderExercise(); } catch { $('#passphraseError').textContent = 'Phrase secrète incorrecte ou données illisibles.'; return; } } closePassphraseDialog(); renderPrivacyStatus(); }
 
 function renderEmotions() {
-  $('#emotionChoices').innerHTML = emotions.map(([id, label, image]) => `<button type="button" class="emotion ${draft.emotion === id ? 'selected' : ''}" data-emotion="${id}" aria-pressed="${draft.emotion === id}"><img class="emotion-image" loading="lazy" decoding="async" src="assets/${image}" alt="">${label}</button>`).join('');
+  $('#emotionChoices').innerHTML = emotions.map(([id, label, image]) => `<button type="button" class="emotion ${draft.emotion === id ? 'selected' : ''}" data-emotion="${id}" aria-pressed="${draft.emotion === id}"><img class="emotion-image" loading="lazy" decoding="async" src="assets/${image}?v=0.9.54-face-mascot" alt="">${label}</button>`).join('');
   document.querySelectorAll('[data-emotion]').forEach(button => button.onclick = () => {
     draft.emotion = button.dataset.emotion;
-    draft.exercise = ''; draft.exerciseStatus = ''; draft.exerciseAfterIntensity = null; draft.nuance = ''; draft.urgeType = ''; draft.bodySigns = [];
-    $('#observe').classList.remove('wheel-mode'); $('#wheelPanel').classList.remove('open'); $('#wheelToggle').textContent = 'Préciser avec la roue des émotions';
+    draft.exercise = ''; draft.exerciseStatus = ''; draft.exerciseAfterIntensity = null; draft.goal = ''; draft.nuance = ''; draft.urgeType = ''; draft.bodySigns = [];
+    $('#observe').classList.remove('wheel-mode'); $('#wheelPanel').classList.remove('open'); $('#wheelToggle').textContent = 'Explorer la roue complète';
     saveDraft(); renderEmotions(); renderBodySigns(); renderEmotionInsight(); renderWheel(); renderExercise(); syncContinueButton();
   });
   syncFlowCopy();
@@ -599,7 +612,9 @@ function renderWheel() {
   const labelPaths = wheelData.map((family, familyIndex) => family.levels.map((word, levelIndex) => { const radius = [139, 102, 66][levelIndex]; const start = familyIndex * 45 - 17; const end = start + 34; const defaultForward = familyIndex < 4; const forward = [3, 6, 7].includes(familyIndex) ? !defaultForward : defaultForward; const [x1, y1] = point(radius, forward ? start : end); const [x2, y2] = point(radius, forward ? end : start); return `<path id="wheel-label-path-${familyIndex}-${levelIndex}" class="wheel-label-path" d="M ${x1} ${y1} A ${radius} ${radius} 0 0 ${forward ? 1 : 0} ${x2} ${y2}"/>`; }).join('')).join('');
   const labelsInWheel = wheelData.map((family, familyIndex) => family.levels.map((word, levelIndex) => `<text class="wheel-arc-label wheel-arc-label-${levelIndex}"><textPath href="#wheel-label-path-${familyIndex}-${levelIndex}" startOffset="50%">${wheelDisplayLabel(word)}</textPath></text>`).join('')).join('');
   const legend = wheelData.map((family, index) => `<span><i style="background:${family.colors[1]}"></i>${wheelItems[index]}</span>`).join('');
-  $('#wheelPanel').innerHTML = `<p>Touche directement une zone. Plus elle est proche du centre, plus l’intensité est forte.</p><div class="interactive-wheel-wrap"><svg class="interactive-wheel" viewBox="20 20 320 320" role="group" aria-label="Roue interactive des émotions de Plutchik"><defs>${labelPaths}</defs>${svg}${selectedOverlay}<circle cx="180" cy="180" r="43" class="wheel-center"></circle>${labelsInWheel}</svg></div><div class="wheel-legend">${legend}</div><div class="wheel-extra-emotions"><b>Autres émotions disponibles · 17 nuances</b><div>${extraEmotionOptions.map(word => `<button type="button" class="extra-emotion ${draft.nuance === word ? 'selected' : ''}" data-nuance="${escapeHtml(word)}" aria-pressed="${draft.nuance === word}"><span>${escapeHtml(word)}</span></button>`).join('')}</div></div><details class="wheel-blends"><summary>8 mélanges émotionnels</summary><div>${wheelBlends.map(blend => `<button type="button" class="blend-emotion" data-nuance="${escapeHtml(blend.name)}" aria-pressed="${draft.nuance === blend.name}"><b>${escapeHtml(blend.name)}</b><small>${escapeHtml(blend.pair)}</small></button>`).join('')}</div></details><div class="wheel-selection">${draft.nuance ? `Émotion choisie : ${escapeHtml(wheelDisplayLabel(draft.nuance))}` : 'Aucune émotion choisie pour le moment.'}</div><p class="wheel-credit">Roue interactive inspirée du modèle de Robert Plutchik. 41 émotions disposent d’un exercice adapté.</p>`;
+  const extraEmotions = extraEmotionOptions.map(word => `<button type="button" class="extra-emotion ${draft.nuance === word ? 'selected' : ''}" data-nuance="${escapeHtml(word)}" aria-pressed="${draft.nuance === word}"><span>${escapeHtml(word)}</span></button>`).join('');
+  const blends = wheelBlends.map(blend => `<button type="button" class="blend-emotion" data-nuance="${escapeHtml(blend.name)}" aria-pressed="${draft.nuance === blend.name}"><b>${escapeHtml(blend.name)}</b><small>${escapeHtml(blend.pair)}</small></button>`).join('');
+  $('#wheelPanel').innerHTML = `<p>Touche directement une zone. Plus elle est proche du centre, plus l’intensité est forte.</p><div class="interactive-wheel-wrap"><svg class="interactive-wheel" viewBox="20 20 320 320" role="group" aria-label="Roue interactive des émotions de Plutchik"><defs>${labelPaths}</defs>${svg}${selectedOverlay}<circle cx="180" cy="180" r="43" class="wheel-center"></circle>${labelsInWheel}</svg></div><details class="wheel-legend-details"><summary>Voir les 8 familles d’émotions</summary><div class="wheel-legend">${legend}</div></details><details class="wheel-extra-emotions"><summary>Autres émotions · 21 nuances</summary><p>Choisis une nuance si les choix principaux ne suffisent pas.</p><div>${extraEmotions}</div></details><details class="wheel-blends"><summary>Explorer 8 mélanges émotionnels</summary><div>${blends}</div></details><div class="wheel-selection">${draft.nuance ? `Émotion choisie : ${escapeHtml(wheelDisplayLabel(draft.nuance))}` : 'Aucune émotion choisie pour le moment.'}</div><p class="wheel-credit">Roue interactive inspirée du modèle de Robert Plutchik. 45 émotions disposent d’un exercice adapté.</p>`;
 }
 document.addEventListener('click', event => {
   const urgeTypeButton = event.target.closest('#understandContext [data-urge-type]');
@@ -614,6 +629,7 @@ document.addEventListener('click', event => {
   draft.emotion = null;
   draft.nuance = part.dataset.nuance;
   draft.urgeType = '';
+  draft.goal = '';
   saveDraft();
   renderEmotions();
   renderBodySigns();
@@ -634,6 +650,9 @@ function renderExercise() {
   const exercise = currentExercise();
   const card = $('#exerciseRecommendation');
   if (!exercise) { card.classList.remove('show'); return; }
+  document.querySelectorAll('[data-exercise-goal]').forEach(button => button.classList.toggle('selected', (draft.goal || 'none') === button.dataset.exerciseGoal));
+  const goalNote = $('#exerciseGoalNote');
+  if (goalNote) goalNote.textContent = draft.goal && exerciseGoals[draft.goal] ? `Objectif choisi : ${exerciseGoals[draft.goal].label}. Tu peux changer ce choix à tout moment.` : 'Tu peux changer ce choix à tout moment. Il ne s’agit pas d’une recommandation médicale.';
   $('#exerciseName').textContent = exercise.name;
   $('#exerciseText').textContent = exercise.text;
   $('#exerciseRunName').textContent = exercise.name;
@@ -690,6 +709,23 @@ function finishExercise(status) {
   saveDraft();
   show('exerciseResult');
 }
+function exercisePhaseText(animation, elapsed, isBreathing) {
+  if (isBreathing) return elapsed % 10 < 4 ? 'Inspire doucement, sans forcer.' : 'Expire naturellement, un peu plus longtemps.';
+  const phases = {
+    grounding: ['Repère 3 choses visibles.', 'Écoute 2 sons autour de toi.', 'Repère 1 sensation neutre ou tolérable.', 'Observe sans chercher à forcer.'],
+    relax: ['Contracte doucement une zone non douloureuse.', 'Relâche plus longtemps et remarque la différence.'],
+    steps: ['1 · Décris le problème en une phrase.', '2 · Cherche deux options possibles.', '3 · Choisis le plus petit pas réaliste.', '4 · Réévalue après ce pas.'],
+    activate: ['Choisis une petite action possible.', 'Vérifie qu’elle tient en quelques minutes.', 'Prépare seulement le premier pas.'],
+    compassion: ['Reconnais ce qui est difficile.', 'Parle-toi comme à quelqu’un que tu soutiens.', 'Choisis un geste de soin réaliste.'],
+    delay: ['Observe l’impulsion sans te juger.', 'Mets un peu de distance si possible.', 'Choisis une action sûre pour maintenant.'],
+    journal: ['Décris les faits sans les interpréter.', 'Nomme ce que tu ressens et ce que tu penses.', 'Repère un besoin ou une prochaine étape.'],
+    needs: ['Repère ce qui manque maintenant.', 'Formule le besoin avec des mots simples.', 'Choisis une demande ou une limite possible.'],
+    mindful: ['Observe un repère présent.', 'Remarque quand ton attention part.', 'Reviens doucement au repère choisi.']
+  }[animation];
+  if (!phases) return 'Tu peux rester avec ce qui est présent.';
+  const cycle = animation === 'relax' ? 8 : animation === 'grounding' ? 16 : animation === 'steps' ? 16 : 15;
+  return phases[Math.min(phases.length - 1, Math.floor((elapsed % cycle) / (cycle / phases.length)))];
+}
 function renderQuestionStep() {
   const steps = [...document.querySelectorAll('#questionFlow .question-step')];
   if (!steps.length) return;
@@ -703,6 +739,32 @@ function renderQuestionStep() {
   if (next) { next.hidden = last; next.disabled = detectSafety().critical; next.textContent = 'Continuer →'; }
   if (save) { save.hidden = !last; save.disabled = detectSafety().critical; }
 }
+function syncContextChoices() {
+  document.querySelectorAll('[data-context-field]').forEach(button => {
+    const selected = draft[button.dataset.contextField] === button.dataset.contextValue;
+    button.classList.toggle('selected', selected);
+    button.setAttribute('aria-pressed', String(selected));
+  });
+}
+document.addEventListener('click', event => {
+  const choice = event.target.closest?.('[data-context-field]');
+  if (!choice) return;
+  draft[choice.dataset.contextField] = choice.dataset.contextValue;
+  syncContextChoices();
+  saveDraft();
+});
+document.addEventListener('click', event => {
+  const goalButton = event.target.closest?.('[data-exercise-goal]');
+  if (!goalButton) return;
+  draft.goal = goalButton.dataset.exerciseGoal === 'none' ? '' : goalButton.dataset.exerciseGoal;
+  draft.exerciseRound = 1;
+  draft.exercise = '';
+  draft.exerciseStatus = '';
+  draft.exerciseAfterIntensity = null;
+  draft.exerciseResult = '';
+  saveDraft();
+  renderExercise();
+});
 function advanceQuestion() {
   const steps = [...document.querySelectorAll('#questionFlow .question-step')];
   if (!steps.length || detectSafety().critical) return;
@@ -727,18 +789,25 @@ function runExercise() {
   const isBreathing = exercise.kind === 'breath';
   $('#exerciseAnimation').classList.add('show');
   $('#exerciseOrb').className = `${isBreathing ? 'breath-orb' : 'timer-orb'} animation-${exercise.animation || 'timer'}`;
-  $('#exerciseOrb').setAttribute('aria-label', `Animation : ${exercise.name}`);
+  $('#exerciseOrb').setAttribute('aria-label', `Repère visuel pour ${exercise.name}`);
   $('#exerciseOrb').style.setProperty('--breath-duration', isBreathing ? '10s' : '8s');
   $('#exerciseSeconds').textContent = remaining;
-  $('#exercisePhase').textContent = isBreathing ? 'Inspire doucement…' : exercise.animation === 'steps' ? 'Étape 1 : clarifier ce qui se passe.' : exercise.animation === 'activate' ? 'Choisis une petite action possible.' : exercise.animation === 'grounding' ? 'Regarde autour de toi, doucement.' : exercise.animation === 'relax' ? 'Contracte doucement, puis relâche.' : exercise.animation === 'compassion' ? 'Adresse-toi avec douceur.' : exercise.animation === 'delay' ? 'Laisse passer quelques instants avant d’agir.' : 'Tu peux simplement rester avec ce qui est présent.';
+  let elapsed = 0;
+  let lastPhaseText = '';
+  const updatePhase = () => {
+    const nextPhaseText = exercisePhaseText(exercise.animation, elapsed, isBreathing);
+    if (nextPhaseText === lastPhaseText) return;
+    $('#exercisePhase').textContent = nextPhaseText;
+    lastPhaseText = nextPhaseText;
+  };
+  updatePhase();
   if ($('#exerciseBreathWarning')) $('#exerciseBreathWarning').hidden = !isBreathing;
   $('#exerciseStart').disabled = true; $('#exerciseStart').textContent = 'Exercice en cours…'; $('#exerciseRunRestart').hidden = true; $('#exerciseStop').hidden = false;
-  let elapsed = 0;
   exerciseInterval = setInterval(() => {
     remaining -= 1;
     elapsed += 1;
     $('#exerciseSeconds').textContent = remaining;
-    if (isBreathing) $('#exercisePhase').textContent = elapsed % 10 < 4 ? 'Inspire doucement…' : 'Expire naturellement…';
+    updatePhase();
     if (remaining <= 0) finishExercise('terminé');
   }, 1000);
 }
@@ -746,7 +815,7 @@ function clearFields() {
   stopExercise(false); draft = freshDraft();
   questionStepIndex = 0;
   ['situation', 'thoughts', 'need', 'reaction', 'consequence', 'question'].forEach(id => $('#' + id).value = '');
-  clearDraft(); renderEmotions(); renderBodySigns(); renderEmotionInsight(); renderSafetyTriage(); renderWheel(); renderExercise(); syncQuickLevels(); syncContinueButton();
+  clearDraft(); syncContextChoices(); renderEmotions(); renderBodySigns(); renderEmotionInsight(); renderSafetyTriage(); renderWheel(); renderExercise(); syncQuickLevels(); syncContinueButton();
 }
 function renderHistory() {
   const list = $('#historyList');
@@ -792,7 +861,15 @@ function report() {
   const situationTypeLabel = entry => entry.emotion === 'urge' ? (entry.urgeType ? urgeTypeLabel(entry.urgeType) : 'Non renseigné') : 'Non concerné';
   const observationCards = state.entries.slice().reverse().map((entry, index) => `<article class="observation"><div class="observation-head"><div><p class="eyebrow">OBSERVATION ${state.entries.length - index}</p><h2>${text(observationLabel(entry))}</h2></div><strong>${entry.intensity}/10</strong></div><p class="date">${text(new Date(entry.date).toLocaleString('fr-FR'))}</p><div class="grid"><section><h3>Type de situation</h3><p>${text(situationTypeLabel(entry))}</p></section><section><h3>Nuance</h3><p>${text(entry.nuance)}</p></section><section><h3>Situation</h3><p>${text(entry.situation)}</p></section><section><h3>Pensées</h3><p>${text(entry.thoughts)}</p></section><section><h3>Signes et ressentis</h3><p>${text((entry.bodySigns || []).join(', '))}</p></section><section><h3>Exercice essayé</h3><p>${text(entry.exercise)}</p></section><section><h3>Durée prévue</h3><p>${entry.exerciseDuration ? `${entry.exerciseDuration} secondes` : 'Non renseignée'}</p></section><section><h3>Statut de l’exercice</h3><p>${text(entry.exerciseStatus)}</p></section><section><h3>Intensité après l’exercice</h3><p>${entry.exerciseAfterIntensity == null ? 'Non renseignée' : `${entry.exerciseAfterIntensity}/10`}</p></section><section><h3>Ressenti après exercice</h3><p>${resultLabel(entry.exerciseResult)}</p></section><section><h3>Besoin possible</h3><p>${text(entry.need)}</p></section><section><h3>Réaction</h3><p>${text(entry.reaction)}</p></section><section><h3>Après</h3><p>${text(entry.consequence)}</p></section></div><p class="question"><b>Question pour la séance :</b> ${text(entry.question === 'Aucune' ? '' : entry.question)}</p></article>`).join('');
   const shareText = ['Résumé de séance — Émotions', `Nombre d’observations : ${state.entries.length}`, ...state.entries.slice().reverse().map((entry, index) => [`Observation ${state.entries.length - index}`, `Émotion : ${plain(observationLabel(entry))}`, `Intensité : ${entry.intensity}/10`, `Date : ${plain(new Date(entry.date).toLocaleString('fr-FR'))}`, `Situation : ${plain(entry.situation)}`, `Pensées : ${plain(entry.thoughts)}`, `Signes et ressentis : ${plain((entry.bodySigns || []).join(', '))}`, `Exercice essayé : ${plain(entry.exercise)}`, `Besoin possible : ${plain(entry.need)}`, `Réaction : ${plain(entry.reaction)}`, `Après : ${plain(entry.consequence)}`, `Question pour la séance : ${plain(entry.question === 'Aucune' ? '' : entry.question)}`].join('\n'))].join('\n\n');
-  renderInlineReport(observationCards, shareText, state.entries.length);
+  const reportEntries = state.entries.slice().reverse();
+  let reportCardIndex = 0;
+  const reportCards = observationCards.replace(/(<p class="question">)/g, match => {
+    const entry = reportEntries[reportCardIndex++] || {};
+    return `<div class="grid report-context"><section><h3>Durée</h3><p>${text(entry.duration)}</p></section><section><h3>Fréquence</h3><p>${text(entry.frequency)}</p></section><section><h3>Impact</h3><p>${text(entry.impact)}</p></section><section><h3>Soutien possible</h3><p>${text(entry.support)}</p></section><section><h3>Objectif choisi</h3><p>${text(entry.goal ? exerciseGoals[entry.goal]?.label : '')}</p></section></div>${match}`;
+  });
+  const contextShareText = reportEntries.map((entry, index) => [`Contexte de l’observation ${reportEntries.length - index}`, `Durée : ${plain(entry.duration)}`, `Fréquence : ${plain(entry.frequency)}`, `Impact : ${plain(entry.impact)}`, `Soutien possible : ${plain(entry.support)}`, `Objectif choisi : ${plain(entry.goal ? exerciseGoals[entry.goal]?.label : '')}`].join('\n')).join('\n\n');
+  const reportShareText = `${shareText}${contextShareText ? `\n\n${contextShareText}` : ''}`;
+  renderInlineReport(reportCards, reportShareText, state.entries.length);
   return;
   const serializedShareText = JSON.stringify(shareText).replace(/</g, '\\u003c').replace(/>/g, '\\u003e').replace(/&/g, '\\u0026');
   const html = `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Résumé de séance — Émotions</title><style>:root{color-scheme:light}*{box-sizing:border-box}body{margin:0;background:#f5f6f1;color:#29435f;font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.page{max-width:860px;margin:0 auto;padding:28px 24px 48px}.cover,.observation{background:#fffefa;border:1px solid #dce8df;border-radius:24px;box-shadow:0 10px 30px #29435f12}.cover{padding:38px;margin-bottom:22px}.brand{color:#85b79b;font-size:13px;font-weight:800;letter-spacing:.18em}.cover h1{margin:8px 0 10px;font-size:38px;line-height:1.1}.cover p{color:#627586;margin:0}.summary{display:inline-block;margin-top:24px;padding:9px 14px;border-radius:999px;background:#e7f2e7;color:#38734b;font-weight:700}.report-toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}.report-toolbar button{border:1px solid #c9d9cf;border-radius:12px;background:#fffefa;color:#29435f;padding:10px 13px;font:inherit;font-size:14px;font-weight:700;cursor:pointer}.report-toolbar button:hover{background:#eef7ef}.report-status{min-height:1.4em;margin:0 0 12px;color:#557363;font-size:13px}.observation{padding:28px;margin:18px 0;break-inside:avoid}.observation-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;border-bottom:1px solid #e3ece4;padding-bottom:14px}.eyebrow{margin:0;color:#85b79b;font-size:12px;font-weight:800;letter-spacing:.16em}.observation h2{margin:4px 0 0;font-size:28px}.observation-head strong{color:#85b79b;font-size:27px}.date{color:#7a8994;font-size:13px;margin:12px 0 18px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.grid section{background:#f7faf5;border-radius:14px;padding:12px 14px;min-height:76px}.grid h3{font-size:13px;margin:0 0 4px;color:#6d987d}.grid p{margin:0}.question{padding:12px 14px;border-left:4px solid #9ac4a7;background:#f7faf5;margin-bottom:0}@media(max-width:600px){.page{padding:20px 14px 32px}.cover{padding:26px 20px}.cover h1{font-size:31px}.grid{grid-template-columns:1fr}.report-toolbar button{flex:1 1 100%}}@media print{body{background:#fff}.page{padding:0}.cover,.observation{box-shadow:none}.report-toolbar,.report-status{display:none}}</style></head><body><main class="page"><div class="report-toolbar" role="toolbar" aria-label="Actions du résumé"><button type="button" id="reportBack">← Retour à l’application</button><button type="button" id="reportPrint">Imprimer</button><button type="button" id="reportShare">Envoyer / partager</button></div><p id="reportStatus" class="report-status" role="status" aria-live="polite">Le partage peut contenir des informations sensibles.</p><header class="cover"><div class="brand">ÉMOTIONS</div><h1>Résumé de séance</h1><p>Une trace claire de ce que tu as observé, ressenti et essayé.</p><div class="summary">Nombre d’observations : ${state.entries.length}</div></header>${observationCards || '<p>Aucune observation enregistrée.</p>'}</main><script>const reportText=${serializedShareText};const status=document.getElementById('reportStatus');document.getElementById('reportBack').onclick=()=>{if(window.opener&&!window.opener.closed){window.opener.focus();window.close();}else if(history.length>1){history.back();}else{status.textContent='Ferme cette fenêtre pour revenir à l’application.';}};document.getElementById('reportPrint').onclick=()=>window.print();document.getElementById('reportShare').onclick=async()=>{try{if(navigator.share){await navigator.share({title:'Résumé de séance — Émotions',text:reportText});status.textContent='Résumé prêt à être envoyé.';}else if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(reportText);status.textContent='Résumé copié. Tu peux maintenant le coller dans ton message.';}else{const link=document.createElement('a');link.href=URL.createObjectURL(new Blob([reportText],{type:'text/plain;charset=utf-8'}));link.download='resume-seance-emotions.txt';link.click();URL.revokeObjectURL(link.href);status.textContent='Résumé téléchargé en texte.';}}catch(error){if(error.name!=='AbortError')status.textContent='Le partage n’est pas disponible dans ce navigateur.';}};</script></body></html>`;
@@ -814,22 +891,38 @@ async function restoreDraft() {
     if (!saved) return;
     draft = { ...freshDraft(), ...saved, bodySigns: Array.isArray(saved.bodySigns) ? saved.bodySigns : [] };
     ['situation', 'thoughts', 'need', 'reaction', 'consequence', 'question'].forEach(id => $('#' + id).value = saved[id] || '');
+    ['duration', 'frequency', 'impact', 'support'].forEach(id => { if (saved[id] != null) draft[id] = saved[id]; });
+    syncContextChoices();
   } catch { if (!stateLocked) clearDraft(); }
 }
+function prepareScienceSection() {
+  const science = $('#science');
+  if (!science) return;
+  if (!document.head.querySelector('link[href="science.css"]')) {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'science.css';
+    document.head.append(link);
+  }
+  science.className = 'screen science-screen';
+  science.innerHTML = `<button id="scienceBack" class="back">← Retour</button><div class="science-hero"><p class="overline">REPÈRES SCIENTIFIQUES</p><h2>Pourquoi Emotion<br>est construite ainsi</h2><p>Emotion aide à observer ce qui se passe, à mettre des mots et à préparer un échange. Elle propose des repères, pas une conclusion sur toi.</p><div class="science-tags" aria-label="Principes de l’application"><span>Auto-observation</span><span>Exercices courts</span><span>Sans diagnostic</span></div></div><section class="science-flow" aria-labelledby="scienceFlowTitle"><p class="overline">LE FIL DU PARCOURS</p><h3 id="scienceFlowTitle">Du ressenti à une prochaine étape</h3><div class="science-flow-grid"><article><span class="science-number">1</span><b>Observer</b><p>Repérer l’émotion, son intensité et les signes présents.</p></article><article><span class="science-number">2</span><b>Mettre en mots</b><p>Relier situation, pensées, corps, réaction et besoin possible.</p></article><article><span class="science-number">3</span><b>Choisir la suite</b><p>Tester un petit repère ou préparer ce que tu veux dire en séance.</p></article></div></section><section class="science-principles" aria-labelledby="sciencePrinciplesTitle"><p class="overline">CE QUI GUIDE LES REPÈRES</p><h3 id="sciencePrinciplesTitle">Six principes utilisés dans Emotion</h3><details class="science-principle" open><summary><span>01</span><b>Observer l’émotion comme un signal</b></summary><div><p>Une émotion peut être comprise comme une réponse à une situation importante. Elle implique l’attention, le corps, l’expérience subjective et une tendance à agir.</p><small>Références : Scherer, 2005 ; Gross, 1998.</small></div></details><details class="science-principle"><summary><span>02</span><b>Mettre des mots sur ce qui est vécu</b></summary><div><p>Nommer une expérience peut aider à prendre du recul et à moins se confondre avec la réaction immédiate. L’effet varie selon les personnes et le contexte.</p><small>Références : Lieberman et al., 2007 ; Torre & Lieberman, 2018.</small></div></details><details class="science-principle"><summary><span>03</span><b>Relier situation, pensées, corps et besoin</b></summary><div><p>Le parcours distingue plusieurs éléments de l’expérience afin de mieux comprendre ce qui s’est passé et ce qui pourrait aider maintenant.</p><small>Références : Beck, 2011 ; Greenberger & Padesky, 2016.</small></div></details><details class="science-principle"><summary><span>04</span><b>Créer un délai avant d’agir</b></summary><div><p>Quand l’intensité monte, une courte pause peut aider à retrouver une marge de choix avant la prochaine action.</p><small>Références : Gross, 2015 ; Linehan, 2015.</small></div></details><details class="science-principle"><summary><span>05</span><b>Revenir à des repères concrets</b></summary><div><p>Les exercices d’ancrage orientent l’attention vers le présent. Ils peuvent soutenir la régulation sans chercher à supprimer l’émotion.</p><small>Références : Kabat-Zinn, 1990 ; Khoury et al., 2013.</small></div></details><details class="science-principle"><summary><span>06</span><b>Utiliser la respiration avec prudence</b></summary><div><p>Une respiration régulière peut influencer l’activation corporelle. L’exercice reste facultatif et doit être arrêté s’il augmente le malaise.</p><small>Références : Zaccaro et al., 2018 ; Lehrer & Gevirtz, 2014.</small></div></details></section><section class="science-caution" aria-labelledby="scienceLimitsTitle"><p class="overline">LIMITES ET SÉCURITÉ</p><h3 id="scienceLimitsTitle">Un support, pas un diagnostic</h3><p>Emotion sert à préparer un échange et à garder une trace personnelle. Elle ne remplace pas un professionnel, ne pose pas de diagnostic et ne doit pas être utilisée seule en situation de danger immédiat.</p><p class="science-caution-action"><b>Si tu es en danger :</b> contacte immédiatement les secours ou une personne de confiance.</p></section><details class="references science-references"><summary>Voir les références principales</summary><ul><li>Beck, J. S. (2011). <em>Cognitive Behavior Therapy: Basics and Beyond</em>.</li><li>Greenberger, D., & Padesky, C. A. (2016). <em>Mind Over Mood</em>.</li><li>Gross, J. J. (1998). The emerging field of emotion regulation. <em>Review of General Psychology</em>.</li><li>Gross, J. J. (2015). Emotion regulation: Current status and future prospects. <em>Psychological Inquiry</em>.</li><li>Kabat-Zinn, J. (1990). <em>Full Catastrophe Living</em>.</li><li>Khoury, B. et al. (2013). Mindfulness-based therapy: A comprehensive meta-analysis. <em>Clinical Psychology Review</em>.</li><li>Lehrer, P., & Gevirtz, R. (2014). Heart rate variability biofeedback. <em>Frontiers in Psychology</em>.</li><li>Lieberman, M. D. et al. (2007). Putting feelings into words. <em>Psychological Science</em>.</li><li>Linehan, M. M. (2015). <em>DBT Skills Training Manual</em>.</li><li>Scherer, K. R. (2005). What are emotions? <em>Social Science Information</em>.</li><li>Torre, J. B., & Lieberman, M. D. (2018). Putting feelings into words. <em>Emotion Review</em>.</li><li>Zaccaro, A. et al. (2018). How breath-control can change your life. <em>Frontiers in Human Neuroscience</em>.</li></ul></details>`;
+}
 function insertDynamicPanels() {
+  prepareScienceSection();
   $('#understand .hint').insertAdjacentHTML('afterend', '<div id="understandContext" class="emotion-context" aria-live="polite"></div>');
   $('#after .hint').insertAdjacentHTML('afterend', '<div id="afterContext" class="emotion-context" aria-live="polite"></div>');
+  $('#question').closest('.field').insertAdjacentHTML('afterend', '<div id="contextFields" class="question-step context-fields"><p class="overline">CONTEXTE FACULTATIF</p><p class="context-intro">Ces repères aident à voir si la situation est ponctuelle ou répétée. Tu peux laisser vide ou choisir « Je ne sais pas ».</p><div class="context-group"><b>Depuis combien de temps ?</b><div class="choice-chips"><button type="button" class="choice-chip" data-context-field="duration" data-context-value="Quelques minutes">Quelques minutes</button><button type="button" class="choice-chip" data-context-field="duration" data-context-value="Quelques heures">Quelques heures</button><button type="button" class="choice-chip" data-context-field="duration" data-context-value="Depuis plusieurs jours">Depuis plusieurs jours</button><button type="button" class="choice-chip" data-context-field="duration" data-context-value="Depuis longtemps">Depuis longtemps</button><button type="button" class="choice-chip" data-context-field="duration" data-context-value="Je ne sais pas">Je ne sais pas</button><button type="button" class="choice-chip" data-context-field="duration" data-context-value="Je préfère ne pas répondre">Je préfère ne pas répondre</button></div></div><div class="context-group"><b>Est-ce que cela revient souvent ?</b><div class="choice-chips"><button type="button" class="choice-chip" data-context-field="frequency" data-context-value="C’est la première fois">C’est la première fois</button><button type="button" class="choice-chip" data-context-field="frequency" data-context-value="Parfois">Parfois</button><button type="button" class="choice-chip" data-context-field="frequency" data-context-value="Souvent">Souvent</button><button type="button" class="choice-chip" data-context-field="frequency" data-context-value="Presque tous les jours">Presque tous les jours</button><button type="button" class="choice-chip" data-context-field="frequency" data-context-value="Je ne sais pas">Je ne sais pas</button><button type="button" class="choice-chip" data-context-field="frequency" data-context-value="Je préfère ne pas répondre">Je préfère ne pas répondre</button></div></div><div class="context-group"><b>Quel est l’impact en ce moment ?</b><div class="choice-chips"><button type="button" class="choice-chip" data-context-field="impact" data-context-value="Peu">Peu</button><button type="button" class="choice-chip" data-context-field="impact" data-context-value="Un peu">Un peu</button><button type="button" class="choice-chip" data-context-field="impact" data-context-value="Beaucoup">Beaucoup</button><button type="button" class="choice-chip" data-context-field="impact" data-context-value="Cela m’empêche de fonctionner">Cela m’empêche de fonctionner</button><button type="button" class="choice-chip" data-context-field="impact" data-context-value="Je ne sais pas">Je ne sais pas</button><button type="button" class="choice-chip" data-context-field="impact" data-context-value="Je préfère ne pas répondre">Je préfère ne pas répondre</button></div></div><div class="context-group"><b>Avec qui pourrais-tu en parler, si tu le souhaites ?</b><div class="choice-chips"><button type="button" class="choice-chip" data-context-field="support" data-context-value="Une personne de confiance">Une personne de confiance</button><button type="button" class="choice-chip" data-context-field="support" data-context-value="Un professionnel">Un professionnel</button><button type="button" class="choice-chip" data-context-field="support" data-context-value="Personne pour le moment">Personne pour le moment</button><button type="button" class="choice-chip" data-context-field="support" data-context-value="Je préfère ne pas répondre">Je préfère ne pas répondre</button></div></div></div>');
   $('#saved').insertAdjacentHTML('beforebegin', '<section id="exercise" class="screen"><button id="exerciseBack" class="back-inline">← Que ressens-tu ?</button><div class="progress"><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span></span></div><p class="step">ÉTAPE 4 SUR 5</p><h2>Exercice maintenant</h2><p class="hint">Tu peux essayer seulement si cela semble possible. Tu peux aussi passer directement aux questions.</p><div id="exercisePageContent"></div><button id="toQuestions" class="main-action">Passer aux questions <span>→</span></button></section>');
   $('#exercise').insertAdjacentHTML('beforebegin', '<section id="sense" class="screen"><button id="senseBack" class="back-inline">← Comprendre</button><div class="progress"><span class="active"></span><span class="active"></span><span class="active"></span><span></span><span></span></div><p class="step">ÉTAPE 3 SUR 5</p><h2>Observer ton corps</h2><p class="hint">Repère les signes présents, puis situe ton intensité.</p><div id="senseContent"></div></section>');
   $('#saved').insertAdjacentHTML('beforebegin', '<section id="exerciseRun" class="screen"><button id="exerciseRunBack" class="back-inline">← Voir l’exercice</button><div class="progress"><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span></span></div><p class="step">EXERCICE GUIDÉ</p><h2 id="exerciseRunName">Ton exercice</h2><p id="exerciseRunText" class="hint"></p><p class="exercise-run-note">Reste avec ce qui est possible pour toi. Tu peux arrêter à tout moment.</p><div id="exerciseAnimation" class="exercise-animation show" aria-live="polite"><div id="exerciseOrb" class="timer-orb" role="img" aria-label="Animation de l’exercice"><span id="exerciseSeconds"></span></div><div id="exercisePhase" class="exercise-phase" aria-live="polite"></div></div><div class="exercise-action-row"><button type="button" id="exerciseStop" class="exercise-stop" hidden>Arrêter l’exercice</button><button type="button" id="exerciseRunRestart" class="secondary-action" hidden>Recommencer</button></div></section>');
   $('#saved').insertAdjacentHTML('beforebegin', '<section id="exerciseResult" class="screen"><button id="exerciseResultBack" class="back-inline">← Exercice</button><div class="progress"><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span></div><p class="step">BILAN RAPIDE</p><h2>Après l’exercice</h2><div id="exerciseAfter" class="exercise-after"><label>Après, quelle est ton intensité ? <strong><span id="exerciseLevelValue">5</span>/10</strong><input id="exerciseLevel" type="range" min="0" max="10" value="5" aria-label="Intensité après l’exercice"></label><div class="exercise-result-choice"><b>Comment c’était pour toi ?</b><div><button type="button" data-exercise-result="helpful">Un peu aidant</button><button type="button" data-exercise-result="same">Plutôt pareil</button><button type="button" data-exercise-result="harder">Plus difficile</button></div></div><p id="exerciseResultMeaning" class="exercise-result-meaning" aria-live="polite"></p></div><button id="exerciseResultQuestions" class="main-action">Passer aux questions <span>→</span></button></section>');
   $('#tools').insertAdjacentHTML('beforeend', '<button id="definitionButton" class="text-link">Comprendre ce qu’est une émotion</button><section id="definitionPanel" class="definition-panel"><button id="definitionBack" class="back">← Retour au repère</button><p class="overline">UN REPÈRE POUR COMPRENDRE</p><h2>Une émotion, c’est un signal.</h2><p class="definition-lead">Une émotion donne une information. Elle ne commande pas forcément l’action.</p><p class="definition-lead">Touche une étape pour voir ce qu’elle peut vouloir dire.</p><div class="definition-flow"><button type="button" class="definition-step" data-definition="trigger"><b>1 · Déclencheur</b><span>Situation, pensée, souvenir ou sensation.</span></button><button type="button" class="definition-step" data-definition="feeling"><b>2 · Ressenti</b><span>Ce que tu éprouves à l’intérieur.</span></button><button type="button" class="definition-step" data-definition="body"><b>3 · Corps</b><span>Les changements physiques que tu peux remarquer.</span></button><button type="button" class="definition-step" data-definition="urge"><b>4 · Envie d’agir</b><span>L’impulsion de fuir, parler, se fermer ou se protéger.</span></button><button type="button" class="definition-step" data-definition="choice"><b>5 · Choix possible</b><span>Le petit délai pour choisir la prochaine action.</span></button></div><div id="definitionDetail" class="definition-detail" aria-live="polite">Choisis une étape ci-dessus.</div><div class="definition-evidence"><p class="overline">CE QUE CELA PEUT AIDER À FAIRE</p><div><b>Observer tôt</b><span>Repérer un signe peut aider à choisir une action de soutien avant que l’intensité augmente.</span></div><div><b>Mettre des mots</b><span>Nommer ce qui est vécu peut aider à l’observer, sans garantir une baisse immédiate.</span></div><div><b>Respecter les différences</b><span>Une sensation corporelle ne prouve pas une émotion : chacun peut la ressentir différemment.</span></div><div><b>Tester avec prudence</b><span>Un exercice peut aider certaines personnes. On arrête s’il augmente le malaise.</span></div><small>Ce contenu s’appuie sur les références affichées dans la base scientifique du projet.</small></div><p class="definition-footer">Le but n’est pas de ne plus avoir d’émotions : c’est de les repérer plus tôt pour retrouver une marge de choix.</p></section>');
-  $('#emotionChoices').insertAdjacentHTML('afterend', '<div class="emotion-options"><button type="button" id="unknownButton" class="unknown-button">Je ne sais pas encore</button><button type="button" id="wheelToggle" class="wheel-toggle">Préciser avec la roue des émotions</button></div><div id="wheelPanel" class="wheel-panel"></div>');
+  $('#emotionChoices').insertAdjacentHTML('afterend', '<div class="emotion-options"><button type="button" id="unknownButton" class="unknown-button">Je ne sais pas encore</button><button type="button" id="wheelToggle" class="wheel-toggle">Explorer la roue complète</button></div><div id="wheelPanel" class="wheel-panel"></div>');
   $('#wheelPanel').insertAdjacentHTML('afterend', '<section id="emotionInsight" class="emotion-insight" aria-live="polite"></section>');
   $('#emotionInsight').insertAdjacentHTML('afterend', '<section id="safetyTriage" class="safety-triage" role="alert" aria-live="assertive"></section>');
   $('#toAfter').insertAdjacentHTML('beforebegin', '<section id="safetyTriageUnderstand" class="safety-triage" role="alert" aria-live="assertive"></section>');
   $('#toUnderstand').insertAdjacentHTML('beforebegin', '<section id="exerciseRecommendation" class="exercise-recommendation" role="region" aria-labelledby="exerciseName"><p class="overline">UN REPÈRE POUR MAINTENANT</p><h3 id="exerciseName" tabindex="-1"></h3><p id="exerciseText"></p><div id="exerciseDetail" class="exercise-detail"></div><button type="button" id="exerciseStart" class="exercise-start"></button><div id="exerciseEvidence" class="exercise-evidence"></div><div id="exerciseBreathWarning" class="breath-warning" role="alert" hidden></div></section>');
-  $('#science').querySelector('.science-grid').insertAdjacentHTML('beforebegin', '<div id="scienceLivePanel" class="science-live-panel"></div>');
+  $('#exerciseName').insertAdjacentHTML('beforebegin', '<div id="exerciseGoal" class="exercise-goal" role="group" aria-labelledby="exerciseGoalTitle"><b id="exerciseGoalTitle">Qu’est-ce qui t’aiderait le plus maintenant ?</b><div><button type="button" data-exercise-goal="stabilize">Me stabiliser</button><button type="button" data-exercise-goal="understand">Comprendre</button><button type="button" data-exercise-goal="act">Trouver une action</button><button type="button" data-exercise-goal="prepare">Préparer ma séance</button><button type="button" data-exercise-goal="none">Je ne sais pas encore</button></div><small id="exerciseGoalNote">Tu peux changer ce choix à tout moment. Il ne s’agit pas d’une recommandation médicale.</small></div>');
   document.querySelector('nav').insertAdjacentHTML('beforebegin', '<section id="library" class="screen"><button id="libraryBack" class="back">← Retour</button><p class="overline">OUTILS GUIDÉS</p><h2>Les exercices<br>de la base</h2><p class="hint">Chaque exercice a un objectif, des limites et un repère de portée documentaire. Ce repère ne valide pas automatiquement la version courte affichée ici. Choisis seulement ce qui te semble possible maintenant.</p><div id="exerciseLibrary" class="exercise-library"></div></section>');
   document.querySelector('nav').insertAdjacentHTML('beforebegin', '<section id="reportScreen" class="screen"><div class="report-toolbar" role="toolbar" aria-label="Actions du résumé"><button type="button" id="reportInlineBack">← Retour aux observations</button><button type="button" id="reportInlinePrint">Imprimer</button><button type="button" id="reportInlineShare">Envoyer / partager</button></div><p id="reportInlineStatus" class="report-status" role="status" aria-live="polite">Le partage peut contenir des informations sensibles.</p><div id="reportInlineBody" class="report-body"></div></section>');
   $('#saved').querySelector('.hint').insertAdjacentHTML('afterend', '<div id="savedSummary" class="saved-summary" aria-live="polite"></div>');
@@ -875,6 +968,11 @@ function insertDynamicPanels() {
     field.dataset.questionIndex = String(index);
     questionFlow.append(field);
   });
+  const contextFields = $('#contextFields');
+  if (contextFields) {
+    contextFields.dataset.questionIndex = '6';
+    questionFlow.append(contextFields);
+  }
   questionFlow.insertAdjacentHTML('afterend', '<p id="questionProgress" class="question-progress"></p><button id="questionNext" class="main-action">Continuer →</button>');
   $('#saveButton').hidden = true;
   $('#observe .step').textContent = 'ÉTAPE 1 SUR 5';
@@ -893,21 +991,6 @@ function insertDynamicPanels() {
   renderQuestionStep();
 }
 
-function renderScienceLivePanel() {
-  const panel = $('#scienceLivePanel');
-  if (!panel) return;
-  const liveDate = scientific.sources?.data_snapshot_date || '2026-08-23';
-  if (!scientific.ready) { panel.innerHTML = '<div><b>Base scientifique de secours</b></div><p>Les données locales n’ont pas pu être chargées ; l’application continue sans recommandation scientifique dynamique.</p>'; return; }
-  const sourceLabels = { pubmed: 'PubMed / PMC', apa_psycnet: 'APA PsycInfo', cochrane: 'Cochrane', sciencedirect: 'ScienceDirect' };
-  const sourceStatus = Object.entries(scientific.sources?.sources || {}).map(([id, source]) => {
-    const isBase = id === 'pubmed';
-    const state = source.enabled ? (isBase ? 'base locale disponible' : 'connecteur optionnel configuré') : (isBase ? 'base locale indisponible' : 'optionnel · accès à configurer');
-    return `<span class="source-status ${source.enabled ? 'enabled' : 'limited'}"><b>${sourceLabels[id] || id}</b> : ${state} · <a href="${escapeHtml(source.official_url || '#')}" target="_blank" rel="noopener noreferrer">site officiel</a></span>`;
-  }).join('');
-  const fullTextVerified = scientific.studies.filter(study => study.full_text_extraction_status === 'pmc_full_text_xml_verified').length;
-  const fullTextPending = scientific.studies.filter(study => study.full_text_extraction_status !== 'pmc_full_text_xml_verified').length;
-  panel.innerHTML = `<div><span class="science-live-dot"></span><b>Base scientifique locale disponible</b></div><p>${scientific.studies.length} études structurées · ${scientific.emotionExerciseMap.length} parcours émotion-exercice · ${scientific.exercises.length} exercices.</p><p><b>${fullTextVerified}</b> textes PMC vérifiés · <b>${fullTextPending}</b> accès intégraux à compléter.</p><div class="source-status-list">${sourceStatus}</div><p class="science-fallback-note"><b>Fonctionnement garanti :</b> les références locales et le socle PubMed enregistré restent utilisables sans les connecteurs optionnels.</p><small>Dernière recherche PubMed enregistrée : ${liveDate}. Les nouvelles références doivent être relues avant intégration. Aucun accès protégé n’est contourné et aucune clé n’est stockée dans l’application.</small>`;
-}
 function renderExerciseLibrary() {
   const list = $('#exerciseLibrary');
   if (!list) return;
@@ -947,7 +1030,7 @@ function renderPrivacyStatus() {
   if ($('#privacyProtect')) $('#privacyProtect').onclick = () => openPassphraseDialog('protect');
 }
 
-insertDynamicPanels(); restoreDraft(); draft.nuance = ''; saveDraft();
+insertDynamicPanels(); restoreDraft(); syncContextChoices(); draft.nuance = ''; saveDraft();
 const brandLockup = document.querySelector('.brand-lockup');
 if (brandLockup) {
   brandLockup.setAttribute('role', 'link');
@@ -958,7 +1041,7 @@ if (brandLockup) {
   brandLockup.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); goHome(); } });
 }
 document.querySelector('.science-footer-link')?.insertAdjacentHTML('afterend', '<p class="creator-credit">Créé par PGR-STUDIO</p>');
-loadScientificBase().finally(() => { renderEmotions(); renderBodySigns(); renderEmotionInsight(); renderSafetyTriage(); renderWheel(); renderExercise(); renderScienceLivePanel(); renderExerciseLibrary(); renderToolsExercises(); syncQuickLevels(); syncContinueButton(); });
+loadScientificBase().finally(() => { renderEmotions(); renderBodySigns(); renderEmotionInsight(); renderSafetyTriage(); renderWheel(); renderExercise(); renderExerciseLibrary(); renderToolsExercises(); syncQuickLevels(); syncContinueButton(); });
 
 $('#startButton').onclick = () => show('observe');
 $('#observeBack').onclick = () => show('start');
@@ -992,8 +1075,8 @@ $('#definitionButton').onclick = event => { definitionPanelTrigger = event.curre
 $('#definitionBack').onclick = () => { $('#definitionPanel').classList.remove('open'); $('#tools').classList.remove('show-definition'); const trigger = definitionPanelTrigger; definitionPanelTrigger = null; if (trigger && typeof trigger.focus === 'function') trigger.focus(); };
 const definitionDetails = { trigger: 'Exemple : un message, une remarque, une pensée ou un souvenir peut lancer la réaction.', feeling: 'Exemple : tu peux ressentir de la peur, de la tristesse, de la colère ou plusieurs émotions à la fois.', body: 'Exemple : mâchoire serrée, gorge nouée, chaleur, fatigue ou respiration plus courte.', urge: 'Une impulsion peut pousser à répondre, partir, consommer, manger, fumer ou demander de l’aide. Elle n’est pas une émotion et ne commande pas forcément l’action.', choice: 'Le délai permet de choisir une action plus utile : respirer, s’éloigner, parler ou attendre.' };
 document.querySelectorAll('[data-definition]').forEach(button => button.onclick = () => { document.querySelectorAll('[data-definition]').forEach(item => item.classList.remove('selected')); button.classList.add('selected'); $('#definitionDetail').textContent = definitionDetails[button.dataset.definition]; });
-$('#unknownButton').onclick = () => { draft.emotion = 'unknown'; draft.nuance = ''; draft.urgeType = ''; draft.exercise = ''; saveDraft(); renderEmotions(); renderBodySigns(); renderEmotionInsight(); renderExercise(); syncContinueButton(); };
-$('#wheelToggle').onclick = () => { const open = !$('#wheelPanel').classList.contains('open'); draft.emotion = null; draft.nuance = ''; draft.urgeType = ''; draft.exercise = ''; draft.exerciseStatus = ''; draft.exerciseAfterIntensity = null; saveDraft(); renderEmotions(); renderEmotionInsight(); renderExercise(); renderWheel(); $('#wheelPanel').classList.toggle('open', open); $('#observe').classList.toggle('wheel-mode', open); $('#wheelToggle').textContent = open ? 'Revenir aux émotions principales' : 'Préciser avec la roue des émotions'; syncContinueButton(); };
+$('#unknownButton').onclick = () => { draft.emotion = 'unknown'; draft.nuance = ''; draft.urgeType = ''; draft.goal = ''; draft.exercise = ''; saveDraft(); renderEmotions(); renderBodySigns(); renderEmotionInsight(); renderExercise(); syncContinueButton(); };
+$('#wheelToggle').onclick = () => { const open = !$('#wheelPanel').classList.contains('open'); draft.emotion = null; draft.nuance = ''; draft.urgeType = ''; draft.goal = ''; draft.exercise = ''; draft.exerciseStatus = ''; draft.exerciseAfterIntensity = null; saveDraft(); renderEmotions(); renderEmotionInsight(); renderExercise(); renderWheel(); $('#wheelPanel').classList.toggle('open', open); $('#observe').classList.toggle('wheel-mode', open); $('#wheelToggle').textContent = open ? 'Revenir aux choix rapides' : 'Explorer la roue complète'; syncContinueButton(); };
 document.querySelectorAll('[data-level]').forEach(button => button.onclick = () => { draft.intensity = Number(button.dataset.level); syncQuickLevels(); renderEmotionInsight(); renderExercise(); saveDraft(); });
 $('#level').oninput = event => { draft.intensity = Number(event.target.value); syncQuickLevels(); renderEmotionInsight(); renderExercise(); saveDraft(); };
 $('#exerciseStart').onclick = runExercise;

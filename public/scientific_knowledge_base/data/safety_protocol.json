@@ -1,5 +1,5 @@
 {
-  "version": "0.3.0",
+  "version": "0.4.0",
   "priority": "safety_before_recommendation",
   "red_flags": [
     {
@@ -48,6 +48,42 @@
       ],
       "action": "évaluation médicale urgente; ne pas attribuer automatiquement à l’émotion",
       "confidence": "high"
+    },
+    {
+      "id": "RISK-REALITY-ACTIVATION",
+      "patterns": [
+        "j'entends des voix",
+        "je vois des choses",
+        "je perds contact avec la réalité",
+        "je ne dors plus depuis",
+        "pas dormi depuis plusieurs jours",
+        "je ne contrôle plus mes pensées"
+      ],
+      "action": "évaluation urgente ou rapide selon la situation; ne pas attribuer automatiquement ces signes à une émotion",
+      "confidence": "high"
+    },
+    {
+      "id": "RISK-SUBSTANCE",
+      "patterns": [
+        "sevrage",
+        "intoxiqué",
+        "tremblements après alcool",
+        "arrêt brutal du médicament",
+        "arrêter brutalement l'alcool"
+      ],
+      "action": "ne pas arrêter brutalement une substance ou un médicament; demander un avis médical",
+      "confidence": "high"
+    },
+    {
+      "id": "RISK-CANNOT-COPE",
+      "patterns": [
+        "je ne peux plus m'occuper de moi",
+        "je ne peux plus manger",
+        "je ne peux plus me lever",
+        "je ne peux plus fonctionner"
+      ],
+      "action": "chercher rapidement un soutien humain et une évaluation professionnelle; ne pas rester seul si la sécurité est incertaine",
+      "confidence": "medium"
     }
   ],
   "consultation_triggers": [
@@ -56,7 +92,10 @@
     "impact majeur sommeil travail relations études",
     "trauma/dissociation/paniques répétées",
     "auto-agression/idées suicidaires",
-    "exercice qui augmente le malaise"
+    "exercice qui augmente le malaise",
+    "situation répétée ou presque quotidienne",
+    "impact important sur le fonctionnement",
+    "besoin de soutien non disponible"
   ],
   "language_rules": [
     "ne jamais diagnostiquer",

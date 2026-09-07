@@ -1,6 +1,6 @@
-const CACHE = 'mon-repere-emotions-v0.9.44-beta';
+const CACHE = 'mon-repere-emotions-v0.9.54-addiction-face-icon';
 const CORE = [
-  './', './index.html', './app.js', './style.css', './style.css?v=design-system-2', './manifest.json',
+  './', './index.html', './app.js', './style.css', './style.css?v=design-system-2', './science.css', './manifest.json',
   './scientific_knowledge_base/data/emotions.json',
   './scientific_knowledge_base/data/emotion_guidance.json',
   './scientific_knowledge_base/data/exercises.json',
@@ -11,7 +11,7 @@ const CORE = [
   './scientific_knowledge_base/data/evidence_grading.json',
   './scientific_knowledge_base/source_config.json',
   './assets/logo-emotions.svg', './assets/pgr-emotion-logo.svg', './assets/app-icon-emotions.svg', './assets/app-icon-emotions.png', './assets/icon-calm.png', './assets/icon-irritated.png',
-  './assets/icon-sad.png', './assets/icon-stressed.png', './assets/icon-angry.png', './assets/icon-urge.svg'
+  './assets/icon-sad.png', './assets/icon-stressed.png', './assets/icon-angry.png', './assets/icon-urge.svg', './assets/icon-urge-face.svg'
 ];
 self.addEventListener('install', event => event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(CORE)).then(() => self.skipWaiting())));
 self.addEventListener('activate', event => event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(key => key !== CACHE).map(key => caches.delete(key)))).then(() => self.clients.claim())));
